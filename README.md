@@ -1,6 +1,5 @@
 # <h1 align="center">Hi, I'm Saiful 👋  </h1>
-###  <div align="center"> I'm a Student, Programmer, Tech Enthusiast  ![profile views](https://komarev.com/ghpvc/?username=saiful-70&color=red) </div>
- <div align="center"> 🔭 Studies in Information and Communication Technology </div>
+###  <div align="center"> Software Developer & Tech Enthusiast | Open to collaboration  ![profile views](https://komarev.com/ghpvc/?username=saiful-70&color=red) </div>
  <br> 
 <h4 align="center">📫 How to reach me: </h4>
 <p align="center">
