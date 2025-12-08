@@ -15,7 +15,7 @@
 
 ### Things I code with
 
-![.net](https://img.shields.io/badge/-.NET%209.0-blueviolet?style=for-the-badge?style=for-the-badge&logo=dotnet)
+![.net](https://img.shields.io/badge/-.NET%209.0-blueviolet?style=for-the-badge&logo=dotnet)
 ![angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![postgres](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
