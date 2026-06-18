@@ -1,0 +1,24 @@
+{
+  "name": "Saiful Islam — Software Engineer",
+  "short_name": "Saiful Islam",
+  "description": "Software engineer building reactive, signals-first interfaces in Angular & React, and the .NET / Node back ends behind them.",
+  "lang": "en",
+  "start_url": "/saiful-70/",
+  "scope": "/saiful-70/",
+  "display": "standalone",
+  "background_color": "#EBEDF2",
+  "theme_color": "#EBEDF2",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

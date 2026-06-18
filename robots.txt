@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saiful-70.github.io/saiful-70/sitemap.xml
