@@ -9,7 +9,8 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/saiful70/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="mailto:saiful70.me@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" alt="Gmail"/></a>
-  <a href="https://campusqbd.com"><img src="https://img.shields.io/badge/CampusQ-4B2EE6?style=flat&logo=googlechrome&logoColor=white" alt="CampusQ"/></a>
+  <a href="https://saiful-70.github.io/saiful-70/"><img src="https://img.shields.io/badge/Portfolio-4B2EE6?style=flat&logo=github&logoColor=white" alt="Portfolio"/></a>
+  <a href="https://campusqbd.com"><img src="https://img.shields.io/badge/CampusQ-16A394?style=flat&logo=googlechrome&logoColor=white" alt="CampusQ"/></a>
   <img src="https://komarev.com/ghpvc/?username=saiful-70&color=blueviolet&label=Profile+views" alt="Profile views"/>
 </p>
 
@@ -20,6 +21,7 @@
 Software engineer from **Dhaka, Bangladesh** with 3+ years building **reactive, signals-first** frontends in **Angular & React** — and the **.NET / Node** that powers them.
 
 - 🔭 Software Engineer at **Netpower**, building **Certain QMS** (Angular 21 + .NET)
+- 🌐 Live portfolio → **[saiful-70.github.io/saiful-70](https://saiful-70.github.io/saiful-70/)**
 - 🏗️ Building **[CampusQ](https://campusqbd.com)** — a multi-tenant coaching-management SaaS, end to end
 - 🤖 I work **AI-native** — Claude, Cursor, Ollama & OpenCode as a force multiplier, not a shortcut
 - 📦 Author of **[ngx-primeng-toolkit](https://www.npmjs.com/package/ngx-primeng-toolkit)** on npm
@@ -30,10 +32,10 @@ Software engineer from **Dhaka, Bangladesh** with 3+ years building **reactive, 
 
 ### 🚀 Featured projects
 
-| Project | What it is | Link |
-| --- | --- | --- |
-| **CampusQ** | Multi-tenant coaching-management SaaS — tenant isolation via Postgres RLS, bitmask RBAC, bKash/Nagad payments, PWA + push, bilingual (en/bn). `.NET 10 · Angular 21 · Next.js 16` | [🌐 campusqbd.com](https://campusqbd.com) |
-| **ngx-primeng-toolkit** | Open-source Angular library — parameterized query/table state, memoized data & reusable utilities. | [📦 npm](https://www.npmjs.com/package/ngx-primeng-toolkit) |
+| Project                 | What it is                                                                                                                                                                        | Link                                                        |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **CampusQ**             | Multi-tenant coaching-management SaaS — tenant isolation via Postgres RLS, bitmask RBAC, bKash/Nagad payments, PWA + push, bilingual (en/bn). `.NET 10 · Angular 21 · Next.js 16` | [🌐 campusqbd.com](https://campusqbd.com)                   |
+| **ngx-primeng-toolkit** | Open-source Angular library — parameterized query/table state, memoized data & reusable utilities.                                                                                | [📦 npm](https://www.npmjs.com/package/ngx-primeng-toolkit) |
 
 ---
 
@@ -83,7 +85,7 @@ Software engineer from **Dhaka, Bangladesh** with 3+ years building **reactive, 
 ### 🧠 Where I solve problems
 
 [![LeetCode user saiful70](https://img.shields.io/badge/dynamic/json?style=plastic&labelColor=black&color=%23ffa116&label=Leetcode&query=solvedOverTotal&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2Fsaiful70&logo=leetcode&logoColor=yellow)](https://leetcode.com/saiful70/)
-[![CodeWars](https://www.codewars.com/users/saiful70/badges/micro)](https://www.codewars.com/users/saiful70 'My Honor Badge')
+[![CodeWars](https://www.codewars.com/users/saiful70/badges/micro)](https://www.codewars.com/users/saiful70 "My Honor Badge")
 [![Codeforces](https://cp-logo.vercel.app/codeforces/KhaWareZmI?logo=true)](https://codeforces.com/profile/KhaWareZmI)
 
 ---
