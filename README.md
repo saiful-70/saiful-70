@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/saiful-70">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=900&color=4B2EE6&center=true&vCenter=true&width=640&lines=Reactive%2C+signals-first+frontends;Full-stack+%E2%80%94+Angular+%26+.NET;AI-native+workflow;Currently+building+CampusQ" alt="What I do" />
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=3000&pause=900&color=4B2EE6&center=true&vCenter=true&width=640&lines=Reactive%2C+signals-first+frontends;Full-stack+%E2%80%94+Angular+%26+.NET;Web+%2B+mobile+with+React+Native;AI-native+workflow" alt="What I do" />
   </a>
 </p>
 
@@ -23,9 +23,10 @@ Software engineer from **Dhaka, Bangladesh** with 3+ years building **reactive, 
 - 🔭 Software Engineer at **Netpower**, building **Certain QMS** (Angular 21 + .NET)
 - 🌐 Live portfolio → **[saiful-70.github.io/saiful-70](https://saiful-70.github.io/saiful-70/)**
 - 🏗️ Building **[CampusQ](https://campusqbd.com)** — a multi-tenant coaching-management SaaS, end to end
+- 🏘️ Built **Rent-ERP** — a three-surface (web + mobile) property-management ERP with a **React Native** app, per-tenant **bKash** billing, HRM & reporting
 - 🤖 I work **AI-native** — Claude, Cursor, Ollama & OpenCode as a force multiplier, not a shortcut
 - 📦 Author of **[ngx-primeng-toolkit](https://www.npmjs.com/package/ngx-primeng-toolkit)** on npm
-- 💬 Ask me about **Angular Signals**, **multi-tenant architecture**, **Postgres RLS**, and **.NET**
+- 💬 Ask me about **Angular Signals**, **multi-tenant architecture**, **cross-platform React Native**, **Postgres RLS**, and **.NET**
 - 🤝 Open to collaboration
 
 ---
@@ -34,7 +35,8 @@ Software engineer from **Dhaka, Bangladesh** with 3+ years building **reactive, 
 
 | Project                 | What it is                                                                                                                                                                        | Link                                                        |
 | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| **CampusQ**             | Multi-tenant coaching-management SaaS — tenant isolation via Postgres RLS, bitmask RBAC, bKash/Nagad payments, PWA + push, bilingual (en/bn). `.NET 10 · Angular 21 · Next.js 16` | [🌐 campusqbd.com](https://campusqbd.com)                   |
+| **CampusQ**             | Multi-tenant coaching-management SaaS — tenant isolation via Postgres RLS, bitmask RBAC, online exams, bKash/Nagad payments, PWA + push, bilingual (en/bn). `.NET 10 · Angular 21 · Next.js 16` | [🌐 campusqbd.com](https://campusqbd.com)                   |
+| **Rent-ERP**            | Single-org property-management ERP across three surfaces — .NET 10 modular monolith, Angular 21 admin console, and a React Native app serving tenants & staff. Per-tenant billing with bKash, HRM & reporting. `.NET 10 · Angular 21 · React Native` | 🔒 source private                                           |
 | **ngx-primeng-toolkit** | Open-source Angular library — parameterized query/table state, memoized data & reusable utilities.                                                                                | [📦 npm](https://www.npmjs.com/package/ngx-primeng-toolkit) |
 
 ---
@@ -45,6 +47,7 @@ Software engineer from **Dhaka, Bangladesh** with 3+ years building **reactive, 
 
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![RxJS](https://img.shields.io/badge/RxJS-B7178C?style=for-the-badge&logo=reactivex&logoColor=white)
