@@ -309,7 +309,10 @@
   .xp-list b{color:var(--ink);font-weight:600}
 
   /* ---------- work ---------- */
-  .work-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:22px}
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .card--wide{grid-column:1 / -1}
+  .card-note{display:inline-flex;align-items:center;gap:7px;font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:500;color:var(--faint);margin-top:20px;letter-spacing:.01em}
+  .card-note .lock{flex:none;opacity:.85}
   .card{
     display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
     padding:28px;box-shadow:var(--shadow);
@@ -573,7 +576,7 @@
         <a class="card" data-reveal href="https://campusqbd.com" target="_blank" rel="noopener">
           <span class="kicker">multi-tenant saas</span>
           <h3>CampusQ</h3>
-          <p>A coaching-management platform where every tenant gets its own subdomain. Built end-to-end — from Postgres row-level security to the marketing site — so isolation holds all the way down.</p>
+          <p>A multi-tenant coaching platform where every tenant gets its own subdomain. Built end-to-end — Postgres row-level security, bitmask RBAC, online exams and bKash/Nagad payments — so isolation holds all the way down.</p>
           <div class="tags">
             <span class="tag-chip">.NET 10</span>
             <span class="tag-chip">Postgres RLS</span>
@@ -587,10 +590,27 @@
           <span class="card-cta">View live — campusqbd.com <span class="arr">→</span></span>
         </a>
 
-        <a class="card" data-reveal href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">
+        <div class="card" data-reveal>
+          <span class="kicker">web + mobile erp</span>
+          <h3>Rent-ERP</h3>
+          <p>A single-org property-management ERP across three surfaces — a .NET 10 modular monolith, an Angular 21 admin console, and a React Native app serving tenants and staff from one binary. Reuses the CampusQ architecture, minus the multi-tenant layer.</p>
+          <div class="tags">
+            <span class="tag-chip">.NET 10</span>
+            <span class="tag-chip">Angular 21</span>
+            <span class="tag-chip">React Native</span>
+            <span class="tag-chip">Postgres</span>
+            <span class="tag-chip">bKash</span>
+            <span class="tag-chip">FCM push</span>
+            <span class="tag-chip">RBAC personas</span>
+            <span class="tag-chip">en / bn</span>
+          </div>
+          <span class="card-note"><svg class="lock" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>Source private · single-org product</span>
+        </div>
+
+        <a class="card card--wide" data-reveal href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">
           <span class="kicker">open source</span>
           <h3>Angular libraries</h3>
-          <p>npm packages with automated GitHub Actions CI/CD, including <span class="mono" style="color:var(--accent)">ngx-primeng-toolkit</span> — parameterized query/table state, memoized data and reusable utilities. Built for internal use, then released to the community.</p>
+          <p>npm packages published with automated GitHub Actions CI/CD — notably <span class="mono" style="color:var(--accent)">ngx-primeng-toolkit</span>: parameterized query/table state, memoized data and reusable utilities. Built for internal use, then released to the community.</p>
           <div class="tags">
             <span class="tag-chip">TypeScript</span>
             <span class="tag-chip">@ngrx/signals</span>
