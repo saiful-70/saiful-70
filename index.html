@@ -16,8 +16,8 @@
 </script>
 
 <!-- ───────────────── primary SEO ───────────────── -->
-<title>Saiful Islam — Senior Software Engineer (Angular &amp; .NET)</title>
-<meta name="description" content="Saiful Islam — senior software engineer building reactive, signals-first interfaces in Angular &amp; React, and the .NET / Node back ends behind them. 3+ years shipping enterprise systems with an AI-native workflow." />
+<title>Saiful Islam — Software Engineer (Angular &amp; .NET)</title>
+<meta name="description" content="Saiful Islam — software engineer building reactive, signals-first interfaces in Angular &amp; React, and the .NET / Node back ends behind them. 3+ years shipping enterprise systems with an AI-native workflow." />
 <meta name="author" content="Saiful Islam" />
 <meta name="keywords" content="Saiful Islam, software engineer, Angular developer, .NET developer, full-stack developer, React Native, NgRx Signals, TypeScript, PostgreSQL, Dhaka, Bangladesh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -27,21 +27,21 @@
 <!-- ───────────────── Open Graph (LinkedIn, Facebook, Slack…) ───────────────── -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Saiful Islam" />
-<meta property="og:title" content="Saiful Islam — Senior Software Engineer (Angular &amp; .NET)" />
-<meta property="og:description" content="Senior software engineer building reactive, signals-first interfaces in Angular &amp; React — and the .NET / Node back ends behind them." />
+<meta property="og:title" content="Saiful Islam — Software Engineer (Angular &amp; .NET)" />
+<meta property="og:description" content="Software engineer building reactive, signals-first interfaces in Angular &amp; React — and the .NET / Node back ends behind them." />
 <meta property="og:url" content="https://saiful-70.github.io/saiful-70/" />
 <meta property="og:image" content="https://saiful-70.github.io/saiful-70/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Saiful Islam — Senior Software Engineer, Angular &amp; .NET" />
+<meta property="og:image:alt" content="Saiful Islam — Software Engineer, Angular &amp; .NET" />
 <meta property="og:locale" content="en_US" />
 
 <!-- ───────────────── Twitter / X ───────────────── -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Saiful Islam — Senior Software Engineer (Angular &amp; .NET)" />
-<meta name="twitter:description" content="Senior software engineer building reactive, signals-first interfaces in Angular &amp; React — and the .NET / Node back ends behind them." />
+<meta name="twitter:title" content="Saiful Islam — Software Engineer (Angular &amp; .NET)" />
+<meta name="twitter:description" content="Software engineer building reactive, signals-first interfaces in Angular &amp; React — and the .NET / Node back ends behind them." />
 <meta name="twitter:image" content="https://saiful-70.github.io/saiful-70/og-image.png" />
-<meta name="twitter:image:alt" content="Saiful Islam — Senior Software Engineer, Angular &amp; .NET" />
+<meta name="twitter:image:alt" content="Saiful Islam — Software Engineer, Angular &amp; .NET" />
 
 <!-- ───────────────── icons / manifest ───────────────── -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -65,7 +65,7 @@
   "jobTitle": "Senior Software Engineer II",
   "email": "mailto:saiful70.me@gmail.com",
   "telephone": "+8801689740070",
-  "description": "Senior software engineer building reactive, signals-first interfaces in Angular & React, and the .NET / Node back ends behind them. 3+ years shipping enterprise systems with an AI-native workflow.",
+  "description": "Software engineer building reactive, signals-first interfaces in Angular & React, and the .NET / Node back ends behind them. 3+ years shipping enterprise systems with an AI-native workflow.",
   "knowsAbout": ["Angular", "TypeScript", "RxJS", "NgRx Signals", "React", "React Native", "Next.js", ".NET", "Node.js", "PostgreSQL", "Redis", "Docker", "Playwright"],
   "address": {
     "@type": "PostalAddress",
@@ -308,6 +308,15 @@
   .xp-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.85rem}
   .xp-list b{color:var(--ink);font-weight:600}
 
+  /* grouped positions within one company (LinkedIn-style sub-timeline) */
+  .xp-roles{position:relative;display:flex;flex-direction:column;gap:24px}
+  .xp-roles::before{content:"";position:absolute;left:5px;top:12px;bottom:12px;width:2px;border-radius:2px;background:var(--line)}
+  .xp-sub{position:relative;padding-left:28px}
+  .xp-sub::before{content:"";position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--line);z-index:1}
+  .xp-sub:first-child::before{background:var(--live);border-color:var(--live);box-shadow:0 0 0 4px rgba(0,168,143,.14)}
+  .xp-sub-role{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+  .xp-sub-meta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);margin:2px 0 11px;letter-spacing:.03em}
+
   /* ---------- work ---------- */
   .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   .card--wide{grid-column:1 / -1}
@@ -387,8 +396,11 @@
     .xp-chev{display:block}
     .xp-body{padding-bottom:18px}
     .xp-meta{margin-bottom:0}
-    .xp-list{max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .42s var(--ease),opacity .3s var(--ease),margin-top .3s var(--ease)}
+    .xp-list,.xp-roles{max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .42s var(--ease),opacity .3s var(--ease),margin-top .3s var(--ease)}
     .xp-body.open .xp-list{max-height:760px;opacity:1;margin-top:12px}
+    .xp-body.open .xp-roles{max-height:1600px;opacity:1;margin-top:14px}
+    .xp-roles .xp-list{max-height:none;opacity:1;margin-top:0;transition:none}
+    .xp-roles .xp-sub-meta{margin-bottom:11px}
     .contact{padding:60px 0 52px}
     .contact-links{flex-direction:column}
     .contact-links .btn{width:100%;justify-content:space-between}
@@ -437,7 +449,7 @@
     <span class="hero-glow g2"></span>
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow"><span class="d"></span>Senior Software Engineer II · Dhaka, BD · Open to remote</div>
+        <div class="eyebrow"><span class="d"></span>Software Engineer · Dhaka, BD · Open to remote</div>
         <h1>
           <span class="ln"><span>Saiful</span></span>
           <span class="ln"><span class="grad">Islam</span></span>
@@ -515,16 +527,30 @@
           <div class="xp-year">2026 →</div>
           <div class="xp-body open">
             <button class="xp-head" type="button" aria-expanded="true">
-              <span><span class="xp-role"><span class="xp-co">Netpower</span> — Senior Software Engineer II</span>
-              <span class="xp-meta">MAR 2026 — PRESENT · PROMOTED JUL 2026 · CERTAIN QMS</span></span>
+              <span><span class="xp-role"><span class="xp-co">Netpower</span> — 2 positions</span>
+              <span class="xp-meta">MAR 2026 — PRESENT · ANGULAR 21 · CERTAIN QMS</span></span>
               <span class="xp-chev" aria-hidden="true"></span>
             </button>
-            <ul class="xp-list">
-              <li>Signals-first features for <b>Certain QMS</b> across the Deviation, Checklist &amp; Handbook modules — per-route NgRx Signal stores, strict TypeScript, OnPush — scaffolded with Claude &amp; Cursor agents.</li>
-              <li>Chart.js analytics dashboards with multi-format export — locale-aware Excel, styled Word &amp; inline PDF — plus Quill rich-text editing.</li>
-              <li>Dual-auth model: JWT interceptor for internal users, route-scoped OTP sessions for secure read-only external sharing.</li>
-              <li>Playwright e2e + Vitest across three apps — AI agents (Claude, OpenCode) generated data factories &amp; flagged coverage gaps; localized UI (no/en, 1,000+ keys).</li>
-            </ul>
+            <div class="xp-roles">
+              <div class="xp-sub">
+                <div class="xp-sub-role">Senior Software Engineer II</div>
+                <div class="xp-sub-meta">JUL 2026 — PRESENT</div>
+                <ul class="xp-list">
+                  <li>Signals-first feature delivery on <b>Certain QMS</b> continues — with expanded ownership of module architecture &amp; code review across the Deviation, Checklist &amp; Handbook modules.</li>
+                  <li>Own e2e quality: Playwright + Vitest strategy across three apps — AI agents (Claude, OpenCode) generate data factories &amp; flag coverage gaps.</li>
+                </ul>
+              </div>
+              <div class="xp-sub">
+                <div class="xp-sub-role">Software Engineer</div>
+                <div class="xp-sub-meta">MAR 2026 — JUN 2026</div>
+                <ul class="xp-list">
+                  <li>Signals-first features for <b>Certain QMS</b> across the Deviation, Checklist &amp; Handbook modules — per-route NgRx Signal stores, strict TypeScript, OnPush — scaffolded with Claude &amp; Cursor agents.</li>
+                  <li>Chart.js analytics dashboards with multi-format export — locale-aware Excel, styled Word &amp; inline PDF — plus Quill rich-text editing.</li>
+                  <li>Dual-auth model: JWT interceptor for internal users, route-scoped OTP sessions for secure read-only external sharing.</li>
+                  <li>Localized UI via @ngx-translate (no/en, 1,000+ keys) with locale-driven date &amp; number formatting.</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
