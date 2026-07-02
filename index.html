@@ -17,7 +17,7 @@
 
 <!-- ───────────────── primary SEO ───────────────── -->
 <title>Saiful Islam — Software Engineer (Angular &amp; .NET)</title>
-<meta name="description" content="Saiful Islam — software engineer building reactive, signals-first interfaces in Angular &amp; React, and the .NET / Node back ends behind them. 3+ years shipping enterprise systems with an AI-native workflow." />
+<meta name="description" content="Saiful Islam — software engineer building reactive, signals-first interfaces in Angular &amp; React, and the .NET / Node back ends behind them. 3.5+ years shipping enterprise systems with an AI-native workflow." />
 <meta name="author" content="Saiful Islam" />
 <meta name="keywords" content="Saiful Islam, software engineer, Angular developer, .NET developer, full-stack developer, React Native, NgRx Signals, TypeScript, PostgreSQL, Dhaka, Bangladesh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -62,10 +62,10 @@
   "name": "Saiful Islam",
   "url": "https://saiful-70.github.io/saiful-70/",
   "image": "https://saiful-70.github.io/saiful-70/profile.jpeg",
-  "jobTitle": "Software Engineer",
+  "jobTitle": "Senior Software Engineer II",
   "email": "mailto:saiful70.me@gmail.com",
   "telephone": "+8801689740070",
-  "description": "Software engineer building reactive, signals-first interfaces in Angular & React, and the .NET / Node back ends behind them. 3+ years shipping enterprise systems with an AI-native workflow.",
+  "description": "Software engineer building reactive, signals-first interfaces in Angular & React, and the .NET / Node back ends behind them. 3.5+ years shipping enterprise systems with an AI-native workflow.",
   "knowsAbout": ["Angular", "TypeScript", "RxJS", "NgRx Signals", "React", "React Native", "Next.js", ".NET", "Node.js", "PostgreSQL", "Redis", "Docker", "Playwright"],
   "address": {
     "@type": "PostalAddress",
@@ -308,6 +308,15 @@
   .xp-list li::before{content:"→";position:absolute;left:0;color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:.85rem}
   .xp-list b{color:var(--ink);font-weight:600}
 
+  /* grouped positions within one company (LinkedIn-style sub-timeline) */
+  .xp-roles{position:relative;display:flex;flex-direction:column;gap:24px}
+  .xp-roles::before{content:"";position:absolute;left:5px;top:12px;bottom:12px;width:2px;border-radius:2px;background:var(--line)}
+  .xp-sub{position:relative;padding-left:28px}
+  .xp-sub::before{content:"";position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--line);z-index:1}
+  .xp-sub:first-child::before{background:var(--live);border-color:var(--live);box-shadow:0 0 0 4px rgba(0,168,143,.14)}
+  .xp-sub-role{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+  .xp-sub-meta{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);margin:2px 0 11px;letter-spacing:.03em}
+
   /* ---------- work ---------- */
   .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   .card--wide{grid-column:1 / -1}
@@ -387,8 +396,11 @@
     .xp-chev{display:block}
     .xp-body{padding-bottom:18px}
     .xp-meta{margin-bottom:0}
-    .xp-list{max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .42s var(--ease),opacity .3s var(--ease),margin-top .3s var(--ease)}
+    .xp-list,.xp-roles{max-height:0;opacity:0;overflow:hidden;margin-top:0;transition:max-height .42s var(--ease),opacity .3s var(--ease),margin-top .3s var(--ease)}
     .xp-body.open .xp-list{max-height:760px;opacity:1;margin-top:12px}
+    .xp-body.open .xp-roles{max-height:1600px;opacity:1;margin-top:14px}
+    .xp-roles .xp-list{max-height:none;opacity:1;margin-top:0;transition:none}
+    .xp-roles .xp-sub-meta{margin-bottom:11px}
     .contact{padding:60px 0 52px}
     .contact-links{flex-direction:column}
     .contact-links .btn{width:100%;justify-content:space-between}
@@ -442,15 +454,16 @@
           <span class="ln"><span>Saiful</span></span>
           <span class="ln"><span class="grad">Islam</span></span>
         </h1>
-        <p class="lede">I build <span class="hl">reactive, signals-first interfaces</span> in Angular and React — and the <b>.NET / Node</b> behind them. 3+ years shipping enterprise systems with an <b>AI-native</b> workflow.</p>
+        <p class="lede">I build <span class="hl">reactive, signals-first interfaces</span> in Angular and React — and the <b>.NET / Node</b> behind them. 3.5+ years shipping enterprise systems with an <b>AI-native</b> workflow.</p>
         <div class="cta-row">
           <a href="#work" class="btn btn--primary">See the work <span class="arr">→</span></a>
           <a href="mailto:saiful70.me@gmail.com" class="btn btn--ghost">Get in touch</a>
         </div>
         <ul class="proof">
-          <li><b>3+</b> yrs shipping</li>
+          <li><b>3.5+</b> yrs shipping</li>
           <li><b>900+</b> typed endpoints</li>
           <li><b>4</b> ERP platforms</li>
+          <li><b>6+</b> products shipped</li>
           <li class="ai"><b>AI</b>-native</li>
         </ul>
         <div class="hero-tools"><b>toolchain</b> · claude · cursor · ollama · opencode</div>
@@ -515,16 +528,30 @@
           <div class="xp-year">2026 →</div>
           <div class="xp-body open">
             <button class="xp-head" type="button" aria-expanded="true">
-              <span><span class="xp-role"><span class="xp-co">Netpower</span> — Software Engineer</span>
+              <span><span class="xp-role"><span class="xp-co">Netpower</span></span>
               <span class="xp-meta">MAR 2026 — PRESENT · ANGULAR 21 · CERTAIN QMS</span></span>
               <span class="xp-chev" aria-hidden="true"></span>
             </button>
-            <ul class="xp-list">
-              <li>Signals-first features for <b>Certain QMS</b> across the Deviation, Checklist &amp; Handbook modules — per-route NgRx Signal stores, strict TypeScript, OnPush — scaffolded with Claude &amp; Cursor agents.</li>
-              <li>Chart.js analytics dashboards with multi-format export — locale-aware Excel, styled Word &amp; inline PDF — plus Quill rich-text editing.</li>
-              <li>Dual-auth model: JWT interceptor for internal users, route-scoped OTP sessions for secure read-only external sharing.</li>
-              <li>Playwright e2e + Vitest across three apps — AI agents (Claude, OpenCode) generated data factories &amp; flagged coverage gaps; localized UI (no/en, 1,000+ keys).</li>
-            </ul>
+            <div class="xp-roles">
+              <div class="xp-sub">
+                <div class="xp-sub-role">Senior Software Engineer II</div>
+                <div class="xp-sub-meta">JUL 2026 — PRESENT</div>
+                <ul class="xp-list">
+                  <li>Own architecture decisions &amp; code review for the Deviation, Checklist &amp; Handbook modules — setting the standard for signal-store design, typing and OnPush patterns other engineers build against.</li>
+                  <li>Drive the Playwright + Vitest quality bar across all three apps, extending coverage and AI-assisted test data generation as new modules ship.</li>
+                  <li>Extend the reporting/export and localization foundations (Chart.js, @ngx-translate) to new modules as Certain QMS scope grows.</li>
+                  <li>Guide adoption of AI-assisted workflows (Claude, Cursor, OpenCode) for scaffolding and review across the team.</li>
+                </ul>
+              </div>
+              <div class="xp-sub">
+                <div class="xp-sub-role">Software Engineer</div>
+                <div class="xp-sub-meta">MAR 2026 — JUN 2026</div>
+                <ul class="xp-list">
+                  <li>Built signals-first Angular 21 features for <b>Certain QMS</b> across the Deviation, Checklist &amp; Handbook modules — per-route NgRx Signal stores, dual JWT/OTP auth, Chart.js dashboards with multi-format export, and Quill rich-text editing — scaffolded with Claude &amp; Cursor agents.</li>
+                  <li>Shipped localized UI (no/en, 1,000+ keys) and authored the Playwright + Vitest testing foundation across all three apps, using AI agents (Claude, OpenCode) to generate test data and flag coverage gaps.</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -607,7 +634,22 @@
           <span class="card-note"><svg class="lock" viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>Source private · single-org product</span>
         </div>
 
-        <a class="card card--wide" data-reveal href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">
+        <a class="card" data-reveal href="https://www.pogiit.com/" target="_blank" rel="noopener">
+          <span class="kicker">e-commerce platform</span>
+          <h3>DebuggerMind Commerce</h3>
+          <p>An in-house, white-label e-commerce storefront (Next.js 15 + .NET API) we use to demo the platform to prospective clients — maintaining an international build and a localized Bengali variant in parallel, with additional storefront themes in progress.</p>
+          <div class="tags">
+            <span class="tag-chip">Next.js 15</span>
+            <span class="tag-chip">TypeScript</span>
+            <span class="tag-chip">.NET API</span>
+            <span class="tag-chip">JWT auth</span>
+            <span class="tag-chip">GA4 / Meta CAPI</span>
+            <span class="tag-chip">6 languages</span>
+          </div>
+          <span class="card-cta">View live — pogiit.com <span class="arr">→</span></span>
+        </a>
+
+        <a class="card" data-reveal href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">
           <span class="kicker">open source</span>
           <h3>Angular libraries</h3>
           <p>npm packages published with automated GitHub Actions CI/CD — notably <span class="mono" style="color:var(--accent)">ngx-primeng-toolkit</span>: parameterized query/table state, memoized data and reusable utilities. Built for internal use, then released to the community.</p>
@@ -634,7 +676,7 @@
         <div class="skill-col">
           <h4>Frontend</h4>
           <ul>
-            <li><i></i>Angular (3+ yrs)</li>
+            <li><i></i>Angular (3.5+ yrs)</li>
             <li><i></i>TypeScript · RxJS</li>
             <li><i></i>NgRx Signals</li>
             <li><i></i>Next.js · React</li>
@@ -709,6 +751,7 @@
         <div class="big">Let's build something<br><span class="em">that reacts.</span></div>
         <div class="contact-links">
           <a href="mailto:saiful70.me@gmail.com" class="btn btn--primary">saiful70.me@gmail.com <span class="arr">→</span></a>
+          <a href="https://docs.google.com/document/d/1XCH0XdS_Svnb2OGRJEQBvJOm1GXuifI1/edit?usp=sharing&ouid=114028785100709203490&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn btn--ghost">Resume</a>
           <a href="https://github.com/saiful-70" target="_blank" rel="noopener" class="btn btn--ghost">GitHub</a>
           <a href="https://linkedin.com/in/saiful70" target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn</a>
         </div>
