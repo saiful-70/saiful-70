@@ -18,7 +18,7 @@
 
 ### 🧩 About me
 
-Software engineer from **Dhaka, Bangladesh** with 3+ years building **reactive, signals-first** frontends in **Angular & React** — and the **.NET / Node** that powers them.
+Software engineer from **Dhaka, Bangladesh** with 3.5+ years building **reactive, signals-first** frontends in **Angular & React** — and the **.NET / Node** that powers them.
 
 - 🔭 Senior Software Engineer II at **Netpower**, building **Certain QMS** (Angular 21 + .NET)
 - 🌐 Live portfolio → **[saiful-70.github.io/saiful-70](https://saiful-70.github.io/saiful-70/)**
