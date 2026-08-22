@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="color-scheme" content="dark" />
-<script>document.documentElement.classList.add('js');</script>
+
+<script>
+/* set the theme before first paint so there is no flash; light is the default */
+(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
+</script>
 
 <!-- ───────────────── Google Analytics (gtag.js) ───────────────── -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2N74T6GHQ4"></script>
@@ -22,7 +25,7 @@
 <meta name="keywords" content="Saiful Islam, software engineer, Angular developer, .NET developer, full-stack developer, React Native, NgRx Signals, TypeScript, PostgreSQL, Dhaka, Bangladesh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://saiful-70.github.io/saiful-70/" />
-<meta name="theme-color" content="#0B0D0F" />
+<meta name="theme-color" id="theme-color" content="#FFFFFF" />
 
 <!-- ───────────────── Open Graph (LinkedIn, Facebook, Slack…) ───────────────── -->
 <meta property="og:type" content="website" />
@@ -52,7 +55,7 @@
 <!-- ───────────────── fonts ───────────────── -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..112,400..800&family=Azeret+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <!-- ───────────────── structured data: Person (Google rich results) ───────────────── -->
 <script type="application/ld+json">
@@ -72,14 +75,8 @@
     "addressLocality": "Dhaka",
     "addressCountry": "BD"
   },
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Netpower"
-  },
-  "alumniOf": {
-    "@type": "CollegeOrUniversity",
-    "name": "Comilla University"
-  },
+  "worksFor": { "@type": "Organization", "name": "Netpower" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Comilla University" },
   "sameAs": [
     "https://github.com/saiful-70",
     "https://linkedin.com/in/saiful70",
@@ -90,1106 +87,460 @@
 
 <style>
 :root{
-  --panel:#0B0D0F;        /* matte panel ground */
-  --bezel:#2A2D31;
-  --edge:#383C41;
-  --hair:rgba(242,245,245,.10);
-  --lum:#F2F5F5;          /* luminous white */
-  --dim:#9AA3A5;
-  --faint:#828A8D;
-  --green:#7CFF9E;        /* radium — live data and actionable only */
-  --green-ink:#4FD27A;
-  --amber:#FFB000;        /* caution only */
-  --red:#FF3B30;          /* warning — reserved */
-  --maxw:1200px;
+  color-scheme:light;
+  --bg:#FFFFFF;
+  --bg-soft:#F7F8F9;
+  --ink:#0A0B0C;
+  --ink-2:#31373F;
+  --muted:#5C646E;
+  --faint:#697079;
+  --line:#E4E7EA;
+  --line-soft:#EFF1F3;
+  --accent:#1F5EFF;
+  --sel-ink:#FFFFFF;
+  --live:#0A7A45;
+  --btn-ink:#0A0B0C;
+  --btn-ink-hover:#25292E;
+  --btn-on:#FFFFFF;
+  --maxw:940px;
   --ease:cubic-bezier(.2,.7,.25,1);
+}
+[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0B0B0C;
+  --bg-soft:#131415;
+  --ink:#F4F5F6;
+  --ink-2:#C9CDD2;
+  --muted:#9AA1AA;
+  --faint:#858C95;
+  --line:#232529;
+  --line-soft:#1A1C1F;
+  --accent:#7FA8FF;
+  --sel-ink:#0B0B0C;
+  --live:#3DD68C;
+  --btn-ink:#F4F5F6;
+  --btn-ink-hover:#DDE0E4;
+  --btn-on:#0B0B0C;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;background:var(--panel)}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  font-family:"Archivo","Archivo Narrow",system-ui,sans-serif;
-  font-variation-settings:"wdth" 100;
-  background:var(--panel);
-  color:var(--lum);
-  line-height:1.55;
-  font-variant-ligatures:none;
+  font-family:"Geist",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  font-size:16.5px;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-  font-size:15px;
+  text-rendering:optimizeLegibility;
+  transition:background-color .2s var(--ease),color .2s var(--ease);
 }
-/* panel tooth — fine matte texture over the whole ground */
-body::before{
-  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:
-    radial-gradient(rgba(255,255,255,.022) .5px,transparent .5px),
-    radial-gradient(rgba(0,0,0,.30) .5px,transparent .5px);
-  background-size:3px 3px,3px 3px;
-  background-position:0 0,1.5px 1.5px;
-  opacity:.9;
-}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
-
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 a{color:inherit;text-decoration:none}
-::selection{background:var(--green);color:#04150A}
-:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
-*{scrollbar-color:var(--bezel) var(--panel);scrollbar-width:thin}
-::-webkit-scrollbar{width:11px;height:11px}
-::-webkit-scrollbar-track{background:var(--panel)}
-::-webkit-scrollbar-thumb{background:var(--bezel);border:3px solid var(--panel);border-radius:6px}
-::-webkit-scrollbar-thumb:hover{background:var(--edge)}
+::selection{background:var(--accent);color:var(--sel-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+*{scrollbar-color:var(--line) transparent;scrollbar-width:thin}
+::-webkit-scrollbar{width:12px;height:12px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--line);border:3px solid var(--bg);border-radius:8px}
+::-webkit-scrollbar-thumb:hover{background:var(--faint)}
 
-.mono{font-family:"Azeret Mono",ui-monospace,SFMono-Regular,monospace;font-variant-numeric:tabular-nums}
-.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-
-/* ───────── engraved placard: the world's label primitive ───────── */
-.placard{
-  font-family:"Azeret Mono",ui-monospace,monospace;
-  font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--dim);
-  background:linear-gradient(180deg,#101315,#0A0C0D);
-  border:1px solid var(--bezel);
-  border-radius:2px;
-  padding:5px 10px 4px;
-  display:inline-block;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 1px 0 rgba(0,0,0,.6);
-  white-space:nowrap;
-}
-
-/* ───────── lamps ───────── */
-.lamp{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none;
-  background:var(--green);box-shadow:0 0 0 1px rgba(0,0,0,.6),0 0 9px rgba(124,255,158,.75)}
-.lamp.amber{background:var(--amber);box-shadow:0 0 0 1px rgba(0,0,0,.6),0 0 9px rgba(255,176,0,.7)}
-.lamp.pulse{animation:beat 3.4s var(--ease) infinite}
-@keyframes beat{0%,88%,100%{opacity:1}92%{opacity:.35}}
-
-/* ───────── screws ───────── */
-.screw{position:absolute;width:11px;height:11px;border-radius:50%;
-  background:radial-gradient(circle at 32% 26%,#8A9199 0%,#4C5258 34%,#191C1F 76%);
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.8),inset 1px 1px 2px rgba(255,255,255,.30),
-             0 1px 1px rgba(0,0,0,.65)}
-.screw::after{content:"";position:absolute;left:2px;right:2px;top:50%;height:1px;
-  background:rgba(0,0,0,.7);transform:translateY(-50%) rotate(var(--sr,32deg))}
-
-/* ───────── glareshield / header ───────── */
+/* ───────── header ───────── */
 header{
-  position:sticky;top:0;z-index:60;
-  background:linear-gradient(180deg,#121517 0%,#0A0C0D 62%,#050607 100%);
-  border-bottom:1px solid #000;
-  box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 10px 22px -14px rgba(0,0,0,.9);
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--bg) 85%,transparent);
+  backdrop-filter:saturate(1.6) blur(10px);
+  -webkit-backdrop-filter:saturate(1.6) blur(10px);
+  border-bottom:1px solid transparent;
+  transition:border-color .2s var(--ease);
 }
-header.lifted{box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 16px 30px -12px rgba(0,0,0,1)}
-.nav{display:flex;align-items:center;gap:22px;height:58px}
-.nameplate{
-  display:flex;align-items:center;gap:9px;
-  font-family:"Azeret Mono",monospace;font-size:12.5px;font-weight:700;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--lum);
-  padding:5px 11px 4px;border:1px solid var(--bezel);border-radius:2px;
-  background:linear-gradient(180deg,#14181A,#0C0E10);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
-}
-.nameplate .mk{width:16px;height:16px;flex:none;color:var(--green)}
-.nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
+header.stuck{border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;gap:8px;height:62px}
+.brand{font-weight:600;letter-spacing:-.012em;font-size:16.5px;margin-right:auto}
+.nav-links{display:flex;gap:2px}
 .nav-links a{
-  font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;
-  color:var(--dim);padding:8px 12px;border-radius:2px;transition:color .18s,background .18s;
+  font-size:15px;color:var(--muted);padding:7px 11px;border-radius:8px;
+  transition:color .16s,background-color .16s;
 }
-.nav-links a:hover{color:var(--lum);background:rgba(255,255,255,.045)}
-.nav-links a.engage{
-  color:var(--green);border:1px solid rgba(124,255,158,.42);margin-left:10px;
-  display:flex;align-items:center;gap:7px;padding:7px 13px;
+.nav-links a:hover{color:var(--ink);background:var(--bg-soft)}
+.theme{
+  margin-left:8px;width:34px;height:34px;flex:none;display:grid;place-items:center;
+  border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--muted);
+  cursor:pointer;transition:color .16s,border-color .16s,background-color .16s;
 }
-.nav-links a.engage:hover{background:rgba(124,255,158,.10);border-color:var(--green)}
-.nav-links a.engage .ring{width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;flex:none}
-.nav-links a.engage:hover .ring{background:var(--green);box-shadow:0 0 8px rgba(124,255,158,.8)}
-.utc{
-  font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.06em;color:var(--green);
-  font-variant-numeric:tabular-nums;margin-left:16px;display:flex;align-items:center;gap:7px;white-space:nowrap;
-}
-@media(max-width:880px){.nav-links a:not(.engage){display:none}.utc{margin-left:auto}}
-@media(max-width:520px){.utc{display:none}}
+.theme:hover{color:var(--ink);border-color:var(--faint);background:var(--bg-soft)}
+.theme svg{width:16px;height:16px}
+.theme .moon{display:none}
+[data-theme="dark"] .theme .sun{display:none}
+[data-theme="dark"] .theme .moon{display:block}
+@media(max-width:640px){.nav-links a{display:none}}
 
-/* ───────── hero / flight deck ───────── */
-.deck{position:relative;padding:64px 0 0;overflow:hidden}
-.deck::before{ /* the windscreen: outside is ink, one faint horizon */
-  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(120% 80% at 18% 34%,rgba(124,255,158,.055),transparent 60%),
-    linear-gradient(180deg,#07080A 0%,#0B0D0F 46%,#0B0D0F 100%);
-}
-.deck-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);gap:56px;align-items:center}
-@media(max-width:1040px){.deck-grid{grid-template-columns:1fr;gap:44px}.deck{padding-top:44px}}
-
+/* ───────── hero ───────── */
+.hero{padding:96px 0 56px}
+@media(max-width:760px){.hero{padding:52px 0 40px}}
 h1{
-  font-size:clamp(3.6rem,9.2vw,6.6rem);
-  font-variation-settings:"wdth" 84,"wght" 800;
-  line-height:.88;letter-spacing:-.035em;text-transform:uppercase;
-  color:var(--lum);
-  text-shadow:0 1px 0 rgba(0,0,0,.9);
+  font-size:clamp(1.95rem,4.6vw,3.05rem);
+  font-weight:600;
+  line-height:1.16;
+  letter-spacing:-.028em;
+  max-width:19ch;
+  text-wrap:balance;
 }
-h1 .l2{display:block;color:#C9D1D2}
-.role{margin-top:18px}
-.lede{
-  font-size:17.5px;line-height:1.62;color:var(--lum);
-  max-width:50ch;margin-top:22px;
-}
-.lede b{color:var(--lum);font-weight:700}
-.lede .hl{color:var(--green);font-weight:600}
-
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+h1 em{font-style:normal;color:var(--accent)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
 .btn{
-  font-family:"Azeret Mono",monospace;font-size:12.5px;font-weight:500;letter-spacing:.01em;
-  display:inline-flex;align-items:center;gap:10px;padding:14px 21px;border-radius:2px;
-  border:1px solid var(--bezel);background:linear-gradient(180deg,#15181B,#0C0E10);color:var(--dim);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 2px 5px rgba(0,0,0,.55);
-  transition:color .18s,border-color .18s,background .18s,transform .12s;
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:15px;font-weight:500;
+  padding:11px 18px;border-radius:10px;
+  border:1px solid var(--line);color:var(--ink);background:var(--bg);
+  transition:background-color .16s,border-color .16s,color .16s,transform .1s;
   cursor:pointer;
 }
-.btn:hover{color:var(--lum);border-color:var(--edge)}
+.btn:hover{background:var(--bg-soft);border-color:var(--faint)}
 .btn:active{transform:translateY(1px)}
-.btn--engage{color:var(--green);border-color:rgba(124,255,158,.45)}
-.btn--engage .ring{width:11px;height:11px;border-radius:50%;border:1.5px solid currentColor;flex:none;transition:background .18s,box-shadow .18s}
-.btn--engage:hover{background:linear-gradient(180deg,rgba(124,255,158,.13),rgba(124,255,158,.05));border-color:var(--green);color:var(--green)}
-.btn--engage:hover .ring{background:var(--green);box-shadow:0 0 10px rgba(124,255,158,.9)}
+.btn-primary{background:var(--btn-ink);color:var(--btn-on);border-color:var(--btn-ink)}
+.btn-primary:hover{background:var(--btn-ink-hover);border-color:var(--btn-ink-hover);color:var(--btn-on)}
+.btn svg{width:15px;height:15px;flex:none;transition:transform .2s var(--ease)}
+.btn-primary:hover svg{transform:translateX(3px)}
 
-.status-row{
-  display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:32px;
-  font-family:"Azeret Mono",monospace;font-size:12.5px;color:var(--faint);
+.proof{
+  list-style:none;display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:34px;
+  font-size:15px;color:var(--muted);
 }
-.status-row .on{color:var(--green);display:flex;align-items:center;gap:8px}
-.status-row .sep{width:1px;height:11px;background:var(--bezel)}
-
-/* ───────── the panel ───────── */
-.panel{
-  position:relative;border-radius:5px;padding:26px 24px 20px;
-  background:
-    linear-gradient(180deg,#17191C 0%,#101315 38%,#0C0E10 100%);
-  border:1px solid #000;
-  border-top-color:rgba(255,255,255,.13);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.11),
-    inset 1px 0 0 rgba(255,255,255,.045),
-    inset 0 -1px 0 rgba(0,0,0,.95),
-    0 10px 14px -10px rgba(0,0,0,.95);
+.proof li{display:flex;align-items:baseline;gap:7px}
+.proof b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.avail{
+  display:flex;align-items:center;gap:9px;margin-top:16px;
+  font-size:14.5px;color:var(--faint);
 }
-.panel::after{ /* light rakes the plate from upper-left, as the bar does */
-  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  background:
-    radial-gradient(86% 62% at 10% -8%,rgba(255,255,255,.085),transparent 64%),
-    linear-gradient(116deg,rgba(255,255,255,.075) 0%,rgba(255,255,255,.018) 20%,transparent 44%,transparent 76%,rgba(255,255,255,.026) 100%);
-}
-@media(min-width:1041px){ /* the panel continues past the frame instead of sitting in a margin */
-  .panel{
-    margin-right:calc(-1 * ((100vw - min(100vw,1200px)) / 2 + 28px));
-    border-right:0;border-radius:5px 0 0 5px;
-  }
-}
-.panel > .screw:nth-of-type(1){top:9px;left:9px}
-.panel > .screw:nth-of-type(2){top:9px;right:9px;--sr:-18deg}
-.panel > .screw:nth-of-type(3){bottom:9px;left:9px;--sr:74deg}
-.panel > .screw:nth-of-type(4){bottom:9px;right:9px;--sr:12deg}
-
-.sixpack{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 16px;position:relative;z-index:1}
-@media(max-width:1040px){.sixpack{gap:16px 14px}}
-@media(max-width:620px){.sixpack{grid-template-columns:repeat(2,1fr)}}
-
-.gauge{display:flex;flex-direction:column;align-items:center;gap:9px;cursor:default;border-radius:4px;padding:4px 2px 2px}
-.gauge svg{width:100%;height:auto;display:block;max-width:190px}
-.gauge figcaption{
-  width:100%;text-align:center;white-space:normal;text-transform:none;letter-spacing:normal;
-  padding:5px 7px 4px;
-  transition:color .2s,border-color .2s,background .2s;
-}
-.gauge figcaption > span{text-transform:uppercase;letter-spacing:.06em}
-.gauge figcaption b{display:none}
-@media(max-width:620px){
-  .gauge figcaption b{display:block;color:var(--green);font-weight:700;margin-top:3px}
-}
-.gauge .ring-lit{opacity:0;transition:opacity .25s}
-.sixpack.checking .gauge{opacity:.42;transition:opacity .25s}
-.sixpack.checking .gauge.lit{opacity:1}
-.gauge.lit figcaption{color:var(--green);border-color:rgba(124,255,158,.5);background:linear-gradient(180deg,#12211A,#0A0F0C)}
-.gauge.lit .ring-lit{opacity:1}
-@media(prefers-reduced-motion:reduce){.sixpack.checking .gauge{opacity:1}}
-
-/* gauge internals */
-.tick-maj{stroke:#E6ECEC;fill:none}
-.tick-min{stroke:#8E9698;fill:none}
-.gtext{font-family:"Archivo",sans-serif;font-variation-settings:"wdth" 82,"wght" 700;fill:#E9EFEF;font-size:15px}
-.gtext.sm{font-size:11px;fill:#AFB7B8}
-.glabel{font-family:"Azeret Mono",monospace;font-size:7.6px;letter-spacing:.12em;fill:#79817F}
-.gread{font-family:"Azeret Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.06em;fill:var(--green)}
-.needle{transform-origin:100px 100px;transform:rotate(var(--a,0deg));fill:#F2F5F5}
-.needle-g{fill:var(--green)}
-.arc-live{stroke:var(--green);fill:none;opacity:.85}
-.arc-caut{stroke:var(--amber);fill:none}
-
-/* readout strip under the panel */
-.crosscheck{
-  margin-top:18px;position:relative;z-index:1;
-  display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;min-height:34px;
-  border-top:1px solid var(--hair);padding-top:14px;
-  font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.02em;color:var(--faint);
-}
-.crosscheck .out{color:var(--lum)}
-.crosscheck .out b{color:var(--green);font-weight:700}
-
-/* ───────── system status strip ───────── */
-.statuslist{
-  margin-top:40px;border:1px solid var(--bezel);border-radius:4px;
-  background:linear-gradient(180deg,#131618,#0A0C0D);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
-  display:grid;grid-template-columns:1fr 1fr;
-}
-@media(max-width:700px){.statuslist{grid-template-columns:1fr}}
-.sl-row{display:flex;align-items:baseline;justify-content:space-between;gap:18px;
-  padding:13px 18px;border-bottom:1px solid var(--hair)}
-.statuslist .sl-row:nth-child(odd){border-right:1px solid var(--hair)}
-@media(max-width:700px){.statuslist .sl-row:nth-child(odd){border-right:0}}
-.sl-row .k{font-family:"Azeret Mono",monospace;font-size:11px;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--faint)}
-.sl-row .v{font-family:"Azeret Mono",monospace;font-size:15px;font-weight:700;color:var(--lum);
-  font-variant-numeric:tabular-nums;letter-spacing:.01em}
-.sl-close{grid-column:1/-1;border-bottom:0;border-right:0!important;align-items:center}
-.sl-close .k{color:var(--green);letter-spacing:.15em}
+.avail .dot{width:7px;height:7px;border-radius:50%;background:var(--live);flex:none}
 
 /* ───────── sections ───────── */
-section{position:relative;z-index:1}
-.sec{padding:86px 0}
-@media(max-width:760px){.sec{padding:60px 0}}
-.sec-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:38px;
-  border-bottom:1px solid var(--hair);padding-bottom:16px}
+section{scroll-margin-top:74px}
+.sec{padding:48px 0}
+@media(max-width:760px){.sec{padding:38px 0}}
 h2{
-  text-wrap:balance;
-  font-size:clamp(1.85rem,4.2vw,2.9rem);
-  font-variation-settings:"wdth" 86,"wght" 700;
-  letter-spacing:-.022em;line-height:1.02;color:var(--lum);text-transform:uppercase;
+  font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--faint);
+  padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:6px;
 }
-.sec-head .count{font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;
-  color:var(--faint);margin-left:auto}
 
-/* ───────── logbook ───────── */
-.logbook{border:1px solid var(--bezel);border-radius:4px;overflow:hidden;
-  background:linear-gradient(180deg,#121517,#0A0C0D)}
-.log-head{display:grid;grid-template-columns:150px 1fr 200px 34px;gap:16px;padding:11px 18px;
-  border-bottom:1px solid var(--bezel);background:#0E1113}
-.log-head span{font-family:"Azeret Mono",monospace;font-size:11px;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--faint)}
-@media(max-width:820px){.log-head{display:none}}
-.log-row{border-bottom:1px solid var(--hair);padding-bottom:4px}
-.log-row:last-child{border-bottom:0}
-.log-btn{
-  width:100%;display:grid;grid-template-columns:150px 1fr 200px 34px;gap:16px;align-items:center;
-  padding:20px 18px;background:none;border:0;text-align:left;cursor:pointer;color:inherit;font:inherit;
-  transition:background .2s;
+/* ───────── work list ───────── */
+.work{list-style:none}
+.work > li{border-bottom:1px solid var(--line-soft)}
+.work > li:last-child{border-bottom:0}
+.work-row{
+  display:grid;grid-template-columns:1fr auto;gap:4px 24px;align-items:baseline;
+  padding:24px 12px;margin:0 -12px;border-radius:10px;
+  transition:background-color .16s;
 }
-.log-btn:hover{background:rgba(255,255,255,.028)}
-.log-when{font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;color:var(--green);font-variant-numeric:tabular-nums}
-.log-op{font-variation-settings:"wdth" 92,"wght" 700;font-size:21px;letter-spacing:-.012em;color:var(--lum);line-height:1.2}
-.log-role{display:block;font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.04em;
-  color:var(--faint);font-weight:400;margin-top:6px}
-.log-type{font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;color:var(--dim)}
-.chev{width:18px;height:18px;justify-self:end;color:var(--faint);transition:transform .28s var(--ease),color .2s}
-.log-btn[aria-expanded="true"] .chev{transform:rotate(90deg);color:var(--green)}
-.log-btn[aria-expanded="true"] .log-op{color:var(--lum)}
-@media(max-width:820px){
-  .log-btn{grid-template-columns:1fr 24px;gap:8px}
-  .log-when{grid-column:1/2}
-  .log-op{grid-column:1/2}
-  .log-type{grid-column:1/2;margin-top:2px}
-  .chev{grid-column:2/3;grid-row:1/4;align-self:start}
+a.work-row:hover{background:var(--bg-soft)}
+.w-head{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap}
+.w-name{font-size:19px;font-weight:600;letter-spacing:-.015em}
+.w-tag{
+  font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;color:var(--faint);
+  border:1px solid var(--line);border-radius:20px;padding:2px 9px;white-space:nowrap;
 }
-.log-panel{display:grid;grid-template-rows:1fr;transition:grid-template-rows .38s var(--ease)}
-.log-panel[data-open="false"]{grid-template-rows:0fr}
-.log-panel > div{overflow:hidden;min-height:0}
-.log-panel .remarks{padding:0 18px 26px 18px}
-@media(min-width:821px){.log-panel .remarks{padding-left:166px;max-width:82ch}}
-.remarks{list-style:none;display:grid;gap:11px}
-.remarks li{position:relative;padding-left:22px;font-size:15px;color:var(--dim);line-height:1.68}
-.remarks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:1.5px;background:var(--green);opacity:.75}
-.remarks li b{color:var(--lum);font-weight:600}
-
-/* ───────── work modules ───────── */
-.work{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-@media(max-width:900px){.work{grid-template-columns:1fr}}
-.mod{
-  position:relative;border:1px solid var(--bezel);border-radius:4px;padding:22px 22px 20px;
-  background:linear-gradient(180deg,#141719,#0A0C0D);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 6px 12px -8px rgba(0,0,0,.9);
-  display:flex;flex-direction:column;gap:16px;min-width:0;transition:border-color .25s,transform .25s var(--ease);
+.w-status{
+  font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;color:var(--live);
+  display:flex;align-items:center;gap:6px;white-space:nowrap;
 }
-a.mod:hover{border-color:var(--edge);transform:translateY(-2px)}
-.mod--caution{border-color:rgba(255,176,0,.42)}
-.mod--caution .placard{color:var(--amber);border-color:rgba(255,176,0,.38)}
-.mod.wide{grid-column:span 6}
-.mod.half{grid-column:span 3}
-@media(max-width:900px){.mod.wide,.mod.half{grid-column:span 1}}
-.mod-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.mod h3{font-size:clamp(1.3rem,2.4vw,1.72rem);font-variation-settings:"wdth" 88,"wght" 700;
-  letter-spacing:-.018em;text-transform:uppercase;color:var(--lum);line-height:1}
-.mod-lamp{display:flex;align-items:center;gap:7px;margin-left:auto;
-  font-family:"Azeret Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
-.mod-lamp.restricted{color:var(--amber)}
-.mod p{font-size:15px;color:var(--dim);line-height:1.7;max-width:74ch}
-.mod p .mono{color:var(--green)}
-.specs{display:flex;flex-wrap:wrap;gap:6px}
-.spec{font-family:"Azeret Mono",monospace;font-size:11px;
-  color:var(--dim);border-radius:2px;padding:5px 9px 4px;background:rgba(0,0,0,.34);
-  box-shadow:inset 0 1px 2px rgba(0,0,0,.8),0 1px 0 rgba(255,255,255,.05)}
-.mod-go{margin-top:auto;display:flex;align-items:center;gap:9px;font-family:"Azeret Mono",monospace;
-  font-size:12.5px;color:var(--green);padding-top:4px}
-.mod-go .arr{transition:transform .25s var(--ease)}
-a.mod:hover .mod-go .arr{transform:translateX(5px)}
-.mod-note{margin-top:auto;display:flex;align-items:center;gap:9px;font-family:"Azeret Mono",monospace;
-  font-size:12.5px;color:var(--amber);padding-top:4px}
-
-/* schematic */
-.schem{border:1px solid var(--hair);border-radius:3px;background:
-  linear-gradient(180deg,#0C0F10,#080A0B);padding:14px 12px}
-.schem svg{width:100%;height:auto;display:block}
-.scrollhint{display:none}
-@media(max-width:760px){
-  .schem{overflow-x:auto;padding:14px;min-width:0;
-    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 38px),transparent 100%);
-    mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 38px),transparent 100%)}
-  .schem svg{min-width:520px}
-  .mod.wide .schem svg{min-width:760px}
-  .scrollhint{display:flex;align-items:center;gap:7px;margin-top:-6px;
-    font-family:"Azeret Mono",monospace;font-size:12.5px;color:var(--faint)}
-  .scrollhint::after{content:"";width:14px;height:1px;background:var(--green-ink);
-    box-shadow:5px -3px 0 -0.5px var(--green-ink),5px 3px 0 -0.5px var(--green-ink)}
+.w-status.priv{color:var(--faint)}
+.w-status .dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.w-desc{grid-column:1/-1;color:var(--muted);font-size:15.5px;max-width:72ch;margin-top:4px}
+.w-tech{
+  grid-column:1/-1;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;
+  color:var(--faint);margin-top:12px;line-height:1.75;
 }
-.sc-box{fill:#101315;stroke:#3D4348;stroke-width:1}
-.sc-box-a{fill:rgba(124,255,158,.055);stroke:var(--green-ink);stroke-width:1}
-.sc-t{font-family:"Azeret Mono",monospace;font-size:7.6px;letter-spacing:.03em;fill:#C6CDCE}
-.sc-t.d{fill:#7F8789}
-.sc-t.g{fill:var(--green)}
-.sc-line{stroke:#4B5257;stroke-width:1;fill:none}
-.sc-line-a{stroke:var(--green-ink);stroke-width:1.2;fill:none}
-.sc-dash{stroke:var(--amber);stroke-width:1;stroke-dasharray:3 3;fill:none;opacity:.75}
-
-/* ───────── checklist (stack) ───────── */
-.checklist{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
-@media(max-width:1000px){.checklist{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.checklist{grid-template-columns:1fr}}
-.cl{border:1px solid var(--bezel);border-radius:4px;background:linear-gradient(180deg,#131618,#0A0C0D);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045);overflow:hidden}
-.cl h3{font-family:"Azeret Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--lum);padding:12px 14px;border-bottom:1px solid var(--bezel);background:#0E1113}
-.cl ul{list-style:none;padding:8px 0}
-.cl li{display:flex;align-items:flex-start;gap:9px;padding:5px 14px;font-family:"Azeret Mono",monospace;
-  font-size:13.5px;line-height:1.55;color:var(--dim)}
-.cl li svg{width:11px;height:11px;flex:none;margin-top:5px;color:var(--green-ink)}
-
-/* ───────── certification ───────── */
-.cert{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:760px){.cert{grid-template-columns:1fr}}
-.cert-block{border:1px solid var(--bezel);border-radius:4px;background:linear-gradient(180deg,#131618,#0A0C0D);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045);overflow:hidden}
-.cert-block h3{font-family:"Azeret Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--lum);padding:12px 16px;border-bottom:1px solid var(--bezel);background:#0E1113}
-.cert-item{padding:16px;border-bottom:1px solid var(--hair)}
-.cert-item:last-child{border-bottom:0}
-.cert-item .t{font-size:15px;font-variation-settings:"wdth" 94,"wght" 700;color:var(--lum);line-height:1.35}
-.cert-item .s{font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;
-  color:var(--faint);margin-top:7px}
-
-/* ───────── clearance / contact ───────── */
-.clear{padding:96px 0 76px;position:relative;overflow:hidden}
-.clear::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(90% 120% at 50% 118%,rgba(124,255,158,.085),transparent 62%)}
-.clear .wrap{text-align:left}
-.big{
-  text-wrap:balance;
-  font-size:clamp(2.4rem,7vw,5rem);font-variation-settings:"wdth" 84,"wght" 800;
-  line-height:.94;letter-spacing:-.032em;text-transform:uppercase;color:var(--dim);
+.w-link{
+  grid-column:1/-1;display:inline-flex;align-items:center;gap:7px;margin-top:14px;
+  font-size:14.5px;font-weight:500;color:var(--accent);
 }
-.big .em{color:var(--lum)}
-.clear .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
-.clear .foot-note{margin-top:34px;font-family:"Azeret Mono",monospace;font-size:12.5px;
-  letter-spacing:.03em;color:var(--faint);display:flex;align-items:center;gap:10px}
+.w-link svg{width:13px;height:13px;flex:none;transition:transform .2s var(--ease)}
+a.work-row:hover .w-link svg{transform:translate(2px,-2px)}
 
-/* ───────── data plate footer ───────── */
-footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#060708);position:relative;z-index:1}
-.plate{display:flex;flex-wrap:wrap;gap:10px 26px;padding:24px 28px;
-  font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;color:var(--faint)}
-.plate .grow{margin-left:auto}
-@media(max-width:700px){.plate .grow{margin-left:0}}
+/* ───────── experience ───────── */
+.xp{list-style:none}
+.xp > li{padding:26px 0;border-bottom:1px solid var(--line-soft)}
+.xp > li:last-child{border-bottom:0}
+.xp-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.xp-co{font-size:19px;font-weight:600;letter-spacing:-.015em}
+.xp-role{color:var(--muted);font-size:15.5px}
+.xp-when{
+  margin-left:auto;font-family:"Geist Mono",ui-monospace,monospace;font-size:13px;
+  color:var(--faint);white-space:nowrap;
+}
+@media(max-width:640px){.xp-when{margin-left:0;width:100%}}
+.xp ul{list-style:none;margin-top:15px;display:grid;gap:10px}
+.xp ul li{
+  position:relative;padding-left:20px;color:var(--muted);font-size:15.5px;
+  line-height:1.62;max-width:78ch;
+}
+.xp ul li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:1.5px;background:var(--line)}
+.xp ul li b{color:var(--ink-2);font-weight:600}
 
-/* ───────── motion ───────── */
+/* ───────── stack ───────── */
+.stack{display:grid;grid-template-columns:repeat(2,1fr);gap:0 44px;margin-top:20px}
+@media(max-width:760px){.stack{grid-template-columns:1fr}}
+.stack-row{
+  display:grid;grid-template-columns:118px 1fr;gap:18px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--line-soft);
+}
+@media(max-width:460px){.stack-row{grid-template-columns:1fr;gap:4px}}
+.stack-row dt{
+  font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;color:var(--faint);
+  letter-spacing:.02em;
+}
+.stack-row dd{font-size:15.5px;color:var(--ink-2);line-height:1.55}
+
+/* ───────── education / awards ───────── */
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:44px}
+@media(max-width:760px){.meta{grid-template-columns:1fr;gap:30px}}
+.meta h3{font-size:13.5px;font-weight:600;color:var(--faint);margin-bottom:10px}
+.meta-item{padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.meta-item:last-child{border-bottom:0}
+.meta-item .t{font-size:15.5px;font-weight:500;line-height:1.4}
+.meta-item .s{font-size:14px;color:var(--faint);margin-top:3px}
+
+/* ───────── contact ───────── */
+.contact{padding:62px 0 74px;border-top:1px solid var(--line)}
+.contact h2{border:0;padding:0;margin:0 0 20px}
+.contact .say{
+  font-size:clamp(1.45rem,3.4vw,2rem);font-weight:600;letter-spacing:-.024em;
+  line-height:1.24;max-width:20ch;text-wrap:balance;
+}
+.contact .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+
+/* ───────── footer ───────── */
+footer{border-top:1px solid var(--line);padding:26px 0}
+.foot{display:flex;flex-wrap:wrap;gap:8px 26px;font-size:14px;color:var(--faint)}
+.foot .grow{margin-left:auto}
+@media(max-width:760px){.foot .grow{margin-left:0}}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
-    transition-duration:.001ms!important}
+  *,*::before,*::after{transition-duration:.001ms!important;animation-duration:.001ms!important}
 }
 </style>
 </head>
 
 <body>
 <!--
-  IMPECCABLE DIRECTION CONTRACT — seed 89b9f3a1 · re-roll 2 · bolder register
-  THESIS: A software engineer read the way a pilot reads a night panel — six instruments that
-    agree with each other. Refuses the dark-portfolio-with-one-accent arrangement it replaces.
-  OWN-WORLD: Matte panel black #0B0D0F with satin bezels, hex screws and engraved placards.
-    Luminous white is information, radium green #7CFF9E is live data and anything pressable ONLY,
-    caution amber #FFB000 marks limits, warning red is reserved and stays dark. Archivo at
-    condensed widths for instrument lettering; Azeret Mono for every readout, placard and table.
-  STORY: A hiring manager comparing candidates at night scans six gauges, sees the numbers agree,
-    reads the logbook and the aircraft on type, and presses the one green thing on the page.
-  FIRST VIEWPORT: Glareshield strip with nameplate, placard nav, live Dhaka readout. Below, two
-    columns: left, the name at signage scale over the lede and two actions, one green; right, a
-    machined six-gauge panel — experience, endpoints, full stack, surfaces, products, base —
-    needles sweeping up on power-on, then the cross-check readout strip.
-  FORM: night instrument six-pack, dealt challenger 6 of the bolder hand, chosen after the user
-    stopped the deal; seed key 89b9f3a1.
+  DIRECTION CONTRACT — user-pinned, 2026-08-23. Supersedes the night-instrument-panel world.
+  THESIS: The clean, professional engineer portfolio done properly. Light by default, dark on
+    request. No metaphor, no skeuomorphism, no instrument dials. Refuses decoration and spends
+    everything on type, space and reading order.
+  OWN-WORLD: White ground, near-black ink, one blue accent used only for links and emphasis.
+    Solid ink primary button. Hairline rules instead of cards. Geist for text, Geist Mono for
+    labels, dates and technical strings. Craft bar: rauno.me, leerob.com, brittanychiang.com.
+  STORY: A hiring manager reads one sentence saying what he builds, sees three checkable numbers,
+    scans a list of shipped systems, and contacts him.
+  FIRST VIEWPORT: Slim sticky header with name, nav and theme toggle. Below, the statement set as
+    the page's largest type, two actions with the primary in solid ink, a one-line proof row and
+    an availability line. No graphic.
+  FORM: user-pinned from a four-option round; hero type-only, "S" monogram favicon, endpoint count
+    removed from the headline stats at the user's request.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the
     verdict, and DESIGN.md.
 -->
 
-<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
-  <defs>
-    <linearGradient id="bez" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#767D85"/><stop offset=".2" stop-color="#1B1F23"/>
-      <stop offset=".5" stop-color="#454C53"/><stop offset=".8" stop-color="#111417"/>
-      <stop offset="1" stop-color="#4E555C"/>
-    </linearGradient>
-    <linearGradient id="bez2" x1="1" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="#646B73"/><stop offset=".38" stop-color="#15181B"/>
-      <stop offset="1" stop-color="#3A4147"/>
-    </linearGradient>
-    <radialGradient id="rim" cx=".5" cy=".5" r=".5">
-      <stop offset=".68" stop-color="#000" stop-opacity="0"/>
-      <stop offset=".9" stop-color="#000" stop-opacity=".30"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".62"/>
-    </radialGradient>
-    <radialGradient id="fce" cx=".5" cy=".36" r=".78">
-      <stop offset="0" stop-color="#16191D"/><stop offset=".72" stop-color="#0C0E11"/>
-      <stop offset="1" stop-color="#060708"/>
-    </radialGradient>
-    <radialGradient id="gls" cx=".3" cy=".14" r=".66">
-      <stop offset="0" stop-color="#fff" stop-opacity=".12"/><stop offset=".42" stop-color="#fff" stop-opacity=".035"/>
-      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="hub" cx=".35" cy=".3" r=".8">
-      <stop offset="0" stop-color="#6A7178"/><stop offset="1" stop-color="#14171A"/>
-    </radialGradient>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#20404F"/><stop offset="1" stop-color="#12252E"/>
-    </linearGradient>
-    <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#4A3A24"/><stop offset="1" stop-color="#241C11"/>
-    </linearGradient>
-    <clipPath id="fclip"><circle cx="100" cy="100" r="80"/></clipPath>
-    <symbol id="bezel-ring" viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="97" fill="url(#bez)"/>
-      <circle cx="100" cy="100" r="89.5" fill="url(#bez2)"/>
-      <circle cx="100" cy="100" r="85" fill="#060708"/>
-      <circle cx="100" cy="100" r="83.5" fill="url(#fce)"/>
-    </symbol>
-    <symbol id="bezel-screws" viewBox="0 0 200 200">
-      <g fill="url(#hub)" stroke="#000" stroke-width=".8">
-        <circle cx="26" cy="26" r="5.4"/><circle cx="174" cy="26" r="5.4"/>
-        <circle cx="26" cy="174" r="5.4"/><circle cx="174" cy="174" r="5.4"/>
-      </g>
-      <g stroke="#000" stroke-width="1.1" opacity=".8">
-        <path d="M22.5,24 L29.5,28"/><path d="M170.5,28 L177.5,24"/>
-        <path d="M22.5,176 L29.5,172"/><path d="M170.5,172 L177.5,176"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
-<header id="deck-head">
+<header id="head">
   <div class="wrap nav">
-    <a href="#top" class="nameplate" aria-label="Saiful Islam — top of page">
-      <svg class="mk" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
-        <circle cx="12" cy="12" r="1.7" fill="currentColor"/>
-        <path d="M12 12 L18.4 7.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M12 2.6v2.2M21.4 12h-2.2M12 21.4v-2.2M2.6 12h2.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      Saiful Islam
-    </a>
+    <a href="#top" class="brand">Saiful Islam</a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#experience">Logbook</a>
       <a href="#work">Work</a>
-      <a href="#skills">Stack</a>
-      <a href="#contact" class="engage"><span class="ring" aria-hidden="true"></span>Contact</a>
+      <a href="#experience">Experience</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
     </nav>
-    <div class="utc"><span class="lamp pulse" aria-hidden="true"></span><span id="clock">DHAKA</span></div>
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark theme">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>
+      </svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/>
+      </svg>
+    </button>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ═══════════════ FLIGHT DECK ═══════════════ -->
-  <section class="deck">
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
     <div class="wrap">
-      <div class="deck-grid">
+      <h1>Software engineer building <em>reactive, signals-first interfaces</em> in Angular and React — and the .NET / Node behind them.</h1>
 
-        <div>
-          <h1>Saiful<span class="l2">Islam</span></h1>
-          <div class="role"><span class="placard">Software Engineer</span></div>
-
-          <p class="lede">I build <span class="hl">reactive, signals-first interfaces</span> in Angular and React — and the <b>.NET / Node</b> behind them. 3.5+ years shipping enterprise systems with an <b>AI-native</b> workflow.</p>
-
-          <div class="actions">
-            <a href="#work" class="btn btn--engage"><span class="ring" aria-hidden="true"></span>See the work</a>
-            <a href="#contact" class="btn">Get in touch</a>
-          </div>
-
-          <div class="status-row">
-            <span class="on"><span class="lamp" aria-hidden="true"></span>Open to remote</span>
-            <span class="sep" aria-hidden="true"></span>
-            <span>Dhaka, BD · UTC+6</span>
-            <span class="sep" aria-hidden="true"></span>
-            <span>Toolchain — Claude · Cursor · Ollama · OpenCode</span>
-          </div>
-        </div>
-
-        <div class="panel">
-          <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
-          <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
-
-          <div class="sixpack" id="sixpack">
-
-            <!-- 1. ALTIMETER — EXPERIENCE (0–10 yrs, needle 3.5) -->
-            <figure class="gauge" tabindex="0" data-read="Experience — <b>3.5+ years</b> shipping production software">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Altimeter styled gauge reading three point five: 3.5+ years of experience.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <path class="tick-maj" d="M44.85,155.15 A78,78 0 1 1 155.15,155.15" pathLength="270" stroke-width="13" stroke-dasharray="1.7 25.3" stroke-dashoffset="-0.85"/>
-                <path class="tick-min" d="M46.97,153.03 A75,75 0 1 1 153.03,153.03" pathLength="270" stroke-width="6" stroke-dasharray=".9 4.5" stroke-dashoffset="-0.45"/>
-                <text class="gtext" x="57.6" y="142.4" text-anchor="middle" dominant-baseline="middle">0</text>
-                <text class="gtext" x="40.7" y="90.6" text-anchor="middle" dominant-baseline="middle">2</text>
-                <text class="gtext" x="72.8" y="46.5" text-anchor="middle" dominant-baseline="middle">4</text>
-                <text class="gtext" x="127.2" y="46.5" text-anchor="middle" dominant-baseline="middle">6</text>
-                <text class="gtext" x="159.3" y="90.6" text-anchor="middle" dominant-baseline="middle">8</text>
-                <text class="gtext" x="142.4" y="142.4" text-anchor="middle" dominant-baseline="middle">10</text>
-                <text class="glabel" x="100" y="76" text-anchor="middle">YEARS</text>
-                <text class="gread" x="100" y="132" text-anchor="middle">3.5+</text>
-                <path class="arc-live" d="M44.85,155.15 A78,78 0 0 1 49.32,40.7" stroke-width="3.4" stroke-linecap="butt" opacity=".7"/>
-                <g class="needle" data-target="-40.5" style="--a:-40.5deg">
-                  <path d="M100,100 L96.6,96 L100,29 L103.4,96 Z"/>
-                  <path d="M97.4,100 L102.6,100 L102.6,119 L97.4,119 Z" opacity=".85"/>
-                </g>
-                <circle cx="100" cy="100" r="7.5" fill="url(#hub)" stroke="#000" stroke-width=".8"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>ALT · Experience</span><b>3.5+ yrs</b></figcaption>
-            </figure>
-
-            <!-- 2. AIRSPEED — ENDPOINTS (0–1000, needle 900) -->
-            <figure class="gauge" tabindex="0" data-read="Airspeed — <b>900+ typed endpoints</b> designed and shipped">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Airspeed styled gauge reading nine hundred: 900+ typed endpoints.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <path class="arc-live" d="M44.85,155.15 A78,78 0 1 1 152.5,152.5" pathLength="270" stroke-width="3.6" stroke-dasharray="243 270" stroke-linecap="butt"/>
-                <path class="arc-caut" d="M44.85,155.15 A78,78 0 1 1 155.15,155.15" pathLength="270" stroke-width="3.6" stroke-dasharray="0 243 27" stroke-linecap="butt"/>
-                <path class="tick-maj" d="M46.97,153.03 A75,75 0 1 1 153.03,153.03" pathLength="270" stroke-width="12" stroke-dasharray="1.7 52.3" stroke-dashoffset="-0.85"/>
-                <path class="tick-min" d="M48.4,151.6 A73,73 0 1 1 151.6,151.6" pathLength="270" stroke-width="6" stroke-dasharray=".9 12.6" stroke-dashoffset="-0.45"/>
-                <text class="gtext sm" x="57.6" y="140" text-anchor="middle" dominant-baseline="middle">0</text>
-                <text class="gtext sm" x="43" y="90" text-anchor="middle" dominant-baseline="middle">200</text>
-                <text class="gtext sm" x="73.5" y="49" text-anchor="middle" dominant-baseline="middle">400</text>
-                <text class="gtext sm" x="126.5" y="49" text-anchor="middle" dominant-baseline="middle">600</text>
-                <text class="gtext sm" x="157" y="90" text-anchor="middle" dominant-baseline="middle">800</text>
-                <text class="gtext sm" x="141" y="140" text-anchor="middle" dominant-baseline="middle">1000</text>
-                <text class="glabel" x="100" y="78" text-anchor="middle">ENDPOINTS</text>
-                <text class="gread" x="100" y="130" text-anchor="middle">900+</text>
-                <g class="needle" data-target="108" style="--a:108deg">
-                  <path d="M100,100 L96.6,96 L100,29 L103.4,96 Z"/>
-                  <path d="M97.4,100 L102.6,100 L102.6,119 L97.4,119 Z" opacity=".85"/>
-                </g>
-                <circle cx="100" cy="100" r="7.5" fill="url(#hub)" stroke="#000" stroke-width=".8"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>IAS · Endpoints</span><b>900+ typed</b></figcaption>
-            </figure>
-
-            <!-- 3. ATTITUDE — FULL STACK -->
-            <figure class="gauge" tabindex="0" id="g-att" data-read="Attitude — <b>full stack</b>, frontend above the line, backend below">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Attitude indicator: frontend above the horizon, backend below — full stack.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <g clip-path="url(#fclip)">
-                  <g id="horizon">
-                    <rect x="-40" y="-40" width="280" height="140" fill="url(#sky)"/>
-                    <rect x="-40" y="100" width="280" height="180" fill="url(#gnd)"/>
-                    <path d="M-40,100 H240" stroke="#F2F5F5" stroke-width="2"/>
-                    <g stroke="#C9D1D2" stroke-width="1.2" opacity=".85">
-                      <path d="M78,80 H122"/><path d="M86,68 H114"/>
-                      <path d="M78,120 H122"/><path d="M86,132 H114"/>
-                    </g>
-                    <text class="glabel" x="100" y="56" text-anchor="middle" fill="#CDE2EA">FRONTEND</text>
-                    <text class="glabel" x="100" y="150" text-anchor="middle" fill="#E2CFAA">BACKEND</text>
-                  </g>
-                </g>
-                <g fill="none" stroke="#7CFF9E" stroke-width="3" stroke-linecap="round">
-                  <path d="M58,100 H82"/><path d="M118,100 H142"/>
-                </g>
-                <circle cx="100" cy="100" r="3.4" fill="#7CFF9E"/>
-                <path d="M100,20 l-6,10 h12 z" fill="#F2F5F5"/>
-                <g class="tick-maj" stroke-width="2">
-                  <path d="M72.7,26.8 l-4.2,-8.2" /><path d="M127.3,26.8 l4.2,-8.2"/>
-                  <path d="M52.5,44.2 l-6.4,-6.4"/><path d="M147.5,44.2 l6.4,-6.4"/>
-                </g>
-                <text class="glabel" x="100" y="176" text-anchor="middle" fill="#7CFF9E">LEVEL</text>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>ATT · Full stack</span><b>front + back</b></figcaption>
-            </figure>
-
-            <!-- 4. TURN COORDINATOR — SURFACES -->
-            <figure class="gauge" tabindex="0" data-read="Turn coordinator — three shipped surfaces: <b>web, admin console, mobile</b>">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Turn coordinator: three shipped surfaces — web, admin console and mobile.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <g class="tick-maj" stroke-width="2.4">
-                  <path d="M100,20 v11"/>
-                  <path d="M58.5,31.1 l5.5,9.5"/><path d="M141.5,31.1 l-5.5,9.5"/>
-                  <path d="M31.1,58.5 l9.5,5.5"/><path d="M168.9,58.5 l-9.5,5.5"/>
-                </g>
-                <text class="glabel" x="41" y="99" text-anchor="middle" fill="#C6CDCE">L</text>
-                <text class="glabel" x="159" y="99" text-anchor="middle" fill="#C6CDCE">R</text>
-                <g id="tc-plane" fill="none" stroke="#7CFF9E" stroke-width="3.2" stroke-linecap="round">
-                  <path d="M46,88 H154"/><path d="M100,74 V88"/><path d="M86,102 H114"/>
-                </g>
-                <circle cx="100" cy="88" r="4" fill="#7CFF9E"/>
-                <path d="M64,132 a36,36 0 0 0 72,0" fill="#0A0C0D" stroke="#3D4348" stroke-width="1.4"/>
-                <g stroke="#8E9698" stroke-width="1.4"><path d="M92,126 v10"/><path d="M108,126 v10"/></g>
-                <circle cx="100" cy="133.4" r="5.2" fill="#E9EFEF" opacity=".92"/>
-                <text class="glabel" x="100" y="158" text-anchor="middle">WEB · ADMIN · MOBILE</text>
-                <text class="glabel" x="100" y="60" text-anchor="middle">SURFACES</text>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>T/C · Surfaces</span><b>web · admin · app</b></figcaption>
-            </figure>
-
-            <!-- 5. VERTICAL SPEED — PRODUCTS SHIPPED -->
-            <figure class="gauge" tabindex="0" data-read="Vertical speed — <b>6+ products</b> shipped, still climbing">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Vertical speed indicator climbing at six: 6+ products shipped.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <circle class="tick-min" cx="100" cy="100" r="75" fill="none" pathLength="360" stroke-width="6" stroke-dasharray="1 7" transform="rotate(-90 100 100)"/>
-                <circle class="tick-maj" cx="100" cy="100" r="77" fill="none" pathLength="360" stroke-width="12" stroke-dasharray="1.8 14.2" transform="rotate(-90 100 100)"/>
-                <text class="gtext" x="40" y="100" text-anchor="middle" dominant-baseline="middle">0</text>
-                <text class="gtext sm" x="89.6" y="40.9" text-anchor="middle" dominant-baseline="middle">5</text>
-                <text class="gtext sm" x="156.4" y="79.5" text-anchor="middle" dominant-baseline="middle">10</text>
-                <text class="gtext sm" x="89.6" y="159.1" text-anchor="middle" dominant-baseline="middle">5</text>
-                <text class="gtext sm" x="156.4" y="120.5" text-anchor="middle" dominant-baseline="middle">10</text>
-                <text class="glabel" x="72" y="74" text-anchor="middle">UP</text>
-                <text class="glabel" x="72" y="130" text-anchor="middle">DN</text>
-                <text class="glabel" x="116" y="122" text-anchor="middle">PRODUCTS</text>
-                <text class="gread" x="116" y="140" text-anchor="middle">6+</text>
-                <path class="arc-live" d="M40,100 A60,60 0 0 1 130.5,48.6" stroke-width="3" opacity=".55"/>
-                <g class="needle needle-g" data-target="6" style="--a:6deg">
-                  <path d="M100,100 L97,96.5 L100,32 L103,96.5 Z"/>
-                  <path d="M98,100 L102,100 L102,114 L98,114 Z" opacity=".7"/>
-                </g>
-                <circle cx="100" cy="100" r="7" fill="url(#hub)" stroke="#000" stroke-width=".8"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>V/S · Shipped</span><b>6+ products</b></figcaption>
-            </figure>
-
-            <!-- 6. HEADING — BASE -->
-            <figure class="gauge" tabindex="0" data-read="Heading — based in <b>Dhaka, UTC+6</b>, working remote">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Heading indicator: based in Dhaka, UTC plus six, working remote.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <g id="hdg-card" transform="rotate(-60 100 100)">
-                  <circle class="tick-min" cx="100" cy="100" r="75" fill="none" pathLength="360" stroke-width="6" stroke-dasharray="1 4" transform="rotate(-90 100 100)"/>
-                  <circle class="tick-maj" cx="100" cy="100" r="77" fill="none" pathLength="360" stroke-width="12" stroke-dasharray="1.8 28.2" transform="rotate(-90 100 100)"/>
-                  <text class="gtext" x="100" y="42" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 100 42)">N</text>
-                  <text class="gtext sm" x="150" y="71" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 150 71)">3</text>
-                  <text class="gtext sm" x="150" y="129" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 150 129)">6</text>
-                  <text class="gtext" x="100" y="158" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 100 158)">S</text>
-                  <text class="gtext sm" x="50" y="71" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 50 71)">30</text>
-                  <path d="M158,100 l-7,-5 v10 z" fill="#FFB000"/>
-                </g>
-                <path d="M100,22 l-5.5,9 h11 z" fill="#F2F5F5"/>
-                <path class="acft" d="M100,64 c2.7,0 4.2,3.1 4.4,8.2 l0.4,18.6 27.2,12.4 v6.4 l-27.2,-5.9 0.4,13.9 7.2,5.2 v4.2 l-12.4,-2.6 -12.4,2.6 v-4.2 l7.2,-5.2 0.4,-13.9 -27.2,5.9 v-6.4 l27.2,-12.4 0.4,-18.6 c0.2,-5.1 1.7,-8.2 4.4,-8.2 z" fill="#0A0F0C" stroke="#7CFF9E" stroke-width="2.2" stroke-linejoin="round"/>
-                <rect x="74" y="136" width="52" height="19" rx="2" fill="#07090A" stroke="#3D4348" stroke-width="1"/>
-                <text class="gread" x="100" y="149.5" text-anchor="middle">UTC+6</text>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>HDG · Base</span><b>Dhaka · UTC+6</b></figcaption>
-            </figure>
-
-          </div>
-
-          <div class="crosscheck">
-            <span class="placard">Cross-check</span>
-            <span class="out" id="ccout" aria-live="polite">Six instruments, one engineer — hover, tap or focus any gauge.</span>
-          </div>
-        </div>
-
+      <div class="actions">
+        <a class="btn btn-primary" href="#work">
+          See the work
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10"/><path d="M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn" href="#contact">Get in touch</a>
       </div>
 
-      <div class="statuslist">
-        <div class="sl-row"><span class="k">ERP platforms</span><span class="v num">4</span></div>
-        <div class="sl-row"><span class="k">Lazy routes</span><span class="v num">80+</span></div>
-        <div class="sl-row"><span class="k">Localization keys</span><span class="v num">1,000+</span></div>
-        <div class="sl-row"><span class="k">Master components</span><span class="v num">40+</span></div>
-        <div class="sl-row sl-close"><span class="k">All systems normal</span><span class="lamp" aria-hidden="true"></span></div>
-      </div>
+      <ul class="proof">
+        <li><b>3.5+</b> years shipping</li>
+        <li><b>4</b> ERP platforms</li>
+        <li><b>6+</b> products shipped</li>
+        <li><b>AI-native</b> workflow</li>
+      </ul>
+
+      <p class="avail"><span class="dot" aria-hidden="true"></span>Open to remote · Dhaka, BD · UTC+6</p>
     </div>
   </section>
 
-  <!-- ═══════════════ LOGBOOK ═══════════════ -->
-  <section class="sec" id="experience">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Where the hours went</h2>
-        <span class="count">3 operators · 2023 → present</span>
-      </div>
-
-      <div class="logbook">
-        <div class="log-head" aria-hidden="true">
-          <span>Period</span><span>Operator</span><span>Type</span><span></span>
-        </div>
-
-        <div class="log-row">
-          <h3>
-            <button class="log-btn" type="button" aria-expanded="true" aria-controls="lp1" id="lb1">
-              <span class="log-when">2026-03 →</span>
-              <span class="log-op">Netpower<span class="log-role">Software Engineer</span></span>
-              <span class="log-type">Angular 21 · Certain QMS</span>
-              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-            </button>
-          </h3>
-          <div class="log-panel" data-open="true" id="lp1" role="region" aria-labelledby="lb1">
-            <div><ul class="remarks">
-              <li>Built signals-first Angular 21 features for <b>Certain QMS</b> across the Deviation, Checklist &amp; Handbook modules — per-route NgRx Signal stores, dual JWT/OTP auth, Chart.js dashboards with multi-format export, and Quill rich-text editing — scaffolded with Claude &amp; Cursor agents.</li>
-              <li>Shipped localized UI (no/en, 1,000+ keys) and authored the Playwright + Vitest testing foundation across all three apps, using AI agents (Claude, OpenCode) to generate test data and flag coverage gaps.</li>
-              <li>Contribute to architecture decisions &amp; code review across the Deviation, Checklist &amp; Handbook modules, and extend the Playwright/Vitest testing strategy as new modules ship.</li>
-              <li>Extend the reporting/export and localization foundations (Chart.js, @ngx-translate) to new modules, and help drive adoption of AI-assisted workflows (Claude, Cursor, OpenCode) across the team.</li>
-            </ul></div>
-          </div>
-        </div>
-
-        <div class="log-row">
-          <h3>
-            <button class="log-btn" type="button" aria-expanded="false" aria-controls="lp2" id="lb2">
-              <span class="log-when">2024-09 → 2026-02</span>
-              <span class="log-op">MultiTech Systems<span class="log-role">Software Engineer</span></span>
-              <span class="log-type">Angular 19+ · .NET 10</span>
-              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-            </button>
-          </h3>
-          <div class="log-panel" data-open="false" id="lp2" role="region" aria-labelledby="lb2">
-            <div><ul class="remarks">
-              <li>Architected &amp; delivered 4 enterprise ERP platforms with Angular 19+, .NET 10, PostgreSQL, Redis and MinIO/S3.</li>
-              <li>900+ typed endpoints, 80+ lazy routes, signal-based state, a recursive permission system and tokenized S3 uploads.</li>
-              <li>CI/CD with multi-stage Docker, Nginx and SSH deploys; Clean Architecture, DDD, Modular Monolith and Result patterns.</li>
-            </ul></div>
-          </div>
-        </div>
-
-        <div class="log-row">
-          <h3>
-            <button class="log-btn" type="button" aria-expanded="false" aria-controls="lp3" id="lb3">
-              <span class="log-when">2023-02 → 2024-08</span>
-              <span class="log-op">Constant Concept<span class="log-role">Angular Developer</span></span>
-              <span class="log-type">Remote · International</span>
-              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
-            </button>
-          </h3>
-          <div class="log-panel" data-open="false" id="lp3" role="region" aria-labelledby="lb3">
-            <div><ul class="remarks">
-              <li>Built educational platforms (Plabook, Augie) for international teams.</li>
-              <li>40+ reusable master components powering 2000+ games; Stripe &amp; PayPal payment flows with full validation.</li>
-              <li>Contributed Android development in Kotlin &amp; Jetpack Compose (MVVM).</li>
-            </ul></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ WORK ═══════════════ -->
+  <!-- ═══════════ WORK ═══════════ -->
   <section class="sec" id="work">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>Things I shipped on my own time</h2>
-        <span class="count">4 systems · 2 live</span>
-      </div>
+      <h2>Selected work</h2>
+      <ul class="work">
 
-      <div class="work">
+        <li>
+          <a class="work-row" href="https://campusqbd.com" target="_blank" rel="noopener">
+            <span class="w-head">
+              <span class="w-name">CampusQ</span>
+              <span class="w-tag">Multi-tenant SaaS</span>
+            </span>
+            <span class="w-status"><span class="dot" aria-hidden="true"></span>Live</span>
+            <span class="w-desc">A multi-tenant coaching platform where every tenant gets its own subdomain. Built end-to-end — Postgres row-level security, bitmask RBAC, online exams and bKash/Nagad payments — so isolation holds all the way down.</span>
+            <span class="w-tech">.NET 10 · Postgres RLS · Angular 21 · Next.js 16 · bitmask RBAC · bKash / Nagad · PWA + push · en / bn</span>
+            <span class="w-link">campusqbd.com
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11L11 5"/><path d="M6 5h5v5"/></svg>
+            </span>
+          </a>
+        </li>
 
-        <a class="mod wide" href="https://campusqbd.com" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>CampusQ</h3>
-            <span class="placard">Multi-tenant SaaS</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
+        <li>
+          <div class="work-row">
+            <span class="w-head">
+              <span class="w-name">Rent-ERP</span>
+              <span class="w-tag">Web + mobile ERP</span>
+            </span>
+            <span class="w-status priv"><span class="dot" aria-hidden="true"></span>Source private</span>
+            <span class="w-desc">A single-org property-management ERP across three surfaces — a .NET 10 modular monolith, an Angular 21 admin console, and a React Native app serving tenants and staff from one binary. Reuses the CampusQ architecture, minus the multi-tenant layer.</span>
+            <span class="w-tech">.NET 10 · Angular 21 · React Native · Postgres · bKash · FCM push · RBAC personas · en / bn</span>
           </div>
-          <div class="schem">
-            <svg viewBox="0 0 900 132" role="img" aria-label="Architecture: three tenant subdomains pass through a Postgres row-level-security boundary into shared .NET 10 services, with bitmask RBAC, exams and bKash or Nagad payments.">
-              <g>
-                <rect class="sc-box" x="8" y="12" width="118" height="26" rx="2"/>
-                <rect class="sc-box" x="8" y="53" width="118" height="26" rx="2"/>
-                <rect class="sc-box" x="8" y="94" width="118" height="26" rx="2"/>
-                <text class="sc-t" x="20" y="29">a.campusqbd.com</text>
-                <text class="sc-t" x="20" y="70">b.campusqbd.com</text>
-                <text class="sc-t" x="20" y="111">c.campusqbd.com</text>
-                <path class="sc-line" d="M126,25 H176 V66"/>
-                <path class="sc-line" d="M126,66 H176"/>
-                <path class="sc-line" d="M126,107 H176 V66"/>
-                <path class="sc-line-a" d="M176,66 H236"/>
-                <rect class="sc-dash" x="236" y="18" width="150" height="96" rx="3"/>
-                <text class="sc-t d" x="244" y="34">POSTGRES RLS</text>
-                <text class="sc-t g" x="244" y="50">tenant_id boundary</text>
-                <text class="sc-t d" x="244" y="70">BITMASK RBAC</text>
-                <text class="sc-t g" x="244" y="86">role &amp; claim bits</text>
-                <text class="sc-t d" x="244" y="106">ISOLATION HOLDS DOWN</text>
-                <path class="sc-line-a" d="M386,66 H446"/>
-                <rect class="sc-box-a" x="446" y="40" width="140" height="52" rx="2"/>
-                <text class="sc-t g" x="460" y="62">.NET 10 CORE</text>
-                <text class="sc-t" x="460" y="78">modular services</text>
-                <path class="sc-line" d="M586,53 H636"/><path class="sc-line" d="M586,66 H636"/><path class="sc-line" d="M586,79 H636"/>
-                <rect class="sc-box" x="636" y="10" width="122" height="26" rx="2"/>
-                <rect class="sc-box" x="636" y="53" width="122" height="26" rx="2"/>
-                <rect class="sc-box" x="636" y="96" width="122" height="26" rx="2"/>
-                <path class="sc-line" d="M636,23 H616 V66"/><path class="sc-line" d="M636,109 H616 V66"/>
-                <text class="sc-t" x="648" y="27">ANGULAR 21 APP</text>
-                <text class="sc-t" x="648" y="70">NEXT.JS 16 SITE</text>
-                <text class="sc-t" x="648" y="113">PWA + PUSH</text>
-                <path class="sc-line-a" d="M758,66 H812"/>
-                <rect class="sc-box-a" x="812" y="40" width="80" height="52" rx="2"/>
-                <text class="sc-t g" x="822" y="62">bKash</text>
-                <text class="sc-t g" x="822" y="78">Nagad</text>
-              </g>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>A multi-tenant coaching platform where every tenant gets its own subdomain. Built end-to-end — Postgres row-level security, bitmask RBAC, online exams and bKash/Nagad payments — so isolation holds all the way down.</p>
-          <div class="specs">
-            <span class="spec">.NET 10</span><span class="spec">Postgres RLS</span><span class="spec">Angular 21</span>
-            <span class="spec">Next.js 16</span><span class="spec">bitmask RBAC</span><span class="spec">bKash / Nagad</span>
-            <span class="spec">PWA + push</span><span class="spec">en / bn</span>
-          </div>
-          <span class="mod-go">View live — campusqbd.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
+        </li>
 
-        <div class="mod half mod--caution">
-          <div class="mod-top">
-            <h3>Rent-ERP</h3>
-            <span class="placard">Web + mobile ERP</span>
-            <span class="mod-lamp restricted"><span class="lamp amber" aria-hidden="true"></span>Restricted</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 420 120" role="img" aria-label="Architecture: an Angular admin console, a React Native app and push notifications all served by one .NET 10 modular monolith over Postgres.">
-              <rect class="sc-box" x="6" y="6" width="120" height="24" rx="2"/>
-              <rect class="sc-box" x="6" y="48" width="120" height="24" rx="2"/>
-              <rect class="sc-box" x="6" y="90" width="120" height="24" rx="2"/>
-              <text class="sc-t" x="16" y="22">ANGULAR 21 ADMIN</text>
-              <text class="sc-t" x="16" y="64">REACT NATIVE APP</text>
-              <text class="sc-t" x="16" y="106">FCM PUSH</text>
-              <path class="sc-line" d="M126,18 H166 V60"/><path class="sc-line" d="M126,60 H166"/><path class="sc-line" d="M126,102 H166 V60"/>
-              <path class="sc-line-a" d="M166,60 H206"/>
-              <rect class="sc-box-a" x="206" y="34" width="122" height="52" rx="2"/>
-              <text class="sc-t g" x="218" y="56">.NET 10 MONOLITH</text>
-              <text class="sc-t" x="218" y="72">single org · HRM</text>
-              <path class="sc-line-a" d="M328,60 H366"/>
-              <rect class="sc-box" x="366" y="34" width="48" height="52" rx="2"/>
-              <text class="sc-t" x="376" y="56">PG</text>
-              <text class="sc-t d" x="376" y="72">SQL</text>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>A single-org property-management ERP across three surfaces — a .NET 10 modular monolith, an Angular 21 admin console, and a React Native app serving tenants and staff from one binary. Reuses the CampusQ architecture, minus the multi-tenant layer.</p>
-          <div class="specs">
-            <span class="spec">.NET 10</span><span class="spec">Angular 21</span><span class="spec">React Native</span>
-            <span class="spec">Postgres</span><span class="spec">bKash</span><span class="spec">FCM push</span>
-            <span class="spec">RBAC personas</span><span class="spec">en / bn</span>
-          </div>
-          <span class="mod-note">
-            <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
-            Source private · single-org product
-          </span>
-        </div>
+        <li>
+          <a class="work-row" href="https://www.pogiit.com/" target="_blank" rel="noopener">
+            <span class="w-head">
+              <span class="w-name">DebuggerMind Commerce</span>
+              <span class="w-tag">E-commerce</span>
+            </span>
+            <span class="w-status"><span class="dot" aria-hidden="true"></span>Live</span>
+            <span class="w-desc">An in-house, white-label e-commerce storefront (Next.js 15 + .NET API) we use to demo the platform to prospective clients — maintaining an international build and a localized Bengali variant in parallel, with additional storefront themes in progress.</span>
+            <span class="w-tech">Next.js 15 · TypeScript · .NET API · JWT auth · GA4 / Meta CAPI · 6 languages</span>
+            <span class="w-link">pogiit.com
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11L11 5"/><path d="M6 5h5v5"/></svg>
+            </span>
+          </a>
+        </li>
 
-        <a class="mod half" href="https://www.pogiit.com/" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>DebuggerMind Commerce</h3>
-            <span class="placard">E-commerce</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 420 120" role="img" aria-label="Architecture: an international storefront and a Bengali storefront share one Next.js 15 build against a .NET API, with GA4 and Meta CAPI analytics.">
-              <rect class="sc-box" x="6" y="14" width="118" height="26" rx="2"/>
-              <rect class="sc-box" x="6" y="80" width="118" height="26" rx="2"/>
-              <text class="sc-t" x="16" y="31">INTL STOREFRONT</text>
-              <text class="sc-t" x="16" y="97">BENGALI VARIANT</text>
-              <path class="sc-line" d="M124,27 H162 V60"/><path class="sc-line" d="M124,93 H162 V60"/>
-              <path class="sc-line-a" d="M162,60 H200"/>
-              <rect class="sc-box-a" x="200" y="34" width="112" height="52" rx="2"/>
-              <text class="sc-t g" x="210" y="56">NEXT.JS 15</text>
-              <text class="sc-t" x="210" y="72">6 languages</text>
-              <path class="sc-line-a" d="M312,60 H350"/>
-              <rect class="sc-box" x="350" y="20" width="64" height="34" rx="2"/>
-              <rect class="sc-box" x="350" y="66" width="64" height="34" rx="2"/>
-              <text class="sc-t" x="358" y="40">.NET API</text>
-              <text class="sc-t d" x="358" y="86">GA4 / CAPI</text>
-              <path class="sc-line" d="M340,60 V37 H350"/><path class="sc-line" d="M340,60 V83 H350"/>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>An in-house, white-label e-commerce storefront (Next.js 15 + .NET API) we use to demo the platform to prospective clients — maintaining an international build and a localized Bengali variant in parallel, with additional storefront themes in progress.</p>
-          <div class="specs">
-            <span class="spec">Next.js 15</span><span class="spec">TypeScript</span><span class="spec">.NET API</span>
-            <span class="spec">JWT auth</span><span class="spec">GA4 / Meta CAPI</span><span class="spec">6 languages</span>
-          </div>
-          <span class="mod-go">View live — pogiit.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
+        <li>
+          <a class="work-row" href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">
+            <span class="w-head">
+              <span class="w-name">ngx-primeng-toolkit</span>
+              <span class="w-tag">Open source</span>
+            </span>
+            <span class="w-status"><span class="dot" aria-hidden="true"></span>Published</span>
+            <span class="w-desc">An npm package published with automated GitHub Actions CI/CD — parameterized query and table state, memoized data and reusable utilities. Built for internal use, then released to the community.</span>
+            <span class="w-tech">TypeScript · @ngrx/signals · PrimeNG · GitHub Actions</span>
+            <span class="w-link">npmjs.com/package/ngx-primeng-toolkit
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11L11 5"/><path d="M6 5h5v5"/></svg>
+            </span>
+          </a>
+        </li>
 
-        <a class="mod wide" href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>Angular libraries</h3>
-            <span class="placard">Open source</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Published</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 900 96" role="img" aria-label="Architecture: the ngx-primeng-toolkit package exports parameterized query and table state, memoized data helpers and shared utilities, consumed by PrimeNG tables and published to npm by GitHub Actions.">
-              <rect class="sc-box-a" x="8" y="24" width="172" height="48" rx="2"/>
-              <text class="sc-t g" x="22" y="44">ngx-primeng-toolkit</text>
-              <text class="sc-t" x="22" y="60">Angular library</text>
-              <path class="sc-line-a" d="M180,48 H228"/>
-              <path class="sc-line" d="M228,48 V14 H276"/>
-              <path class="sc-line" d="M228,48 H276"/>
-              <path class="sc-line" d="M228,48 V82 H276"/>
-              <rect class="sc-box" x="276" y="2" width="196" height="24" rx="2"/>
-              <rect class="sc-box" x="276" y="36" width="196" height="24" rx="2"/>
-              <rect class="sc-box" x="276" y="70" width="196" height="24" rx="2"/>
-              <text class="sc-t" x="288" y="18">parameterized query state</text>
-              <text class="sc-t" x="288" y="52">memoized data resources</text>
-              <text class="sc-t" x="288" y="86">reusable table utilities</text>
-              <path class="sc-line" d="M472,14 H520 V48"/>
-              <path class="sc-line" d="M472,48 H520"/>
-              <path class="sc-line" d="M472,82 H520 V48"/>
-              <path class="sc-line-a" d="M520,48 H568"/>
-              <rect class="sc-box" x="568" y="24" width="150" height="48" rx="2"/>
-              <text class="sc-t" x="582" y="44">PrimeNG tables</text>
-              <text class="sc-t d" x="582" y="60">internal + community</text>
-              <path class="sc-line-a" d="M718,48 H766"/>
-              <rect class="sc-box-a" x="766" y="24" width="126" height="48" rx="2"/>
-              <text class="sc-t g" x="778" y="44">GH ACTIONS</text>
-              <text class="sc-t" x="778" y="60">publish to npm</text>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>npm packages published with automated GitHub Actions CI/CD — notably <span class="mono">ngx-primeng-toolkit</span>: parameterized query/table state, memoized data and reusable utilities. Built for internal use, then released to the community.</p>
-          <div class="specs">
-            <span class="spec">TypeScript</span><span class="spec">@ngrx/signals</span><span class="spec">PrimeNG</span><span class="spec">GH Actions</span>
-          </div>
-          <span class="mod-go">View on npm <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
-
-      </div>
+      </ul>
     </div>
   </section>
 
-  <!-- ═══════════════ CHECKLIST / STACK ═══════════════ -->
-  <section class="sec" id="skills">
+  <!-- ═══════════ EXPERIENCE ═══════════ -->
+  <section class="sec" id="experience">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>The stack it all runs on</h2>
-        <span class="count">Pre-flight checklist</span>
-      </div>
+      <h2>Experience</h2>
+      <ul class="xp">
 
-      <div class="checklist">
-        <div class="cl">
-          <h3>Frontend</h3>
+        <li>
+          <div class="xp-head">
+            <span class="xp-co">Netpower</span>
+            <span class="xp-role">Software Engineer</span>
+            <span class="xp-when">Mar 2026 — Present</span>
+          </div>
           <ul>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Angular (3.5+ yrs)</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>TypeScript · RxJS</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>NgRx Signals</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Next.js · React</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>React Native (Expo)</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>PrimeNG · Material</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Tailwind CSS v4</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Chart.js</li>
+            <li>Built signals-first Angular 21 features for <b>Certain QMS</b> across the Deviation, Checklist &amp; Handbook modules — per-route NgRx Signal stores, dual JWT/OTP auth, Chart.js dashboards with multi-format export, and Quill rich-text editing — scaffolded with Claude &amp; Cursor agents.</li>
+            <li>Shipped localized UI (no/en, 1,000+ keys) and authored the Playwright + Vitest testing foundation across all three apps, using AI agents (Claude, OpenCode) to generate test data and flag coverage gaps.</li>
+            <li>Contribute to architecture decisions &amp; code review across the Deviation, Checklist &amp; Handbook modules, and extend the Playwright/Vitest testing strategy as new modules ship.</li>
+            <li>Extend the reporting/export and localization foundations (Chart.js, @ngx-translate) to new modules, and help drive adoption of AI-assisted workflows (Claude, Cursor, OpenCode) across the team.</li>
           </ul>
-        </div>
-        <div class="cl">
-          <h3>Backend &amp; Data</h3>
+        </li>
+
+        <li>
+          <div class="xp-head">
+            <span class="xp-co">MultiTech Systems</span>
+            <span class="xp-role">Software Engineer</span>
+            <span class="xp-when">Sep 2024 — Feb 2026</span>
+          </div>
           <ul>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>.NET (Core / 10)</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Node.js</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>PostgreSQL (RLS)</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>MongoDB · Redis</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>RESTful APIs</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Firebase</li>
+            <li>Architected &amp; delivered 4 enterprise ERP platforms with Angular 19+, .NET 10, PostgreSQL, Redis and MinIO/S3.</li>
+            <li>900+ typed endpoints, 80+ lazy routes, signal-based state, a recursive permission system and tokenized S3 uploads.</li>
+            <li>CI/CD with multi-stage Docker, Nginx and SSH deploys; Clean Architecture, DDD, Modular Monolith and Result patterns.</li>
           </ul>
-        </div>
-        <div class="cl">
-          <h3>Testing</h3>
+        </li>
+
+        <li>
+          <div class="xp-head">
+            <span class="xp-co">Constant Concept</span>
+            <span class="xp-role">Angular Developer</span>
+            <span class="xp-when">Feb 2023 — Aug 2024 · Remote</span>
+          </div>
           <ul>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Playwright (e2e)</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Vitest</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Synthetic data factories</li>
+            <li>Built educational platforms (Plabook, Augie) for international teams.</li>
+            <li>40+ reusable master components powering 2000+ games; Stripe &amp; PayPal payment flows with full validation.</li>
+            <li>Contributed Android development in Kotlin &amp; Jetpack Compose (MVVM).</li>
           </ul>
-        </div>
-        <div class="cl">
-          <h3>DevOps &amp; Infra</h3>
-          <ul>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Docker · Nginx</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>GitHub Actions</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Azure DevOps · AWS</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Linux · Git</li>
-          </ul>
-        </div>
-        <div class="cl">
-          <h3>AI &amp; Dev Tools</h3>
-          <ul>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Claude · Cursor</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>OpenCode</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Ollama (local LLMs)</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>GitHub Copilot</li>
-          </ul>
-        </div>
-      </div>
+        </li>
+
+      </ul>
     </div>
   </section>
 
-  <!-- ═══════════════ CERTIFICATION ═══════════════ -->
-  <section class="sec" style="padding-top:0">
+  <!-- ═══════════ STACK ═══════════ -->
+  <section class="sec" id="stack">
     <div class="wrap">
-      <div class="sec-head">
-        <h2>Certification</h2>
-        <span class="count">Comilla University · Poridhi.io × Brain Station 23</span>
-      </div>
-      <div class="cert">
-        <div class="cert-block">
+      <h2>Stack</h2>
+      <dl class="stack">
+        <div class="stack-row"><dt>Frontend</dt><dd>Angular · TypeScript · RxJS · NgRx Signals · React · React Native (Expo) · Next.js</dd></div>
+        <div class="stack-row"><dt>UI</dt><dd>PrimeNG · Angular Material · Tailwind CSS v4 · Chart.js</dd></div>
+        <div class="stack-row"><dt>Backend</dt><dd>.NET (Core / 10) · Node.js · RESTful APIs</dd></div>
+        <div class="stack-row"><dt>Data</dt><dd>PostgreSQL (RLS) · MongoDB · Redis · Firebase</dd></div>
+        <div class="stack-row"><dt>Testing</dt><dd>Playwright (e2e) · Vitest · synthetic data factories</dd></div>
+        <div class="stack-row"><dt>DevOps</dt><dd>Docker · Nginx · GitHub Actions · Azure DevOps · AWS · Linux · Git</dd></div>
+        <div class="stack-row"><dt>AI tools</dt><dd>Claude · Cursor · OpenCode · Ollama (local LLMs) · GitHub Copilot</dd></div>
+        <div class="stack-row"><dt>Ask me about</dt><dd>Angular Signals · multi-tenant architecture · Postgres RLS · cross-platform React Native</dd></div>
+      </dl>
+
+      <div class="meta">
+        <div>
           <h3>Education</h3>
-          <div class="cert-item">
+          <div class="meta-item">
             <div class="t">MSc, Information &amp; Communication Technology</div>
             <div class="s">Comilla University · 2025</div>
           </div>
-          <div class="cert-item">
+          <div class="meta-item">
             <div class="t">BSc, Information &amp; Communication Technology</div>
             <div class="s">Comilla University · 2024</div>
           </div>
         </div>
-        <div class="cert-block">
-          <h3>Awards &amp; Certifications</h3>
-          <div class="cert-item">
+        <div>
+          <h3>Awards &amp; certifications</h3>
+          <div class="meta-item">
             <div class="t">1st Runner-Up — DevOps Hackathon</div>
             <div class="s">Poridhi.io × Brain Station 23</div>
           </div>
-          <div class="cert-item">
+          <div class="meta-item">
             <div class="t">JavaScript Algorithms &amp; Data Structures</div>
             <div class="s">freeCodeCamp</div>
           </div>
@@ -1198,26 +549,30 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
     </div>
   </section>
 
-  <!-- ═══════════════ CLEARANCE ═══════════════ -->
-  <section class="clear" id="contact">
+  <!-- ═══════════ CONTACT ═══════════ -->
+  <section class="contact" id="contact">
     <div class="wrap">
-      <h2 class="big">Let's build something<br><span class="em">that reacts.</span></h2>
+      <h2>Contact</h2>
+      <p class="say">Open to remote roles and interesting problems.</p>
       <div class="links">
-        <a href="mailto:saiful70.me@gmail.com" class="btn btn--engage"><span class="ring" aria-hidden="true"></span>saiful70.me@gmail.com</a>
-        <a href="https://wa.me/8801689740070" target="_blank" rel="noopener" class="btn">WhatsApp</a>
-        <a href="https://docs.google.com/document/d/1XCH0XdS_Svnb2OGRJEQBvJOm1GXuifI1/edit?usp=sharing&amp;ouid=114028785100709203490&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" class="btn">Resume</a>
-        <a href="https://github.com/saiful-70" target="_blank" rel="noopener" class="btn">GitHub</a>
-        <a href="https://linkedin.com/in/saiful70" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+        <a class="btn btn-primary" href="mailto:saiful70.me@gmail.com">
+          saiful70.me@gmail.com
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10"/><path d="M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn" href="https://wa.me/8801689740070" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn" href="https://docs.google.com/document/d/1XCH0XdS_Svnb2OGRJEQBvJOm1GXuifI1/edit?usp=sharing&amp;ouid=114028785100709203490&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener">Résumé</a>
+        <a class="btn" href="https://github.com/saiful-70" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/saiful70" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-      <div class="foot-note"><span class="lamp" aria-hidden="true"></span>Cleared for remote · replies within a day</div>
+      <p class="avail"><span class="dot" aria-hidden="true"></span>Usually replies within a day</p>
     </div>
   </section>
 
   <footer>
-    <div class="wrap plate">
+    <div class="wrap foot">
       <span>© <span id="year">2026</span> Saiful Islam</span>
       <span>Dhaka, BD · +880 1689740070</span>
-      <span class="grow">No framework · no build step</span>
+      <span class="grow">No framework, no build step</span>
     </div>
   </footer>
 
@@ -1226,128 +581,38 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
 <script>
 (function(){
   "use strict";
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- live Dhaka clock (24h) ---- */
-  var clock = document.getElementById("clock");
-  function tick(){
-    try{
-      var t = new Date().toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Asia/Dhaka"});
-      clock.textContent = "DHAKA " + t;
-    }catch(e){ clock.textContent = "DHAKA"; }
+  /* ---- theme toggle: light is the default, the choice is remembered ---- */
+  var root = document.documentElement;
+  var btn  = document.getElementById("theme");
+  function label(){
+    var dark = root.getAttribute("data-theme") === "dark";
+    btn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
   }
-  tick(); setInterval(tick, 1000 * 30);
+  var meta = document.getElementById("theme-color");
+  function chrome(){
+    if (!meta) return;
+    meta.setAttribute("content", root.getAttribute("data-theme") === "dark" ? "#0B0B0C" : "#FFFFFF");
+  }
+  label(); chrome();
+  btn.addEventListener("click", function(){
+    var dark = root.getAttribute("data-theme") === "dark";
+    if (dark) { root.removeAttribute("data-theme"); }
+    else      { root.setAttribute("data-theme", "dark"); }
+    try { localStorage.setItem("theme", dark ? "light" : "dark"); } catch(e){}
+    chrome();
+    label();
+  });
+
+  /* ---- hairline under the header once the page moves ---- */
+  var head = document.getElementById("head");
+  function onScroll(){ head.classList.toggle("stuck", window.scrollY > 4); }
+  onScroll();
+  window.addEventListener("scroll", onScroll, {passive:true});
 
   /* ---- year ---- */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
-
-  /* ---- header lift ---- */
-  var head = document.getElementById("deck-head");
-  function onScroll(){ head.classList.toggle("lifted", window.scrollY > 8); }
-  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
-
-  /* ---- POWER-ON: the one authored moment.
-         Needles sweep from rest to value with damped spring physics. ---- */
-  var pack = document.getElementById("sixpack");
-  var needles = pack ? Array.prototype.slice.call(pack.querySelectorAll(".needle")) : [];
-
-  function powerOn(){
-    needles.forEach(function(n, i){
-      var target = parseFloat(n.getAttribute("data-target")) || 0;
-      var from = target - 300;              // wind back below the stop
-      var pos = from, vel = 0;
-      var k = 0.055, damp = 0.80;           // stiff enough to arrive, damped enough to settle
-      var started = false, t0 = performance.now() + i * 90;
-      n.style.setProperty("--a", from + "deg");
-      function step(now){
-        if (now < t0){ requestAnimationFrame(step); return; }
-        if (!started) started = true;
-        var a = (target - pos) * k;
-        vel = (vel + a) * damp;
-        pos += vel;
-        n.style.setProperty("--a", pos.toFixed(2) + "deg");
-        if (Math.abs(target - pos) > 0.05 || Math.abs(vel) > 0.05){
-          requestAnimationFrame(step);
-        } else {
-          n.style.setProperty("--a", target + "deg");
-        }
-      }
-      requestAnimationFrame(step);
-    });
-  }
-
-  if (!reduce && needles.length){
-    if ("IntersectionObserver" in window){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting){ powerOn(); io.disconnect(); }
-        });
-      }, {threshold:.25});
-      io.observe(pack);
-    } else { powerOn(); }
-  }
-
-  /* ---- CROSS-CHECK: the signature interaction.
-         Focus or hover one instrument, the other five dim, the readout names the value. ---- */
-  var out = document.getElementById("ccout");
-  var idle = out ? out.innerHTML : "";
-  var gauges = pack ? Array.prototype.slice.call(pack.querySelectorAll(".gauge")) : [];
-
-  function light(g){
-    gauges.forEach(function(x){ x.classList.toggle("lit", x === g); });
-    pack.classList.add("checking");
-    if (out) out.innerHTML = g.getAttribute("data-read");
-  }
-  function clearLight(){
-    gauges.forEach(function(x){ x.classList.remove("lit"); });
-    pack.classList.remove("checking");
-    if (out) out.innerHTML = idle;
-  }
-  gauges.forEach(function(g, i){
-    g.addEventListener("mouseenter", function(){ light(g); });
-    g.addEventListener("mouseleave", clearLight);
-    g.addEventListener("focus", function(){ light(g); });
-    g.addEventListener("blur", clearLight);
-    g.addEventListener("keydown", function(ev){
-      var d = ev.key === "ArrowRight" || ev.key === "ArrowDown" ? 1
-            : ev.key === "ArrowLeft"  || ev.key === "ArrowUp"   ? -1 : 0;
-      if (!d) return;
-      ev.preventDefault();
-      gauges[(i + d + gauges.length) % gauges.length].focus();
-    });
-  });
-
-  /* ---- attitude horizon banks slightly with the pointer ---- */
-  var att = document.getElementById("g-att");
-  var hor = document.getElementById("horizon");
-  if (att && hor && !reduce){
-    att.addEventListener("pointermove", function(e){
-      var r = att.getBoundingClientRect();
-      var dx = (e.clientX - (r.left + r.width/2)) / (r.width/2);
-      var dy = (e.clientY - (r.top + r.height/2)) / (r.height/2);
-      hor.style.transform = "rotate(" + (-dx*5).toFixed(2) + "deg) translateY(" + (-dy*7).toFixed(1) + "px)";
-      hor.style.transformOrigin = "100px 100px";
-    });
-    att.addEventListener("pointerleave", function(){
-      hor.style.transition = "transform .55s cubic-bezier(.2,.7,.25,1)";
-      hor.style.transform = "rotate(0deg) translateY(0)";
-      setTimeout(function(){ hor.style.transition = ""; }, 600);
-    });
-  }
-
-  /* ---- logbook rows ---- */
-  Array.prototype.forEach.call(document.querySelectorAll(".log-btn"), function(btn){
-    var panel = document.getElementById(btn.getAttribute("aria-controls"));
-    function set(open){
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-      panel.setAttribute("data-open", open ? "true" : "false");
-    }
-    set(btn.getAttribute("aria-expanded") === "true");
-    btn.addEventListener("click", function(){
-      set(btn.getAttribute("aria-expanded") !== "true");
-    });
-  });
 })();
 </script>
 </body>
