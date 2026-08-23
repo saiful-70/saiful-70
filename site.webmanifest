@@ -6,8 +6,8 @@
   "start_url": "/saiful-70/",
   "scope": "/saiful-70/",
   "display": "standalone",
-  "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
+  "background_color": "#DBDBD5",
+  "theme_color": "#DBDBD5",
   "icons": [
     {
       "src": "favicon.png",

@@ -1,14 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Saiful Islam">
-  <rect width="32" height="32" rx="5" fill="#0B0D0F"/>
-  <circle cx="16" cy="16" r="12" fill="none" stroke="#2A2D31" stroke-width="2"/>
-  <circle cx="16" cy="16" r="10" fill="#0F1114"/>
-  <g stroke="#F2F5F5" stroke-width="1.6" stroke-linecap="round">
-    <path d="M16 5.2v2.4"/><path d="M26.8 16h-2.4"/><path d="M16 26.8v-2.4"/><path d="M5.2 16h2.4"/>
-  </g>
-  <g stroke="#828A8D" stroke-width="1.2" stroke-linecap="round">
-    <path d="M23.6 8.4l-1.5 1.5"/><path d="M23.6 23.6l-1.5-1.5"/>
-    <path d="M8.4 23.6l1.5-1.5"/><path d="M8.4 8.4l1.5 1.5"/>
-  </g>
-  <path d="M16 16L23 10.8" stroke="#7CFF9E" stroke-width="2.6" stroke-linecap="round"/>
-  <circle cx="16" cy="16" r="2.4" fill="#7CFF9E"/>
+  <style>
+    .tile{fill:#F4F4F0}
+    .bezel{fill:none;stroke:#BEC3C8;stroke-width:1}
+    .ink{fill:#14171A}
+    @media (prefers-color-scheme:dark){
+      .tile{fill:#101315}
+      .bezel{stroke:#2A2D31}
+      .ink{fill:#F2F5F5}
+    }
+  </style>
+  <rect class="tile" width="32" height="32" rx="5"/>
+  <rect class="bezel" x=".5" y=".5" width="31" height="31" rx="4.5"/>
+  <path class="ink" transform="translate(7.561 25.663) scale(0.02813 -0.02813)" d="M306 -12Q250 -12 201.5 -1.5Q153 9 116 34Q79 59 57.5 101Q36 143 36 206Q36 209 36 215Q36 221 37 224L199 224Q199 221 198.5 216Q198 211 198 207Q198 175 210.5 156Q223 137 245 129.5Q267 122 298 122Q316 122 330.5 124Q345 126 356.5 131.5Q368 137 376.5 145Q385 153 388.5 163.5Q392 174 392 189Q392 211 377.5 227Q363 243 339 253.5Q315 264 284.5 274Q254 284 220.5 294Q187 304 156.5 319.5Q126 335 101.5 357.5Q77 380 62.5 413Q48 446 48 493Q48 548 68 587.5Q88 627 123 652Q158 677 204 688Q250 699 301 699Q352 699 397 688Q442 677 476 653Q510 629 529 591.5Q548 554 549 500L549 482L388 482L388 493Q388 515 379.5 532Q371 549 352.5 558.5Q334 568 304 568Q277 568 257.5 561Q238 554 228 541.5Q218 529 218 509Q218 487 232.5 471.5Q247 456 272.5 445Q298 434 328.5 424.5Q359 415 391 405.5Q423 396 454 381.5Q485 367 510 344.5Q535 322 549.5 289.5Q564 257 564 212Q564 133 531.5 84Q499 35 440.5 11.5Q382 -12 306 -12Z"/>
 </svg>

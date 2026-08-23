@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="color-scheme" content="dark" />
-<script>document.documentElement.classList.add('js');</script>
+<meta name="color-scheme" content="light dark" />
+<script>/* panel lighting, resolved before first paint — day unless the visitor chose night */
+(function(){var d=document.documentElement;d.classList.add('js');
+try{if(localStorage.getItem('panel-light')==='night')d.setAttribute('data-theme','dark');}catch(e){}})();</script>
 
 <!-- ───────────────── Google Analytics (gtag.js) ───────────────── -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-2N74T6GHQ4"></script>
@@ -22,7 +24,8 @@
 <meta name="keywords" content="Saiful Islam, software engineer, Angular developer, .NET developer, full-stack developer, React Native, NgRx Signals, TypeScript, PostgreSQL, Dhaka, Bangladesh" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://saiful-70.github.io/saiful-70/" />
-<meta name="theme-color" content="#0B0D0F" />
+<meta name="theme-color" content="#DBDBD5" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#DBDBD5" id="tc-meta" />
 
 <!-- ───────────────── Open Graph (LinkedIn, Facebook, Slack…) ───────────────── -->
 <meta property="og:type" content="website" />
@@ -89,20 +92,167 @@
 </script>
 
 <style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   THE PANEL, TWO LIGHTING CONDITIONS
+   Default is DAY: white enamel instrument faces set into a light alloy panel,
+   graphite ink, brushed-steel bezels, depth carried by cast shadow and chamfer.
+   NIGHT is the same panel unlit: matte black, radium green, depth carried by glow.
+   Every colour below is a semantic slot. Nothing in the sheet is a literal.
+   ═══════════════════════════════════════════════════════════════════════════ */
 :root{
-  --panel:#0B0D0F;        /* matte panel ground */
-  --bezel:#2A2D31;
-  --edge:#383C41;
-  --hair:rgba(242,245,245,.10);
-  --lum:#F2F5F5;          /* luminous white */
-  --dim:#9AA3A5;
-  --faint:#828A8D;
-  --green:#7CFF9E;        /* radium — live data and actionable only */
-  --green-ink:#4FD27A;
-  --amber:#FFB000;        /* caution only */
-  --red:#FF3B30;          /* warning — reserved */
+  color-scheme:light;
+
+  /* ── ground and structure ── */
+  --panel:#DBDBD5;          /* the alloy deck the instruments are set into */
+  --plate-hi:#FFFFFF;       /* machined plate, lit edge */
+  --plate-lo:#F3F3EF;       /* machined plate, shaded edge */
+  --plate-head:#EDEDE8;     /* table header plate */
+  --panel-1:#F4F4F0;        /* the six-pack panel body, lit above the deck */
+  --panel-2:#EAEAE5;
+  --panel-3:#E0E0DA;
+  --head-1:#FFFFFF;         /* header rail */
+  --head-2:#F3F3EF;
+  --head-3:#E2E2DC;
+  --foot-1:#D4D4CE;         /* footer plate */
+  --foot-2:#CACAC3;
+  --well-hi:#EFEFEB;        /* recessed schematic well */
+  --well-lo:#E6E6E1;
+  --deck-1:#E9E9E4;         /* windscreen: daylight above the panel */
+  --bezel:#BEC3C8;
+  --edge:#8B9198;
+  --rule-hard:#ADB2B7;      /* the structural seam */
+  --hair:rgba(20,24,28,.14);
+
+  /* ── light and shade ── */
+  --chamfer:rgba(255,255,255,.92);
+  --chamfer-soft:rgba(255,255,255,.62);
+  --shade-2:rgba(20,24,28,.13);
+  --shade-3:rgba(20,24,28,.18);
+  --shade-4:rgba(20,24,28,.26);
+  --tooth-hi:rgba(255,255,255,.55);   /* panel tooth, lit facet */
+  --tooth-lo:rgba(20,24,28,.04);      /* panel tooth, shaded facet */
+  --sheen-1:rgba(255,255,255,.72);    /* raking light on the plate */
+  --sheen-2:rgba(255,255,255,.58);
+  --sheen-3:rgba(255,255,255,.16);
+  --sheen-4:rgba(255,255,255,.22);
+  --hover-wash:rgba(20,24,28,.055);
+  --hover-wash-2:rgba(20,24,28,.035);
+  --well-wash:rgba(20,24,28,.05);
+  --h1-shadow:0 1px 0 rgba(255,255,255,.9);
+
+  /* ── ink ── */
+  --lum:#14171A;            /* primary ink */
+  --lum-2:#343B40;
+  --dim:#495157;
+  --faint:#545C61;
+
+  /* ── signal ── */
+  --green:#0B6B37;          /* live data and anything pressable ONLY */
+  --green-ink:#0A5C2F;
+  --green-line:rgba(11,107,55,.42);
+  --green-line-2:rgba(11,107,55,.58);
+  --green-wash:rgba(11,107,55,.07);
+  --green-wash-2:rgba(11,107,55,.14);
+  --green-wash-soft:rgba(11,107,55,.06);
+  --deck-bloom:rgba(11,107,55,.05);
+  --clear-bloom:rgba(11,107,55,.07);
+  --amber:#97590A;          /* caution graphics: arcs, pointers, lamps */
+  --amber-ink:#6E4000;      /* caution text: 4.5:1 on plate and deck */
+  --amber-line:rgba(151,89,10,.46);
+  --amber-line-2:rgba(151,89,10,.4);
+  --red:#B3261E;            /* warning — reserved */
+  --selection-ink:#FFFFFF;
+  /* glows are shadows in daylight: an emissive halo on white reads as a smudge */
+  --lamp-shadow:0 0 0 1px rgba(20,24,28,.2),0 1px 2px rgba(11,107,55,.55);
+  --lamp-shadow-amber:0 0 0 1px rgba(20,24,28,.2),0 1px 2px rgba(151,89,10,.55);
+  --ring-shadow:0 1px 3px rgba(11,107,55,.45);
+  --ring-shadow-lg:0 1px 4px rgba(11,107,55,.5);
+
+  /* ── machined metal (the switch knob) ── */
+  --metal-1:#FFFFFF;
+  --metal-2:#C6CBD0;
+  --metal-3:#8B9298;
+  --metal-hi:rgba(255,255,255,.95);
+
+  /* ── diagram internals (inline SVG) ── */
+  --sc-box:#FFFFFF; --sc-stroke:#9BA2A8; --sc-t:#2E3539; --sc-t-d:#545C61; --sc-line:#8D949A;
+
   --maxw:1200px;
   --ease:cubic-bezier(.2,.7,.25,1);
+}
+
+/* ── NIGHT ── the panel unlit: emissive, matte, radium ── */
+:root[data-theme="dark"]{
+  color-scheme:dark;
+
+  --panel:#0B0D0F;
+  --plate-hi:#131618;
+  --plate-lo:#0A0C0D;
+  --plate-head:#0E1113;
+  --panel-1:#17191C;
+  --panel-2:#101315;
+  --panel-3:#0C0E10;
+  --head-1:#121517;
+  --head-2:#0A0C0D;
+  --head-3:#050607;
+  --foot-1:#0A0C0D;
+  --foot-2:#060708;
+  --well-hi:#0C0F10;
+  --well-lo:#080A0B;
+  --deck-1:#07080A;
+  --bezel:#2A2D31;
+  --edge:#383C41;
+  --rule-hard:#000000;
+  --hair:rgba(242,245,245,.10);
+
+  --chamfer:rgba(255,255,255,.13);
+  --chamfer-soft:rgba(255,255,255,.045);
+  --shade-2:rgba(0,0,0,.6);
+  --shade-3:rgba(0,0,0,.8);
+  --shade-4:rgba(0,0,0,.95);
+  --tooth-hi:rgba(255,255,255,.022);
+  --tooth-lo:rgba(0,0,0,.3);
+  --sheen-1:rgba(255,255,255,.085);
+  --sheen-2:rgba(255,255,255,.075);
+  --sheen-3:rgba(255,255,255,.018);
+  --sheen-4:rgba(255,255,255,.026);
+  --hover-wash:rgba(255,255,255,.045);
+  --hover-wash-2:rgba(255,255,255,.028);
+  --well-wash:rgba(0,0,0,.34);
+  --h1-shadow:0 1px 0 rgba(0,0,0,.9);
+
+  --lum:#F2F5F5;
+  --lum-2:#C9D1D2;
+  --dim:#9AA3A5;
+  --faint:#828A8D;
+
+  --green:#7CFF9E;
+  --green-ink:#4FD27A;
+  --green-line:rgba(124,255,158,.42);
+  --green-line-2:rgba(124,255,158,.5);
+  --green-wash:rgba(124,255,158,.1);
+  --green-wash-2:rgba(124,255,158,.13);
+  --green-wash-soft:rgba(124,255,158,.055);
+  --deck-bloom:rgba(124,255,158,.055);
+  --clear-bloom:rgba(124,255,158,.085);
+  --amber:#FFB000;
+  --amber-ink:#FFB000;
+  --amber-line:rgba(255,176,0,.42);
+  --amber-line-2:rgba(255,176,0,.38);
+  --red:#FF3B30;
+  --selection-ink:#04150A;
+  --lamp-shadow:0 0 0 1px rgba(0,0,0,.6),0 0 9px rgba(124,255,158,.75);
+  --lamp-shadow-amber:0 0 0 1px rgba(0,0,0,.6),0 0 9px rgba(255,176,0,.7);
+  --ring-shadow:0 0 8px rgba(124,255,158,.8);
+  --ring-shadow-lg:0 0 10px rgba(124,255,158,.9);
+
+  --sc-box:#101315; --sc-stroke:#3D4348; --sc-t:#C6CDCE; --sc-t-d:#7F8789; --sc-line:#4B5257;
+
+  --metal-1:#8A9199;
+  --metal-2:#4C5258;
+  --metal-3:#191C1F;
+  --metal-hi:rgba(255,255,255,.3);
+
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -121,17 +271,27 @@ body{
 /* panel tooth — fine matte texture over the whole ground */
 body::before{
   content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  contain:strict;
   background-image:
-    radial-gradient(rgba(255,255,255,.022) .5px,transparent .5px),
-    radial-gradient(rgba(0,0,0,.30) .5px,transparent .5px);
+    radial-gradient(var(--tooth-hi) .5px,transparent .5px),
+    radial-gradient(var(--tooth-lo) .5px,transparent .5px);
   background-size:3px 3px,3px 3px;
   background-position:0 0,1.5px 1.5px;
   opacity:.9;
 }
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1}
 
+/* keyboard-first exit from the header, visible only when focused */
+.skip{
+  position:absolute;left:16px;top:-100px;z-index:200;
+  font-family:"Azeret Mono",ui-monospace,monospace;font-size:12.5px;letter-spacing:.06em;
+  color:var(--green);background:var(--plate-hi);border:1px solid var(--green);border-radius:2px;
+  padding:10px 14px 9px;transition:top .16s var(--ease);
+}
+.skip:focus{top:12px}
+
 a{color:inherit;text-decoration:none}
-::selection{background:var(--green);color:#04150A}
+::selection{background:var(--green);color:var(--selection-ink)}
 :focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:2px}
 *{scrollbar-color:var(--bezel) var(--panel);scrollbar-width:thin}
 ::-webkit-scrollbar{width:11px;height:11px}
@@ -147,61 +307,54 @@ a{color:inherit;text-decoration:none}
   font-family:"Azeret Mono",ui-monospace,monospace;
   font-size:11px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;
   color:var(--dim);
-  background:linear-gradient(180deg,#101315,#0A0C0D);
+  background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo));
   border:1px solid var(--bezel);
   border-radius:2px;
   padding:5px 10px 4px;
   display:inline-block;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 1px 0 rgba(0,0,0,.6);
+  box-shadow:inset 0 1px 0 var(--chamfer-soft),0 1px 0 var(--shade-2);
   white-space:nowrap;
 }
 
 /* ───────── lamps ───────── */
 .lamp{width:7px;height:7px;border-radius:50%;display:inline-block;flex:none;
-  background:var(--green);box-shadow:0 0 0 1px rgba(0,0,0,.6),0 0 9px rgba(124,255,158,.75)}
-.lamp.amber{background:var(--amber);box-shadow:0 0 0 1px rgba(0,0,0,.6),0 0 9px rgba(255,176,0,.7)}
+  background:var(--green);box-shadow:var(--lamp-shadow)}
+.lamp.amber{background:var(--amber);box-shadow:var(--lamp-shadow-amber)}
 .lamp.pulse{animation:beat 3.4s var(--ease) infinite}
 @keyframes beat{0%,88%,100%{opacity:1}92%{opacity:.35}}
 
-/* ───────── screws ───────── */
-.screw{position:absolute;width:11px;height:11px;border-radius:50%;
-  background:radial-gradient(circle at 32% 26%,#8A9199 0%,#4C5258 34%,#191C1F 76%);
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.8),inset 1px 1px 2px rgba(255,255,255,.30),
-             0 1px 1px rgba(0,0,0,.65)}
-.screw::after{content:"";position:absolute;left:2px;right:2px;top:50%;height:1px;
-  background:rgba(0,0,0,.7);transform:translateY(-50%) rotate(var(--sr,32deg))}
-
-/* ───────── glareshield / header ───────── */
+/* ───────── header rail ───────── */
 header{
   position:sticky;top:0;z-index:60;
-  background:linear-gradient(180deg,#121517 0%,#0A0C0D 62%,#050607 100%);
-  border-bottom:1px solid #000;
-  box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 10px 22px -14px rgba(0,0,0,.9);
+  background:linear-gradient(180deg,var(--head-1) 0%,var(--head-2) 62%,var(--head-3) 100%);
+  border-bottom:1px solid var(--rule-hard);
+  box-shadow:0 1px 0 var(--chamfer-soft) inset,0 10px 22px -14px var(--shade-3);
 }
-header.lifted{box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 16px 30px -12px rgba(0,0,0,1)}
+header.lifted{box-shadow:0 1px 0 var(--chamfer-soft) inset,0 16px 30px -12px var(--shade-4)}
 .nav{display:flex;align-items:center;gap:22px;height:58px}
 .nameplate{
   display:flex;align-items:center;gap:9px;
   font-family:"Azeret Mono",monospace;font-size:12.5px;font-weight:700;
   letter-spacing:.2em;text-transform:uppercase;color:var(--lum);
   padding:5px 11px 4px;border:1px solid var(--bezel);border-radius:2px;
-  background:linear-gradient(180deg,#14181A,#0C0E10);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo));
+  box-shadow:inset 0 1px 0 var(--chamfer-soft);
 }
-.nameplate .mk{width:16px;height:16px;flex:none;color:var(--green)}
+.nameplate .mk{width:15px;height:15px;flex:none;color:var(--lum)}
+@media(max-width:560px){.nameplate{padding:5px 8px 4px;gap:0}.nameplate .np-name{display:none}}
 .nav-links{display:flex;gap:2px;margin-left:auto;align-items:center}
 .nav-links a{
   font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;
   color:var(--dim);padding:8px 12px;border-radius:2px;transition:color .18s,background .18s;
 }
-.nav-links a:hover{color:var(--lum);background:rgba(255,255,255,.045)}
+.nav-links a:hover{color:var(--lum);background:var(--hover-wash)}
 .nav-links a.engage{
-  color:var(--green);border:1px solid rgba(124,255,158,.42);margin-left:10px;
+  color:var(--green);border:1px solid var(--green-line);margin-left:10px;
   display:flex;align-items:center;gap:7px;padding:7px 13px;
 }
-.nav-links a.engage:hover{background:rgba(124,255,158,.10);border-color:var(--green)}
+.nav-links a.engage:hover{background:var(--green-wash);border-color:var(--green)}
 .nav-links a.engage .ring{width:9px;height:9px;border-radius:50%;border:1.5px solid currentColor;flex:none}
-.nav-links a.engage:hover .ring{background:var(--green);box-shadow:0 0 8px rgba(124,255,158,.8)}
+.nav-links a.engage:hover .ring{background:var(--green);box-shadow:var(--ring-shadow)}
 .utc{
   font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.06em;color:var(--green);
   font-variant-numeric:tabular-nums;margin-left:16px;display:flex;align-items:center;gap:7px;white-space:nowrap;
@@ -209,25 +362,32 @@ header.lifted{box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 16px 30px -12px r
 @media(max-width:880px){.nav-links a:not(.engage){display:none}.utc{margin-left:auto}}
 @media(max-width:520px){.utc{display:none}}
 
-/* ───────── hero / flight deck ───────── */
-.deck{position:relative;padding:64px 0 0;overflow:hidden}
-.deck::before{ /* the windscreen: outside is ink, one faint horizon */
+/* ───────── hero ───────── */
+.deck{position:relative;padding:46px 0 0;overflow:hidden}
+.deck::before{ /* the ground the hero sits on, lit from above */
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(120% 80% at 18% 34%,rgba(124,255,158,.055),transparent 60%),
-    linear-gradient(180deg,#07080A 0%,#0B0D0F 46%,#0B0D0F 100%);
+    radial-gradient(120% 80% at 18% 34%,var(--deck-bloom),transparent 60%),
+    linear-gradient(180deg,var(--deck-1) 0%,var(--panel) 46%,var(--panel) 100%);
 }
-.deck-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);gap:56px;align-items:center}
-@media(max-width:1040px){.deck-grid{grid-template-columns:1fr;gap:44px}.deck{padding-top:44px}}
+.deck-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);gap:56px;align-items:start}
+/* optical: the display cap-height starts a few pixels below its box, so the name is nudged
+   down to sit level with the panel's top edge rather than mathematically flush with it */
+.deck-grid > div:first-child{padding-top:10px}
+@media(max-width:1040px){
+  .deck-grid{grid-template-columns:1fr;gap:40px}
+  .deck-grid > div:first-child{padding-top:0}
+  .deck{padding-top:40px}
+}
 
 h1{
   font-size:clamp(3.6rem,9.2vw,6.6rem);
   font-variation-settings:"wdth" 84,"wght" 800;
   line-height:.88;letter-spacing:-.035em;text-transform:uppercase;
   color:var(--lum);
-  text-shadow:0 1px 0 rgba(0,0,0,.9);
+  text-shadow:var(--h1-shadow);
 }
-h1 .l2{display:block;color:#C9D1D2}
+h1 .l2{display:block;color:var(--lum-2)}
 .role{margin-top:18px}
 .lede{
   font-size:17.5px;line-height:1.62;color:var(--lum);
@@ -240,17 +400,17 @@ h1 .l2{display:block;color:#C9D1D2}
 .btn{
   font-family:"Azeret Mono",monospace;font-size:12.5px;font-weight:500;letter-spacing:.01em;
   display:inline-flex;align-items:center;gap:10px;padding:14px 21px;border-radius:2px;
-  border:1px solid var(--bezel);background:linear-gradient(180deg,#15181B,#0C0E10);color:var(--dim);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 2px 5px rgba(0,0,0,.55);
+  border:1px solid var(--bezel);background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo));color:var(--dim);
+  box-shadow:inset 0 1px 0 var(--chamfer-soft),0 2px 5px var(--shade-2);
   transition:color .18s,border-color .18s,background .18s,transform .12s;
   cursor:pointer;
 }
 .btn:hover{color:var(--lum);border-color:var(--edge)}
 .btn:active{transform:translateY(1px)}
-.btn--engage{color:var(--green);border-color:rgba(124,255,158,.45)}
+.btn--engage{color:var(--green);border-color:var(--green-line-2)}
 .btn--engage .ring{width:11px;height:11px;border-radius:50%;border:1.5px solid currentColor;flex:none;transition:background .18s,box-shadow .18s}
-.btn--engage:hover{background:linear-gradient(180deg,rgba(124,255,158,.13),rgba(124,255,158,.05));border-color:var(--green);color:var(--green)}
-.btn--engage:hover .ring{background:var(--green);box-shadow:0 0 10px rgba(124,255,158,.9)}
+.btn--engage:hover{background:linear-gradient(180deg,var(--green-wash-2),var(--green-wash-soft));border-color:var(--green);color:var(--green)}
+.btn--engage:hover .ring{background:var(--green);box-shadow:var(--ring-shadow-lg)}
 
 .status-row{
   display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-top:32px;
@@ -261,22 +421,22 @@ h1 .l2{display:block;color:#C9D1D2}
 
 /* ───────── the panel ───────── */
 .panel{
-  position:relative;border-radius:5px;padding:26px 24px 20px;
+  position:relative;border-radius:5px;padding:24px 26px 22px;
   background:
-    linear-gradient(180deg,#17191C 0%,#101315 38%,#0C0E10 100%);
-  border:1px solid #000;
-  border-top-color:rgba(255,255,255,.13);
+    linear-gradient(180deg,var(--panel-1) 0%,var(--panel-2) 38%,var(--panel-3) 100%);
+  border:1px solid var(--rule-hard);
+  border-top-color:var(--chamfer);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.11),
-    inset 1px 0 0 rgba(255,255,255,.045),
-    inset 0 -1px 0 rgba(0,0,0,.95),
-    0 10px 14px -10px rgba(0,0,0,.95);
+    inset 0 1px 0 var(--chamfer),
+    inset 1px 0 0 var(--chamfer-soft),
+    inset 0 -1px 0 var(--shade-3),
+    0 10px 14px -10px var(--shade-4);
 }
 .panel::after{ /* light rakes the plate from upper-left, as the bar does */
   content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
   background:
-    radial-gradient(86% 62% at 10% -8%,rgba(255,255,255,.085),transparent 64%),
-    linear-gradient(116deg,rgba(255,255,255,.075) 0%,rgba(255,255,255,.018) 20%,transparent 44%,transparent 76%,rgba(255,255,255,.026) 100%);
+    radial-gradient(86% 62% at 10% -8%,var(--sheen-1),transparent 64%),
+    linear-gradient(116deg,var(--sheen-2) 0%,var(--sheen-3) 20%,transparent 44%,transparent 76%,var(--sheen-4) 100%);
 }
 @media(min-width:1041px){ /* the panel continues past the frame instead of sitting in a margin */
   .panel{
@@ -284,74 +444,148 @@ h1 .l2{display:block;color:#C9D1D2}
     border-right:0;border-radius:5px 0 0 5px;
   }
 }
-.panel > .screw:nth-of-type(1){top:9px;left:9px}
-.panel > .screw:nth-of-type(2){top:9px;right:9px;--sr:-18deg}
-.panel > .screw:nth-of-type(3){bottom:9px;left:9px;--sr:74deg}
-.panel > .screw:nth-of-type(4){bottom:9px;right:9px;--sr:12deg}
+/* ───────── the architecture diagram: the hero's own instrument ─────────
+   Boxes, bands and a signal path, all in flow: at one column the fan collapses to a
+   single line and every label keeps its real size. Nothing here scales with the viewport. */
+.hx{position:relative;z-index:1;display:flex;flex-direction:column}
+.hx-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hx-node,.hx-band,.hx-lane{min-width:0;border-radius:2px}
+.hx-node{background:var(--sc-box);border:1px solid var(--sc-stroke);padding:10px 13px 11px}
+.hx-band{background:var(--well-hi);border:1px solid var(--sc-stroke);padding:12px 15px 13px}
+.hx-lane{border:1px dashed var(--sc-stroke);padding:10px 13px 11px;margin-top:14px}
+/* the observability band is a band that reports on the stack rather than serving it,
+   so it takes the band's plane and the lane's dashed edge */
+.hx-band.obs{border-style:dashed}
+.hx b{display:block;font-variation-settings:"wdth" 96,"wght" 700;font-size:14px;
+  letter-spacing:-.008em;color:var(--lum);line-height:1.2}
+.hx span{display:block;font-family:"Azeret Mono",ui-monospace,monospace;font-size:11px;
+  letter-spacing:.01em;line-height:1.5;color:var(--sc-t);margin-top:5px}
+.hx-k{font-family:"Azeret Mono",ui-monospace,monospace!important;font-size:10px!important;
+  font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-t-d)!important;margin-top:0!important}
 
-.sixpack{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 16px;position:relative;z-index:1}
-@media(max-width:1040px){.sixpack{gap:16px 14px}}
-@media(max-width:620px){.sixpack{grid-template-columns:repeat(2,1fr)}}
-
-.gauge{display:flex;flex-direction:column;align-items:center;gap:9px;cursor:default;border-radius:4px;padding:4px 2px 2px}
-.gauge svg{width:100%;height:auto;display:block;max-width:190px}
-.gauge figcaption{
-  width:100%;text-align:center;white-space:normal;text-transform:none;letter-spacing:normal;
-  padding:5px 7px 4px;
-  transition:color .2s,border-color .2s,background .2s;
+/* the modules the monolith is cut into: a compartment of the band above, sharing its
+   border line so it reads as inside the API rather than as another layer under it */
+.hx-mods{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:-1px}
+.hx-mod{background:var(--sc-box);border:1px solid var(--sc-stroke);padding:9px 13px 10px;min-width:0}
+.hx-mod + .hx-mod{margin-left:-1px}
+.hx-mod .hx-k{display:block}
+@media(max-width:640px){
+  .hx-mods{grid-template-columns:1fr}
+  .hx-mod + .hx-mod{margin-left:0;margin-top:-1px}
 }
-.gauge figcaption > span{text-transform:uppercase;letter-spacing:.06em}
-.gauge figcaption b{display:none}
-@media(max-width:620px){
-  .gauge figcaption b{display:block;color:var(--green);font-weight:700;margin-top:3px}
+
+/* the signal path: a fan out of three into one, and back out of one into three */
+.hx-fan{display:grid;grid-template-columns:repeat(3,1fr);height:22px;position:relative}
+.hx-fan::before{content:"";position:absolute;left:16.667%;right:16.667%;top:50%;height:1px;
+  background:var(--green-ink);transform:scaleX(0);transform-origin:center;
+  animation:hx-x .34s var(--ease) .12s forwards}
+.hx-fan i{width:1px;background:var(--green-ink);margin:0 auto;transform:scaleY(0);
+  transform-origin:top;animation:hx-y .2s var(--ease) var(--d,0s) forwards}
+.hx-fan i:nth-child(2){grid-row:1;height:100%}
+.hx-fan i:nth-child(1),.hx-fan i:nth-child(3){height:50%}
+.hx-fan.dn i{transform-origin:bottom;align-self:end}
+.hx-fan.dn i:nth-child(1),.hx-fan.dn i:nth-child(3){align-self:end}
+.hx-fan.dn::before{top:auto;bottom:50%;animation-delay:.3s}
+
+/* telemetry leaves the stack sideways: same geometry as the contract line, dashed and neutral,
+   because it is not the request path and the signal colour is spoken for */
+.hx-tap{position:relative;padding:7px 0 8px calc(50% + 14px);min-height:28px}
+.hx-tap::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:repeating-linear-gradient(180deg,var(--sc-line) 0 3px,transparent 3px 6px)}
+
+/* the typed contract between the halves, labelled beside its own line */
+.hx-edge{position:relative;padding:9px 0 10px calc(50% + 14px);min-height:46px}
+.hx-edge::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:var(--green-ink);transform:scaleY(0);transform-origin:top;
+  animation:hx-y .26s var(--ease) .18s forwards}
+
+@keyframes hx-y{to{transform:scaleY(1)}}
+@keyframes hx-x{to{transform:scaleX(1)}}
+html:not(.js) .hx-fan i,html:not(.js) .hx-fan::before,html:not(.js) .hx-edge::before{transform:none;animation:none}
+@media(prefers-reduced-motion:reduce){
+  .hx-fan i,.hx-fan::before,.hx-edge::before{animation:none;transform:none}
 }
-.gauge .ring-lit{opacity:0;transition:opacity .25s}
-.sixpack.checking .gauge{opacity:.42;transition:opacity .25s}
-.sixpack.checking .gauge.lit{opacity:1}
-.gauge.lit figcaption{color:var(--green);border-color:rgba(124,255,158,.5);background:linear-gradient(180deg,#12211A,#0A0F0C)}
-.gauge.lit .ring-lit{opacity:1}
-@media(prefers-reduced-motion:reduce){.sixpack.checking .gauge{opacity:1}}
 
-/* gauge internals */
-.tick-maj{stroke:#E6ECEC;fill:none}
-.tick-min{stroke:#8E9698;fill:none}
-.gtext{font-family:"Archivo",sans-serif;font-variation-settings:"wdth" 82,"wght" 700;fill:#E9EFEF;font-size:15px}
-.gtext.sm{font-size:11px;fill:#AFB7B8}
-.glabel{font-family:"Azeret Mono",monospace;font-size:7.6px;letter-spacing:.12em;fill:#79817F}
-.gread{font-family:"Azeret Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.06em;fill:var(--green)}
-.needle{transform-origin:100px 100px;transform:rotate(var(--a,0deg));fill:#F2F5F5}
-.needle-g{fill:var(--green)}
-.arc-live{stroke:var(--green);fill:none;opacity:.85}
-.arc-caut{stroke:var(--amber);fill:none}
+@media(max-width:1040px){
+  .hx b{font-size:15px}
+  .hx span{font-size:11.5px}
+}
+@media(max-width:640px){
+  /* one column: the fan is a single line, and every label keeps its size */
+  .hx-row{grid-template-columns:1fr;gap:8px}
+  .hx-lane{margin-top:12px}
+  .hx-fan{grid-template-columns:1fr;height:20px}
+  .hx-fan::before{display:none}
+  .hx-fan i:nth-child(1),.hx-fan i:nth-child(3){display:none}
+  .hx-fan i:nth-child(2){height:100%}
+  .hx-edge{padding:10px 0 10px calc(50% + 12px);min-height:52px}
+  .hx-tap{padding:8px 0 8px calc(50% + 12px);min-height:30px}
+}
 
-/* readout strip under the panel */
+/* ── panel light: a two-position switch on the header rail ── */
+.lamp-switch{
+  margin-left:14px;display:inline-flex;align-items:center;gap:9px;flex:none;
+  font-family:"Azeret Mono",ui-monospace,monospace;font-size:11px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+  background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo));
+  border:1px solid var(--bezel);border-radius:2px;padding:5px 10px 4px 6px;
+  box-shadow:inset 0 1px 0 var(--chamfer-soft),0 1px 0 var(--shade-2);
+  cursor:pointer;transition:color .18s,border-color .18s;
+}
+.lamp-switch:hover{color:var(--lum);border-color:var(--edge)}
+.ls-track{
+  position:relative;width:30px;height:15px;border-radius:2px;flex:none;
+  background:var(--well-wash);border:1px solid var(--bezel);
+  box-shadow:inset 0 1px 2px var(--shade-2);
+}
+.ls-knob{
+  position:absolute;top:1px;left:1px;width:12px;height:11px;border-radius:1px;
+  background:linear-gradient(180deg,var(--metal-1),var(--metal-2) 62%,var(--metal-3));
+  box-shadow:0 1px 1px var(--shade-3),inset 0 1px 0 var(--metal-hi);
+  transition:transform .16s var(--ease);
+}
+[data-theme="dark"] .ls-knob{transform:translateX(14px)}
+.ls-state{min-width:3.6em;text-align:left;color:var(--lum)}
+@media(max-width:560px){.lamp-switch{margin-left:auto;padding:5px 8px 4px 5px}}
+
+/* the line that names what the diagram shows */
 .crosscheck{
-  margin-top:18px;position:relative;z-index:1;
+  margin-top:20px;position:relative;z-index:1;
   display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;min-height:34px;
   border-top:1px solid var(--hair);padding-top:14px;
   font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.02em;color:var(--faint);
 }
-.crosscheck .out{color:var(--lum)}
-.crosscheck .out b{color:var(--green);font-weight:700}
+.crosscheck .out{color:var(--dim);font-family:"Archivo",system-ui,sans-serif;font-size:14px;
+  letter-spacing:0;line-height:1.5;max-width:46ch;text-wrap:pretty}
 
 /* ───────── system status strip ───────── */
 .statuslist{
   margin-top:40px;border:1px solid var(--bezel);border-radius:4px;
-  background:linear-gradient(180deg,#131618,#0A0C0D);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
-  display:grid;grid-template-columns:1fr 1fr;
+  background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo));
+  box-shadow:inset 0 1px 0 var(--chamfer-soft);
+  display:grid;grid-template-columns:repeat(3,1fr);
 }
-@media(max-width:700px){.statuslist{grid-template-columns:1fr}}
-.sl-row{display:flex;align-items:baseline;justify-content:space-between;gap:18px;
-  padding:13px 18px;border-bottom:1px solid var(--hair)}
-.statuslist .sl-row:nth-child(odd){border-right:1px solid var(--hair)}
-@media(max-width:700px){.statuslist .sl-row:nth-child(odd){border-right:0}}
+@media(max-width:1000px){.statuslist{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.statuslist{grid-template-columns:1fr}}
+.sl-row{display:flex;flex-direction:column;gap:5px;padding:14px 18px 15px;
+  border-bottom:1px solid var(--hair);border-right:1px solid var(--hair)}
+.statuslist .sl-row:nth-child(3n),.sl-row:last-child{border-right:0}
+.statuslist .sl-row:nth-last-child(-n+3){border-bottom:0}
+@media(max-width:1000px){
+  .statuslist .sl-row{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .statuslist .sl-row:nth-child(2n){border-right:0}
+  .statuslist .sl-row:nth-last-child(-n+2){border-bottom:0}
+}
+@media(max-width:560px){
+  .statuslist .sl-row{border-right:0}
+  .statuslist .sl-row:nth-last-child(-n+2){border-bottom:1px solid var(--hair)}
+  .statuslist .sl-row:last-child{border-bottom:0}
+}
 .sl-row .k{font-family:"Azeret Mono",monospace;font-size:11px;letter-spacing:.12em;
   text-transform:uppercase;color:var(--faint)}
-.sl-row .v{font-family:"Azeret Mono",monospace;font-size:15px;font-weight:700;color:var(--lum);
-  font-variant-numeric:tabular-nums;letter-spacing:.01em}
-.sl-close{grid-column:1/-1;border-bottom:0;border-right:0!important;align-items:center}
-.sl-close .k{color:var(--green);letter-spacing:.15em}
+.sl-row .v{font-family:"Azeret Mono",monospace;font-size:17px;font-weight:700;color:var(--lum);
+  font-variant-numeric:tabular-nums;letter-spacing:-.005em;line-height:1.25}
+.sl-row .v:not(.num){font-size:15px}
 
 /* ───────── sections ───────── */
 section{position:relative;z-index:1}
@@ -368,11 +602,11 @@ h2{
 .sec-head .count{font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;
   color:var(--faint);margin-left:auto}
 
-/* ───────── logbook ───────── */
+/* ───────── experience table ───────── */
 .logbook{border:1px solid var(--bezel);border-radius:4px;overflow:hidden;
-  background:linear-gradient(180deg,#121517,#0A0C0D)}
+  background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo))}
 .log-head{display:grid;grid-template-columns:150px 1fr 200px 34px;gap:16px;padding:11px 18px;
-  border-bottom:1px solid var(--bezel);background:#0E1113}
+  border-bottom:1px solid var(--bezel);background:var(--plate-head)}
 .log-head span{font-family:"Azeret Mono",monospace;font-size:11px;letter-spacing:.14em;
   text-transform:uppercase;color:var(--faint)}
 @media(max-width:820px){.log-head{display:none}}
@@ -383,7 +617,7 @@ h2{
   padding:20px 18px;background:none;border:0;text-align:left;cursor:pointer;color:inherit;font:inherit;
   transition:background .2s;
 }
-.log-btn:hover{background:rgba(255,255,255,.028)}
+.log-btn:hover{background:var(--hover-wash-2)}
 .log-when{font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;color:var(--green);font-variant-numeric:tabular-nums}
 .log-op{font-variation-settings:"wdth" 92,"wght" 700;font-size:21px;letter-spacing:-.012em;color:var(--lum);line-height:1.2}
 .log-role{display:block;font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.04em;
@@ -414,13 +648,13 @@ h2{
 @media(max-width:900px){.work{grid-template-columns:1fr}}
 .mod{
   position:relative;border:1px solid var(--bezel);border-radius:4px;padding:22px 22px 20px;
-  background:linear-gradient(180deg,#141719,#0A0C0D);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 6px 12px -8px rgba(0,0,0,.9);
+  background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo));
+  box-shadow:inset 0 1px 0 var(--chamfer-soft),0 6px 12px -8px var(--shade-3);
   display:flex;flex-direction:column;gap:16px;min-width:0;transition:border-color .25s,transform .25s var(--ease);
 }
 a.mod:hover{border-color:var(--edge);transform:translateY(-2px)}
-.mod--caution{border-color:rgba(255,176,0,.42)}
-.mod--caution .placard{color:var(--amber);border-color:rgba(255,176,0,.38)}
+.mod--caution{border-color:var(--amber-line)}
+.mod--caution .placard{color:var(--amber-ink);border-color:var(--amber-line-2)}
 .mod.wide{grid-column:span 6}
 .mod.half{grid-column:span 3}
 @media(max-width:900px){.mod.wide,.mod.half{grid-column:span 1}}
@@ -429,23 +663,23 @@ a.mod:hover{border-color:var(--edge);transform:translateY(-2px)}
   letter-spacing:-.018em;text-transform:uppercase;color:var(--lum);line-height:1}
 .mod-lamp{display:flex;align-items:center;gap:7px;margin-left:auto;
   font-family:"Azeret Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
-.mod-lamp.restricted{color:var(--amber)}
+.mod-lamp.restricted{color:var(--amber-ink)}
 .mod p{font-size:15px;color:var(--dim);line-height:1.7;max-width:74ch}
 .mod p .mono{color:var(--green)}
 .specs{display:flex;flex-wrap:wrap;gap:6px}
 .spec{font-family:"Azeret Mono",monospace;font-size:11px;
-  color:var(--dim);border-radius:2px;padding:5px 9px 4px;background:rgba(0,0,0,.34);
-  box-shadow:inset 0 1px 2px rgba(0,0,0,.8),0 1px 0 rgba(255,255,255,.05)}
+  color:var(--dim);border-radius:2px;padding:5px 9px 4px;background:var(--well-wash);
+  box-shadow:inset 0 1px 2px var(--shade-2),0 1px 0 var(--chamfer-soft)}
 .mod-go{margin-top:auto;display:flex;align-items:center;gap:9px;font-family:"Azeret Mono",monospace;
   font-size:12.5px;color:var(--green);padding-top:4px}
 .mod-go .arr{transition:transform .25s var(--ease)}
 a.mod:hover .mod-go .arr{transform:translateX(5px)}
 .mod-note{margin-top:auto;display:flex;align-items:center;gap:9px;font-family:"Azeret Mono",monospace;
-  font-size:12.5px;color:var(--amber);padding-top:4px}
+  font-size:12.5px;color:var(--amber-ink);padding-top:4px}
 
 /* schematic */
 .schem{border:1px solid var(--hair);border-radius:3px;background:
-  linear-gradient(180deg,#0C0F10,#080A0B);padding:14px 12px}
+  linear-gradient(180deg,var(--well-hi),var(--well-lo));padding:14px 12px}
 .schem svg{width:100%;height:auto;display:block}
 .scrollhint{display:none}
 @media(max-width:760px){
@@ -459,23 +693,23 @@ a.mod:hover .mod-go .arr{transform:translateX(5px)}
   .scrollhint::after{content:"";width:14px;height:1px;background:var(--green-ink);
     box-shadow:5px -3px 0 -0.5px var(--green-ink),5px 3px 0 -0.5px var(--green-ink)}
 }
-.sc-box{fill:#101315;stroke:#3D4348;stroke-width:1}
-.sc-box-a{fill:rgba(124,255,158,.055);stroke:var(--green-ink);stroke-width:1}
-.sc-t{font-family:"Azeret Mono",monospace;font-size:7.6px;letter-spacing:.03em;fill:#C6CDCE}
-.sc-t.d{fill:#7F8789}
+.sc-box{fill:var(--sc-box);stroke:var(--sc-stroke);stroke-width:1}
+.sc-box-a{fill:var(--green-wash-soft);stroke:var(--green-ink);stroke-width:1}
+.sc-t{font-family:"Azeret Mono",monospace;font-size:7.6px;letter-spacing:.03em;fill:var(--sc-t)}
+.sc-t.d{fill:var(--sc-t-d)}
 .sc-t.g{fill:var(--green)}
-.sc-line{stroke:#4B5257;stroke-width:1;fill:none}
+.sc-line{stroke:var(--sc-line);stroke-width:1;fill:none}
 .sc-line-a{stroke:var(--green-ink);stroke-width:1.2;fill:none}
 .sc-dash{stroke:var(--amber);stroke-width:1;stroke-dasharray:3 3;fill:none;opacity:.75}
 
-/* ───────── checklist (stack) ───────── */
+/* ───────── stack columns ───────── */
 .checklist{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
 @media(max-width:1000px){.checklist{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.checklist{grid-template-columns:1fr}}
-.cl{border:1px solid var(--bezel);border-radius:4px;background:linear-gradient(180deg,#131618,#0A0C0D);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045);overflow:hidden}
+.cl{border:1px solid var(--bezel);border-radius:4px;background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo));
+  box-shadow:inset 0 1px 0 var(--chamfer-soft);overflow:hidden}
 .cl h3{font-family:"Azeret Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--lum);padding:12px 14px;border-bottom:1px solid var(--bezel);background:#0E1113}
+  text-transform:uppercase;color:var(--lum);padding:12px 14px;border-bottom:1px solid var(--bezel);background:var(--plate-head)}
 .cl ul{list-style:none;padding:8px 0}
 .cl li{display:flex;align-items:flex-start;gap:9px;padding:5px 14px;font-family:"Azeret Mono",monospace;
   font-size:13.5px;line-height:1.55;color:var(--dim)}
@@ -484,20 +718,20 @@ a.mod:hover .mod-go .arr{transform:translateX(5px)}
 /* ───────── certification ───────── */
 .cert{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:760px){.cert{grid-template-columns:1fr}}
-.cert-block{border:1px solid var(--bezel);border-radius:4px;background:linear-gradient(180deg,#131618,#0A0C0D);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.045);overflow:hidden}
+.cert-block{border:1px solid var(--bezel);border-radius:4px;background:linear-gradient(180deg,var(--plate-hi),var(--plate-lo));
+  box-shadow:inset 0 1px 0 var(--chamfer-soft);overflow:hidden}
 .cert-block h3{font-family:"Azeret Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--lum);padding:12px 16px;border-bottom:1px solid var(--bezel);background:#0E1113}
+  text-transform:uppercase;color:var(--lum);padding:12px 16px;border-bottom:1px solid var(--bezel);background:var(--plate-head)}
 .cert-item{padding:16px;border-bottom:1px solid var(--hair)}
 .cert-item:last-child{border-bottom:0}
 .cert-item .t{font-size:15px;font-variation-settings:"wdth" 94,"wght" 700;color:var(--lum);line-height:1.35}
 .cert-item .s{font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;
   color:var(--faint);margin-top:7px}
 
-/* ───────── clearance / contact ───────── */
+/* ───────── contact ───────── */
 .clear{padding:96px 0 76px;position:relative;overflow:hidden}
 .clear::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(90% 120% at 50% 118%,rgba(124,255,158,.085),transparent 62%)}
+  background:radial-gradient(90% 120% at 50% 118%,var(--clear-bloom),transparent 62%)}
 .clear .wrap{text-align:left}
 .big{
   text-wrap:balance;
@@ -509,8 +743,8 @@ a.mod:hover .mod-go .arr{transform:translateX(5px)}
 .clear .foot-note{margin-top:34px;font-family:"Azeret Mono",monospace;font-size:12.5px;
   letter-spacing:.03em;color:var(--faint);display:flex;align-items:center;gap:10px}
 
-/* ───────── data plate footer ───────── */
-footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#060708);position:relative;z-index:1}
+/* ───────── footer plate ───────── */
+footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,var(--foot-1),var(--foot-2));position:relative;z-index:1}
 .plate{display:flex;flex-wrap:wrap;gap:10px 26px;padding:24px 28px;
   font-family:"Azeret Mono",monospace;font-size:12.5px;letter-spacing:.03em;color:var(--faint)}
 .plate .grow{margin-left:auto}
@@ -527,102 +761,57 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
 
 <body>
 <!--
-  IMPECCABLE DIRECTION CONTRACT — seed 89b9f3a1 · re-roll 2 · bolder register
-  THESIS: A software engineer read the way a pilot reads a night panel — six instruments that
-    agree with each other. Refuses the dark-portfolio-with-one-accent arrangement it replaces.
-  OWN-WORLD: Matte panel black #0B0D0F with satin bezels, hex screws and engraved placards.
-    Luminous white is information, radium green #7CFF9E is live data and anything pressable ONLY,
-    caution amber #FFB000 marks limits, warning red is reserved and stays dark. Archivo at
-    condensed widths for instrument lettering; Azeret Mono for every readout, placard and table.
-  STORY: A hiring manager comparing candidates at night scans six gauges, sees the numbers agree,
-    reads the logbook and the aircraft on type, and presses the one green thing on the page.
-  FIRST VIEWPORT: Glareshield strip with nameplate, placard nav, live Dhaka readout. Below, two
-    columns: left, the name at signage scale over the lede and two actions, one green; right, a
-    machined six-gauge panel — experience, endpoints, full stack, surfaces, products, base —
-    needles sweeping up on power-on, then the cross-check readout strip.
-  FORM: night instrument six-pack, dealt challenger 6 of the bolder hand, chosen after the user
-    stopped the deal; seed key 89b9f3a1.
+  IMPECCABLE DIRECTION CONTRACT — seed 89b9f3a1 · re-roll 2 · instrument typography
+  THESIS: An engineer's evidence laid out the way a precision instrument is labelled — machined
+    plates, engraved placards, mono readouts, one signal colour with a job. The aviation costume
+    it grew out of (dials, bezels, corner screws, cross-check) has been retired: the discipline
+    was the good part, the re-enactment was not.
+  OWN-WORLD: Two lighting conditions from one token set — day by default (alloy deck, white
+    plates, graphite ink, brushed-steel bezels), night on a switch (matte black, radium green).
+    Every colour is a semantic token; no literal hex appears in a rule. Green is live data and
+    anything pressable ONLY, amber marks a limit, red is declared and never lit. Archivo at
+    condensed widths for lettering; Azeret Mono for every readout, placard and table.
+  STORY: A hiring manager comparing candidates reads the name, the claim, and then a drawing of
+    the actual stack — three surfaces, a typed API, a tenant-isolated database — checks the
+    numbers in the strip below it, opens one row of the history, and presses the green thing.
+  FIRST VIEWPORT: Header rail with nameplate, section links, panel-light switch and a live Dhaka
+    readout. Below, two columns: left, the name at signage scale over the lede and two actions,
+    one green; right, the architecture diagram on a machined plate, its signal path drawing
+    itself once on load. Under both, an eight-cell data strip carrying every headline number.
+  FORM: architecture-led evidence panel; the six-gauge instrument cluster it replaces was cut for
+    reading as costume rather than credential.
   FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the
     verdict, and DESIGN.md.
 -->
 
-<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
-  <defs>
-    <linearGradient id="bez" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#767D85"/><stop offset=".2" stop-color="#1B1F23"/>
-      <stop offset=".5" stop-color="#454C53"/><stop offset=".8" stop-color="#111417"/>
-      <stop offset="1" stop-color="#4E555C"/>
-    </linearGradient>
-    <linearGradient id="bez2" x1="1" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="#646B73"/><stop offset=".38" stop-color="#15181B"/>
-      <stop offset="1" stop-color="#3A4147"/>
-    </linearGradient>
-    <radialGradient id="rim" cx=".5" cy=".5" r=".5">
-      <stop offset=".68" stop-color="#000" stop-opacity="0"/>
-      <stop offset=".9" stop-color="#000" stop-opacity=".30"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".62"/>
-    </radialGradient>
-    <radialGradient id="fce" cx=".5" cy=".36" r=".78">
-      <stop offset="0" stop-color="#16191D"/><stop offset=".72" stop-color="#0C0E11"/>
-      <stop offset="1" stop-color="#060708"/>
-    </radialGradient>
-    <radialGradient id="gls" cx=".3" cy=".14" r=".66">
-      <stop offset="0" stop-color="#fff" stop-opacity=".12"/><stop offset=".42" stop-color="#fff" stop-opacity=".035"/>
-      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="hub" cx=".35" cy=".3" r=".8">
-      <stop offset="0" stop-color="#6A7178"/><stop offset="1" stop-color="#14171A"/>
-    </radialGradient>
-    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#20404F"/><stop offset="1" stop-color="#12252E"/>
-    </linearGradient>
-    <linearGradient id="gnd" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#4A3A24"/><stop offset="1" stop-color="#241C11"/>
-    </linearGradient>
-    <clipPath id="fclip"><circle cx="100" cy="100" r="80"/></clipPath>
-    <symbol id="bezel-ring" viewBox="0 0 200 200">
-      <circle cx="100" cy="100" r="97" fill="url(#bez)"/>
-      <circle cx="100" cy="100" r="89.5" fill="url(#bez2)"/>
-      <circle cx="100" cy="100" r="85" fill="#060708"/>
-      <circle cx="100" cy="100" r="83.5" fill="url(#fce)"/>
-    </symbol>
-    <symbol id="bezel-screws" viewBox="0 0 200 200">
-      <g fill="url(#hub)" stroke="#000" stroke-width=".8">
-        <circle cx="26" cy="26" r="5.4"/><circle cx="174" cy="26" r="5.4"/>
-        <circle cx="26" cy="174" r="5.4"/><circle cx="174" cy="174" r="5.4"/>
-      </g>
-      <g stroke="#000" stroke-width="1.1" opacity=".8">
-        <path d="M22.5,24 L29.5,28"/><path d="M170.5,28 L177.5,24"/>
-        <path d="M22.5,176 L29.5,172"/><path d="M170.5,172 L177.5,176"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
+<a class="skip" href="#work">Skip to the work</a>
 
 <header id="deck-head">
   <div class="wrap nav">
     <a href="#top" class="nameplate" aria-label="Saiful Islam — top of page">
-      <svg class="mk" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/>
-        <circle cx="12" cy="12" r="1.7" fill="currentColor"/>
-        <path d="M12 12 L18.4 7.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M12 2.6v2.2M21.4 12h-2.2M12 21.4v-2.2M2.6 12h2.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <svg class="mk" viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="currentColor" transform="translate(5.029 28.562) scale(0.03657 -0.03657)" d="M306 -12Q250 -12 201.5 -1.5Q153 9 116 34Q79 59 57.5 101Q36 143 36 206Q36 209 36 215Q36 221 37 224L199 224Q199 221 198.5 216Q198 211 198 207Q198 175 210.5 156Q223 137 245 129.5Q267 122 298 122Q316 122 330.5 124Q345 126 356.5 131.5Q368 137 376.5 145Q385 153 388.5 163.5Q392 174 392 189Q392 211 377.5 227Q363 243 339 253.5Q315 264 284.5 274Q254 284 220.5 294Q187 304 156.5 319.5Q126 335 101.5 357.5Q77 380 62.5 413Q48 446 48 493Q48 548 68 587.5Q88 627 123 652Q158 677 204 688Q250 699 301 699Q352 699 397 688Q442 677 476 653Q510 629 529 591.5Q548 554 549 500L549 482L388 482L388 493Q388 515 379.5 532Q371 549 352.5 558.5Q334 568 304 568Q277 568 257.5 561Q238 554 228 541.5Q218 529 218 509Q218 487 232.5 471.5Q247 456 272.5 445Q298 434 328.5 424.5Q359 415 391 405.5Q423 396 454 381.5Q485 367 510 344.5Q535 322 549.5 289.5Q564 257 564 212Q564 133 531.5 84Q499 35 440.5 11.5Q382 -12 306 -12Z"/>
       </svg>
-      Saiful Islam
+      <span class="np-name">Saiful Islam</span>
     </a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#experience">Logbook</a>
+      <a href="#experience">Experience</a>
       <a href="#work">Work</a>
       <a href="#skills">Stack</a>
       <a href="#contact" class="engage"><span class="ring" aria-hidden="true"></span>Contact</a>
     </nav>
+    <button type="button" class="lamp-switch" id="panel-light" aria-pressed="false"
+            aria-label="Panel light — switch to night lighting">
+      <span class="ls-track" aria-hidden="true"><span class="ls-knob"></span></span>
+      <span class="ls-state" id="ls-state" aria-hidden="true">Day</span>
+    </button>
     <div class="utc"><span class="lamp pulse" aria-hidden="true"></span><span id="clock">DHAKA</span></div>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ═══════════════ FLIGHT DECK ═══════════════ -->
+  <!-- ═══════════════ HERO ═══════════════ -->
   <section class="deck">
     <div class="wrap">
       <div class="deck-grid">
@@ -642,223 +831,96 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
             <span class="on"><span class="lamp" aria-hidden="true"></span>Open to remote</span>
             <span class="sep" aria-hidden="true"></span>
             <span>Dhaka, BD · UTC+6</span>
-            <span class="sep" aria-hidden="true"></span>
-            <span>Toolchain — Claude · Cursor · Ollama · OpenCode</span>
           </div>
         </div>
 
         <div class="panel">
-          <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
-          <span class="screw" aria-hidden="true"></span><span class="screw" aria-hidden="true"></span>
+          <!-- The shape of every system on this page: three surfaces, one typed API, one
+               tenant-isolated database. Real text in a real layout, so it reflows and reads
+               at every width instead of scaling down to nothing. -->
+          <div class="hx" role="group" aria-label="System architecture, top to bottom">
 
-          <div class="sixpack" id="sixpack">
+            <div class="hx-row">
+              <div class="hx-node"><b>Web app</b><span>Angular 21 · signals</span></div>
+              <div class="hx-node"><b>Admin console</b><span>Angular · role-scoped</span></div>
+              <div class="hx-node"><b>Mobile</b><span>React Native · Expo</span></div>
+            </div>
 
-            <!-- 1. ALTIMETER — EXPERIENCE (0–10 yrs, needle 3.5) -->
-            <figure class="gauge" tabindex="0" data-read="Experience — <b>3.5+ years</b> shipping production software">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Altimeter styled gauge reading three point five: 3.5+ years of experience.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <path class="tick-maj" d="M44.85,155.15 A78,78 0 1 1 155.15,155.15" pathLength="270" stroke-width="13" stroke-dasharray="1.7 25.3" stroke-dashoffset="-0.85"/>
-                <path class="tick-min" d="M46.97,153.03 A75,75 0 1 1 153.03,153.03" pathLength="270" stroke-width="6" stroke-dasharray=".9 4.5" stroke-dashoffset="-0.45"/>
-                <text class="gtext" x="57.6" y="142.4" text-anchor="middle" dominant-baseline="middle">0</text>
-                <text class="gtext" x="40.7" y="90.6" text-anchor="middle" dominant-baseline="middle">2</text>
-                <text class="gtext" x="72.8" y="46.5" text-anchor="middle" dominant-baseline="middle">4</text>
-                <text class="gtext" x="127.2" y="46.5" text-anchor="middle" dominant-baseline="middle">6</text>
-                <text class="gtext" x="159.3" y="90.6" text-anchor="middle" dominant-baseline="middle">8</text>
-                <text class="gtext" x="142.4" y="142.4" text-anchor="middle" dominant-baseline="middle">10</text>
-                <text class="glabel" x="100" y="76" text-anchor="middle">YEARS</text>
-                <text class="gread" x="100" y="132" text-anchor="middle">3.5+</text>
-                <path class="arc-live" d="M44.85,155.15 A78,78 0 0 1 49.32,40.7" stroke-width="3.4" stroke-linecap="butt" opacity=".7"/>
-                <g class="needle" data-target="-40.5" style="--a:-40.5deg">
-                  <path d="M100,100 L96.6,96 L100,29 L103.4,96 Z"/>
-                  <path d="M97.4,100 L102.6,100 L102.6,119 L97.4,119 Z" opacity=".85"/>
-                </g>
-                <circle cx="100" cy="100" r="7.5" fill="url(#hub)" stroke="#000" stroke-width=".8"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>ALT · Experience</span><b>3.5+ yrs</b></figcaption>
-            </figure>
+            <div class="hx-fan" aria-hidden="true"><i style="--d:0s"></i><i style="--d:.05s"></i><i style="--d:.1s"></i></div>
 
-            <!-- 2. AIRSPEED — ENDPOINTS (0–1000, needle 900) -->
-            <figure class="gauge" tabindex="0" data-read="Airspeed — <b>900+ typed endpoints</b> designed and shipped">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Airspeed styled gauge reading nine hundred: 900+ typed endpoints.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <path class="arc-live" d="M44.85,155.15 A78,78 0 1 1 152.5,152.5" pathLength="270" stroke-width="3.6" stroke-dasharray="243 270" stroke-linecap="butt"/>
-                <path class="arc-caut" d="M44.85,155.15 A78,78 0 1 1 155.15,155.15" pathLength="270" stroke-width="3.6" stroke-dasharray="0 243 27" stroke-linecap="butt"/>
-                <path class="tick-maj" d="M46.97,153.03 A75,75 0 1 1 153.03,153.03" pathLength="270" stroke-width="12" stroke-dasharray="1.7 52.3" stroke-dashoffset="-0.85"/>
-                <path class="tick-min" d="M48.4,151.6 A73,73 0 1 1 151.6,151.6" pathLength="270" stroke-width="6" stroke-dasharray=".9 12.6" stroke-dashoffset="-0.45"/>
-                <text class="gtext sm" x="57.6" y="140" text-anchor="middle" dominant-baseline="middle">0</text>
-                <text class="gtext sm" x="43" y="90" text-anchor="middle" dominant-baseline="middle">200</text>
-                <text class="gtext sm" x="73.5" y="49" text-anchor="middle" dominant-baseline="middle">400</text>
-                <text class="gtext sm" x="126.5" y="49" text-anchor="middle" dominant-baseline="middle">600</text>
-                <text class="gtext sm" x="157" y="90" text-anchor="middle" dominant-baseline="middle">800</text>
-                <text class="gtext sm" x="141" y="140" text-anchor="middle" dominant-baseline="middle">1000</text>
-                <text class="glabel" x="100" y="78" text-anchor="middle">ENDPOINTS</text>
-                <text class="gread" x="100" y="130" text-anchor="middle">900+</text>
-                <g class="needle" data-target="108" style="--a:108deg">
-                  <path d="M100,100 L96.6,96 L100,29 L103.4,96 Z"/>
-                  <path d="M97.4,100 L102.6,100 L102.6,119 L97.4,119 Z" opacity=".85"/>
-                </g>
-                <circle cx="100" cy="100" r="7.5" fill="url(#hub)" stroke="#000" stroke-width=".8"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>IAS · Endpoints</span><b>900+ typed</b></figcaption>
-            </figure>
+            <div class="hx-band">
+              <b>Signals-first client layer</b>
+              <span>NgRx Signal stores · standalone components · lazy-loaded feature routes · localized UI</span>
+            </div>
 
-            <!-- 3. ATTITUDE — FULL STACK -->
-            <figure class="gauge" tabindex="0" id="g-att" data-read="Attitude — <b>full stack</b>, frontend above the line, backend below">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Attitude indicator: frontend above the horizon, backend below — full stack.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <g clip-path="url(#fclip)">
-                  <g id="horizon">
-                    <rect x="-40" y="-40" width="280" height="140" fill="url(#sky)"/>
-                    <rect x="-40" y="100" width="280" height="180" fill="url(#gnd)"/>
-                    <path d="M-40,100 H240" stroke="#F2F5F5" stroke-width="2"/>
-                    <g stroke="#C9D1D2" stroke-width="1.2" opacity=".85">
-                      <path d="M78,80 H122"/><path d="M86,68 H114"/>
-                      <path d="M78,120 H122"/><path d="M86,132 H114"/>
-                    </g>
-                    <text class="glabel" x="100" y="56" text-anchor="middle" fill="#CDE2EA">FRONTEND</text>
-                    <text class="glabel" x="100" y="150" text-anchor="middle" fill="#E2CFAA">BACKEND</text>
-                  </g>
-                </g>
-                <g fill="none" stroke="#7CFF9E" stroke-width="3" stroke-linecap="round">
-                  <path d="M58,100 H82"/><path d="M118,100 H142"/>
-                </g>
-                <circle cx="100" cy="100" r="3.4" fill="#7CFF9E"/>
-                <path d="M100,20 l-6,10 h12 z" fill="#F2F5F5"/>
-                <g class="tick-maj" stroke-width="2">
-                  <path d="M72.7,26.8 l-4.2,-8.2" /><path d="M127.3,26.8 l4.2,-8.2"/>
-                  <path d="M52.5,44.2 l-6.4,-6.4"/><path d="M147.5,44.2 l6.4,-6.4"/>
-                </g>
-                <text class="glabel" x="100" y="176" text-anchor="middle" fill="#7CFF9E">LEVEL</text>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>ATT · Full stack</span><b>front + back</b></figcaption>
-            </figure>
+            <div class="hx-edge">
+              <span class="hx-k">Typed HTTP</span>
+              <span>permission-checked, end to end</span>
+            </div>
 
-            <!-- 4. TURN COORDINATOR — SURFACES -->
-            <figure class="gauge" tabindex="0" data-read="Turn coordinator — three shipped surfaces: <b>web, admin console, mobile</b>">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Turn coordinator: three shipped surfaces — web, admin console and mobile.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <g class="tick-maj" stroke-width="2.4">
-                  <path d="M100,20 v11"/>
-                  <path d="M58.5,31.1 l5.5,9.5"/><path d="M141.5,31.1 l-5.5,9.5"/>
-                  <path d="M31.1,58.5 l9.5,5.5"/><path d="M168.9,58.5 l-9.5,5.5"/>
-                </g>
-                <text class="glabel" x="41" y="99" text-anchor="middle" fill="#C6CDCE">L</text>
-                <text class="glabel" x="159" y="99" text-anchor="middle" fill="#C6CDCE">R</text>
-                <g id="tc-plane" fill="none" stroke="#7CFF9E" stroke-width="3.2" stroke-linecap="round">
-                  <path d="M46,88 H154"/><path d="M100,74 V88"/><path d="M86,102 H114"/>
-                </g>
-                <circle cx="100" cy="88" r="4" fill="#7CFF9E"/>
-                <path d="M64,132 a36,36 0 0 0 72,0" fill="#0A0C0D" stroke="#3D4348" stroke-width="1.4"/>
-                <g stroke="#8E9698" stroke-width="1.4"><path d="M92,126 v10"/><path d="M108,126 v10"/></g>
-                <circle cx="100" cy="133.4" r="5.2" fill="#E9EFEF" opacity=".92"/>
-                <text class="glabel" x="100" y="158" text-anchor="middle">WEB · ADMIN · MOBILE</text>
-                <text class="glabel" x="100" y="60" text-anchor="middle">SURFACES</text>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>T/C · Surfaces</span><b>web · admin · app</b></figcaption>
-            </figure>
+            <div class="hx-band">
+              <b>.NET API</b>
+              <span>Clean Architecture · DDD · modular monolith · Result pattern</span>
+            </div>
 
-            <!-- 5. VERTICAL SPEED — PRODUCTS SHIPPED -->
-            <figure class="gauge" tabindex="0" data-read="Vertical speed — <b>6+ products</b> shipped, still climbing">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Vertical speed indicator climbing at six: 6+ products shipped.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <circle class="tick-min" cx="100" cy="100" r="75" fill="none" pathLength="360" stroke-width="6" stroke-dasharray="1 7" transform="rotate(-90 100 100)"/>
-                <circle class="tick-maj" cx="100" cy="100" r="77" fill="none" pathLength="360" stroke-width="12" stroke-dasharray="1.8 14.2" transform="rotate(-90 100 100)"/>
-                <text class="gtext" x="40" y="100" text-anchor="middle" dominant-baseline="middle">0</text>
-                <text class="gtext sm" x="89.6" y="40.9" text-anchor="middle" dominant-baseline="middle">5</text>
-                <text class="gtext sm" x="156.4" y="79.5" text-anchor="middle" dominant-baseline="middle">10</text>
-                <text class="gtext sm" x="89.6" y="159.1" text-anchor="middle" dominant-baseline="middle">5</text>
-                <text class="gtext sm" x="156.4" y="120.5" text-anchor="middle" dominant-baseline="middle">10</text>
-                <text class="glabel" x="72" y="74" text-anchor="middle">UP</text>
-                <text class="glabel" x="72" y="130" text-anchor="middle">DN</text>
-                <text class="glabel" x="116" y="122" text-anchor="middle">PRODUCTS</text>
-                <text class="gread" x="116" y="140" text-anchor="middle">6+</text>
-                <path class="arc-live" d="M40,100 A60,60 0 0 1 130.5,48.6" stroke-width="3" opacity=".55"/>
-                <g class="needle needle-g" data-target="6" style="--a:6deg">
-                  <path d="M100,100 L97,96.5 L100,32 L103,96.5 Z"/>
-                  <path d="M98,100 L102,100 L102,114 L98,114 Z" opacity=".7"/>
-                </g>
-                <circle cx="100" cy="100" r="7" fill="url(#hub)" stroke="#000" stroke-width=".8"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>V/S · Shipped</span><b>6+ products</b></figcaption>
-            </figure>
+            <div class="hx-mods">
+              <div class="hx-mod"><span class="hx-k">ERP</span><span>access control · accounting · HR · production · inventory</span></div>
+              <div class="hx-mod"><span class="hx-k">QMS</span><span>deviation · checklist · handbook · compliance · settings</span></div>
+            </div>
 
-            <!-- 6. HEADING — BASE -->
-            <figure class="gauge" tabindex="0" data-read="Heading — based in <b>Dhaka, UTC+6</b>, working remote">
-              <svg viewBox="0 0 200 200" role="img" aria-label="Heading indicator: based in Dhaka, UTC plus six, working remote.">
-                <use href="#bezel-ring" width="200" height="200"/>
-                <circle class="ring-lit" cx="100" cy="100" r="89.5" fill="none" stroke="#7CFF9E" stroke-width="1.4" opacity="0"/>
-                <g id="hdg-card" transform="rotate(-60 100 100)">
-                  <circle class="tick-min" cx="100" cy="100" r="75" fill="none" pathLength="360" stroke-width="6" stroke-dasharray="1 4" transform="rotate(-90 100 100)"/>
-                  <circle class="tick-maj" cx="100" cy="100" r="77" fill="none" pathLength="360" stroke-width="12" stroke-dasharray="1.8 28.2" transform="rotate(-90 100 100)"/>
-                  <text class="gtext" x="100" y="42" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 100 42)">N</text>
-                  <text class="gtext sm" x="150" y="71" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 150 71)">3</text>
-                  <text class="gtext sm" x="150" y="129" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 150 129)">6</text>
-                  <text class="gtext" x="100" y="158" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 100 158)">S</text>
-                  <text class="gtext sm" x="50" y="71" text-anchor="middle" dominant-baseline="middle" transform="rotate(60 50 71)">30</text>
-                  <path d="M158,100 l-7,-5 v10 z" fill="#FFB000"/>
-                </g>
-                <path d="M100,22 l-5.5,9 h11 z" fill="#F2F5F5"/>
-                <path class="acft" d="M100,64 c2.7,0 4.2,3.1 4.4,8.2 l0.4,18.6 27.2,12.4 v6.4 l-27.2,-5.9 0.4,13.9 7.2,5.2 v4.2 l-12.4,-2.6 -12.4,2.6 v-4.2 l7.2,-5.2 0.4,-13.9 -27.2,5.9 v-6.4 l27.2,-12.4 0.4,-18.6 c0.2,-5.1 1.7,-8.2 4.4,-8.2 z" fill="#0A0F0C" stroke="#7CFF9E" stroke-width="2.2" stroke-linejoin="round"/>
-                <rect x="74" y="136" width="52" height="19" rx="2" fill="#07090A" stroke="#3D4348" stroke-width="1"/>
-                <text class="gread" x="100" y="149.5" text-anchor="middle">UTC+6</text>
-                <circle cx="100" cy="100" r="83.5" fill="url(#rim)" pointer-events="none"/>
-                <circle cx="100" cy="100" r="83.5" fill="url(#gls)" pointer-events="none"/>
-                <use href="#bezel-screws" width="200" height="200"/>
-              </svg>
-              <figcaption class="placard"><span>HDG · Base</span><b>Dhaka · UTC+6</b></figcaption>
-            </figure>
+            <div class="hx-fan dn" aria-hidden="true"><i style="--d:.28s"></i><i style="--d:.33s"></i><i style="--d:.38s"></i></div>
 
+            <div class="hx-row">
+              <div class="hx-node"><b>PostgreSQL</b><span>row-level security · bitmask RBAC</span></div>
+              <div class="hx-node"><b>Redis</b><span>cache · sessions</span></div>
+              <div class="hx-node"><b>S3 · MinIO</b><span>tokenized uploads</span></div>
+            </div>
+
+            <div class="hx-tap">
+              <span class="hx-k">Telemetry, out of band</span>
+            </div>
+
+            <div class="hx-band obs">
+              <b>Observability — self-hosted LGTM</b>
+              <span>OpenTelemetry traces → Alloy → Tempo · Prometheus scrapes a token-gated /metrics · container logs → Loki · Grafana dashboards and alert rules → Telegram</span>
+            </div>
+
+            <div class="hx-lane">
+              <span class="hx-k">Authored with AI agents</span>
+              <span>Claude · Cursor · Ollama · OpenCode — on production work, not demos</span>
+            </div>
           </div>
 
           <div class="crosscheck">
-            <span class="placard">Cross-check</span>
-            <span class="out" id="ccout" aria-live="polite">Six instruments, one engineer — hover, tap or focus any gauge.</span>
+            <span class="placard">Stack</span>
+            <span class="out">Three surfaces, one typed API, one tenant-isolated database, watched by its own telemetry — the shape of every system below.</span>
           </div>
         </div>
 
       </div>
 
-      <div class="statuslist">
-        <div class="sl-row"><span class="k">ERP platforms</span><span class="v num">4</span></div>
-        <div class="sl-row"><span class="k">Lazy routes</span><span class="v num">80+</span></div>
-        <div class="sl-row"><span class="k">Localization keys</span><span class="v num">1,000+</span></div>
-        <div class="sl-row"><span class="k">Master components</span><span class="v num">40+</span></div>
-        <div class="sl-row sl-close"><span class="k">All systems normal</span><span class="lamp" aria-hidden="true"></span></div>
-      </div>
+      <dl class="statuslist">
+        <div class="sl-row"><dt class="k">Experience</dt><dd class="v num">3.5+ yrs</dd></div>
+        <div class="sl-row"><dt class="k">ERP platforms</dt><dd class="v num">4</dd></div>
+        <div class="sl-row"><dt class="k">Products shipped</dt><dd class="v num">6+</dd></div>
+        <div class="sl-row"><dt class="k">Observability</dt><dd class="v">Self-hosted LGTM</dd></div>
+        <div class="sl-row"><dt class="k">Domain modules</dt><dd class="v">ERP + QMS</dd></div>
+        <div class="sl-row"><dt class="k">Base</dt><dd class="v">Dhaka · UTC+6</dd></div>
+      </dl>
     </div>
   </section>
 
-  <!-- ═══════════════ LOGBOOK ═══════════════ -->
+  <!-- ═══════════════ EXPERIENCE ═══════════════ -->
   <section class="sec" id="experience">
     <div class="wrap">
       <div class="sec-head">
         <h2>Where the hours went</h2>
-        <span class="count">3 operators · 2023 → present</span>
+        <span class="count">3 companies · 2023 → present</span>
       </div>
 
       <div class="logbook">
         <div class="log-head" aria-hidden="true">
-          <span>Period</span><span>Operator</span><span>Type</span><span></span>
+          <span>Period</span><span>Company</span><span>Stack</span><span></span>
         </div>
 
         <div class="log-row">
@@ -974,11 +1036,13 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
             </svg>
           </div>
           <span class="scrollhint">Pan the diagram</span>
-          <p>A multi-tenant coaching platform where every tenant gets its own subdomain. Built end-to-end — Postgres row-level security, bitmask RBAC, online exams and bKash/Nagad payments — so isolation holds all the way down.</p>
+          <p>A multi-tenant coaching platform where every tenant gets its own subdomain. Built end-to-end — Postgres row-level security, bitmask RBAC, online exams and bKash/Nagad payments — so isolation holds all the way down. It runs behind its own self-hosted observability stack: OpenTelemetry traces from the API into Tempo, Prometheus scraping a token-gated metrics endpoint alongside node, container, Postgres and nginx exporters, container logs in Loki, and five provisioned Grafana dashboards with fourteen alert rules that reach Telegram — production and staging on one stack, split by label, every container memory-capped so monitoring runs out of room before the app does.</p>
           <div class="specs">
             <span class="spec">.NET 10</span><span class="spec">Postgres RLS</span><span class="spec">Angular 21</span>
             <span class="spec">Next.js 16</span><span class="spec">bitmask RBAC</span><span class="spec">bKash / Nagad</span>
             <span class="spec">PWA + push</span><span class="spec">en / bn</span>
+            <span class="spec">OpenTelemetry</span><span class="spec">Grafana · Loki · Tempo</span>
+            <span class="spec">Prometheus</span><span class="spec">Telegram alerts</span>
           </div>
           <span class="mod-go">View live — campusqbd.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
         </a>
@@ -1101,12 +1165,12 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
     </div>
   </section>
 
-  <!-- ═══════════════ CHECKLIST / STACK ═══════════════ -->
+  <!-- ═══════════════ STACK ═══════════════ -->
   <section class="sec" id="skills">
     <div class="wrap">
       <div class="sec-head">
         <h2>The stack it all runs on</h2>
-        <span class="count">Pre-flight checklist</span>
+        <span class="count">In production use</span>
       </div>
 
       <div class="checklist">
@@ -1127,9 +1191,10 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
           <h3>Backend &amp; Data</h3>
           <ul>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>.NET (Core / 10)</li>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Node.js</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Node.js · Express</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>PostgreSQL (RLS)</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>MongoDB · Redis</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>MySQL</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>RESTful APIs</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Firebase</li>
           </ul>
@@ -1149,6 +1214,9 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>GitHub Actions</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Azure DevOps · AWS</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Linux · Git</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>OpenTelemetry</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Prometheus · Grafana</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Loki · Tempo</li>
           </ul>
         </div>
         <div class="cl">
@@ -1198,7 +1266,7 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
     </div>
   </section>
 
-  <!-- ═══════════════ CLEARANCE ═══════════════ -->
+  <!-- ═══════════════ CONTACT ═══════════════ -->
   <section class="clear" id="contact">
     <div class="wrap">
       <h2 class="big">Let's build something<br><span class="em">that reacts.</span></h2>
@@ -1209,7 +1277,7 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
         <a href="https://github.com/saiful-70" target="_blank" rel="noopener" class="btn">GitHub</a>
         <a href="https://linkedin.com/in/saiful70" target="_blank" rel="noopener" class="btn">LinkedIn</a>
       </div>
-      <div class="foot-note"><span class="lamp" aria-hidden="true"></span>Cleared for remote · replies within a day</div>
+      <div class="foot-note"><span class="lamp" aria-hidden="true"></span>Open to remote work · replies within a day</div>
     </div>
   </section>
 
@@ -1226,8 +1294,6 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
 <script>
 (function(){
   "use strict";
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   /* ---- live Dhaka clock (24h) ---- */
   var clock = document.getElementById("clock");
   function tick(){
@@ -1242,99 +1308,33 @@ footer{border-top:1px solid #000;background:linear-gradient(180deg,#0A0C0D,#0607
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
+  /* ---- panel light: day is the default; the choice is remembered ---- */
+  var sw = document.getElementById("panel-light");
+  var swState = document.getElementById("ls-state");
+  var tcMeta = document.getElementById("tc-meta");
+  var root = document.documentElement;
+  function applyLight(night){
+    if (night) root.setAttribute("data-theme","dark"); else root.removeAttribute("data-theme");
+    if (sw){
+      sw.setAttribute("aria-pressed", night ? "true" : "false");
+      sw.setAttribute("aria-label", night
+        ? "Panel light — switch to day lighting"
+        : "Panel light — switch to night lighting");
+    }
+    if (swState) swState.textContent = night ? "Night" : "Day";
+    if (tcMeta) tcMeta.setAttribute("content", night ? "#0B0D0F" : "#DBDBD5");
+  }
+  applyLight(root.getAttribute("data-theme") === "dark");
+  if (sw) sw.addEventListener("click", function(){
+    var night = root.getAttribute("data-theme") !== "dark";
+    applyLight(night);
+    try{ localStorage.setItem("panel-light", night ? "night" : "day"); }catch(e){}
+  });
+
   /* ---- header lift ---- */
   var head = document.getElementById("deck-head");
   function onScroll(){ head.classList.toggle("lifted", window.scrollY > 8); }
   onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
-
-  /* ---- POWER-ON: the one authored moment.
-         Needles sweep from rest to value with damped spring physics. ---- */
-  var pack = document.getElementById("sixpack");
-  var needles = pack ? Array.prototype.slice.call(pack.querySelectorAll(".needle")) : [];
-
-  function powerOn(){
-    needles.forEach(function(n, i){
-      var target = parseFloat(n.getAttribute("data-target")) || 0;
-      var from = target - 300;              // wind back below the stop
-      var pos = from, vel = 0;
-      var k = 0.055, damp = 0.80;           // stiff enough to arrive, damped enough to settle
-      var started = false, t0 = performance.now() + i * 90;
-      n.style.setProperty("--a", from + "deg");
-      function step(now){
-        if (now < t0){ requestAnimationFrame(step); return; }
-        if (!started) started = true;
-        var a = (target - pos) * k;
-        vel = (vel + a) * damp;
-        pos += vel;
-        n.style.setProperty("--a", pos.toFixed(2) + "deg");
-        if (Math.abs(target - pos) > 0.05 || Math.abs(vel) > 0.05){
-          requestAnimationFrame(step);
-        } else {
-          n.style.setProperty("--a", target + "deg");
-        }
-      }
-      requestAnimationFrame(step);
-    });
-  }
-
-  if (!reduce && needles.length){
-    if ("IntersectionObserver" in window){
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){
-          if (e.isIntersecting){ powerOn(); io.disconnect(); }
-        });
-      }, {threshold:.25});
-      io.observe(pack);
-    } else { powerOn(); }
-  }
-
-  /* ---- CROSS-CHECK: the signature interaction.
-         Focus or hover one instrument, the other five dim, the readout names the value. ---- */
-  var out = document.getElementById("ccout");
-  var idle = out ? out.innerHTML : "";
-  var gauges = pack ? Array.prototype.slice.call(pack.querySelectorAll(".gauge")) : [];
-
-  function light(g){
-    gauges.forEach(function(x){ x.classList.toggle("lit", x === g); });
-    pack.classList.add("checking");
-    if (out) out.innerHTML = g.getAttribute("data-read");
-  }
-  function clearLight(){
-    gauges.forEach(function(x){ x.classList.remove("lit"); });
-    pack.classList.remove("checking");
-    if (out) out.innerHTML = idle;
-  }
-  gauges.forEach(function(g, i){
-    g.addEventListener("mouseenter", function(){ light(g); });
-    g.addEventListener("mouseleave", clearLight);
-    g.addEventListener("focus", function(){ light(g); });
-    g.addEventListener("blur", clearLight);
-    g.addEventListener("keydown", function(ev){
-      var d = ev.key === "ArrowRight" || ev.key === "ArrowDown" ? 1
-            : ev.key === "ArrowLeft"  || ev.key === "ArrowUp"   ? -1 : 0;
-      if (!d) return;
-      ev.preventDefault();
-      gauges[(i + d + gauges.length) % gauges.length].focus();
-    });
-  });
-
-  /* ---- attitude horizon banks slightly with the pointer ---- */
-  var att = document.getElementById("g-att");
-  var hor = document.getElementById("horizon");
-  if (att && hor && !reduce){
-    att.addEventListener("pointermove", function(e){
-      var r = att.getBoundingClientRect();
-      var dx = (e.clientX - (r.left + r.width/2)) / (r.width/2);
-      var dy = (e.clientY - (r.top + r.height/2)) / (r.height/2);
-      hor.style.transform = "rotate(" + (-dx*5).toFixed(2) + "deg) translateY(" + (-dy*7).toFixed(1) + "px)";
-      hor.style.transformOrigin = "100px 100px";
-    });
-    att.addEventListener("pointerleave", function(){
-      hor.style.transition = "transform .55s cubic-bezier(.2,.7,.25,1)";
-      hor.style.transform = "rotate(0deg) translateY(0)";
-      setTimeout(function(){ hor.style.transition = ""; }, 600);
-    });
-  }
 
   /* ---- logbook rows ---- */
   Array.prototype.forEach.call(document.querySelectorAll(".log-btn"), function(btn){
