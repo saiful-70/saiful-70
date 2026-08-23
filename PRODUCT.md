@@ -73,17 +73,8 @@ as leverage on production work, not as a novelty.
   full titles belong only in experience timelines and the resume.
 - Voice: direct, specific, technically concrete. Claims are backed by numbers or named
   systems. No hype adjectives.
-- **Light by default.** Confirmed by the user on 2026-08-23: the site opens white for
-  everyone, with a visible control to switch to dark and the choice remembered. Not
-  system-preference-driven, not dark-first. Any future surface inherits this.
-- **No skeuomorphism.** The user rejected a metaphor-led treatment (instrument dials,
-  machined panels) outright. Future work stays literal: type, space, hairlines, one accent.
-- Identity mark is an "S" monogram, white on the accent blue, chosen 2026-08-23.
-- The endpoint count (900+ typed endpoints) is not to be used as a headline statistic.
-  It stays in the MultiTech Systems detail where it has context.
-- Assets that stay in service: `profile.jpeg`. The raster icon set
-  (`favicon.png`, `apple-touch-icon.png`, `icon-512.png`) and `og-image.png` are **stale** —
-  they still carry a superseded identity and need regenerating against the current one.
+- Existing assets that stay in service: `profile.jpeg`, favicon set, `og-image.png`
+  (regenerate only if the identity changes).
 
 ## Evidence on Hand
 

@@ -1,529 +1,659 @@
 ---
-name: Saiful Islam — Portfolio
-description: A light-first, type-only engineer portfolio built from hairlines, space and one blue accent.
+name: Saiful Islam — Night Panel
+description: A software engineer read the way a pilot reads a night panel — six instruments that agree with each other.
 colors:
-  bg: "#FFFFFF"
-  bg-soft: "#F7F8F9"
-  ink: "#0A0B0C"
-  ink-2: "#31373F"
-  ink-hover: "#25292E"
-  muted: "#5C646E"
-  faint: "#697079"
-  line: "#E4E7EA"
-  line-soft: "#EFF1F3"
-  accent: "#1F5EFF"
-  live: "#0A7A45"
+  panel: "#0B0D0F"
+  face: "#101315"
+  plate: "#141719"
+  plate-floor: "#0A0C0D"
+  bezel: "#2A2D31"
+  edge: "#383C41"
+  chamfer: "rgba(255,255,255,.13)"
+  hair: "rgba(242,245,245,.10)"
+  lum: "#F2F5F5"
+  lum-sub: "#C9D1D2"
+  dim: "#9AA3A5"
+  faint: "#828A8D"
+  gauge-numeral-sm: "#AFB7B8"
+  green: "#7CFF9E"
+  green-ink: "#4FD27A"
+  amber: "#FFB000"
+  red-reserved: "#FF3B30"
+  selection-ink: "#04150A"
 typography:
   display:
-    fontFamily: "Geist, -apple-system, BlinkMacSystemFont, Segoe UI, system-ui, sans-serif"
-    fontSize: "clamp(1.95rem, 4.6vw, 3.05rem)"
-    fontWeight: 600
-    lineHeight: 1.16
-    letterSpacing: "-0.028em"
+    fontFamily: "Archivo, Archivo Narrow, system-ui, sans-serif"
+    fontSize: "clamp(3.6rem, 9.2vw, 6.6rem)"
+    fontVariation: "'wdth' 84, 'wght' 800"
+    lineHeight: 0.88
+    letterSpacing: "-.035em"
+  statement:
+    fontFamily: "Archivo, Archivo Narrow, system-ui, sans-serif"
+    fontSize: "clamp(2.4rem, 7vw, 5rem)"
+    fontVariation: "'wdth' 84, 'wght' 800"
+    lineHeight: 0.94
+    letterSpacing: "-.032em"
   headline:
-    fontFamily: "Geist, -apple-system, BlinkMacSystemFont, Segoe UI, system-ui, sans-serif"
-    fontSize: "clamp(1.45rem, 3.4vw, 2rem)"
-    fontWeight: 600
-    lineHeight: 1.24
-    letterSpacing: "-0.024em"
+    fontFamily: "Archivo, Archivo Narrow, system-ui, sans-serif"
+    fontSize: "clamp(1.85rem, 4.2vw, 2.9rem)"
+    fontVariation: "'wdth' 86, 'wght' 700"
+    lineHeight: 1.02
+    letterSpacing: "-.022em"
   title:
-    fontFamily: "Geist, -apple-system, BlinkMacSystemFont, Segoe UI, system-ui, sans-serif"
-    fontSize: "19px"
-    fontWeight: 600
-    lineHeight: 1.6
-    letterSpacing: "-0.015em"
+    fontFamily: "Archivo, Archivo Narrow, system-ui, sans-serif"
+    fontSize: "clamp(1.3rem, 2.4vw, 1.72rem)"
+    fontVariation: "'wdth' 88, 'wght' 700"
+    lineHeight: 1
+    letterSpacing: "-.018em"
+  operator:
+    fontFamily: "Archivo, Archivo Narrow, system-ui, sans-serif"
+    fontSize: "21px"
+    fontVariation: "'wdth' 92, 'wght' 700"
+    lineHeight: 1.2
+    letterSpacing: "-.012em"
+  lede:
+    fontFamily: "Archivo, Archivo Narrow, system-ui, sans-serif"
+    fontSize: "17.5px"
+    fontWeight: 400
+    lineHeight: 1.62
   body:
-    fontFamily: "Geist, -apple-system, BlinkMacSystemFont, Segoe UI, system-ui, sans-serif"
-    fontSize: "16.5px"
-    fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "normal"
-  body-small:
-    fontFamily: "Geist, -apple-system, BlinkMacSystemFont, Segoe UI, system-ui, sans-serif"
-    fontSize: "15.5px"
-    fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "normal"
-  ui:
-    fontFamily: "Geist, -apple-system, BlinkMacSystemFont, Segoe UI, system-ui, sans-serif"
+    fontFamily: "Archivo, Archivo Narrow, system-ui, sans-serif"
     fontSize: "15px"
-    fontWeight: 500
-    lineHeight: 1.6
-    letterSpacing: "normal"
-  label:
-    fontFamily: "Geist, -apple-system, BlinkMacSystemFont, Segoe UI, system-ui, sans-serif"
-    fontSize: "14px"
-    fontWeight: 600
-    lineHeight: 1.6
-    letterSpacing: "0.02em"
-  mono:
-    fontFamily: "Geist Mono, ui-monospace, monospace"
+    fontWeight: 400
+    lineHeight: 1.55
+  mono-list:
+    fontFamily: "Azeret Mono, ui-monospace, monospace"
+    fontSize: "13.5px"
+    fontWeight: 400
+    lineHeight: 1.55
+  readout:
+    fontFamily: "Azeret Mono, ui-monospace, SFMono-Regular, monospace"
     fontSize: "12.5px"
     fontWeight: 400
-    lineHeight: 1.6
-    letterSpacing: "0.02em"
+    letterSpacing: ".03em"
+    fontFeature: "'tnum' 1"
+  placard:
+    fontFamily: "Azeret Mono, ui-monospace, monospace"
+    fontSize: "11px"
+    fontWeight: 500
+    letterSpacing: ".13em"
+  svg-label:
+    fontFamily: "Azeret Mono, ui-monospace, monospace"
+    fontSize: "7.6px"
+    fontWeight: 400
+    letterSpacing: ".03em"
 rounded:
-  focus: "4px"
-  control: "8px"
-  button: "10px"
-  row: "10px"
-  pill: "20px"
-  dot: "50%"
+  xs: "2px"
+  sm: "3px"
+  md: "4px"
+  lg: "5px"
+  thumb: "6px"
+  full: "50%"
 spacing:
-  xs: "4px"
-  sm: "8px"
-  md: "10px"
+  hair: "4px"
+  xs: "6px"
+  sm: "9px"
+  md: "12px"
   lg: "18px"
-  xl: "24px"
+  xl: "22px"
   gutter: "28px"
-  block: "34px"
-  column: "44px"
-  section: "48px"
-  hero: "96px"
+  section: "86px"
+  section-compact: "60px"
 components:
-  button-primary:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.bg}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.button}"
-    padding: "11px 18px"
-  button-primary-hover:
-    backgroundColor: "{colors.ink-hover}"
-    textColor: "{colors.bg}"
-  button-secondary:
-    backgroundColor: "{colors.bg}"
-    textColor: "{colors.ink}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.button}"
-    padding: "11px 18px"
-  button-secondary-hover:
-    backgroundColor: "{colors.bg-soft}"
-    textColor: "{colors.ink}"
-  chip-tech:
-    backgroundColor: "transparent"
-    textColor: "{colors.faint}"
-    typography: "{typography.mono}"
-    rounded: "{rounded.pill}"
-    padding: "2px 9px"
+  button:
+    backgroundColor: "{colors.plate}"
+    textColor: "{colors.dim}"
+    typography: "{typography.readout}"
+    rounded: "{rounded.xs}"
+    padding: "14px 21px"
+  button-hover:
+    textColor: "{colors.lum}"
+  button-engage:
+    backgroundColor: "{colors.plate}"
+    textColor: "{colors.green}"
+    typography: "{typography.readout}"
+    rounded: "{rounded.xs}"
+    padding: "14px 21px"
+  button-engage-hover:
+    textColor: "{colors.green}"
+  placard:
+    backgroundColor: "{colors.face}"
+    textColor: "{colors.dim}"
+    typography: "{typography.placard}"
+    rounded: "{rounded.xs}"
+    padding: "5px 10px 4px"
   nav-link:
-    backgroundColor: "transparent"
-    textColor: "{colors.muted}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.nav}"
-    padding: "7px 11px"
-  nav-link-hover:
-    backgroundColor: "{colors.bg-soft}"
-    textColor: "{colors.ink}"
-  theme-toggle:
-    backgroundColor: "transparent"
-    textColor: "{colors.muted}"
-    rounded: "{rounded.control}"
-    size: "34px"
-  work-row:
-    backgroundColor: "transparent"
-    rounded: "{rounded.row}"
-    padding: "24px 12px"
-  work-row-hover:
-    backgroundColor: "{colors.bg-soft}"
-  section-label:
-    backgroundColor: "transparent"
-    textColor: "{colors.faint}"
-    typography: "{typography.label}"
-    padding: "0 0 14px"
+    textColor: "{colors.dim}"
+    typography: "{typography.readout}"
+    rounded: "{rounded.xs}"
+    padding: "8px 12px"
+  module:
+    backgroundColor: "{colors.plate}"
+    textColor: "{colors.dim}"
+    rounded: "{rounded.md}"
+    padding: "22px 22px 20px"
+  panel:
+    backgroundColor: "{colors.face}"
+    textColor: "{colors.lum}"
+    rounded: "{rounded.lg}"
+    padding: "26px 24px 20px"
+  spec-chip:
+    backgroundColor: "rgba(0,0,0,.34)"
+    textColor: "{colors.dim}"
+    typography: "{typography.placard}"
+    rounded: "{rounded.xs}"
+    padding: "5px 9px 4px"
 ---
 
-# Design System: Saiful Islam — Portfolio
+# Design System: Saiful Islam — Night Panel
 
 ## Overview
 
-**Creative North Star: "The Engineering Memo"**
+**Creative North Star: "The Night Panel"**
 
-This is a document, not an interface. It behaves the way a well-set technical memo behaves:
-white paper, near-black ink, one accent reserved for the things you can act on, and rules
-drawn only where a rule genuinely divides one thing from another. Everything a portfolio
-usually spends on — panels, gradients, hero graphics, shadowed cards, animated ornament — is
-spent instead on type size, line length and the order the page is read in. The result reads
-fast, which is the entire commercial argument: the reader has about a minute.
+A software engineer read the way a pilot reads a night panel: six instruments that agree with
+each other. The surface is a machined instrument bay — matte panel black under a fine tooth of
+noise, satin bezels catching a single upper-left light, hex screws at the corners of the plate,
+and engraved placards naming everything. Nothing is decorated; everything is labelled. The
+information itself is the ornament, and the ornament is legible at a glance.
 
-The system is literal by commitment. There is no metaphor and no material simulation. Nothing
-pretends to be a dial, a card, a device, or a physical object with a light source. Surfaces do
-not lift; they are separated by a hairline or by space, and nothing else. The one place the
-build allows any atmosphere at all is the sticky header, which is a translucent, blurred pane
-of the page background — and even that resolves to a single hairline once the page scrolls.
+The system is built on one hard discipline: **light means something.** Luminous white is
+information. Radium green is live data and anything you can press — nothing else. Caution amber
+marks a limit, and it appears in exactly four places on the whole page. Warning red is defined
+in the palette and deliberately never lit, because a panel that shows red when nothing is wrong
+is a panel nobody trusts. Every plate in the bay is a satin gradient with a 1px lit top edge and
+a black floor, so depth is read from the rake of the light rather than from a drop shadow.
 
-Density is medium and calm. The measure is short (940px container; 72–78ch on prose), the
-vertical rhythm is generous, and no section competes with the statement at the top. Two
-typefaces do all the work: Geist for anything a person reads as language, Geist Mono for
-anything a person reads as data — dates, stack strings, statuses, tags. The mono face is the
-system's only "texture", and it earns its place by carrying meaning rather than by decorating.
-
-Light is the default for everyone, in both themes' design and in the code. Dark is a deliberate
-choice the reader makes and the page remembers; it is a faithful inversion of the same system,
-not a second personality.
+This world explicitly refuses the arrangement it replaces: the dark portfolio with one accent
+colour sprinkled through headings, borders, hover states and decorative glows. Here the accent
+is a signal with a job. The build is one hand-authored static file with all CSS and JS inline
+and no build step — the constraint is part of the craft, and the surface should read as
+deliberate engineering rather than as a limitation.
 
 **Key Characteristics:**
 
-- White ground, near-black ink, exactly one blue accent
-- Hairline rules and space instead of cards, panels or shadows
-- Two type roles only: Geist for language, Geist Mono for data
-- Light by default, dark by explicit choice, no system-preference switching
-- Statement-sized `h1`; every section heading demoted to a small grey label
-- All icons inline SVG, 1.9 stroke, round caps and joins — no glyphs, no emoji, no icon font
-- Sentence case everywhere; no uppercase tracking-out anywhere in the system
+- Matte panel black ground with a 3px radial-dot tooth over the entire page
+- Satin plates: every raised surface is a top-to-bottom gradient, lit top edge, black floor
+- Two voices only — Archivo at condensed widths for lettering, Azeret Mono for every readout
+- Radium green reserved for live data and pressable elements; amber for limits; red never lit
+- Tight corners (2px controls, 4px modules, 5px panel); circles only for lamps, screws and hubs
+- One authored motion moment: instrument power-on. Everything else is a state transition
+- Cross-check as the signature interaction: light one gauge, dim the other five, speak the value
 
 ## Colors
 
-A single cool-grey neutral ramp from white to near-black, one saturated blue that appears only
-where the reader can act, and one green reserved exclusively for status.
+A single luminous white on near-black, with one live-signal green and one caution amber, both
+rationed hard enough that their appearance is itself information.
 
 ### Primary
 
-- **Signal Blue** (`{colors.accent}`): The only chromatic colour in the interface, and it is
-  rationed. It appears on the emphasised clause inside the `h1`, on outbound project links, on
-  the focus ring, and on text selection. It is never a fill behind a button, never a section
-  background, never a border on a resting element. In dark it lightens to a soft periwinkle
-  (`#7FA8FF`) so it stays readable against near-black rather than glowing.
+- **Radium Green** (`{colors.green}`): The live-signal colour. It appears on gauge readouts and
+  needles that carry a value, live-status lamps, the Dhaka clock, the logbook period column, the
+  engage ring and every pressable path into contact. It is never used for a heading, a border, a
+  divider or a decorative wash. Wherever it appears, it is either a number the panel is reporting
+  or something the visitor can press.
+- **Green Ink** (`{colors.green-ink}`): The dimmer working green, used where radium would shout:
+  the checkmark glyphs in the pre-flight checklist, the active data path in the architecture
+  schematics, and the scroll-hint chevron. It reads as green without claiming to be lit.
 
 ### Secondary
 
-- **Live Green** (`{colors.live}`): Status only. It colours the availability dot, the "Live" /
-  "Published" markers on work rows, and the "replies within a day" dot. It never appears on
-  type that is not reporting a state. In dark it brightens to `#3DD68C`.
+- **Caution Amber** (`{colors.amber}`): Limits only. It appears in exactly four places on the
+  page — the airspeed redline arc, the heading bug, the row-level-security boundary annotation in
+  the CampusQ schematic, and the restricted Rent-ERP module with its amber lamp and lock note.
+  Every one of those is a boundary, a ceiling or a restriction. Amber never marks emphasis.
+
+### Tertiary
+
+- **Warning Red** (`{colors.red-reserved}`): Defined in the palette and deliberately unlit. It
+  exists so the panel has a top-severity colour in reserve; nothing on the current surface has
+  earned it. Keep the declaration, keep it dark.
 
 ### Neutral
 
-The neutrals are one cool-grey family (hue ≈ 250), sampled at eight steps. There are no warm
-greys in this system and no second neutral ramp.
-
-- **Paper** (`{colors.bg}`): The page ground. In dark, near-black `#0B0B0C`.
-- **Tint** (`{colors.bg-soft}`): The only fill in the system. It is a hover response — work
-  rows, nav links, secondary buttons and the theme toggle tint on hover. Never a resting
-  surface, never a card background.
-- **Ink** (`{colors.ink}`): Body text, the `h1`, names, and the fill of the primary button.
-- **Ink Secondary** (`{colors.ink-2}`): Emphasis inside otherwise-muted prose — the bolded
-  fragments in experience bullets and the stack values.
-- **Ink Hover** (`{colors.ink-hover}`): The primary button's hover fill; a lifted-off-black,
-  not a shade of the accent.
-- **Muted** (`{colors.muted}`): Supporting prose — project descriptions, experience bullets,
-  roles, nav links at rest.
-- **Faint** (`{colors.faint}`): Metadata — section labels, dates, tech strings, tags, captions,
-  footer.
-- **Rule** (`{colors.line}`): The structural hairline: section-label underline, the stuck
-  header's edge, contact and footer separators, chip and control borders, scrollbar thumb.
-- **Rule Soft** (`{colors.line-soft}`): The list hairline — between work rows, experience
-  entries, stack rows and meta items. Lighter than `line` because it divides peers, not
-  regions.
-
-Each token carries a dark counterpart under `[data-theme="dark"]`; the mapping lives in
-`.impeccable/design.json` under `extensions.colorMeta[*].darkValue`. The two sets are the only
-two, and a new colour must be added to both or not at all.
+- **Panel Black** (`{colors.panel}`): The matte ground behind everything, including the browser
+  theme colour and the scrollbar track. It never appears as a raised surface.
+- **Instrument Face** (`{colors.face}`): The recessed dark one plane below the plate — the value a
+  surface takes when it reads as set into the panel rather than raised off it. It carries that role
+  in three places — the schematic box fill, the placard plate's lit stop, and the
+  instrument panel gradient's middle stop. The identity disc in `favicon.svg` sits one step darker
+  on the same plane (`#0F1114`). There is no `--face` custom property; this value is written
+  literally wherever it lands, because it always arrives as one stop of a gradient rather than as a
+  flat fill.
+- **Plate** (`{colors.plate}`) → **Plate Floor** (`{colors.plate-floor}`): The two ends of the
+  satin gradient every raised module runs between. Plate is the lit top, plate floor the shadowed
+  bottom. Both are written literally in gradient stops for the same reason.
+- **Bezel** (`{colors.bezel}`): The default border on every machined component — modules,
+  logbook, checklist cards, placards, buttons, scrollbar thumb.
+- **Edge** (`{colors.edge}`): The lifted bezel. Borders move from bezel to edge on hover; nothing
+  else uses it.
+- **Chamfer** (`{colors.chamfer}`): The lit top edge of the instrument panel's own border. The
+  panel is bordered in pure black on three sides and in chamfer white across the top, so the
+  bay's upper edge catches the raking light as a machined bevel would. It is the border-level
+  counterpart to the inset top highlight and belongs to the Rake Rule, not to the palette's
+  greys. Used on the panel only.
+- **Hairline** (`{colors.hair}`): Internal division inside a plate — row separators, section-head
+  rules, the cross-check strip's top rule. Never used as an outer border.
+- **Luminous White** (`{colors.lum}`): Information. Headings, the operator name, values, body
+  emphasis, needle bodies.
+- **Recessed White** (`{colors.lum-sub}`): The second line of the display name and the pitch
+  ladder in the attitude indicator — white that has stepped back one plane.
+- **Dim** (`{colors.dim}`): Running prose, list text, placard lettering, inactive nav.
+- **Faint** (`{colors.faint}`): Metadata that should be findable but not read — column headers,
+  counts, footer data plate, key labels.
+- **Scale Numeral** (`{colors.gauge-numeral-sm}`): The second tier of instrument lettering painted
+  inside SVG — the 200/400/600/800 style numbers on the airspeed and vertical-speed faces, and the
+  minor numerals on the turn coordinator. It is deliberately dimmer than the primary numeral fill
+  (`#E9EFEF`) so the major graduations read first from across the room. These SVG-only lettering
+  greys are their own small ladder and never appear on DOM text: primary numerals `#E9EFEF`, scale
+  numerals (this token), gauge tick labels `#79817F`, schematic labels `#C6CDCE` with a recessed
+  `#7F8789`. Do not substitute a DOM grey for one of them; they are calibrated against the glass,
+  not against the plate.
+- **Selection Ink** (`{colors.selection-ink}`): The foreground of a text selection, sitting on a
+  radium-green selection background. A near-black green — the panel's own hue driven almost to
+  zero lightness — so highlighted text reads as a lit strip of the instrument rather than as the
+  browser's default blue rectangle. Palette-derived and used in exactly one place.
 
 ### Named Rules
 
-**The Rationed Accent Rule.** The blue is allowed four jobs: the emphasised clause in the `h1`,
-outbound links, the focus ring, and selection. Anything else — a button fill, a badge, a
-divider, a background wash, an active nav state — is not one of them. Audit test: hide the
-`h1` and count the blue pixels below the fold; if there are more than the outbound link labels,
-the rule is broken.
+**The Radium Reserve Rule.** Green is live data and pressable elements, and nothing else. If a
+green element neither reports a current value nor responds to a press, the green is wrong.
 
-**The Ink-Not-Accent Rule.** The primary button is solid ink — near-black on white, near-white
-on black. The inversion between themes is the point of the button; a coloured call-to-action
-would make the accent ordinary and cost the page its only piece of chromatic emphasis.
+**The Four Cautions Rule.** Amber marks a limit. It is currently spent on four: the IAS redline
+arc, the heading bug, the RLS-boundary annotation, and the restricted module. Adding a fifth
+requires taking one away or proving the new one is also a limit.
 
-**The Two-Set Rule.** Colour exists in exactly two token sets: `:root` (light, the default) and
-`[data-theme="dark"]`. Light is what every visitor gets on first paint regardless of their OS
-setting; there is deliberately no `prefers-color-scheme` switch for the page theme. Any new
-colour is declared in both sets in the same commit, and `color-scheme` stays declared in both
-so native scrollbars, form controls and the caret follow the page.
-
-**The Status-Is-Not-Decoration Rule.** Green means a live state and nothing else. If a new
-element is green without reporting a status, it is wrong.
+**The Dark Warning Rule.** Red is declared and never rendered. A panel that lights red for
+emphasis has no way left to say something is actually wrong.
 
 ## Typography
 
-**Display Font:** Geist (with `-apple-system`, `BlinkMacSystemFont`, `Segoe UI`, `system-ui`,
-`sans-serif`)
-**Body Font:** Geist (the same family; there is no separate text face)
-**Label/Mono Font:** Geist Mono (with `ui-monospace`, `monospace`)
+**Display Font:** Archivo (variable, `wdth` 75–112 / `wght` 400–800), with Archivo Narrow and
+system-ui as fallback
+**Body Font:** Archivo at `wdth` 100
+**Label/Mono Font:** Azeret Mono (400 / 500 / 700), with ui-monospace and SFMono-Regular
 
-**Character:** Geist is a neutral, slightly technical grotesque — it reads as software without
-reading as a brand. Pairing it with its own monospace sibling gives the page two clearly
-different voices that still share a skeleton: language in the proportional face, data in the
-mono. Weights are held to 400, 500 and 600; nothing on the page is bold in the 700 sense, and
-nothing is set in uppercase.
+**Character:** Two voices, strictly divided. Archivo is the instrument lettering — silkscreened
+on the panel, condensing as it grows so a six-character name can span the bay without breaking.
+Azeret Mono is the machine's own hand: every readout, placard, table cell, control label, chip
+and timestamp. Ligatures are off page-wide and numerals are tabular everywhere a value can
+change, so nothing shifts when a digit does.
 
 ### Hierarchy
 
-- **Display** (600, `clamp(1.95rem, 4.6vw, 3.05rem)`, 1.16, −0.028em): The `h1` only — the one
-  sentence saying what he builds. Capped at `19ch` with `text-wrap: balance` so it always
-  breaks into a deliberate three-or-four-line block rather than a ragged paragraph. One
-  emphasised clause inside it carries the accent.
-- **Headline** (600, `clamp(1.45rem, 3.4vw, 2rem)`, 1.24, −0.024em): The contact statement, and
-  only that. Capped at `20ch`, also balanced. It is the page's second-largest type and it
-  appears exactly once, at the end.
-- **Title** (600, 19px, −0.015em): Project names in the work list. Company names sit one step
-  down (18px, −0.012em) so the shipped systems outrank the employers.
-- **Body** (400, 16.5px, 1.6): The document base. Set on `body`; inherited by the brand mark in
-  the header.
-- **Body Small** (400, 15.5px, 1.6): The workhorse — project descriptions (max `72ch`),
-  experience bullets (max `78ch`, 1.62), roles, stack values, education and award titles.
-- **UI** (500, 15px): Interactive labels — buttons, nav links — and the proof row. Numbers in
-  the proof row are set 600 with `font-variant-numeric: tabular-nums` so the figures align as
-  data.
-- **Label** (600, 14px, +0.02em, sentence case): Section headings. Grey, small, underlined by a
-  hairline. See the Quiet Heading Rule.
-- **Mono** (400, 12.5px, +0.02em): Every technical string — tech stacks, stack-table keys,
-  status text (12.5px), employment dates (13px), tags (12px). Line height opens to 1.75 on the
-  long tech strings so a wrapped stack list stays scannable.
+- **Display** (`wdth` 84 / `wght` 800, `clamp(3.6rem, 9.2vw, 6.6rem)`, line-height .88, uppercase):
+  The operator name at signage scale, split across two lines with the second line recessed. One
+  per page.
+- **Statement** (`wdth` 84 / `wght` 800, `clamp(2.4rem, 7vw, 5rem)`, line-height .94, uppercase,
+  balanced): The closing display line in the contact section, marked up as an `<h2 class="big">`.
+  It shares the display voice at a step down from the operator name, so the page opens and closes
+  in the same lettering without the closer competing with the name. One per page. Emphasis is
+  carried by luminance, not hue: the first clause sits at muted, the second resolves to luminous
+  white. It must not carry radium — it is neither a reading nor a press target, and the section's
+  one green pressable sits directly beneath it.
+- **Headline** (`wdth` 86 / `wght` 700, `clamp(1.85rem, 4.2vw, 2.9rem)`, line-height 1.02,
+  uppercase, balanced): Section heads.
+- **Title** (`wdth` 88 / `wght` 700, `clamp(1.3rem, 2.4vw, 1.72rem)`, line-height 1, uppercase):
+  Module names in the work grid.
+- **Operator** (`wdth` 92 / `wght` 700, 21px, line-height 1.2): The employer name in the logbook —
+  the one mid-scale display tier, sitting between title and body.
+- **Lede** (17.5px, line-height 1.62, max 50ch): The one paragraph above the fold. Emphasis inside
+  it is bold luminous white; a single phrase carries radium green.
+- **Body** (15px, line-height 1.55; 1.7 in module copy, 1.68 in logbook remarks; max 74ch / 82ch):
+  Running prose in dim, with bold emphasis stepping up to luminous white.
+- **Readout** (Azeret Mono, 12.5px, tabular): Nav links, buttons, status rows, counts, cross-check
+  strip, footer plate, logbook periods and types, module call-to-action lines.
+- **Placard** (Azeret Mono 500, 11px, `.13em` tracking, uppercase): Every engraved label — the
+  role plate, gauge captions, module category tags, status-list keys, logbook column heads,
+  checklist headers. Card headers push tracking to `.15em` at weight 700.
+- **Mono list** (`{typography.mono-list}` — Azeret Mono, 13.5px, line-height 1.55): Pre-flight
+  checklist items only. The one place a list of technologies is set in the machine's own hand
+  rather than in prose. It is a real tier, not a rounding error between readout and body: the
+  checklist runs five narrow columns, and merging these items up to body's 15px wraps roughly half
+  the entries onto a second line. Hold 13.5px.
+- **SVG label** (`{typography.svg-label}` — Azeret Mono, 7.6px, `.03em`): Lettering drawn inside a
+  viewBox — the architecture schematic's box and annotation labels, and the gauge tick labels. This
+  is not a DOM tier. The number is expressed in SVG user units and scales with the diagram's
+  container, so its rendered size tracks the frame rather than the root font size; at the sizes the
+  schematics actually render it lands near the placard tier. Do not "correct" it to 11px — that
+  would print the labels at roughly one and a half times their intended size and break the
+  diagrams' line-to-lettering ratio.
 
 ### Named Rules
 
-**The Quiet Heading Rule.** `h2` is a label, not a heading. Section headings are 14px, weight
-600, grey (`{colors.faint}`), sentence case, above a hairline — visually the smallest text on
-the page apart from the mono strings. This is intentional and must not be "fixed": the `h1` is
-the only thing allowed to be large, and demoting the section headings is what lets a reader
-skim the page as one document instead of five stacked pages. Semantics stay correct — they are
-real `h2` elements in document order — only their visual weight is suppressed.
+**The Two-Voice Rule.** Archivo letters the panel; Azeret Mono reports from it. If it is a value,
+a label, a column header, a chip or a control, it is mono. If it is a heading or a sentence, it
+is Archivo. There is no third face and no in-between case.
 
-**The Two-Voice Rule.** If a human reads it as a sentence, it is Geist. If a human reads it as
-a value — a date, a version, a stack, a status, a key — it is Geist Mono. There is no third
-face and no decorative use of the mono; mono never sets prose.
+**The Width-Axis Rule.** Display type narrows as it grows. The `wdth` axis is driven per tier —
+82 on gauge numerals, 84 at signage scale, 86 on section heads, 88 on module titles, 92 on the
+operator name, 94 on certification entries, 100 on body. Never scale display type without setting
+its width.
 
-**The Sentence Case Rule.** Nothing in this system is uppercase and nothing is tracked out for
-effect. The only positive letter-spacing in the build is +0.02em on labels and mono, which is
-legibility at small sizes, not styling. There are no eyebrows and no kickers above headings.
-
-**The Measure Rule.** Prose is capped in `ch`, not in pixels: 72ch for descriptions, 78ch for
-bullets, 19–20ch for the two display statements. The 940px container is the outer bound, not
-the measure.
+**The Clamped Display Rule.** Every tier above title is fluid, and the ramp is defined by its
+endpoints, not by a single number: display `clamp(3.6rem, 9.2vw, 6.6rem)`, statement
+`clamp(2.4rem, 7vw, 5rem)`, headline `clamp(1.85rem, 4.2vw, 2.9rem)`. Below title the ramp is
+fixed and deliberately dense — 21 / 17.5 / 15 / 13.5 / 12.5 / 11 px — because every step in that
+range is an instrument tier with a job, not a decorative size. Read together, the page runs from
+6.6rem down to 11px: about 9.6:1 top to bottom. Static scanners that cannot evaluate `clamp()`
+sample only the fixed tail and report the scale as flat (~1.7:1); that reading is an artefact of
+the tool, and `flat-type-hierarchy` is registered as a scoped exception for `index.html` in
+`.impeccable/config.json` for exactly this reason. Set a new display tier by writing its full
+clamp, never by naming a single px value.
 
 ## Layout
 
-One column, one container, centred: `--maxw: 940px` with a 28px gutter, applied by a single
-`.wrap` class that every section reuses. There is no grid system; local layouts are per-block
-flex or two-column grids.
+A single centred column, `max-width` 1200px with a 28px gutter, over a fixed full-viewport noise
+layer at `z-index` 0 with all content at `z-index` 1.
 
-Vertical rhythm runs on a small set of steps rather than a strict scale: 4 / 8 / 10 / 18 / 24
-for internal gaps, 34px between the hero's stacked blocks (statement → actions → proof), 44px
-for column gaps and the education/awards block, 48px of section padding, and 96px above the
-statement. The hero is the only place that gets the 96px step; it is what makes the first
-sentence feel like the top of a document.
+The first viewport is a two-column deck: `44fr` of name, role placard, lede, two actions and a
+status row on the left; `56fr` of instrument panel on the right, with a 56px gap and centred
+alignment. The panel holds a three-across six-pack of gauges (18px/16px gutters, each gauge
+capped at 190px wide) over a cross-check readout strip separated by a hairline. Below the deck
+sits a two-column status list whose final row spans full width and closes with a lit lamp.
 
-The sticky header is 62px tall and sits at `z-index: 50` over a translucent pane of the page
-background (`color-mix(in srgb, var(--bg) 85%, transparent)`) with `backdrop-filter:
-saturate(1.6) blur(10px)`. It carries no bottom border at rest; a `.stuck` class adds the
-`{colors.line}` hairline once `scrollY > 4`. Sections carry `scroll-margin-top: 74px` so anchor
-navigation clears the header.
+Sections run at 86px of vertical padding (60px below 760px), each opening with a baseline-aligned
+head: the section title on the left, a mono count pushed to the right margin, a hairline
+underneath, 38px of clearance below it.
 
-Local layouts:
+The work grid is a six-column track where modules claim `span 6` (wide) or `span 3` (half),
+collapsing to a single column at 900px. The pre-flight checklist is five equal columns, dropping
+to two at 1000px and one at 560px. Certification is a straight two-up.
 
-- **Work row:** a two-column grid (`1fr auto`) — name and tag on the left, status on the right,
-  baseline-aligned — with description, tech string and link spanning both columns beneath.
-  Horizontal padding is negative-margined (`padding: 24px 12px; margin: 0 -12px`) so the hover
-  tint bleeds past the text without shifting the text.
-- **Experience:** a baseline flex head with the date pushed right by `margin-left: auto`.
-- **Stack:** a two-column `dl` (44px gutter), each row a `118px 1fr` grid of mono key and
-  proportional value.
-- **Education / awards:** two equal columns, 44px gutter.
-
-Responsive behaviour — three breakpoints only, 760 / 640 / 460, all `max-width` queries:
-
-- **760px** — the primary breakpoint. Hero padding drops 96→52px, section padding 48→38px, the
-  stack `dl` and the education/awards grid collapse to one column, and the footer's
-  right-aligned note joins the flow.
-- **640px** — nav links disappear entirely, leaving the brand and the theme toggle, and the
-  employment date drops to its own full-width line. Navigation is not replaced by a menu; the
-  page is short enough to scroll.
-- **460px** — stack rows go from key-beside-value to key-above-value.
-
-Motion is functional and small: 0.16s on colour and background state changes, 0.2s on theme
-and transform, 0.1s on the button's 1px active press, all on `cubic-bezier(.2, .7, .25, 1)`.
-Two arrows translate on hover — 3px right on the primary button, 2px right and 2px up on an
-outbound work link. `prefers-reduced-motion: reduce` collapses every transition and animation
-to 0.001ms and disables smooth scrolling.
+**Responsive behaviour, as built:** the gauge six-pack goes 3-up to 2-up at 620px; nav links other
+than Contact are hidden below 880px and the clock takes their place, then disappears itself below
+520px; the logbook's four-column row folds into a stacked block with the chevron pinned right at
+820px, and its expanded remarks hang under the Operator column (166px inset) only above that
+breakpoint; architecture schematics become horizontally scrollable at 760px with a 38px edge-fade
+mask and a "Pan the diagram" hint appearing beneath them; the status list goes single-column at
+700px.
 
 ### Named Rules
 
-**The One Container Rule.** Every section's content sits inside the same 940px `.wrap`. Nothing
-is full-bleed, nothing is inset further, and there is no second container width. Alignment down
-the left edge is the page's strongest structural signal.
+**The Bleed Rule.** At 1041px and up the instrument panel runs off the right edge of the viewport
+— negative right margin equal to the frame's own gutter, right border removed, right corners
+squared. The bay continues past the window rather than sitting politely inside a margin. Below
+that width it returns to the column.
 
-**The Mobile-Sheds Rule.** Narrow viewports remove elements and stack them; they never
-substitute a different pattern. There is no hamburger, no drawer, no mobile-only component.
+**The No-Gate Rule.** No reading is available only on hover. Below 620px each gauge caption grows
+a second line in radium green carrying the same value the cross-check strip would have spoken.
 
 ## Elevation & Depth
 
-**This system has no shadows.** There is not a single `box-shadow` in the build, and none may be
-added. Depth is not simulated at all: the page is one flat plane, and the only thing that ever
-sits above it is the sticky header, which declares itself by translucency and a hairline rather
-than by a cast shadow.
+There are no ambient drop shadows in this system. Depth comes from a single raking light source
+in the upper left and from the material behaviour of machined metal: every raised plate carries a
+1px white inset along its top edge, a black or near-black bottom edge, and a top-to-bottom satin
+gradient between them. Shadows exist only as tight, high-offset, negative-spread casts that read
+as a plate sitting proud of the panel — never as a soft halo. The one recessed device in the
+system is the spec chip, which inverts the rule with an inner black shadow and a light bottom
+edge so it reads as stamped into the plate rather than sitting on it.
 
-Separation is achieved three ways, in this order of preference:
+The instrument panel is the deepest object: a three-stop gradient, a pure-black 1px border whose
+top side is overridden to chamfer white (`{colors.chamfer}`), four inset edges (lit top, lit left,
+black bottom), a corner-anchored screw at each corner, and a two-layer overlay that rakes light
+across the plate from upper-left at 116 degrees. The chamfer border and the inset top highlight
+are two different devices doing one job: the border is the bevel's own lit face, the inset is the
+light landing on the plate just inside it. Together they read as a milled edge rather than a
+stroke.
 
-1. **Space.** The default. Most divisions on this page are made by whitespace alone.
-2. **Hairline rules.** 1px, `{colors.line}` for structural divisions (section label underline,
-   contact and footer edges, the stuck header) and `{colors.line-soft}` for peer divisions
-   inside a list. Last-child borders are always removed so no list ends on a rule.
-3. **Tonal tint.** `{colors.bg-soft}` as a hover response only. Hover is a tint, never a lift.
+### Shadow Vocabulary
 
-The header's `backdrop-filter: saturate(1.6) blur(10px)` over an 85% page-background pane is the
-one atmospheric effect in the system, and it exists to keep text readable while scrolling
-underneath, not to suggest a material.
+- **Top highlight** (`box-shadow: inset 0 1px 0 rgba(255,255,255,.045)`): The universal lit edge.
+  Every plate, card, placard, button and status strip carries it. The panel uses `.11`, controls
+  and headers `.05`.
+- **Plate lift** (`box-shadow: 0 6px 12px -8px rgba(0,0,0,.9)`): Work modules sitting on the panel.
+- **Panel lift** (`box-shadow: 0 10px 14px -10px rgba(0,0,0,.95)`): The instrument bay itself.
+- **Control** (`box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 2px 5px rgba(0,0,0,.55)`):
+  Buttons.
+- **Glareshield** (`box-shadow: 0 1px 0 rgba(255,255,255,.05) inset, 0 10px 22px -14px rgba(0,0,0,.9)`):
+  The sticky header at rest; it deepens to `0 16px 30px -12px rgba(0,0,0,1)` once the page scrolls
+  past 8px.
+- **Engraved** (`box-shadow: inset 0 1px 2px rgba(0,0,0,.8), 0 1px 0 rgba(255,255,255,.05)`):
+  Spec chips. The only sunken surface in the system.
+- **Lamp glow** (`box-shadow: 0 0 0 1px rgba(0,0,0,.6), 0 0 9px rgba(124,255,158,.75)`): The
+  emissive indicator. Amber uses the same geometry at `rgba(255,176,0,.7)`. This is the world's
+  one legitimate glow — it is a light source, not a decoration.
+- **Screw** (`box-shadow: inset 0 0 0 1px rgba(0,0,0,.8), inset 1px 1px 2px rgba(255,255,255,.30), 0 1px 1px rgba(0,0,0,.65)`):
+  Paired with a radial gradient lit at 32%/26% and a rotated slot, giving each screw an
+  individual seating angle.
 
 ### Named Rules
 
-**The No-Shadow Rule.** Zero shadows, zero elevation, zero simulated light source. If a new
-element needs to feel separated, it gets space first, a hairline second, and a tint third.
-There is no fourth option.
+**The Rake Rule.** One light, upper left. Every raised surface takes a lit top edge and a dark
+bottom edge; nothing is lit from below and nothing casts a soft halo. On the panel the lit top
+edge is carried by the border itself (`border-top-color: {colors.chamfer}` over an otherwise
+black border), because the bay is the one object thick enough to show its own chamfer.
 
-**The Hairline-Not-Card Rule.** There are no cards. A group of related items is a list divided
-by `{colors.line-soft}`, not a set of bordered or filled boxes. A design that reaches for a
-card here has failed to use the hairline.
+**The Satin Plate Rule.** No raised surface is a flat fill. Every plate runs a top-to-bottom
+gradient from a lit top stop to a near-black floor. A flat `background: #141719` on a module is a
+defect, not a simplification.
 
 ## Shapes
 
-Rectangles with small, element-keyed radii. Nothing in the system is a circle except status
-dots, and nothing is sharply square except the page itself.
+Corners are tight and graded by mass: 2px on anything hand-sized (buttons, nav links, placards,
+nameplate, spec chips, schematic boxes), 3px on the schematic frame, 4px on modules, logbook,
+checklist cards, certification blocks and the status list, 5px on the instrument panel. Nothing
+on the page itself exceeds 5px, and nothing is fully rounded except things that are physically
+round: lamps, screws, gauge hubs, bezel rings and the engage ring.
 
-Radii are chosen per element rather than from an abstract scale, and they ascend gently with
-the size of the thing they round: 4px on the focus ring, 7px on a nav link, 8px on the 34px
-icon control and the scrollbar thumb, 9px on a button, 10px on a work row. The one outlier is
-deliberate: the tech tag is a 20px pill, which at 12px mono type reads as fully rounded and is
-the only shape in the system that announces itself. Status dots are 6–7px circles.
+One radius sits off that scale on purpose: the scrollbar thumb (`{rounded.thumb}`). It is drawn
+in an 11px gutter behind a 3px panel-coloured inset, so only about 5px of thumb is visible, and
+6px rounds that sliver into a clean rail instead of a rectangle with visible corner artefacts. It
+is browser chrome rather than a machined plate, and it answers to the operating system's scale,
+not the panel's. Nothing on the page may borrow it.
 
-Borders are always exactly 1px and always a token colour. There are no double borders, no
-inner strokes, no rings other than the focus ring, and no dashed or dotted lines anywhere.
+Every machined surface is a 1px bezel-coloured border. Interior divisions are hairlines; exterior
+borders are bezel. Borders move to edge grey on hover — colour never carries hover state on a
+neutral surface.
 
-The identity mark (`favicon.svg`) follows the same language: a 32px square with a 7px radius
-filled with the accent, carrying a white "S" monogram drawn as a 2.9-weight stroke with round
-caps and joins — the same drawing rules as the interface icons, scaled up.
+The gauge is the system's defining silhouette: a 200×200 viewBox with a machined bezel ring drawn
+from two opposing linear gradients (lit upper-left, lit lower-right), an inner chamfer, a black
+seat, a radial face, an inner shadow at the face/bezel seam, a glass dome highlight offset up and
+left, four corner screws, and a needle rotating about the exact centre. All of it is shared SVG
+`<defs>` so six instruments cost one definition each.
+
+Architecture schematics use the same line language at small scale: 1px stroked boxes on the
+instrument face, green-ink strokes for the active data path, amber dashed rectangles for
+boundaries, and lettering at the SVG label tier (`{typography.svg-label}`).
 
 ### Named Rules
 
-**The Element-Keyed Radius Rule.** Radius follows the element, not a `sm/md/lg` scale: controls
-8–9px, rows 10px, tags fully rounded, dots circular. When adding a component, match the radius
-of the existing element closest to it in size rather than inventing a new step.
-
-**The One-Pixel Rule.** Every border in the system is 1px. Weight is expressed by which token
-the border uses (`line` vs `line-soft`), never by thickening the stroke.
+**The Tight Corner Rule.** 2px for controls, 4px for modules, 5px for the panel, 50% only for
+things that are actually round. There is no pill, no capsule and no large radius anywhere in this
+world. The single documented exception is the 6px scrollbar thumb, which is not a surface of this
+world at all.
 
 ## Components
 
 ### Buttons
 
-Two variants, and the difference between them is the whole hierarchy of the page.
+- **Shape:** Squared-off with a 2px break on the corner (`{rounded.xs}`), 1px bezel border, satin
+  gradient face, 14px/21px padding, mono 12.5px at weight 500, 10px gap to any leading element.
+- **Neutral:** Dim text on plate. Hover raises text to luminous white and the border from bezel to
+  edge. Active depresses 1px. This is the default for every secondary action — WhatsApp, resume,
+  GitHub, LinkedIn, "Get in touch".
+- **Engage:** The only green pressable. Radium text, a `rgba(124,255,158,.45)` border, and an 11px
+  hollow ring in current colour. On hover the face fills with a green wash, the border goes solid
+  radium, and the ring fills and lights with a 10px glow — an indicator coming on, not a colour
+  swap. Two exist on the page: "See the work" in the deck and the email address in the contact
+  section, plus the header's compact variant.
+- **Focus:** Global — a 2px radium outline at 3px offset with a 2px radius. Applied on
+  `:focus-visible` only.
 
-- **Shape:** Softly rounded rectangle (9px), 1px border, `11px 18px` padding, 15px/500 label,
-  8px gap to an optional trailing icon.
-- **Primary:** Solid ink fill (`{colors.ink}`) with page-background text — near-black on white
-  in light, near-white on near-black in dark. The border matches the fill. It appears exactly
-  twice on the page: "See the work" in the hero and the email address in contact.
-- **Secondary:** Page background, ink text, `{colors.line}` border. Used for every other
-  action — "Get in touch", WhatsApp, résumé, GitHub, LinkedIn.
-- **Hover / Focus:** Primary darkens to `{colors.ink-hover}` and translates its trailing arrow
-  3px right. Secondary fills with `{colors.bg-soft}` and its border steps up to
-  `{colors.faint}`. Both press down 1px on `:active`. Focus is the global 2px accent ring at
-  3px offset.
-- **Never:** a button is never filled with the accent, never shadowed, never uppercase, and
-  never larger than 15px type.
+### Placard
 
-### Chips
+The world's label primitive and its most reused device. An engraved plate: mono 11px at `.13em`
+uppercase in dim, a `#101315` → `#0A0C0D` gradient, 1px bezel border, 2px radius, an inset lit top
+edge and a 1px black bottom edge, `white-space: nowrap`. It names the role under the display name,
+captions every gauge, tags each work module's category, and heads the cross-check strip. On a
+caution module the placard shifts to amber lettering and an amber border.
 
-- **Style:** The tech tag is an outline pill — transparent fill, 1px `{colors.line}` border,
-  20px radius, `2px 9px` padding, 12px Geist Mono in `{colors.faint}`, no wrapping.
-- **State:** Static. Tags are classification, not controls; they have no hover, selected or
-  filter state, and adding one would make them read as interactive when they are not.
+### Cards / Modules
 
-### Cards / Containers
-
-**There are none.** This is a positive specification, not an omission. Grouped content is a
-list of rows separated by `{colors.line-soft}` hairlines, with the final row's border removed.
-Rows have padding and a radius so they can accept a hover tint, but no background, no border
-box and no shadow at rest.
+- **Corner style:** 4px (`{rounded.md}`)
+- **Background:** Satin gradient, plate to plate floor
+- **Border:** 1px bezel; edge grey on hover
+- **Shadow:** Top highlight plus plate lift (see Elevation)
+- **Internal padding:** 22px / 22px / 20px, contents in a 16px-gap column
+- **Distinctive behaviour:** Link modules lift 2px on hover and their trailing arrow — an inline
+  16×16 SVG chevron-and-shaft in `currentColor`, not a `→` character — advances 5px.
+  The caution variant swaps the border and placard to amber and replaces the call-to-action with a
+  lock note. Every module carries a status lamp in its header row — green "Live"/"Published",
+  amber "Restricted".
 
 ### Navigation
 
-- **Style:** Four sentence-case anchor links, 15px, `{colors.muted}`, `7px 11px` padding, 7px
-  radius, sitting to the right of the brand mark in a 62px sticky bar.
-- **Hover:** Text goes to `{colors.ink}` over a `{colors.bg-soft}` tint.
-- **Active:** There is no active/current-section state. The page is one document; highlighting
-  a section would imply page navigation.
-- **Mobile:** Below 640px the links are removed outright, leaving the brand and the theme
-  toggle. No menu replaces them.
+A sticky glareshield strip, 58px tall, with a three-stop gradient darkening downward, a black
+bottom border and an inset lit top edge. It deepens its cast once the page scrolls. On the left, a
+nameplate — a bordered plate holding the identity mark in radium and the name in mono 700 at `.2em`
+uppercase. Centre-right, mono 12.5px uppercase section links in dim, lifting to luminous white on a
+4.5% white wash. Right, the engage variant of the button and a live Dhaka clock in radium with a
+slow-pulsing lamp. Below 880px the section links leave and the clock takes the right margin; below
+520px the clock leaves too, and only the nameplate and the engage link remain.
 
-### Theme Toggle
+### Status list
 
-A 34px square icon button with a 1px `{colors.line}` border and 8px radius, holding a 16px
-sun or moon glyph drawn as inline SVG. The sun shows in light, the moon in dark, swapped by CSS
-under `[data-theme="dark"]` rather than by JavaScript. Its `aria-label` is rewritten on toggle
-to name the destination theme ("Switch to dark theme" / "Switch to light theme"). The choice is
-written to `localStorage.theme` and re-applied by a blocking inline script in `<head>` before
-first paint, so a returning dark-mode reader never sees a white flash. Light remains the
-default for anyone with nothing stored.
+A two-column bordered grid of key/value rows: mono 11px `.12em` uppercase keys in faint, mono 15px
+700 tabular values in luminous white, hairline separators between and a bezel border around. Its
+last row spans the full width, drops its rules, and closes the block with a radium key and a lit
+lamp — the panel signing off.
 
-### Work Row (signature)
+### Logbook (signature component)
 
-The page's one distinctive pattern, and the thing the design exists to serve. A single row
-carries: project name (19px/600), a classification pill, a right-aligned mono status with a
-coloured dot (green "Live"/"Published", faint "Source private"), a muted description capped at
-72ch, a mono tech string, and — when the project is public — an accent link label with a
-diagonal arrow. The whole row is one `<a>` when there is somewhere to go and a `<div>` when
-there is not, so a private project offers no dead click target. Hover tints the entire row with
-`{colors.bg-soft}` and nudges the diagonal arrow up and to the right.
+A bordered table of employment set as an aircraft logbook. A mono column header row (Period /
+Operator / Type) over disclosure rows built from full-width buttons on a
+`150px 1fr 200px 34px` grid. The period reads in radium tabular mono, the operator name in the
+21px Archivo tier with its role beneath in faint mono, the type in dim mono, and a chevron at the
+right that rotates 90 degrees and turns radium when expanded. Panels open by animating
+`grid-template-rows` from `0fr` to `1fr` over 380ms — no height measurement, no layout thrash.
+Remarks are dash-marked in radium at 75% opacity, indented to hang under the Operator column.
 
-### Icons
+### Instrument six-pack (signature component)
 
-All icons are inline SVG on a 16 or 24 viewBox, `fill="none"`, `stroke="currentColor"`,
-`stroke-width="1.9"`, with round caps and joins, sized 13–16px in context and marked
-`aria-hidden="true"`. There are no icon fonts, no `<img>` icons, no emoji and no glyph
-arrows (`→`, `↗`) anywhere in the system — an arrow is always drawn.
+Six 200×200 SVG gauges sharing one `<defs>` block: bezel ring, inner chamfer, face, seam shadow,
+glass dome, hub, and a four-screw overlay. Each gauge is a `<figure>` with `tabindex="0"`, a
+descriptive `aria-label` on the SVG, a `data-read` string, and a placard caption.
 
-### Browser Surfaces
+**Power-on** is the page's only authored animation. On first intersection at 25% visibility, every
+needle winds back 300 degrees below its stop and springs to value under a damped spring
+(`k = 0.055`, `damp = 0.80`), staggered 90ms apart, driven through an inline `--a` custom property.
+Under `prefers-reduced-motion: reduce` the sequence never runs and the inline `--a` already carries
+the settled value, so the panel renders correct and still.
 
-The page themes the browser's own chrome so the document does not end at its own edges:
-`::selection` uses the accent behind `{colors.sel-ink}`, which inverts per theme so selected text stays readable in dark; the scrollbar is 12px with a transparent track and a
-`{colors.line}` thumb carrying a 3px border in the page background so it reads inset, going to
-`{colors.faint}` on hover; `scrollbar-color` and `scrollbar-width: thin` cover Firefox; and
-`color-scheme` is set in both token sets so form controls, the caret and native UI follow the
-theme. Focus is a single global rule: 2px solid accent, 3px offset, 4px radius, on
-`:focus-visible` only.
+**Cross-check** is the signature interaction. Hovering or focusing any gauge drops the other five
+to 0.42 opacity, lights a radium ring around the active bezel, turns its placard green-on-dark, and
+writes that instrument's reading into an `aria-live="polite"` strip below the panel. Arrow keys
+rove between the six. The dimming is disabled under reduced motion; the readout is not.
+
+The attitude indicator adds a pointer-tracked horizon that banks up to 5 degrees and shifts up to
+7px, easing back over 550ms on leave — pointer-only, and skipped entirely under reduced motion.
+
+### Pre-flight checklist
+
+Five bordered cards, each with a mono 11px `.15em` uppercase header on a flat `#0E1113` bar over a
+bezel rule, then a list of `{typography.mono-list}` items each preceded by an 11px green-ink SVG
+checkmark. The five-column track is what fixes the item tier: at 13.5px the entries set on one
+line each, and the reviewer held that size across two verdict rounds against merging it up to
+body's 15px.
+
+### Iconography
+
+Every icon on the page is inline SVG in one stroke language: `fill="none"`,
+`stroke="currentColor"`, `stroke-width="2"`, `stroke-linecap="round"`, `stroke-linejoin="round"`,
+`aria-hidden="true"`, sized 11–18px in a 12- or 16-unit viewBox. The checklist checkmark, the
+module arrow, the lock note and the header marks are all drawn to that spec, so an arrow next to a
+checkmark reads as the same instrument-maker's hand at the same nib width. There are no glyph
+icons and no icon font. The `→` characters that remain on the page — in logbook date ranges and
+the section count — are typographic content set in Azeret Mono, not icons, and stay as text.
+
+### Architecture schematic
+
+An inline SVG diagram inside a hairline-bordered frame on the instrument face, drawn in the same
+line language as the gauges: 1px stroked boxes, green-ink lines for the active path, amber dashed
+rectangles for boundaries, lettering at the SVG label tier (`{typography.svg-label}`, drawn in
+viewBox units so it scales with the frame), full descriptive `aria-label`. Below 760px it scrolls
+horizontally behind a right-edge fade mask with a mono hint beneath it.
+
+### Browser chrome
+
+The system themes the browser surfaces it can reach, and treats them as part of the panel rather
+than as leftovers. Selection paints a radium background with selection ink
+(`{colors.selection-ink}`) on top — a highlighted phrase reads as a lit strip of instrument.
+Scrollbars are an 11px gutter on panel black with a bezel thumb, an edge-grey hover, a 3px
+panel-coloured inset and a `{rounded.thumb}` radius (the one radius off the page's own scale; see
+Shapes). Focus rings are radium. `color-scheme` is declared dark so form controls and the
+scrollbar gutter match, and `scrollbar-color` / `scrollbar-width: thin` carry the same treatment
+to engines without the `::-webkit-scrollbar` pseudo-elements.
+
+### Named Rules
+
+**The One Moment Rule.** The page has exactly one authored animation — instrument power-on.
+Everything else is a state transition of 120–380ms on `cubic-bezier(.2,.7,.25,1)`. A second
+scroll-triggered reveal would make the first one ordinary.
+
+**The Cross-Check Rule.** Only one instrument is lit at a time. Lighting one dims the other five
+to 0.42 and speaks its value into a live region; nothing is highlighted without something else
+being suppressed.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** ship light by default. `:root` is light; `[data-theme="dark"]` is the override; a new
-  colour is declared in both sets in the same change, `color-scheme` included.
-- **Do** keep the accent to its four jobs: the `h1`'s emphasised clause, outbound links, the
-  focus ring, selection.
-- **Do** fill the primary button with ink and let it invert between themes.
-- **Do** separate content with space first, a 1px hairline second, a `{colors.bg-soft}` tint
-  third.
-- **Do** set data — dates, statuses, stacks, keys, tags — in Geist Mono, and language in Geist.
-- **Do** keep section headings small, grey and sentence case; the `h1` is the only large type
-  above the contact statement.
-- **Do** draw every icon as inline SVG at `stroke-width="1.9"` with round caps and joins.
-- **Do** cap prose in `ch` (72ch descriptions, 78ch bullets) inside the single 940px container.
-- **Do** make a whole row the link when the row has a destination, and a plain container when
-  it does not.
-- **Do** honour `prefers-reduced-motion` on anything new that moves.
+- **Do** reserve `{colors.green}` for live data and pressable elements. If it neither reports a
+  value nor responds to a press, it is not green.
+- **Do** give every raised surface a satin gradient, a 1px lit top edge (`inset 0 1px 0
+  rgba(255,255,255,.045)`) and a dark bottom. One light, upper left.
+- **Do** set the `wdth` axis whenever you set a display size — 82/84/86/88/92/94 by tier, 100 for
+  body.
+- **Do** put every value, label, column header, chip and control caption in Azeret Mono, with
+  tabular numerals wherever the number can change.
+- **Do** use the `.placard` plate as the label device, including nested inside another plate. The
+  engraved caption under a gauge is the world's native labelling, not a card inside a card. This is
+  registered as a `nested-cards` exception on `figcaption` in `.impeccable/config.json`: a placard
+  is this world's label primitive, and a generic nesting warning does not apply to it.
+- **Do** let indicator lamps and the engage ring glow (`0 0 9px`). They are light sources in a
+  night panel; the glow is the material, and it is the only glow in the system. Registered as
+  `dark-glow` exceptions on `{colors.green}` and `{colors.amber}` in `.impeccable/config.json` —
+  emissive lamps only, never text and never a plate.
+- **Do** write a display tier as its full `clamp()` and let the ramp be read from its endpoints.
+  The scale is intentionally wide at the display end (6.6rem) and dense at the small end (11px),
+  and `flat-type-hierarchy` is registered as an `index.html`-scoped exception because static
+  scanners cannot evaluate `clamp()` and sample only the fixed tail.
+- **Do** keep amber to limits, and keep the count honest — four places today.
+- **Do** provide a static equivalent for anything hover reveals, and honour
+  `prefers-reduced-motion` by rendering the settled state rather than a frozen start state.
+- **Do** draw every icon to one stroke spec — inline SVG at 11–18px, `fill="none"`,
+  `stroke="currentColor"`, `stroke-width="2"`, round caps and joins, `aria-hidden="true"` — so an
+  arrow and a checkmark read as the same nib. Give every meaningful SVG a descriptive `aria-label`.
+- **Do** keep the second surface (`README.md`) inside the same world using only what GitHub
+  markdown allows: the box-drawn instrument panel in a fenced block, the same section titles, and
+  theme-forked stat cards carrying `0B0D0F` / `7CFF9E` / `9AA3A5` in dark and `F4F5F5` / `12703A` /
+  `3B4245` in light.
 
 ### Don't:
 
-- **Don't** add a `box-shadow`. There are zero in the build and the system has no elevation
-  model to extend.
-- **Don't** build a card. Grouped content is a hairline-divided list.
-- **Don't** use the accent as a background fill, a badge, a border on a resting element, or a
-  button colour.
-- **Don't** switch the theme on `prefers-color-scheme`. Light is the default for everyone; the
-  reader's explicit toggle is the only input.
-- **Don't** enlarge, embolden or re-case the section `h2`s to look like headings — the quiet
-  label is the design.
-- **Don't** introduce a third typeface, a 700 weight, uppercase text, or letter-spacing beyond
-  the +0.02em legibility nudge on labels and mono.
-- **Don't** use a glyph arrow, an emoji, an icon font, or a raster icon.
-- **Don't** reintroduce metaphor: no dials, gauges, panels, bezels, textures, gradients, or
-  simulated materials of any kind.
-- **Don't** add a second container width or a full-bleed section.
-- **Don't** replace removed mobile elements with a different pattern (menus, drawers,
-  carousels); narrow viewports shed and stack.
+- **Don't** use green for headings, dividers, borders on neutral surfaces, decorative washes or
+  hover tints on non-pressable elements. That is the dark-portfolio-with-one-accent arrangement
+  this world exists to refuse.
+- **Don't** light red. It is declared and reserved; a page that shows red when nothing is wrong
+  cannot signal that something is.
+- **Don't** add a soft ambient drop shadow. Depth is raking light plus a tight, negative-spread
+  cast; a `0 4px 24px rgba(0,0,0,.12)` halo does not belong on a machined plate.
+- **Don't** exceed a 5px radius on the page or introduce a pill or capsule. Round is reserved for
+  lamps, screws, hubs and rings; the 6px scrollbar thumb is browser chrome and is not a precedent.
+- **Don't** add a second scroll-triggered animation. Power-on is the only authored moment.
+- **Don't** introduce a third typeface, or set a heading in mono, or set a value in Archivo.
+- **Don't** paint a raised surface with a flat fill instead of the satin gradient.
+- **Don't** gate a reading behind hover on small screens, or leave a needle at its wound-back
+  start position when motion is reduced.
+- **Don't** add a text glyph as an icon. Every icon in this system is inline SVG. The `→`
+  characters in logbook date ranges and the section count are typographic content, not icons, and
+  are correct as text.
+- **Don't** "normalise" the 7.6px SVG label tier to a DOM size. That number is in viewBox units
+  and scales with the diagram; rewriting it to 11px oversizes every schematic label.
+- **Don't** merge the 13.5px checklist tier into 15px body. The checklist runs five narrow
+  columns and roughly half the entries wrap at 15px; the tier was reviewed and held twice.
+- **Don't** reintroduce a `--face` / `--plate` / `--plate-2` / `--green-dim` / `--r` custom
+  property. Those declarations were deleted as dead; the plate colours live as literal stops
+  inside the gradients that actually use them, and adding a variable back creates a second source
+  of truth for a value that is never used flat.
