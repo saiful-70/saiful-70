@@ -8,40 +8,17 @@ behind them, down to the database and the monitoring that watches it.
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/saiful70/)
 [![Email](https://img.shields.io/badge/Email-14171A?style=for-the-badge&logo=gmail&logoColor=EA4335)](mailto:saiful70.me@gmail.com)
 [![CampusQ](https://img.shields.io/badge/CampusQ-14171A?style=for-the-badge&logo=googleclassroom&logoColor=0B6B37)](https://campusqbd.com)
-[![npm](https://img.shields.io/badge/ngx--primeng--toolkit-14171A?style=for-the-badge&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/ngx-primeng-toolkit)
+[![Resume](https://img.shields.io/badge/Resume-14171A?style=for-the-badge&logo=googledocs&logoColor=4285F4)](https://docs.google.com/document/d/1XCH0XdS_Svnb2OGRJEQBvJOm1GXuifI1/edit?usp=sharing&ouid=114028785100709203490&rtpof=true&sd=true)
 
-| Experience | ERP platforms | Products | Observability | Base |
-| --- | --- | --- | --- | --- |
-| **3.5+ years** | **4** shipped | **6+** live | self-hosted **LGTM** | Dhaka · UTC+6 |
-
----
-
-## The shape of what I build
-
-Three surfaces, one typed API, one tenant-isolated database, watched by its own telemetry.
-
-<img alt="Architecture: three client surfaces feed a signals-first client layer, which talks over typed permission-checked HTTP to a .NET API split into ERP and QMS modules, backed by PostgreSQL with row-level security, Redis and S3 or MinIO, with a self-hosted LGTM observability stack watching all of it." src="assets/stack-light.svg#gh-light-mode-only" width="100%">
-<img alt="Architecture: three client surfaces feed a signals-first client layer, which talks over typed permission-checked HTTP to a .NET API split into ERP and QMS modules, backed by PostgreSQL with row-level security, Redis and S3 or MinIO, with a self-hosted LGTM observability stack watching all of it." src="assets/stack-dark.svg#gh-dark-mode-only" width="100%">
+**Four enterprise ERP platforms**, a **multi-tenant SaaS**, and **6+ products live**, across
+three companies since 2023 — each running behind its own self-hosted observability stack.
+Modules shipped: **access control, accounting, HR, production, inventory** on the ERP side;
+**deviation, checklist, handbook, compliance, settings** on the QMS side. I work **AI-native** —
+Claude, Cursor, Ollama and OpenCode as a force multiplier, not a shortcut.
 
 ---
 
-## Where the hours went
-
-| Period | Company | Stack |
-| --- | --- | --- |
-| 2026-03 → | **Netpower** — Software Engineer | Angular 21 · **Certain QMS** |
-| 2024-09 → 2026-02 | **MultiTech Systems** — Software Engineer | Angular 19+ · .NET 10 |
-| 2023-02 → 2024-08 | **Constant Concept** — Angular Developer | Remote · International |
-
-Four enterprise ERP platforms, a recursive permission system, and CI/CD on multi-stage
-Docker behind Nginx. Modules I have built and shipped: access control, accounting, HR,
-production and inventory on the ERP side; deviation, checklist, handbook, compliance and
-settings on the QMS side. I work **AI-native** — Claude, Cursor, Ollama and OpenCode as a
-force multiplier, not a shortcut.
-
----
-
-## Things I shipped on my own time
+### Things I shipped on my own time
 
 | Project | What it is | Status |
 | --- | --- | --- |
@@ -52,7 +29,7 @@ force multiplier, not a shortcut.
 
 ---
 
-## The stack it all runs on
+### The stack it all runs on
 
 **Frontend**
 
@@ -118,24 +95,25 @@ that fits on one VPS**. Open to collaboration.
 
 ---
 
-## At a glance
+### At a glance
 
-<p>
-  <img alt="Profile summary for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=saiful-70&theme=github_dark#gh-dark-mode-only" width="100%" />
-  <img alt="Repositories per language for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=saiful-70&theme=github_dark#gh-dark-mode-only" height="200" />
-  <img alt="Most-committed language for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=saiful-70&theme=github_dark#gh-dark-mode-only" height="200" />
-  <img alt="Contribution streak for saiful-70" src="https://streak-stats.demolab.com/?user=saiful-70&hide_border=true&background=0B0D0F&stroke=2A2D31&ring=7CFF9E&fire=FFB000&currStreakLabel=7CFF9E&currStreakNum=F2F5F5&sideLabels=9AA3A5&sideNums=F2F5F5&dates=828A8D#gh-dark-mode-only" height="200" />
-</p>
-<p>
-  <img alt="Profile summary for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=saiful-70&theme=github#gh-light-mode-only" width="100%" />
-  <img alt="Repositories per language for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=saiful-70&theme=github#gh-light-mode-only" height="200" />
-  <img alt="Most-committed language for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=saiful-70&theme=github#gh-light-mode-only" height="200" />
-  <img alt="Contribution streak for saiful-70" src="https://streak-stats.demolab.com/?user=saiful-70&hide_border=true&background=F4F4F0&stroke=C2C6CA&ring=0B6B37&fire=97590A&currStreakLabel=0B6B37&currStreakNum=14171A&sideLabels=2E3539&sideNums=14171A&dates=545C61#gh-light-mode-only" height="200" />
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=saiful-70&theme=github_dark">
+  <img alt="Profile summary for saiful-70: contributions, public repositories and join date" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=saiful-70&theme=github" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=saiful-70&theme=github_dark">
+  <img alt="Top languages for saiful-70 by repository" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=saiful-70&theme=github" height="200">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=saiful-70&theme=github_dark">
+  <img alt="Top languages for saiful-70 by commit" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=saiful-70&theme=github" height="200">
+</picture>
 
 ---
 
-## Elsewhere
+### Elsewhere
 
 | Platform | Handle | Profile |
 | --- | --- | --- |
