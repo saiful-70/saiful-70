@@ -107,18 +107,12 @@ that fits on one VPS**. Open to collaboration.
 ### At a glance
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=saiful-70&theme=github_dark">
-  <img alt="Profile summary for saiful-70: contributions, public repositories and join date" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=saiful-70&theme=github" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
+  <img alt="GitHub at a glance for saiful-70: public repositories, stars earned, year joined, and language mix." src="assets/stats-light.svg" width="100%">
 </picture>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=saiful-70&theme=github_dark">
-  <img alt="Top languages for saiful-70 by repository" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=saiful-70&theme=github" height="200">
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=saiful-70&theme=github_dark">
-  <img alt="Top languages for saiful-70 by commit" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=saiful-70&theme=github" height="200">
-</picture>
+<sub>Rendered from the GitHub API into a committed SVG and refreshed weekly by
+<a href=".github/workflows/profile-stats.yml">a workflow</a> — no card service to go down.</sub>
 
 ---
 

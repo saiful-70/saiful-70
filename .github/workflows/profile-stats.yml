@@ -1,0 +1,40 @@
+name: Refresh profile stat cards
+
+# The README's "At a glance" cards are committed SVGs rather than calls to a card
+# service, because every service tried was either down or owned its own typography.
+# This keeps the numbers current: weekly, and on demand.
+
+on:
+  schedule:
+    - cron: "17 4 * * 1" # Mondays, 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Render the cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/profile-stats.mjs
+
+      - name: Commit if the numbers moved
+        run: |
+          if [ -z "$(git status --porcelain assets)" ]; then
+            echo "No change in the rendered cards."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          git commit -m "chore: refresh profile stat cards"
+          git push

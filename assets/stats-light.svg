@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 232" width="900" height="232" role="img" aria-label="GitHub at a glance for saiful-70: Public repos 42, Stars earned 7, On GitHub since 2021. Language mix: JavaScript 51%, TypeScript 18%, CSS 8%, HTML 8%, SCSS 5%, PHP 3%.">
+<rect width="900" height="232" rx="6" fill="#F4F4F0" stroke="#C2C6CA"/>
+<text x="874" y="40" text-anchor="end" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.6" fill="#545C61">GITHUB.COM/SAIFUL-70</text>
+<path d="M26,56 H874" stroke="rgba(20,24,28,.14)" stroke-width="1"/>
+<text x="26" y="114" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="-1.2" fill="#14171A">42</text>
+<text x="26" y="136" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#545C61">PUBLIC REPOS</text>
+<text x="308.6666666666667" y="114" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="-1.2" fill="#14171A">7</text>
+<text x="308.6666666666667" y="136" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#545C61">STARS EARNED</text>
+<text x="591.3333333333334" y="114" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="-1.2" fill="#14171A">2021</text>
+<text x="591.3333333333334" y="136" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#545C61">ON GITHUB SINCE</text>
+<text x="26" y="156" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#545C61">LANGUAGE MIX</text>
+<rect x="26" y="164" width="848" height="10" rx="2" fill="#DDDDD7"/>
+<rect x="26.0" y="164" width="434.9" height="10" rx="2" fill="#0B6B37" opacity="1.00"/>
+<rect x="460.9" y="164" width="152.2" height="10" rx="2" fill="#0B6B37" opacity="0.86"/>
+<rect x="613.1" y="164" width="65.2" height="10" rx="2" fill="#0B6B37" opacity="0.72"/>
+<rect x="678.3" y="164" width="65.2" height="10" rx="2" fill="#0B6B37" opacity="0.58"/>
+<rect x="743.5" y="164" width="43.5" height="10" rx="2" fill="#0B6B37" opacity="0.44"/>
+<rect x="787.0" y="164" width="21.7" height="10" rx="2" fill="#0B6B37" opacity="0.30"/>
+<rect x="26" y="186" width="8" height="8" rx="1.5" fill="#0B6B37" opacity="1.00"/>
+<text x="40" y="194" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11" fill="#14171A">JavaScript <tspan fill="#545C61">51%</tspan></text>
+<rect x="308.6666666666667" y="186" width="8" height="8" rx="1.5" fill="#0B6B37" opacity="0.86"/>
+<text x="322.6666666666667" y="194" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11" fill="#14171A">TypeScript <tspan fill="#545C61">18%</tspan></text>
+<rect x="591.3333333333334" y="186" width="8" height="8" rx="1.5" fill="#0B6B37" opacity="0.72"/>
+<text x="605.3333333333334" y="194" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11" fill="#14171A">CSS <tspan fill="#545C61">8%</tspan></text>
+<rect x="26" y="206" width="8" height="8" rx="1.5" fill="#0B6B37" opacity="0.58"/>
+<text x="40" y="214" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11" fill="#14171A">HTML <tspan fill="#545C61">8%</tspan></text>
+<rect x="308.6666666666667" y="206" width="8" height="8" rx="1.5" fill="#0B6B37" opacity="0.44"/>
+<text x="322.6666666666667" y="214" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11" fill="#14171A">SCSS <tspan fill="#545C61">5%</tspan></text>
+<rect x="591.3333333333334" y="206" width="8" height="8" rx="1.5" fill="#0B6B37" opacity="0.30"/>
+<text x="605.3333333333334" y="214" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11" fill="#14171A">PHP <tspan fill="#545C61">3%</tspan></text>
+</svg>
