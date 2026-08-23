@@ -27,6 +27,14 @@ Claude, Cursor, Ollama and OpenCode as a force multiplier, not a shortcut.
 | **[ngx-primeng-toolkit](https://www.npmjs.com/package/ngx-primeng-toolkit)** | Open-source Angular library — parameterized query/table state, memoized data & reusable utilities, released to npm with automated CI/CD. | published |
 | **[DebuggerMind Commerce](https://www.pogiit.com/)** | In-house white-label storefront (Next.js 15 + .NET API) — international build and a localized Bengali variant maintained in parallel, 6 languages. | live |
 
+### Open source I contribute to
+
+**[Optimus UI](https://github.com/openng-org/optimus-ui)** — 80+ accessible, customizable
+Angular components under the MIT licence; a community-maintained continuation of PrimeNG v21.
+I am a contributor, and it is the component layer under CampusQ's client.
+[![Stars](https://img.shields.io/github/stars/openng-org/optimus-ui?style=flat-square&label=stars&labelColor=14171A&color=0B6B37)](https://github.com/openng-org/optimus-ui/stargazers)
+[![Docs](https://img.shields.io/badge/optimus.openng.org-14171A?style=flat-square&logo=angular&logoColor=DD0031)](https://optimus.openng.org/)
+
 ---
 
 ### The stack it all runs on
@@ -41,6 +49,7 @@ Claude, Cursor, Ollama and OpenCode as a force multiplier, not a shortcut.
 ![Next.js](https://img.shields.io/badge/Next.js-14171A?style=flat-square&logo=nextdotjs&logoColor=white)
 ![React Native](https://img.shields.io/badge/React%20Native%20%28Expo%29-14171A?style=flat-square&logo=expo&logoColor=white)
 ![PrimeNG](https://img.shields.io/badge/PrimeNG-14171A?style=flat-square&logo=primeng&logoColor=DD0031)
+![Optimus UI](https://img.shields.io/badge/Optimus%20UI-14171A?style=flat-square&logo=angular&logoColor=DD0031)
 ![Angular Material](https://img.shields.io/badge/Angular%20Material-14171A?style=flat-square&logo=materialdesign&logoColor=B0BEC5)
 ![Tailwind](https://img.shields.io/badge/Tailwind%20v4-14171A?style=flat-square&logo=tailwindcss&logoColor=06B6D4)
 ![Chart.js](https://img.shields.io/badge/Chart.js-14171A?style=flat-square&logo=chartdotjs&logoColor=FF6384)
