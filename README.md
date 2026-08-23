@@ -4,7 +4,15 @@ Software engineer in **Dhaka, Bangladesh** (UTC+6), open to remote. 3.5+ years b
 **reactive, signals-first** interfaces in **Angular** and **React** — and the **.NET / Node**
 behind them, down to the database and the monitoring that watches it.
 
-[Portfolio](https://saiful-70.github.io/saiful-70/) · [LinkedIn](https://www.linkedin.com/in/saiful70/) · [Email](mailto:saiful70.me@gmail.com) · [CampusQ](https://campusqbd.com) · [npm](https://www.npmjs.com/package/ngx-primeng-toolkit)
+[![Portfolio](https://img.shields.io/badge/Portfolio-0B6B37?style=for-the-badge&logo=googlechrome&logoColor=white)](https://saiful-70.github.io/saiful-70/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/saiful70/)
+[![Email](https://img.shields.io/badge/Email-14171A?style=for-the-badge&logo=gmail&logoColor=EA4335)](mailto:saiful70.me@gmail.com)
+[![CampusQ](https://img.shields.io/badge/CampusQ-14171A?style=for-the-badge&logo=googleclassroom&logoColor=0B6B37)](https://campusqbd.com)
+[![npm](https://img.shields.io/badge/ngx--primeng--toolkit-14171A?style=for-the-badge&logo=npm&logoColor=CB3837)](https://www.npmjs.com/package/ngx-primeng-toolkit)
+
+| Experience | ERP platforms | Products | Observability | Base |
+| --- | --- | --- | --- | --- |
+| **3.5+ years** | **4** shipped | **6+** live | self-hosted **LGTM** | Dhaka · UTC+6 |
 
 ---
 
@@ -12,38 +20,8 @@ behind them, down to the database and the monitoring that watches it.
 
 Three surfaces, one typed API, one tenant-isolated database, watched by its own telemetry.
 
-```
-┌────────────────────┐ ┌────────────────────┐ ┌────────────────────┐
-│ WEB APP            │ │ ADMIN CONSOLE      │ │ MOBILE             │
-│ Angular · signals  │ │ Angular · scoped   │ │ React Native       │
-└─────────┬──────────┘ └─────────┬──────────┘ └─────────┬──────────┘
-          └──────────────────────┼──────────────────────┘
-┌────────────────────────────────┴─────────────────────────────────┐
-│ SIGNALS-FIRST CLIENT LAYER                                       │
-│ NgRx Signal stores · standalone components · lazy feature routes │
-└────────────────────────────────┬─────────────────────────────────┘
-                                 │  typed HTTP, permission-checked
-┌────────────────────────────────┴─────────────────────────────────┐
-│ .NET API                                                         │
-│ Clean Architecture · DDD · modular monolith · Result pattern     │
-├────────────────────────────────┬─────────────────────────────────┤
-│ ERP                            │ QMS                             │
-│ access control · accounting    │ deviation · checklist           │
-│ HR · production · inventory    │ handbook · compliance · settings│
-└─────────┬──────────────────────┴──────────────────────┬──────────┘
-          │                      │                      │
-┌─────────┴──────────┐ ┌─────────┴──────────┐ ┌─────────┴──────────┐
-│ POSTGRESQL         │ │ REDIS              │ │ S3 · MINIO         │
-│ RLS · bitmask RBAC │ │ cache · sessions   │ │ tokenized uploads  │
-└────────────────────┘ └────────────────────┘ └────────────────────┘
-                                 ╎  telemetry, out of band
-┌┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┐
-┆ OBSERVABILITY — self-hosted LGTM                                 ┆
-┆ OpenTelemetry → Alloy → Tempo · Prometheus scrapes a token-gated ┆
-┆ /metrics · container logs → Loki · Grafana dashboards and alert  ┆
-┆ rules → Telegram · prod and staging on one stack, split by label ┆
-└┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┘
-```
+<img alt="Architecture: three client surfaces feed a signals-first client layer, which talks over typed permission-checked HTTP to a .NET API split into ERP and QMS modules, backed by PostgreSQL with row-level security, Redis and S3 or MinIO, with a self-hosted LGTM observability stack watching all of it." src="assets/stack-light.svg#gh-light-mode-only" width="100%">
+<img alt="Architecture: three client surfaces feed a signals-first client layer, which talks over typed permission-checked HTTP to a .NET API split into ERP and QMS modules, backed by PostgreSQL with row-level security, Redis and S3 or MinIO, with a self-hosted LGTM observability stack watching all of it." src="assets/stack-dark.svg#gh-dark-mode-only" width="100%">
 
 ---
 
@@ -76,27 +54,84 @@ force multiplier, not a shortcut.
 
 ## The stack it all runs on
 
-```
-FRONTEND         Angular · TypeScript · RxJS · NgRx Signals · React
-                 React Native (Expo) · Next.js · PrimeNG · Material
-                 Tailwind CSS v4 · Chart.js
+**Frontend**
 
-BACKEND & DATA   .NET (Core / 10) · Node.js · Express · RESTful APIs
-                 PostgreSQL (RLS) · MongoDB · Redis · MySQL · Firebase
+![Angular](https://img.shields.io/badge/Angular-14171A?style=flat-square&logo=angular&logoColor=DD0031)
+![TypeScript](https://img.shields.io/badge/TypeScript-14171A?style=flat-square&logo=typescript&logoColor=3178C6)
+![RxJS](https://img.shields.io/badge/RxJS-14171A?style=flat-square&logo=reactivex&logoColor=B7178C)
+![NgRx Signals](https://img.shields.io/badge/NgRx%20Signals-14171A?style=flat-square&logo=ngrx&logoColor=BA2BD2)
+![React](https://img.shields.io/badge/React-14171A?style=flat-square&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-14171A?style=flat-square&logo=nextdotjs&logoColor=white)
+![React Native](https://img.shields.io/badge/React%20Native%20%28Expo%29-14171A?style=flat-square&logo=expo&logoColor=white)
+![PrimeNG](https://img.shields.io/badge/PrimeNG-14171A?style=flat-square&logo=primeng&logoColor=DD0031)
+![Angular Material](https://img.shields.io/badge/Angular%20Material-14171A?style=flat-square&logo=materialdesign&logoColor=B0BEC5)
+![Tailwind](https://img.shields.io/badge/Tailwind%20v4-14171A?style=flat-square&logo=tailwindcss&logoColor=06B6D4)
+![Chart.js](https://img.shields.io/badge/Chart.js-14171A?style=flat-square&logo=chartdotjs&logoColor=FF6384)
 
-TESTING          Playwright (e2e) · Vitest · synthetic data factories
+**Backend & data**
 
-DEVOPS & INFRA   Docker · Nginx · GitHub Actions · Azure DevOps · AWS
-                 Linux · Git
-                 OpenTelemetry · Prometheus · Grafana · Loki · Tempo
+![.NET](https://img.shields.io/badge/.NET%20%28Core%20%2F%2010%29-14171A?style=flat-square&logo=dotnet&logoColor=8A6EE0)
+![Node.js](https://img.shields.io/badge/Node.js-14171A?style=flat-square&logo=nodedotjs&logoColor=5FA04E)
+![Express](https://img.shields.io/badge/Express-14171A?style=flat-square&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL%20%28RLS%29-14171A?style=flat-square&logo=postgresql&logoColor=6A8FE8)
+![MongoDB](https://img.shields.io/badge/MongoDB-14171A?style=flat-square&logo=mongodb&logoColor=47A248)
+![Redis](https://img.shields.io/badge/Redis-14171A?style=flat-square&logo=redis&logoColor=FF4438)
+![MySQL](https://img.shields.io/badge/MySQL-14171A?style=flat-square&logo=mysql&logoColor=7FA8D0)
+![Firebase](https://img.shields.io/badge/Firebase-14171A?style=flat-square&logo=firebase&logoColor=FFCA28)
+![REST](https://img.shields.io/badge/RESTful%20APIs-14171A?style=flat-square)
 
-AI & DEV TOOLS   Claude · Cursor · OpenCode · Ollama (local LLMs)
-                 GitHub Copilot
-```
+**Testing**
+
+![Playwright](https://img.shields.io/badge/Playwright%20%28e2e%29-14171A?style=flat-square)
+![Vitest](https://img.shields.io/badge/Vitest-14171A?style=flat-square&logo=vitest&logoColor=6E9F18)
+![Synthetic data factories](https://img.shields.io/badge/synthetic%20data%20factories-14171A?style=flat-square)
+
+**DevOps & infra**
+
+![Docker](https://img.shields.io/badge/Docker-14171A?style=flat-square&logo=docker&logoColor=2496ED)
+![Nginx](https://img.shields.io/badge/Nginx-14171A?style=flat-square&logo=nginx&logoColor=009639)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-14171A?style=flat-square&logo=githubactions&logoColor=2088FF)
+![Azure DevOps](https://img.shields.io/badge/Azure%20DevOps-14171A?style=flat-square)
+![AWS](https://img.shields.io/badge/AWS-14171A?style=flat-square)
+![Linux](https://img.shields.io/badge/Linux-14171A?style=flat-square&logo=linux&logoColor=FCC624)
+![Git](https://img.shields.io/badge/Git-14171A?style=flat-square&logo=git&logoColor=F05032)
+
+**Observability**
+
+![OpenTelemetry](https://img.shields.io/badge/OpenTelemetry-14171A?style=flat-square&logo=opentelemetry&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-14171A?style=flat-square&logo=prometheus&logoColor=E6522C)
+![Grafana](https://img.shields.io/badge/Grafana-14171A?style=flat-square&logo=grafana&logoColor=F46800)
+![Loki](https://img.shields.io/badge/Loki-14171A?style=flat-square&logo=grafana&logoColor=F46800)
+![Tempo](https://img.shields.io/badge/Tempo-14171A?style=flat-square&logo=grafana&logoColor=F46800)
+
+**AI & dev tools**
+
+![Claude](https://img.shields.io/badge/Claude-14171A?style=flat-square&logo=anthropic&logoColor=D97757)
+![Cursor](https://img.shields.io/badge/Cursor-14171A?style=flat-square&logo=cursor&logoColor=white)
+![OpenCode](https://img.shields.io/badge/OpenCode-14171A?style=flat-square&logo=opensourceinitiative&logoColor=3DA639)
+![Ollama](https://img.shields.io/badge/Ollama%20%28local%20LLMs%29-14171A?style=flat-square&logo=ollama&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-14171A?style=flat-square&logo=githubcopilot&logoColor=white)
 
 Ask me about **Angular Signals**, **multi-tenant architecture**, **Postgres RLS**,
 **cross-platform React Native**, **.NET**, and **self-hosting an observability stack
-that fits in a VPS**. Open to collaboration.
+that fits on one VPS**. Open to collaboration.
+
+---
+
+## At a glance
+
+<p>
+  <img alt="Profile summary for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=saiful-70&theme=github_dark#gh-dark-mode-only" width="100%" />
+  <img alt="Repositories per language for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=saiful-70&theme=github_dark#gh-dark-mode-only" height="200" />
+  <img alt="Most-committed language for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=saiful-70&theme=github_dark#gh-dark-mode-only" height="200" />
+  <img alt="Contribution streak for saiful-70" src="https://streak-stats.demolab.com/?user=saiful-70&hide_border=true&background=0B0D0F&stroke=2A2D31&ring=7CFF9E&fire=FFB000&currStreakLabel=7CFF9E&currStreakNum=F2F5F5&sideLabels=9AA3A5&sideNums=F2F5F5&dates=828A8D#gh-dark-mode-only" height="200" />
+</p>
+<p>
+  <img alt="Profile summary for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=saiful-70&theme=github#gh-light-mode-only" width="100%" />
+  <img alt="Repositories per language for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=saiful-70&theme=github#gh-light-mode-only" height="200" />
+  <img alt="Most-committed language for saiful-70" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=saiful-70&theme=github#gh-light-mode-only" height="200" />
+  <img alt="Contribution streak for saiful-70" src="https://streak-stats.demolab.com/?user=saiful-70&hide_border=true&background=F4F4F0&stroke=C2C6CA&ring=0B6B37&fire=97590A&currStreakLabel=0B6B37&currStreakNum=14171A&sideLabels=2E3539&sideNums=14171A&dates=545C61#gh-light-mode-only" height="200" />
+</p>
 
 ---
 
