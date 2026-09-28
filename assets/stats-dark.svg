@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 232" width="900" height="232" role="img" aria-label="GitHub at a glance for saiful-70: Contributions 3k, Commits 198, Pull requests 20, Public repos 39, Stars earned 7, On GitHub since 2021. Language mix: JavaScript 70%, TypeScript 19%, HTML 4%, CSS 3%, SCSS 1%, Python 1%.">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 232" width="900" height="232" role="img" aria-label="GitHub at a glance for saiful-70: Contributions 3k, Commits 205, Pull requests 20, Public repos 39, Stars earned 7, On GitHub since 2021. Language mix: JavaScript 70%, TypeScript 19%, HTML 4%, CSS 3%, SCSS 1%, Python 1%.">
 <rect width="900" height="232" rx="6" fill="#0B0D0F" stroke="#2A2D31"/>
 <text x="874" y="40" text-anchor="end" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.6" fill="#828A8D">GITHUB.COM/SAIFUL-70</text>
 <path d="M26,56 H874" stroke="rgba(242,245,245,.10)" stroke-width="1"/>
 <text x="26" y="114" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="-1.2" fill="#F2F5F5">3k</text>
 <text x="26" y="136" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#828A8D">CONTRIBUTIONS</text>
-<text x="167.33333333333334" y="114" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="-1.2" fill="#F2F5F5">198</text>
+<text x="167.33333333333334" y="114" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="-1.2" fill="#F2F5F5">205</text>
 <text x="167.33333333333334" y="136" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#828A8D">COMMITS</text>
 <text x="308.6666666666667" y="114" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="-1.2" fill="#F2F5F5">20</text>
 <text x="308.6666666666667" y="136" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#828A8D">PULL REQUESTS</text>
@@ -16,12 +16,12 @@
 <text x="732.6666666666667" y="136" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#828A8D">ON GITHUB SINCE</text>
 <text x="26" y="156" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="10.5" letter-spacing="1.1" fill="#828A8D">LANGUAGE MIX</text>
 <rect x="26" y="164" width="848" height="10" rx="2" fill="#1B1F23"/>
-<rect x="26.0" y="164" width="595.6" height="10" rx="2" fill="#7CFF9E" opacity="1.00"/>
-<rect x="621.6" y="164" width="161.2" height="10" rx="2" fill="#7CFF9E" opacity="0.86"/>
-<rect x="782.8" y="164" width="30.8" height="10" rx="2" fill="#7CFF9E" opacity="0.72"/>
-<rect x="813.6" y="164" width="26.5" height="10" rx="2" fill="#7CFF9E" opacity="0.58"/>
-<rect x="840.2" y="164" width="9.7" height="10" rx="2" fill="#7CFF9E" opacity="0.44"/>
-<rect x="849.9" y="164" width="8.2" height="10" rx="2" fill="#7CFF9E" opacity="0.30"/>
+<rect x="26.0" y="164" width="596.2" height="10" rx="2" fill="#7CFF9E" opacity="1.00"/>
+<rect x="622.2" y="164" width="161.8" height="10" rx="2" fill="#7CFF9E" opacity="0.86"/>
+<rect x="784.0" y="164" width="30.9" height="10" rx="2" fill="#7CFF9E" opacity="0.72"/>
+<rect x="814.8" y="164" width="26.6" height="10" rx="2" fill="#7CFF9E" opacity="0.58"/>
+<rect x="841.4" y="164" width="9.7" height="10" rx="2" fill="#7CFF9E" opacity="0.44"/>
+<rect x="851.1" y="164" width="8.2" height="10" rx="2" fill="#7CFF9E" opacity="0.30"/>
 <rect x="26" y="186" width="8" height="8" rx="1.5" fill="#7CFF9E" opacity="1.00"/>
 <text x="40" y="194" font-family="ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="11" fill="#F2F5F5">JavaScript <tspan fill="#828A8D">70%</tspan></text>
 <rect x="308.6666666666667" y="186" width="8" height="8" rx="1.5" fill="#7CFF9E" opacity="0.86"/>
