@@ -114,6 +114,22 @@ check("readme-order", () => {
   if (!readme.includes("Spec first.")) return "missing method line";
 });
 
+check("no-internal-title", () => {
+  const files = ["index.html", "README.md", "PRODUCT.md",
+    "docs/superpowers/specs/2026-10-28-product-builder-portfolio-design.md",
+    "docs/superpowers/plans/2026-10-29-product-builder-portfolio.md"];
+  const hits = files.filter((f) => read(f).includes("Software Engineer II"));
+  if (hits.length) return `internal title in ${hits.join(", ")}`;
+});
+
+check("copy-matches-spec", () => {
+  const miss = [];
+  if (!html.includes("Saves per breakdown block, from about ten to six, to fix a transaction failure.")) miss.push("footwear cut line");
+  if (html.includes("in bulk import. Written up")) miss.push("footwear bulk-import detail still present");
+  if (readme.includes("dead \"evaluate this measure\" link")) miss.push("README dead-link wording");
+  if (miss.length) return miss.join("; ");
+});
+
 check("product-md", () => {
   if (product.includes("preserve every factual claim")) return "still has the preserve-every-claim rule";
 });

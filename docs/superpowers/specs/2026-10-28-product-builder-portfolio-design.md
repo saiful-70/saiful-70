@@ -41,7 +41,7 @@ it behind stack names.
 - Any fabricated number, customer name, testimonial, revenue or user count.
 - Customer or client company names from employer work. Products and modules may be named;
   customers may not.
-- Mentioning the internal title (Senior Software Engineer II) anywhere public.
+- Mentioning the internal job title anywhere public.
 - Compliance or standards name-dropping as a selling point.
 
 ## Constraints

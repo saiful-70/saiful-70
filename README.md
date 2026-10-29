@@ -29,7 +29,7 @@ gate it has to pass.
 
 | Product | For | The call | Status |
 | --- | --- | --- | --- |
-| **Certain QMS** (Netpower) | Quality managers, HSE staff and field workers at industrial companies | Treated a dead "evaluate this measure" link as a migration blocker; shipped evaluation, an offline Handbook app and one sign-in for all apps | in production |
+| **Certain QMS** (Netpower) | Quality managers, HSE staff and field workers at industrial companies | Treated an "evaluate this measure" email that led nowhere as a migration blocker; shipped evaluation, an offline Handbook app and one sign-in for all apps | in production |
 | **[CampusQ](https://campusqbd.com)** | Coaching centres in Bangladesh running on paper and a personal mobile-money number | Built for the niche: Bangla first, guardian SMS without accounts, printed receipts; isolation checked at boot | live, pre-revenue |
 | **Rent-ERP** | An organisation managing residential buildings for flat owners | The org is not the landlord: rent, service charge and org accounts never mix | in production, private |
 | **Footwear ERP** (MultiTech) | Merchandisers and stores staff at a footwear factory | Re-platformed a garment ERP instead of starting over; QR document capture, Excel order intake | in production |

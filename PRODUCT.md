@@ -74,7 +74,7 @@ Audience is remote roles worldwide. No region, time-zone or compliance framing.
 
 - Name: Saiful Islam. Handle: `saiful-70` (GitHub), `saiful70` (LinkedIn, LeetCode).
 - Public title is plain **"Software Engineer"**. The current internal title
-  (Senior Software Engineer II, Netpower) is deliberately not displayed on public surfaces;
+  at the current employer is deliberately not displayed on public surfaces;
   full titles belong only in experience timelines and the resume.
 - Voice: direct, specific, technically concrete. Claims are backed by numbers or named
   systems. No hype adjectives.
