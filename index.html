@@ -456,6 +456,8 @@ h1 .l2{display:block;color:var(--lum-2)}
   letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink);padding-top:3px}
 .brief dd{min-width:0;max-width:74ch;font-size:15px;line-height:1.65;color:var(--dim);overflow-wrap:anywhere}
 @media(max-width:640px){.brief div{grid-template-columns:1fr}}
+/* the removed list: an intro line above the existing remarks list */
+.sec-intro{max-width:62ch;margin:-8px 0 20px;font-size:16px;line-height:1.65;color:var(--dim)}
 /* product-builder:end */
 
 /* ── panel light: a two-position switch on the header rail ── */
@@ -706,8 +708,9 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
       <span class="np-name">Saiful Islam</span>
     </a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Products</a>
+      <a href="#removed">Removed</a>
       <a href="#experience">Experience</a>
-      <a href="#work">Work</a>
       <a href="#skills">Stack</a>
       <a href="#contact" class="engage"><span class="ring" aria-hidden="true"></span>Contact</a>
     </nav>
@@ -919,6 +922,26 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
     </div>
   </section>
 
+  <!-- ═══════════════ THINGS I REMOVED ═══════════════ -->
+  <section class="sec" id="removed">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Things I removed</h2>
+        <span class="count">7 cuts</span>
+      </div>
+      <p class="sec-intro">Deciding what not to build is half the job. These were built or planned, then taken out on evidence.</p>
+      <ul class="remarks cuts">
+        <li><b>Payment gateway integration in CampusQ.</b> Manual transfer plus an operator check was enough for the first customers.</li>
+        <li><b>Eight AI features in CampusQ</b>, removed in eight slices with no migration. 59 AI-only tests went with them, and the manual screenshots were re-shot.</li>
+        <li><b>A separate mobile API service at Netpower.</b> The existing module APIs, through the gateway, did the job.</li>
+        <li><b>PDF input in the AI register importer.</b> Spreadsheets only, so there is no OCR path to maintain.</li>
+        <li><b>The multi-tenant layer in Rent-ERP.</b> One organisation: no row-level security, no subdomains.</li>
+        <li><b>Persona switching in Rent-ERP</b>, in favour of plain roles.</li>
+        <li><b>Fabricated stats and testimonials</b> on the CampusQ marketing site, with a production cleanup script.</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- ═══════════════ EXPERIENCE ═══════════════ -->
   <section class="sec" id="experience">
     <div class="wrap">
@@ -929,7 +952,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
 
       <div class="logbook">
         <div class="log-head" aria-hidden="true">
-          <span>Period</span><span>Company</span><span>Stack</span><span></span>
+          <span>Period</span><span>Company</span><span>Product</span><span></span>
         </div>
 
         <div class="log-row">
@@ -937,16 +960,17 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <button class="log-btn" type="button" aria-expanded="true" aria-controls="lp1" id="lb1">
               <span class="log-when">2026-03 →</span>
               <span class="log-op">Netpower<span class="log-role">Software Engineer</span></span>
-              <span class="log-type">Angular 21 · Certain QMS</span>
+              <span class="log-type">Certain QMS · web + mobile</span>
               <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
             </button>
           </h3>
           <div class="log-panel" data-open="true" id="lp1" role="region" aria-labelledby="lb1">
             <div><ul class="remarks">
-              <li>Built signals-first Angular 21 features for <b>Certain QMS</b> across the Deviation, Checklist &amp; Handbook modules — per-route NgRx Signal stores, dual JWT/OTP auth, Chart.js dashboards with multi-format export, and Quill rich-text editing — scaffolded with Claude &amp; Cursor agents.</li>
-              <li>Shipped localized UI (no/en, 1,000+ keys) and authored the Playwright + Vitest testing foundation across all three apps, using AI agents (Claude, OpenCode) to generate test data and flag coverage gaps.</li>
-              <li>Contribute to architecture decisions &amp; code review across the Deviation, Checklist &amp; Handbook modules, and extend the Playwright/Vitest testing strategy as new modules ship.</li>
-              <li>Extend the reporting/export and localization foundations (Chart.js, @ngx-translate) to new modules, and help drive adoption of AI-assisted workflows (Claude, Cursor, OpenCode) across the team.</li>
+              <li>Shipped measure-effectiveness evaluation end to end, closing a gap that blocked the migration to the new deviation UI.</li>
+              <li>Built the offline Handbook mobile app from zero; wrote the mobile architecture and dropped a planned server.</li>
+              <li>One sign-in for all company apps on the existing login, with session revoke and reuse detection. Fixed one security-review finding and recorded the accepted risks.</li>
+              <li>First AI features in the compliance module, with an audit log per run, plus the evidence guard that made auditor-facing numbers trustworthy.</li>
+              <li>170+ tickets, 110+ design docs, and the Playwright end-to-end suite across the apps.</li>
             </ul></div>
           </div>
         </div>
@@ -956,15 +980,14 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <button class="log-btn" type="button" aria-expanded="false" aria-controls="lp2" id="lb2">
               <span class="log-when">2024-09 → 2026-02</span>
               <span class="log-op">MultiTech Systems<span class="log-role">Software Engineer</span></span>
-              <span class="log-type">Angular 19+ · .NET 10</span>
+              <span class="log-type">Manufacturing ERP</span>
               <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
             </button>
           </h3>
           <div class="log-panel" data-open="false" id="lp2" role="region" aria-labelledby="lb2">
             <div><ul class="remarks">
-              <li>Architected &amp; delivered 4 enterprise ERP platforms with Angular 19+, .NET 10, PostgreSQL, Redis and MinIO/S3.</li>
-              <li>900+ typed endpoints, 80+ lazy routes, signal-based state, a recursive permission system and tokenized S3 uploads.</li>
-              <li>CI/CD with multi-stage Docker, Nginx and SSH deploys; Clean Architecture, DDD, Modular Monolith and Result patterns.</li>
+              <li>Re-platformed a garment ERP for a footwear manufacturer: inventory, document capture, bulk order intake, costing workflow. 222 of 773 commits, second contributor.</li>
+              <li>Support work on the shop-floor IoT bridge (MQTT to RabbitMQ).</li>
             </ul></div>
           </div>
         </div>
@@ -980,9 +1003,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
           </h3>
           <div class="log-panel" data-open="false" id="lp3" role="region" aria-labelledby="lb3">
             <div><ul class="remarks">
-              <li>Built educational platforms (Plabook, Augie) for international teams.</li>
-              <li>40+ reusable master components powering 2000+ games; Stripe &amp; PayPal payment flows with full validation.</li>
-              <li>Contributed Android development in Kotlin &amp; Jetpack Compose (MVVM).</li>
+              <li>Educational platforms Plabook and Augie: reusable game components, Stripe and PayPal payment flows, and an Android app in Kotlin and Jetpack Compose.</li>
             </ul></div>
           </div>
         </div>
@@ -994,24 +1015,27 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
   <section class="sec" style="padding-top:0" id="oss">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Open source I contribute to</h2>
-        <span class="count">Contributor, not author</span>
+        <h2>Open source</h2>
+        <span class="count">1 fix · 1 package</span>
       </div>
 
       <div class="work">
-        <a class="mod wide" href="https://github.com/openng-org/optimus-ui" target="_blank" rel="noopener">
+        <article class="mod half">
           <div class="mod-top">
             <h3>Optimus UI</h3>
-            <span class="placard">Angular components</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Active</span>
+            <span class="placard">Contributor</span>
           </div>
-          <p>80+ accessible, customizable Angular components under the MIT licence — a community-maintained continuation of PrimeNG v21, built to stay open. I contribute to it, and it is the component layer under CampusQ's client, so the fixes land where I can see them in production.</p>
-          <div class="specs">
-            <span class="spec">Angular</span><span class="spec">TypeScript</span>
-            <span class="spec">MIT licence</span><span class="spec">optimus.openng.org</span>
+          <p>One merged fix: row grouping crashed with an empty sort array. Regression tests included. It is the component layer under CampusQ, so the fix runs where I can see it.</p>
+          <a class="mod-go" href="https://github.com/openng-org/optimus-ui" target="_blank" rel="noopener">View on GitHub <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+        </article>
+        <article class="mod half">
+          <div class="mod-top">
+            <h3>ngx-primeng-toolkit</h3>
+            <span class="placard">Author</span>
           </div>
-          <span class="mod-go">View on GitHub <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
+          <p>Table and query-state helpers extracted from ERP work, published to npm with CI.</p>
+          <a class="mod-go" href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">View on npm <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+        </article>
       </div>
     </div>
   </section>
@@ -1020,19 +1044,19 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
   <section class="sec" id="skills">
     <div class="wrap">
       <div class="sec-head">
-        <h2>The stack it all runs on</h2>
-        <span class="count">In production use</span>
+        <h2>Stack, for the filter</h2>
       </div>
 
       <div class="checklist">
         <div class="cl">
           <h3>Frontend</h3>
           <ul>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Angular (3.5+ yrs)</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Angular</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>TypeScript · RxJS</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>NgRx Signals</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Next.js · React</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>React Native (Expo)</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Flutter · Riverpod</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>PrimeNG · Material</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Tailwind CSS v4</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Chart.js</li>
@@ -1120,7 +1144,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
   <!-- ═══════════════ CONTACT ═══════════════ -->
   <section class="clear" id="contact">
     <div class="wrap">
-      <h2 class="big">Let's build something<br><span class="em">that reacts.</span></h2>
+      <h2 class="big">Let's build something<br><span class="em">people run their business on.</span></h2>
       <div class="links">
         <a href="mailto:saiful70.me@gmail.com" class="btn btn--engage"><span class="ring" aria-hidden="true"></span>saiful70.me@gmail.com</a>
         <a href="https://wa.me/8801689740070" target="_blank" rel="noopener" class="btn">WhatsApp</a>
@@ -1128,7 +1152,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
         <a href="https://github.com/saiful-70" target="_blank" rel="noopener" class="btn">GitHub</a>
         <a href="https://linkedin.com/in/saiful70" target="_blank" rel="noopener" class="btn">LinkedIn</a>
       </div>
-      <div class="foot-note"><span class="lamp" aria-hidden="true"></span>Open to remote work · replies within a day</div>
+      <div class="foot-note"><span class="lamp" aria-hidden="true"></span>Remote · replies within a day</div>
     </div>
   </section>
 
