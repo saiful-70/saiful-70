@@ -458,6 +458,13 @@ h1 .l2{display:block;color:var(--lum-2)}
 @media(max-width:640px){.brief div{grid-template-columns:1fr}}
 /* the removed list: an intro line above the existing remarks list */
 .sec-intro{max-width:62ch;margin:-8px 0 20px;font-size:15px;line-height:1.7;color:var(--dim)}
+/* product cards: a one-line headline and a module count above the brief */
+.mod .hook{font-size:21px;line-height:1.3;font-variation-settings:"wdth" 92,"wght" 600;letter-spacing:-.01em;
+  color:var(--lum);max-width:46ch;text-wrap:balance}
+.mod .mods{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:-6px;
+  font-family:"Azeret Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.6;color:var(--dim)}
+.mod .mods b{flex:none;font-weight:700;color:var(--green-ink);letter-spacing:.04em}
+.mod .mods span{min-width:0;overflow-wrap:anywhere}
 /* product-builder:end */
 
 /* ── panel light: a two-position switch on the header rail ── */
@@ -735,7 +742,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
           <div class="role"><span class="placard">Software Engineer</span></div>
 
           <p class="lede">I turn how a business actually runs into software that ships: <b>backend, web, mobile, deploy</b>, and the alerts that watch it.</p>
-          <p class="method">Spec first. AI agents write most of the code. I own what gets built, what gets cut, and the gate it has to pass.</p>
+          <p class="method">Spec first. AI agents write most of the code. I decide what ships, what gets cut, and how we know it works.</p>
 
           <div class="actions">
             <a href="#work" class="btn btn--engage"><span class="ring" aria-hidden="true"></span>See the work</a>
@@ -755,12 +762,12 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <li><span class="how-n">02</span><b>Change the model, not the screen</b><span>Rebuilt money into three tracks that never mix: rent, service charge, org accounts.</span></li>
             <li><span class="how-n">03</span><b>Decide what not to build</b><span>Dropped a planned mobile API service; the app calls the existing APIs through the gateway.</span></li>
             <li><span class="how-n">04</span><b>Ship every surface myself</b><span>Offline document app for field workers: sign-in, outbox, background sync, 405 tests, three weeks.</span></li>
-            <li><span class="how-n">05</span><b>Put a gate behind it</b><span>The SaaS refuses to boot if any tenant table is missing a row-level security policy.</span></li>
+            <li><span class="how-n">05</span><b>Make failure loud</b><span>The SaaS refuses to boot if any tenant table is missing a row-level security policy.</span></li>
           </ol>
 
           <div class="crosscheck">
             <span class="placard">Method</span>
-            <span class="out">Same loop on every product below.</span>
+            <span class="out">Same five steps on every product below.</span>
           </div>
         </div>
 
@@ -769,9 +776,9 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
       <dl class="statuslist">
         <div class="sl-row"><dt class="k">Experience</dt><dd class="v num">3.5+ yrs</dd></div>
         <div class="sl-row"><dt class="k">Surfaces I ship</dt><dd class="v">Backend · Web · Mobile · Ops</dd></div>
-        <div class="sl-row"><dt class="k">Design docs written</dt><dd class="v num">200+</dd></div>
+        <div class="sl-row"><dt class="k">Running in production</dt><dd class="v num">6 of 7</dd></div>
         <div class="sl-row"><dt class="k">Products</dt><dd class="v num">7</dd></div>
-        <div class="sl-row"><dt class="k">Method</dt><dd class="v">Spec → agents → gate</dd></div>
+        <div class="sl-row"><dt class="k">Method</dt><dd class="v">Spec first, AI-built</dd></div>
         <div class="sl-row"><dt class="k">Base</dt><dd class="v">Dhaka · UTC+6</dd></div>
       </dl>
     </div>
@@ -793,6 +800,8 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <span class="placard">Quality SaaS · Netpower</span>
             <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
           </div>
+          <p class="hook">Field workers read and confirm controlled documents on their own phone, even offline.</p>
+          <p class="mods"><b>7 apps</b><span>deviation · handbook · compliance · checklist · radar · task · admin, plus the mobile app</span></p>
           <dl class="brief">
             <div><dt>For</dt><dd>Quality managers and HSE staff at industrial companies, and the field workers who have to read and confirm controlled documents.</dd></div>
             <div><dt>The call</dt><dd>The "evaluate this measure" email led to a page where nobody could evaluate. I treated it as a migration blocker, not a bug, and owned the schema, the worklist, overdue escalation, evidence frozen at the moment of judgement, and the UI.</dd></div>
@@ -811,6 +820,8 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <span class="placard">Multi-tenant SaaS</span>
             <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
           </div>
+          <p class="hook">A coaching centre that ran on paper now runs from one screen, in Bangla.</p>
+          <p class="mods"><b>26 + 12 modules</b><span>students, batches, attendance, fees, exams, results, SMS, teacher and student portals · operator console for tenants, billing, SMS credits</span></p>
           <dl class="brief">
             <div><dt>For</dt><dd>Coaching centres in Bangladesh that run on a paper register, a spreadsheet and the owner's personal mobile-money number. The front desk does the same task eighty times a day.</dd></div>
             <div><dt>The call</dt><dd>Build for this niche, not a cut-down school ERP. Bangla first, guardian SMS with a magic link and no account, printed receipts and report cards as first-class output.</dd></div>
@@ -830,6 +841,8 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <span class="placard">Property ERP</span>
             <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
           </div>
+          <p class="hook">Rent, service charge and the org's own money, in three tracks that never mix.</p>
+          <p class="mods"><b>14 modules</b><span>properties, leasing, owners, service charge, accounting, HRM, assets, audit · phone app for 4 roles</span></p>
           <dl class="brief">
             <div><dt>For</dt><dd>An organisation that manages residential buildings for flat owners. Admins work on a console; tenants and staff use a phone.</dd></div>
             <div><dt>The call</dt><dd>The org is not the landlord. Rent goes from tenant to owner and is never org income; the service charge follows ownership, not occupancy.</dd></div>
@@ -851,11 +864,13 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <span class="placard">Manufacturing · MultiTech</span>
             <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
           </div>
+          <p class="hook">A garment ERP, taught to make shoes.</p>
+          <p class="mods"><b>6 modules</b><span>inventory, supply chain, production, operations, configuration, access control</span></p>
           <dl class="brief">
             <div><dt>For</dt><dd>Merchandisers and stores staff at a footwear factory.</dd></div>
             <div><dt>The call</dt><dd>Re-platform a garment-export ERP instead of starting over. I stripped the yarn, fabric and spinning concepts, reset migrations, seeded the tenant, and grew it to six modules and 580+ endpoints.</dd></div>
             <div><dt>Shipped</dt><dd>Inventory with landed cost and issue, return and transfer quantities that reconcile. Phone-to-ERP document capture through a QR code and a short-lived upload token, no mobile login. Excel bulk order intake that validates everything first and reports per row. BOM and pre-cost workflow.</dd></div>
-            <div><dt>Cut</dt><dd>Saves per breakdown block, from about ten to six, to fix a transaction failure. Written up in the repo docs.</dd></div>
+            <div><dt>Cut</dt><dd>Saves per breakdown block, from about ten to six, to fix a transaction failure.</dd></div>
           </dl>
           <div class="specs">
             <span class="spec">.NET 10</span><span class="spec">Postgres</span><span class="spec">Redis</span><span class="spec">S3 · MinIO</span>
@@ -868,6 +883,8 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <span class="placard">Freelance · 2025-06 →</span>
             <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
           </div>
+          <p class="hook">Two institutes stopped confirming fees by hand.</p>
+          <p class="mods"><b>5 apps</b><span>one payment gateway, two back offices, two admission sites</span></p>
           <dl class="brief">
             <div><dt>For</dt><dd>Two coaching institutes collecting fees by mobile money and cash, confirmed by hand.</dd></div>
             <div><dt>The call</dt><dd>One shared payment gateway with signed callbacks into each institute's system, so neither needed a shared database.</dd></div>
@@ -889,6 +906,8 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <span class="placard">Mobile app</span>
             <span class="mod-lamp restricted"><span class="lamp amber" aria-hidden="true"></span>In acceptance</span>
           </div>
+          <p class="hook">A family's health records, encrypted on the phone, working before anyone signs up.</p>
+          <p class="mods"><b>7 modules</b><span>members, prescriptions, vitals, reports, care episodes, document scan, intake</span></p>
           <dl class="brief">
             <div><dt>For</dt><dd>A family keeping prescriptions, doses and reports, each person with their own login and per-person sharing, working fully offline before any account exists.</dd></div>
             <div><dt>The call</dt><dd>Treat health data as sensitive by default: an encrypted phone database, export and hard delete, nothing health-related in logs or push, and no free-tier AI model whose terms allow training on user data.</dd></div>
@@ -906,6 +925,8 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <span class="placard">Storefront platform</span>
             <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
           </div>
+          <p class="hook">One storefront, many merchants. A new shop is one file.</p>
+          <p class="mods"><b>5 templates · 5 variants</b><span>storefront looks and language-and-market presets, mixed per merchant</span></p>
           <dl class="brief">
             <div><dt>For</dt><dd>Shoppers on low-end Android over mobile data, arriving from ads, with cash on delivery as the main way to pay.</dd></div>
             <div><dt>The call</dt><dd>One storefront codebase for many merchants. A merchant is template, theme, branding, flags and language as data; onboarding one is a single descriptor file, no fork.</dd></div>
@@ -932,7 +953,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
       <p class="sec-intro">Deciding what not to build is half the job. These were built or planned, then taken out on evidence.</p>
       <ul class="remarks cuts">
         <li><b>Payment gateway integration in CampusQ.</b> Manual transfer plus an operator check was enough for the first customers.</li>
-        <li><b>Eight AI features in CampusQ</b>, removed in eight slices with no migration. 59 AI-only tests went with them, and the manual screenshots were re-shot.</li>
+        <li><b>Eight AI features in CampusQ</b>, removed in eight slices with no migration.</li>
         <li><b>A separate mobile API service at Netpower.</b> The existing module APIs, through the gateway, did the job.</li>
         <li><b>PDF input in the AI register importer.</b> Spreadsheets only, so there is no OCR path to maintain.</li>
         <li><b>The multi-tenant layer in Rent-ERP.</b> One organisation: no row-level security, no subdomains.</li>
@@ -970,7 +991,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
               <li>Built the offline Handbook mobile app from zero; wrote the mobile architecture and dropped a planned server.</li>
               <li>One sign-in for all company apps on the existing login, with session revoke and reuse detection. Fixed one security-review finding and recorded the accepted risks.</li>
               <li>First AI features in the compliance module, with an audit log per run, plus the evidence guard that made auditor-facing numbers trustworthy.</li>
-              <li>170+ tickets, 110+ design docs, and the Playwright end-to-end suite across the apps.</li>
+              <li>Owns the Playwright end-to-end suite across the apps.</li>
             </ul></div>
           </div>
         </div>
@@ -986,7 +1007,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
           </h3>
           <div class="log-panel" data-open="false" id="lp2" role="region" aria-labelledby="lb2">
             <div><ul class="remarks">
-              <li>Re-platformed a garment ERP for a footwear manufacturer: inventory, document capture, bulk order intake, costing workflow. 222 of 773 commits, second contributor.</li>
+              <li>Re-platformed a garment ERP for a footwear manufacturer: inventory, document capture, bulk order intake, costing workflow.</li>
               <li>Support work on the shop-floor IoT bridge (MQTT to RabbitMQ).</li>
             </ul></div>
           </div>

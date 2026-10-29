@@ -95,9 +95,14 @@ Real and verifiable — usable as content:
 - Footwear ERP (MultiTech): re-platformed from a garment ERP; customer never named.
 - Institute payments: freelance from 2025-06, in production, no public link.
 - Family Connect App: backend live, mobile in acceptance, no link yet.
-- Metrics on the page: 3.5+ years, 200+ design docs, 7 products, 580+ endpoints (Footwear
+- Metrics on the page: 3.5+ years, 7 products (6 in production), 580+ endpoints (Footwear
   ERP), 2,300+ backend tests and 289 of 303 route cells (CampusQ), 585 tests (Family Connect),
-  405 tests (Handbook app), 170+ tickets and 110+ design docs (Netpower).
+  405 tests (Handbook app).
+- Module counts per card, read from each codebase: Certain QMS 7 apps + mobile; CampusQ 26
+  centre modules + 12 operator modules; Rent-ERP 14 modules + a 4-role phone app; Footwear ERP
+  6 modules; Institute payments 5 apps; Family Connect 7 modules; DebuggerMind 5 templates × 5
+  variants.
+- No process paperwork on public surfaces: no commit, ticket or design-doc counts.
 - Education: MSc (2025) and BSc (2024) in ICT, Comilla University.
 - Awards: 1st Runner-Up, DevOps Hackathon (Poridhi.io × Brain Station 23); freeCodeCamp
   JavaScript Algorithms & Data Structures.

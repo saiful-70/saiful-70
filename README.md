@@ -4,8 +4,8 @@ Software engineer in **Dhaka, Bangladesh** (UTC+6), working remote. I turn how a
 actually runs into software that ships: **backend, web, mobile, deploy**, and the alerts that
 watch it.
 
-Spec first. AI agents write most of the code. I own what gets built, what gets cut, and the
-gate it has to pass.
+Spec first. AI agents write most of the code. I decide what ships, what gets cut, and how we
+know it works.
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-0B6B37?style=for-the-badge&logo=googlechrome&logoColor=white)](https://saiful-70.github.io/saiful-70/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/saiful70/)
@@ -23,19 +23,19 @@ gate it has to pass.
 | Change the model, not the screen | Rebuilt money into three tracks that never mix: rent, service charge, org accounts. |
 | Decide what not to build | Dropped a planned mobile API service; the app calls the existing APIs through the gateway. |
 | Ship every surface myself | Offline document app for field workers: sign-in, outbox, background sync, 405 tests, three weeks. |
-| Put a gate behind it | The SaaS refuses to boot if any tenant table is missing a row-level security policy. |
+| Make failure loud | The SaaS refuses to boot if any tenant table is missing a row-level security policy. |
 
 ### Products
 
-| Product | For | The call | Status |
-| --- | --- | --- | --- |
-| **Certain QMS** (Netpower) | Quality managers, HSE staff and field workers at industrial companies | Treated an "evaluate this measure" email that led nowhere as a migration blocker; shipped evaluation, an offline Handbook app and one sign-in for all apps | in production |
-| **[CampusQ](https://campusqbd.com)** | Coaching centres in Bangladesh running on paper and a personal mobile-money number | Built for the niche: Bangla first, guardian SMS without accounts, printed receipts; isolation checked at boot | live, pre-revenue |
-| **Rent-ERP** | An organisation managing residential buildings for flat owners | The org is not the landlord: rent, service charge and org accounts never mix | in production, private |
-| **Footwear ERP** (MultiTech) | Merchandisers and stores staff at a footwear factory | Re-platformed a garment ERP instead of starting over; QR document capture, Excel order intake | in production |
-| **Institute payments** (freelance, 2025-06 →) | Two coaching institutes confirming fees by hand | One shared gateway with signed callbacks, no shared database | in production, private |
-| **Family Connect App** | Families keeping health records offline, each person with their own login | Health data sensitive by default: encrypted phone database, export and hard delete | in acceptance |
-| **[DebuggerMind Commerce](https://pogiecom.pogiit.com)** | Shoppers on low-end Android paying cash on delivery | One storefront codebase for many merchants; onboarding is one file, no fork | live |
+| Product | For | The call | Size | Status |
+| --- | --- | --- | --- | --- |
+| **Certain QMS** (Netpower) | Quality managers, HSE staff and field workers at industrial companies | Treated an "evaluate this measure" email that led nowhere as a migration blocker; shipped evaluation, an offline Handbook app and one sign-in for all apps | 7 apps + mobile | in production |
+| **[CampusQ](https://campusqbd.com)** | Coaching centres in Bangladesh running on paper and a personal mobile-money number | Built for the niche: Bangla first, guardian SMS without accounts, printed receipts; isolation checked at boot | 26 + 12 modules | live, pre-revenue |
+| **Rent-ERP** | An organisation managing residential buildings for flat owners | The org is not the landlord: rent, service charge and org accounts never mix | 14 modules, 4-role phone app | in production, private |
+| **Footwear ERP** (MultiTech) | Merchandisers and stores staff at a footwear factory | Re-platformed a garment ERP instead of starting over; QR document capture, Excel order intake | 6 modules | in production |
+| **Institute payments** (freelance, 2025-06 →) | Two coaching institutes confirming fees by hand | One shared gateway with signed callbacks, no shared database | 5 apps | in production, private |
+| **Family Connect App** | Families keeping health records offline, each person with their own login | Health data sensitive by default: encrypted phone database, export and hard delete | 7 modules | in acceptance |
+| **[DebuggerMind Commerce](https://pogiecom.pogiit.com)** | Shoppers on low-end Android paying cash on delivery | One storefront codebase for many merchants; onboarding is one file, no fork | 5 templates × 5 variants | live |
 
 ### Things I removed
 
@@ -131,7 +131,7 @@ query-state helpers extracted from ERP work, published to npm with CI.
   <img alt="GitHub at a glance for saiful-70: public repositories, stars earned, year joined, and language mix." src="assets/stats-light.svg" width="100%">
 </picture>
 
-<sub>Rendered from the GitHub API into a committed SVG and refreshed weekly by
+<sub>Rendered from the GitHub API into an SVG stored in this repo and refreshed weekly by
 <a href=".github/workflows/profile-stats.yml">a workflow</a> — no card service to go down.</sub>
 
 ---

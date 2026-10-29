@@ -87,7 +87,8 @@ check("removed-list", () => {
 
 check("forbidden", () => {
   const words = ["signals-first", "that reacts", "Senior", "40+", "2000+", "900+", "80+ lazy",
-    "4 enterprise ERP", "in-house", "ISO 9001", "GDPR", "rent-erp-staging", "Angular &amp; .NET", "Angular & .NET"];
+    "4 enterprise ERP", "in-house", "ISO 9001", "GDPR", "rent-erp-staging", "Angular &amp; .NET", "Angular & .NET",
+    "commits", "design docs", "tickets", "repo docs", "the gate it has to pass"];
   const hits = [];
   for (const [name, text] of [["index.html", html], ["README.md", readme]]) {
     const low = text.toLowerCase();
@@ -128,6 +129,12 @@ check("copy-matches-spec", () => {
   if (html.includes("in bulk import. Written up")) miss.push("footwear bulk-import detail still present");
   if (readme.includes("dead \"evaluate this measure\" link")) miss.push("README dead-link wording");
   if (miss.length) return miss.join("; ");
+});
+
+check("module-counts", () => {
+  const sec = between(html, 'id="work"', 'id="removed"');
+  const n = [count(sec, 'class="hook"'), count(sec, 'class="mods"')];
+  if (n[0] !== 7 || n[1] !== 7) return `hooks×${n[0]}, mods×${n[1]}`;
 });
 
 check("product-md", () => {
