@@ -34,11 +34,15 @@ LinkedIn, resume).
 
 ## Positioning
 
-The differentiator is *systems actually shipped*, not techniques listed. Four enterprise ERP
-platforms, 900+ typed endpoints, a multi-tenant SaaS built solo down to Postgres row-level
-security and bitmask RBAC, a three-surface property ERP, and a published npm library — all
-inside 3.5 years. Paired with an AI-native workflow (Claude, Cursor, Ollama, OpenCode) used
-as leverage on production work, not as a novelty.
+A software engineer who builds products end to end. The page argues with decisions and
+shipped systems, not with a technology list; the title stays "Software Engineer".
+
+The same loop runs through every product: find out how the business really runs, change the
+model to fit, decide what not to build, ship every surface (backend, web, mobile, ops), and put
+a gate behind it. AI use is disclosed as method: spec first, agents write most of the code, the
+engineer owns scope and verification.
+
+Audience is remote roles worldwide. No region, time-zone or compliance framing.
 
 ## Operating Context
 
@@ -55,8 +59,9 @@ as leverage on production work, not as a novelty.
   (`profile.jpeg`, `og-image.png`, favicons, `site.webmanifest`, `robots.txt`, `sitemap.xml`).
 - Must preserve: Google Analytics (`G-2N74T6GHQ4`), all SEO meta, canonical URL, Open Graph
   and Twitter cards, and the `Person` JSON-LD block.
-- Must preserve every factual claim and all content exactly as written: employers, dates,
-  metrics, project descriptions, stack lists, education, awards, contact details.
+- Claims follow `docs/superpowers/specs/2026-10-28-product-builder-portfolio-design.md`;
+  numbers only where a repo, doc or live URL backs them. Employer customers are never named.
+- `node scripts/check-portfolio.mjs` must pass before publishing.
 - No image-conversion tooling available in this environment (no cwebp/sips/magick/ffmpeg);
   raster assets ship as authored.
 - GitHub README constraint: no `<style>`, no scripts, no CSS classes. Only GitHub's markdown,
@@ -82,12 +87,17 @@ Real and verifiable — usable as content:
 
 - Employment: Netpower (Mar 2026 → present, Certain QMS, Angular 21); MultiTech Systems
   (Sep 2024 – Feb 2026); Constant Concept (Feb 2023 – Aug 2024, remote/international).
-- Live products: `campusqbd.com` (CampusQ), `pogiit.com` (DebuggerMind Commerce).
-- Published package: `ngx-primeng-toolkit` on npm.
-- Rent-ERP: real, source private, no public link.
-- Metrics stated on the current site: 3.5+ years, 900+ typed endpoints, 80+ lazy routes,
-  4 ERP platforms, 6+ products shipped, 40+ reusable components powering 2000+ games,
-  1,000+ localization keys.
+- Live products: `campusqbd.com` (CampusQ, pre-revenue), `pogiecom.pogiit.com`
+  (DebuggerMind Commerce, a storefront platform used by merchants).
+- Published package: `ngx-primeng-toolkit` on npm. One merged fix in Optimus UI.
+- Rent-ERP: in production, source private, no public link; mobile app built with an unnamed
+  collaborator.
+- Footwear ERP (MultiTech): re-platformed from a garment ERP; customer never named.
+- Institute payments: freelance from 2025-06, in production, no public link.
+- Family Connect App: backend live, mobile in acceptance, no link yet.
+- Metrics on the page: 3.5+ years, 200+ design docs, 7 products, 580+ endpoints (Footwear
+  ERP), 2,300+ backend tests and 289 of 303 route cells (CampusQ), 585 tests (Family Connect),
+  405 tests (Handbook app), 170+ tickets and 110+ design docs (Netpower).
 - Education: MSc (2025) and BSc (2024) in ICT, Comilla University.
 - Awards: 1st Runner-Up, DevOps Hackathon (Poridhi.io × Brain Station 23); freeCodeCamp
   JavaScript Algorithms & Data Structures.
