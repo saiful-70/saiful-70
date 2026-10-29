@@ -449,6 +449,13 @@ h1 .l2{display:block;color:var(--lum-2)}
   color:var(--lum);line-height:1.25}
 .how li > span:last-child{font-size:14px;line-height:1.55;color:var(--dim)}
 @media(max-width:1040px){.how{grid-template-columns:1fr;gap:8px}}
+/* product cards: the same four questions on every product */
+.brief{display:grid;gap:12px}
+.brief div{display:grid;grid-template-columns:8rem minmax(0,1fr);gap:4px 16px}
+.brief dt{font-family:"Azeret Mono",ui-monospace,monospace;font-size:12px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink);padding-top:3px}
+.brief dd{min-width:0;max-width:74ch;font-size:15px;line-height:1.65;color:var(--dim);overflow-wrap:anywhere}
+@media(max-width:640px){.brief div{grid-template-columns:1fr}}
 /* product-builder:end */
 
 /* ── panel light: a two-position switch on the header rail ── */
@@ -581,7 +588,6 @@ h2{
   box-shadow:inset 0 1px 0 var(--chamfer-soft),0 6px 12px -8px var(--shade-3);
   display:flex;flex-direction:column;gap:16px;min-width:0;transition:border-color .25s,transform .25s var(--ease);
 }
-a.mod:hover{border-color:var(--edge);transform:translateY(-2px)}
 .mod--caution{border-color:var(--amber-line)}
 .mod--caution .placard{color:var(--amber-ink);border-color:var(--amber-line-2)}
 .mod.wide{grid-column:span 6}
@@ -602,34 +608,10 @@ a.mod:hover{border-color:var(--edge);transform:translateY(-2px)}
 .mod-go{margin-top:auto;display:flex;align-items:center;gap:9px;font-family:"Azeret Mono",monospace;
   font-size:12.5px;color:var(--green);padding-top:4px}
 .mod-go .arr{transition:transform .25s var(--ease)}
-a.mod:hover .mod-go .arr{transform:translateX(5px)}
+a.mod-go:hover .arr{transform:translateX(5px)}
 .mod-note{margin-top:auto;display:flex;align-items:center;gap:9px;font-family:"Azeret Mono",monospace;
   font-size:12.5px;color:var(--amber-ink);padding-top:4px}
 
-/* schematic */
-.schem{border:1px solid var(--hair);border-radius:3px;background:
-  linear-gradient(180deg,var(--well-hi),var(--well-lo));padding:14px 12px}
-.schem svg{width:100%;height:auto;display:block}
-.scrollhint{display:none}
-@media(max-width:760px){
-  .schem{overflow-x:auto;padding:14px;min-width:0;
-    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 38px),transparent 100%);
-    mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 38px),transparent 100%)}
-  .schem svg{min-width:520px}
-  .mod.wide .schem svg{min-width:760px}
-  .scrollhint{display:flex;align-items:center;gap:7px;margin-top:-6px;
-    font-family:"Azeret Mono",monospace;font-size:12.5px;color:var(--faint)}
-  .scrollhint::after{content:"";width:14px;height:1px;background:var(--green-ink);
-    box-shadow:5px -3px 0 -0.5px var(--green-ink),5px 3px 0 -0.5px var(--green-ink)}
-}
-.sc-box{fill:var(--sc-box);stroke:var(--sc-stroke);stroke-width:1}
-.sc-box-a{fill:var(--green-wash-soft);stroke:var(--green-ink);stroke-width:1}
-.sc-t{font-family:"Azeret Mono",monospace;font-size:7.6px;letter-spacing:.03em;fill:var(--sc-t)}
-.sc-t.d{fill:var(--sc-t-d)}
-.sc-t.g{fill:var(--green)}
-.sc-line{stroke:var(--sc-line);stroke-width:1;fill:none}
-.sc-line-a{stroke:var(--green-ink);stroke-width:1.2;fill:none}
-.sc-dash{stroke:var(--amber);stroke-width:1;stroke-dasharray:3 3;fill:none;opacity:.75}
 
 /* ───────── stack columns ───────── */
 .checklist{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
@@ -792,6 +774,151 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
     </div>
   </section>
 
+  <!-- ═══════════════ PRODUCTS ═══════════════ -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Products</h2>
+        <span class="count">7 systems</span>
+      </div>
+
+      <div class="work">
+
+        <article class="mod wide">
+          <div class="mod-top">
+            <h3>Certain QMS</h3>
+            <span class="placard">Quality SaaS · Netpower</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
+          </div>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Quality managers and HSE staff at industrial companies, and the field workers who have to read and confirm controlled documents.</dd></div>
+            <div><dt>The call</dt><dd>The "evaluate this measure" email led to a page where nobody could evaluate. I treated it as a migration blocker, not a bug, and owned the schema, the worklist, overdue escalation, evidence frozen at the moment of judgement, and the UI.</dd></div>
+            <div><dt>Shipped</dt><dd>Measure-effectiveness evaluation. An offline Handbook app for iPhone and Android, built almost alone in three weeks. One OAuth sign-in (code + PKCE, rotating refresh tokens, session revoke) for all Netpower apps. AI-assisted requirement import with a human review step and an append-only run log. "Verified" no longer offered without evidence. A subscription digest across four services.</dd></div>
+            <div><dt>Cut</dt><dd>A separate mobile API service. PDF input for the AI importer, so there is no OCR path to maintain.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">Flutter</span><span class="spec">Angular 22</span><span class="spec">.NET 10</span>
+            <span class="spec">YARP gateway</span><span class="spec">OAuth + PKCE</span><span class="spec">Playwright</span>
+          </div>
+        </article>
+
+        <article class="mod wide">
+          <div class="mod-top">
+            <h3>CampusQ</h3>
+            <span class="placard">Multi-tenant SaaS</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
+          </div>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Coaching centres in Bangladesh that run on a paper register, a spreadsheet and the owner's personal mobile-money number. The front desk does the same task eighty times a day.</dd></div>
+            <div><dt>The call</dt><dd>Build for this niche, not a cut-down school ERP. Bangla first, guardian SMS with a magic link and no account, printed receipts and report cards as first-class output.</dd></div>
+            <div><dt>Shipped</dt><dd>A multi-tenant SaaS where each centre gets its own subdomain. Plan limits are a designed upgrade state, not an error. Tenant isolation is enforced in Postgres and checked at boot. 2,300+ backend tests, end-to-end coverage over 289 of 303 route cells, business KPIs on Grafana with Telegram alerts.</dd></div>
+            <div><dt>Cut</dt><dd>The payment gateway (manual transfer plus operator check instead), QR check-in, eight AI features removed in eight slices at the product owner's request, colour palettes from 16 to 6. Removed invented stats from the marketing site before launch. Pre-revenue.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">.NET 10</span><span class="spec">Angular 22</span><span class="spec">Next.js 16</span>
+            <span class="spec">Postgres RLS</span><span class="spec">en / bn</span><span class="spec">Grafana · Loki · Tempo</span>
+          </div>
+          <a class="mod-go" href="https://campusqbd.com" target="_blank" rel="noopener">View live — campusqbd.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+        </article>
+
+        <article class="mod half">
+          <div class="mod-top">
+            <h3>Rent-ERP</h3>
+            <span class="placard">Property ERP</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
+          </div>
+          <dl class="brief">
+            <div><dt>For</dt><dd>An organisation that manages residential buildings for flat owners. Admins work on a console; tenants and staff use a phone.</dd></div>
+            <div><dt>The call</dt><dd>The org is not the landlord. Rent goes from tenant to owner and is never org income; the service charge follows ownership, not occupancy.</dd></div>
+            <div><dt>Shipped</dt><dd>Backend, admin console and an Expo app (the mobile app built with a collaborator). A field-level, append-only audit trail enforced by a database trigger. Maker and checker must differ on vouchers. A 100-issue audit closed in four days. CI that fails when tests are silently skipped.</dd></div>
+            <div><dt>Cut</dt><dd>Multi-tenancy, persona switching, push notifications.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">.NET 10</span><span class="spec">Angular</span><span class="spec">Expo</span><span class="spec">Postgres</span>
+          </div>
+          <span class="mod-note">
+            <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+            Source private · no public link
+          </span>
+        </article>
+
+        <article class="mod half">
+          <div class="mod-top">
+            <h3>Footwear ERP</h3>
+            <span class="placard">Manufacturing · MultiTech</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
+          </div>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Merchandisers and stores staff at a footwear factory.</dd></div>
+            <div><dt>The call</dt><dd>Re-platform a garment-export ERP instead of starting over. I stripped the yarn, fabric and spinning concepts, reset migrations, seeded the tenant, and grew it to six modules and 580+ endpoints.</dd></div>
+            <div><dt>Shipped</dt><dd>Inventory with landed cost and issue, return and transfer quantities that reconcile. Phone-to-ERP document capture through a QR code and a short-lived upload token, no mobile login. Excel bulk order intake that validates everything first and reports per row. BOM and pre-cost workflow.</dd></div>
+            <div><dt>Cut</dt><dd>Saves per order block, from about ten to six, to fix a transaction failure in bulk import. Written up in the repo docs.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">.NET 10</span><span class="spec">Postgres</span><span class="spec">Redis</span><span class="spec">S3 · MinIO</span>
+          </div>
+        </article>
+
+        <article class="mod half">
+          <div class="mod-top">
+            <h3>Institute payments</h3>
+            <span class="placard">Freelance · 2025-06 →</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
+          </div>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Two coaching institutes collecting fees by mobile money and cash, confirmed by hand.</dd></div>
+            <div><dt>The call</dt><dd>One shared payment gateway with signed callbacks into each institute's system, so neither needed a shared database.</dd></div>
+            <div><dt>Shipped</dt><dd>The gateway, as sole author: retry with backoff and an admin transactions console. "Copy payment link" in the back office. An "apply to both" admission flow that asks only for the missing fields. Monthly fee accrual and due-alert SMS on a scheduler.</dd></div>
+            <div><dt>Cut</dt><dd>Features nobody asked for. I wrote the client a gap analysis that ranks missing features by business impact instead of building them unasked.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">ASP.NET Core</span><span class="spec">PostgreSQL</span><span class="spec">Hangfire</span>
+          </div>
+          <span class="mod-note">
+            <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+            Source private · no public link
+          </span>
+        </article>
+
+        <article class="mod half mod--caution">
+          <div class="mod-top">
+            <h3>Family Connect App</h3>
+            <span class="placard">Mobile app</span>
+            <span class="mod-lamp restricted"><span class="lamp amber" aria-hidden="true"></span>In acceptance</span>
+          </div>
+          <dl class="brief">
+            <div><dt>For</dt><dd>A family keeping prescriptions, doses and reports, each person with their own login and per-person sharing, working fully offline before any account exists.</dd></div>
+            <div><dt>The call</dt><dd>Treat health data as sensitive by default: an encrypted phone database, export and hard delete, nothing health-related in logs or push, and no free-tier AI model whose terms allow training on user data.</dd></div>
+            <div><dt>Shipped</dt><dd>Custom sync with a gapless per-family revision cursor, idempotent operations, and a scope hash that purges revoked data from the phone. A self-host mode under a source-available licence. 585 tests. The backend is live.</dd></div>
+            <div><dt>Cut</dt><dd>Supabase and the original web app. AI extraction stays off until the privacy terms hold.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">Expo</span><span class="spec">Hono</span><span class="spec">Drizzle</span><span class="spec">SQLCipher</span>
+          </div>
+        </article>
+
+        <article class="mod wide">
+          <div class="mod-top">
+            <h3>DebuggerMind Commerce</h3>
+            <span class="placard">Storefront platform</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
+          </div>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Shoppers on low-end Android over mobile data, arriving from ads, with cash on delivery as the main way to pay.</dd></div>
+            <div><dt>The call</dt><dd>One storefront codebase for many merchants. A merchant is template, theme, branding, flags and language as data; onboarding one is a single descriptor file, no fork.</dd></div>
+            <div><dt>Shipped</dt><dd>Combo and bundle landing pages where each unit in a pack gets its own size and colour, campaign pages, and ad-conversion tracking in local currency. I wrote the bundle re-pricing API contract for the backend team.</dd></div>
+            <div><dt>Cut</dt><dd>A "metaphor world" visual concept, dropped for the category standard shoppers already know.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">Next.js 15</span><span class="spec">TypeScript</span><span class="spec">.NET API</span><span class="spec">Meta CAPI</span>
+          </div>
+          <a class="mod-go" href="https://pogiecom.pogiit.com" target="_blank" rel="noopener">View live — pogiecom.pogiit.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════ EXPERIENCE ═══════════════ -->
   <section class="sec" id="experience">
     <div class="wrap">
@@ -859,190 +986,6 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             </ul></div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ WORK ═══════════════ -->
-  <section class="sec" id="work">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Things I shipped on my own time</h2>
-        <span class="count">4 systems · 2 live</span>
-      </div>
-
-      <div class="work">
-
-        <a class="mod wide" href="https://campusqbd.com" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>CampusQ</h3>
-            <span class="placard">Multi-tenant SaaS</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 900 132" role="img" aria-label="Architecture: three tenant subdomains pass through a Postgres row-level-security boundary into shared .NET 10 services, with bitmask RBAC, exams and bKash or Nagad payments.">
-              <g>
-                <rect class="sc-box" x="8" y="12" width="118" height="26" rx="2"/>
-                <rect class="sc-box" x="8" y="53" width="118" height="26" rx="2"/>
-                <rect class="sc-box" x="8" y="94" width="118" height="26" rx="2"/>
-                <text class="sc-t" x="20" y="29">a.campusqbd.com</text>
-                <text class="sc-t" x="20" y="70">b.campusqbd.com</text>
-                <text class="sc-t" x="20" y="111">c.campusqbd.com</text>
-                <path class="sc-line" d="M126,25 H176 V66"/>
-                <path class="sc-line" d="M126,66 H176"/>
-                <path class="sc-line" d="M126,107 H176 V66"/>
-                <path class="sc-line-a" d="M176,66 H236"/>
-                <rect class="sc-dash" x="236" y="18" width="150" height="96" rx="3"/>
-                <text class="sc-t d" x="244" y="34">POSTGRES RLS</text>
-                <text class="sc-t g" x="244" y="50">tenant_id boundary</text>
-                <text class="sc-t d" x="244" y="70">BITMASK RBAC</text>
-                <text class="sc-t g" x="244" y="86">role &amp; claim bits</text>
-                <text class="sc-t d" x="244" y="106">ISOLATION HOLDS DOWN</text>
-                <path class="sc-line-a" d="M386,66 H446"/>
-                <rect class="sc-box-a" x="446" y="40" width="140" height="52" rx="2"/>
-                <text class="sc-t g" x="460" y="62">.NET 10 CORE</text>
-                <text class="sc-t" x="460" y="78">modular services</text>
-                <path class="sc-line" d="M586,53 H636"/><path class="sc-line" d="M586,66 H636"/><path class="sc-line" d="M586,79 H636"/>
-                <rect class="sc-box" x="636" y="10" width="122" height="26" rx="2"/>
-                <rect class="sc-box" x="636" y="53" width="122" height="26" rx="2"/>
-                <rect class="sc-box" x="636" y="96" width="122" height="26" rx="2"/>
-                <path class="sc-line" d="M636,23 H616 V66"/><path class="sc-line" d="M636,109 H616 V66"/>
-                <text class="sc-t" x="648" y="27">ANGULAR 21 APP</text>
-                <text class="sc-t" x="648" y="70">NEXT.JS 16 SITE</text>
-                <text class="sc-t" x="648" y="113">PWA + PUSH</text>
-                <path class="sc-line-a" d="M758,66 H812"/>
-                <rect class="sc-box-a" x="812" y="40" width="80" height="52" rx="2"/>
-                <text class="sc-t g" x="822" y="62">bKash</text>
-                <text class="sc-t g" x="822" y="78">Nagad</text>
-              </g>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>A multi-tenant coaching platform where every tenant gets its own subdomain. Built end-to-end — Postgres row-level security, bitmask RBAC, online exams and bKash/Nagad payments — so isolation holds all the way down. It runs behind its own self-hosted observability stack: OpenTelemetry traces from the API into Tempo, Prometheus scraping a token-gated metrics endpoint alongside node, container, Postgres and nginx exporters, container logs in Loki, and five provisioned Grafana dashboards with fourteen alert rules that reach Telegram — production and staging on one stack, split by label, every container memory-capped so monitoring runs out of room before the app does.</p>
-          <div class="specs">
-            <span class="spec">.NET 10</span><span class="spec">Postgres RLS</span><span class="spec">Angular 21</span>
-            <span class="spec">Next.js 16</span><span class="spec">bitmask RBAC</span><span class="spec">bKash / Nagad</span>
-            <span class="spec">PWA + push</span><span class="spec">en / bn</span>
-            <span class="spec">OpenTelemetry</span><span class="spec">Grafana · Loki · Tempo</span>
-            <span class="spec">Prometheus</span><span class="spec">Telegram alerts</span>
-          </div>
-          <span class="mod-go">View live — campusqbd.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
-
-        <div class="mod half mod--caution">
-          <div class="mod-top">
-            <h3>Rent-ERP</h3>
-            <span class="placard">Web + mobile ERP</span>
-            <span class="mod-lamp restricted"><span class="lamp amber" aria-hidden="true"></span>Restricted</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 420 120" role="img" aria-label="Architecture: an Angular admin console, a React Native app and push notifications all served by one .NET 10 modular monolith over Postgres.">
-              <rect class="sc-box" x="6" y="6" width="120" height="24" rx="2"/>
-              <rect class="sc-box" x="6" y="48" width="120" height="24" rx="2"/>
-              <rect class="sc-box" x="6" y="90" width="120" height="24" rx="2"/>
-              <text class="sc-t" x="16" y="22">ANGULAR 21 ADMIN</text>
-              <text class="sc-t" x="16" y="64">REACT NATIVE APP</text>
-              <text class="sc-t" x="16" y="106">FCM PUSH</text>
-              <path class="sc-line" d="M126,18 H166 V60"/><path class="sc-line" d="M126,60 H166"/><path class="sc-line" d="M126,102 H166 V60"/>
-              <path class="sc-line-a" d="M166,60 H206"/>
-              <rect class="sc-box-a" x="206" y="34" width="122" height="52" rx="2"/>
-              <text class="sc-t g" x="218" y="56">.NET 10 MONOLITH</text>
-              <text class="sc-t" x="218" y="72">single org · HRM</text>
-              <path class="sc-line-a" d="M328,60 H366"/>
-              <rect class="sc-box" x="366" y="34" width="48" height="52" rx="2"/>
-              <text class="sc-t" x="376" y="56">PG</text>
-              <text class="sc-t d" x="376" y="72">SQL</text>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>A single-org property-management ERP across three surfaces — a .NET 10 modular monolith, an Angular 21 admin console, and a React Native app serving tenants and staff from one binary. Reuses the CampusQ architecture, minus the multi-tenant layer.</p>
-          <div class="specs">
-            <span class="spec">.NET 10</span><span class="spec">Angular 21</span><span class="spec">React Native</span>
-            <span class="spec">Postgres</span><span class="spec">bKash</span><span class="spec">FCM push</span>
-            <span class="spec">RBAC personas</span><span class="spec">en / bn</span>
-          </div>
-          <span class="mod-note">
-            <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
-            Source private · single-org product
-          </span>
-        </div>
-
-        <a class="mod half" href="https://www.pogiit.com/" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>DebuggerMind Commerce</h3>
-            <span class="placard">E-commerce</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 420 120" role="img" aria-label="Architecture: an international storefront and a Bengali storefront share one Next.js 15 build against a .NET API, with GA4 and Meta CAPI analytics.">
-              <rect class="sc-box" x="6" y="14" width="118" height="26" rx="2"/>
-              <rect class="sc-box" x="6" y="80" width="118" height="26" rx="2"/>
-              <text class="sc-t" x="16" y="31">INTL STOREFRONT</text>
-              <text class="sc-t" x="16" y="97">BENGALI VARIANT</text>
-              <path class="sc-line" d="M124,27 H162 V60"/><path class="sc-line" d="M124,93 H162 V60"/>
-              <path class="sc-line-a" d="M162,60 H200"/>
-              <rect class="sc-box-a" x="200" y="34" width="112" height="52" rx="2"/>
-              <text class="sc-t g" x="210" y="56">NEXT.JS 15</text>
-              <text class="sc-t" x="210" y="72">6 languages</text>
-              <path class="sc-line-a" d="M312,60 H350"/>
-              <rect class="sc-box" x="350" y="20" width="64" height="34" rx="2"/>
-              <rect class="sc-box" x="350" y="66" width="64" height="34" rx="2"/>
-              <text class="sc-t" x="358" y="40">.NET API</text>
-              <text class="sc-t d" x="358" y="86">GA4 / CAPI</text>
-              <path class="sc-line" d="M340,60 V37 H350"/><path class="sc-line" d="M340,60 V83 H350"/>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>An in-house, white-label e-commerce storefront (Next.js 15 + .NET API) we use to demo the platform to prospective clients — maintaining an international build and a localized Bengali variant in parallel, with additional storefront themes in progress.</p>
-          <div class="specs">
-            <span class="spec">Next.js 15</span><span class="spec">TypeScript</span><span class="spec">.NET API</span>
-            <span class="spec">JWT auth</span><span class="spec">GA4 / Meta CAPI</span><span class="spec">6 languages</span>
-          </div>
-          <span class="mod-go">View live — pogiit.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
-
-        <a class="mod wide" href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>Angular libraries</h3>
-            <span class="placard">Open source</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Published</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 900 96" role="img" aria-label="Architecture: the ngx-primeng-toolkit package exports parameterized query and table state, memoized data helpers and shared utilities, consumed by PrimeNG tables and published to npm by GitHub Actions.">
-              <rect class="sc-box-a" x="8" y="24" width="172" height="48" rx="2"/>
-              <text class="sc-t g" x="22" y="44">ngx-primeng-toolkit</text>
-              <text class="sc-t" x="22" y="60">Angular library</text>
-              <path class="sc-line-a" d="M180,48 H228"/>
-              <path class="sc-line" d="M228,48 V14 H276"/>
-              <path class="sc-line" d="M228,48 H276"/>
-              <path class="sc-line" d="M228,48 V82 H276"/>
-              <rect class="sc-box" x="276" y="2" width="196" height="24" rx="2"/>
-              <rect class="sc-box" x="276" y="36" width="196" height="24" rx="2"/>
-              <rect class="sc-box" x="276" y="70" width="196" height="24" rx="2"/>
-              <text class="sc-t" x="288" y="18">parameterized query state</text>
-              <text class="sc-t" x="288" y="52">memoized data resources</text>
-              <text class="sc-t" x="288" y="86">reusable table utilities</text>
-              <path class="sc-line" d="M472,14 H520 V48"/>
-              <path class="sc-line" d="M472,48 H520"/>
-              <path class="sc-line" d="M472,82 H520 V48"/>
-              <path class="sc-line-a" d="M520,48 H568"/>
-              <rect class="sc-box" x="568" y="24" width="150" height="48" rx="2"/>
-              <text class="sc-t" x="582" y="44">PrimeNG tables</text>
-              <text class="sc-t d" x="582" y="60">internal + community</text>
-              <path class="sc-line-a" d="M718,48 H766"/>
-              <rect class="sc-box-a" x="766" y="24" width="126" height="48" rx="2"/>
-              <text class="sc-t g" x="778" y="44">GH ACTIONS</text>
-              <text class="sc-t" x="778" y="60">publish to npm</text>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>npm packages published with automated GitHub Actions CI/CD — notably <span class="mono">ngx-primeng-toolkit</span>: parameterized query/table state, memoized data and reusable utilities. Built for internal use, then released to the community.</p>
-          <div class="specs">
-            <span class="spec">TypeScript</span><span class="spec">@ngrx/signals</span><span class="spec">PrimeNG</span><span class="spec">GH Actions</span>
-          </div>
-          <span class="mod-go">View on npm <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
-
       </div>
     </div>
   </section>
