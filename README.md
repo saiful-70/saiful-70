@@ -1,8 +1,11 @@
 # Saiful Islam
 
-Software engineer in **Dhaka, Bangladesh** (UTC+6), open to remote. 3.5+ years building
-**reactive, signals-first** interfaces in **Angular** and **React** — and the **.NET / Node**
-behind them, down to the database and the monitoring that watches it.
+Software engineer in **Dhaka, Bangladesh** (UTC+6), working remote. I turn how a business
+actually runs into software that ships: **backend, web, mobile, deploy**, and the alerts that
+watch it.
+
+Spec first. AI agents write most of the code. I decide what ships, what gets cut, and how we
+know it works.
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-0B6B37?style=for-the-badge&logo=googlechrome&logoColor=white)](https://saiful-70.github.io/saiful-70/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge)](https://www.linkedin.com/in/saiful70/)
@@ -10,34 +13,54 @@ behind them, down to the database and the monitoring that watches it.
 [![CampusQ](https://img.shields.io/badge/CampusQ-14171A?style=for-the-badge&logo=googleclassroom&logoColor=0B6B37)](https://campusqbd.com)
 [![Resume](https://img.shields.io/badge/Resume-14171A?style=for-the-badge&logo=googledocs&logoColor=4285F4)](https://docs.google.com/document/d/1XCH0XdS_Svnb2OGRJEQBvJOm1GXuifI1/edit?usp=sharing&ouid=114028785100709203490&rtpof=true&sd=true)
 
-**Four enterprise ERP platforms**, a **multi-tenant SaaS**, and **6+ products live**, across
-three companies since 2023 — each running behind its own self-hosted observability stack.
-Modules shipped: **access control, accounting, HR, production, inventory** on the ERP side;
-**deviation, checklist, handbook, compliance, settings** on the QMS side. I work **AI-native** —
-Claude, Cursor, Ollama and OpenCode as a force multiplier, not a shortcut.
-
 ---
 
-### Things I shipped on my own time
+### How I build
 
-| Project | What it is | Status |
-| --- | --- | --- |
-| **[CampusQ](https://campusqbd.com)** | Multi-tenant coaching-management SaaS — tenant isolation via Postgres RLS, bitmask RBAC, online exams, bKash/Nagad payments, PWA + push, bilingual (en/bn). Runs behind a self-hosted LGTM stack: OpenTelemetry traces into Tempo, Prometheus metrics, Loki logs, Grafana alerts to Telegram. `.NET 10 · Angular 21 · Next.js 16` | live |
-| **Rent-ERP** | Single-org property-management ERP across three surfaces — .NET 10 modular monolith, Angular 21 admin console, and a React Native app serving tenants & staff. Property hierarchy, per-tenant billing with bKash, accounting, HRM, SMS/FCM notifications. `.NET 10 · Angular 21 · React Native` | source private |
-| **[ngx-primeng-toolkit](https://www.npmjs.com/package/ngx-primeng-toolkit)** | Open-source Angular library — parameterized query/table state, memoized data & reusable utilities, released to npm with automated CI/CD. | published |
-| **[DebuggerMind Commerce](https://www.pogiit.com/)** | In-house white-label storefront (Next.js 15 + .NET API) — international build and a localized Bengali variant maintained in parallel, 6 languages. | live |
+| Step | Example |
+| --- | --- |
+| Find out how the business really runs | A property ERP billed as if the org were the landlord. It isn't; it sells a service to flat owners. |
+| Change the model, not the screen | Rebuilt money into three tracks that never mix: rent, service charge, org accounts. |
+| Decide what not to build | Dropped a planned mobile API service; the app calls the existing APIs through the gateway. |
+| Ship every surface myself | Offline document app for field workers: sign-in, outbox, background sync, 405 tests, three weeks. |
+| Make failure loud | The SaaS refuses to boot if any tenant table is missing a row-level security policy. |
 
-### Open source I contribute to
+### Products
 
-**[Optimus UI](https://github.com/openng-org/optimus-ui)** — 80+ accessible, customizable
-Angular components under the MIT licence; a community-maintained continuation of PrimeNG v21.
-I am a contributor, and it is the component layer under CampusQ's client.
+| Product | For | The call | Size | Status |
+| --- | --- | --- | --- | --- |
+| **Certain QMS** (Netpower) | Quality managers, HSE staff and field workers at industrial companies | Treated an "evaluate this measure" email that led nowhere as a migration blocker; shipped evaluation, an offline Handbook app and one sign-in for all apps | 7 apps + mobile | in production |
+| **[CampusQ](https://campusqbd.com)** | Coaching centres in Bangladesh running on paper and a personal mobile-money number | Built for the niche: Bangla first, guardian SMS without accounts, printed receipts; isolation checked at boot | 26 + 12 modules | live, pre-revenue |
+| **Rent-ERP** | An organisation managing residential buildings for flat owners | The org is not the landlord: rent, service charge and org accounts never mix | 14 modules, 4-role phone app | in production, private |
+| **Footwear ERP** (MultiTech) | Merchandisers and stores staff at a footwear factory | Re-platformed a garment ERP instead of starting over; QR document capture, Excel order intake | 6 modules | in production |
+| **Institute payments** (freelance, 2025-06 →) | Two coaching institutes confirming fees by hand | One shared gateway with signed callbacks, no shared database | 5 apps | in production, private |
+| **Family Connect App** | Families keeping health records offline, each person with their own login | Health data sensitive by default: encrypted phone database, export and hard delete | 7 modules | in acceptance |
+| **[DebuggerMind Commerce](https://pogiecom.pogiit.com)** | Shoppers on low-end Android paying cash on delivery | One storefront codebase for many merchants; onboarding is one file, no fork | 5 templates × 5 variants | live |
+
+### Things I removed
+
+- Payment gateway integration in CampusQ. Manual transfer plus an operator check was enough for the first customers.
+- Eight AI features in CampusQ, removed in eight slices with no migration.
+- A separate mobile API service at Netpower. The existing module APIs, through the gateway, did the job.
+- PDF input in the AI register importer. Spreadsheets only, so there is no OCR path to maintain.
+- The multi-tenant layer in Rent-ERP. One organisation: no row-level security, no subdomains.
+- Persona switching in Rent-ERP, in favour of plain roles.
+- Fabricated stats and testimonials on the CampusQ marketing site, with a production cleanup script.
+
+### Open source
+
+**[Optimus UI](https://github.com/openng-org/optimus-ui)**: one merged fix. Row grouping crashed
+with an empty sort array; regression tests included. It is the component layer under CampusQ, so
+the fix runs where I can see it.
 [![Stars](https://img.shields.io/github/stars/openng-org/optimus-ui?style=flat-square&label=stars&labelColor=14171A&color=0B6B37)](https://github.com/openng-org/optimus-ui/stargazers)
 [![Docs](https://img.shields.io/badge/optimus.openng.org-14171A?style=flat-square&logo=angular&logoColor=DD0031)](https://optimus.openng.org/)
 
+**[ngx-primeng-toolkit](https://www.npmjs.com/package/ngx-primeng-toolkit)**: table and
+query-state helpers extracted from ERP work, published to npm with CI.
+
 ---
 
-### The stack it all runs on
+### Stack
 
 **Frontend**
 
@@ -48,6 +71,7 @@ I am a contributor, and it is the component layer under CampusQ's client.
 ![React](https://img.shields.io/badge/React-14171A?style=flat-square&logo=react&logoColor=61DAFB)
 ![Next.js](https://img.shields.io/badge/Next.js-14171A?style=flat-square&logo=nextdotjs&logoColor=white)
 ![React Native](https://img.shields.io/badge/React%20Native%20%28Expo%29-14171A?style=flat-square&logo=expo&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-14171A?style=flat-square&logo=flutter&logoColor=02569B)
 ![PrimeNG](https://img.shields.io/badge/PrimeNG-14171A?style=flat-square&logo=primeng&logoColor=DD0031)
 ![Optimus UI](https://img.shields.io/badge/Optimus%20UI-14171A?style=flat-square&logo=angular&logoColor=DD0031)
 ![Angular Material](https://img.shields.io/badge/Angular%20Material-14171A?style=flat-square&logo=materialdesign&logoColor=B0BEC5)
@@ -98,10 +122,6 @@ I am a contributor, and it is the component layer under CampusQ's client.
 ![Ollama](https://img.shields.io/badge/Ollama%20%28local%20LLMs%29-14171A?style=flat-square&logo=ollama&logoColor=white)
 ![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-14171A?style=flat-square&logo=githubcopilot&logoColor=white)
 
-Ask me about **Angular Signals**, **multi-tenant architecture**, **Postgres RLS**,
-**cross-platform React Native**, **.NET**, and **self-hosting an observability stack
-that fits on one VPS**. Open to collaboration.
-
 ---
 
 ### At a glance
@@ -111,7 +131,7 @@ that fits on one VPS**. Open to collaboration.
   <img alt="GitHub at a glance for saiful-70: public repositories, stars earned, year joined, and language mix." src="assets/stats-light.svg" width="100%">
 </picture>
 
-<sub>Rendered from the GitHub API into a committed SVG and refreshed weekly by
+<sub>Rendered from the GitHub API into an SVG stored in this repo and refreshed weekly by
 <a href=".github/workflows/profile-stats.yml">a workflow</a> — no card service to go down.</sub>
 
 ---

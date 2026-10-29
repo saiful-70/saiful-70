@@ -18,10 +18,10 @@ try{if(localStorage.getItem('panel-light')==='night')d.setAttribute('data-theme'
 </script>
 
 <!-- ───────────────── primary SEO ───────────────── -->
-<title>Saiful Islam — Software Engineer (Angular &amp; .NET)</title>
-<meta name="description" content="Saiful Islam — software engineer building reactive, signals-first interfaces in Angular &amp; React, and the .NET / Node back ends behind them. 3.5+ years shipping enterprise systems with an AI-native workflow." />
+<title>Saiful Islam — Software Engineer</title>
+<meta name="description" content="Saiful Islam, software engineer. I turn how a business actually runs into software that ships: backend, web, mobile, deploy, and the alerts that watch it. 3.5+ years." />
 <meta name="author" content="Saiful Islam" />
-<meta name="keywords" content="Saiful Islam, software engineer, Angular developer, .NET developer, full-stack developer, React Native, NgRx Signals, TypeScript, PostgreSQL, Dhaka, Bangladesh" />
+<meta name="keywords" content="Saiful Islam, software engineer, product engineering, full-stack, web, mobile, backend, Angular, .NET, Flutter, Dhaka" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://saiful-70.github.io/saiful-70/" />
 <meta name="theme-color" content="#DBDBD5" media="(prefers-color-scheme: light)" />
@@ -30,21 +30,21 @@ try{if(localStorage.getItem('panel-light')==='night')d.setAttribute('data-theme'
 <!-- ───────────────── Open Graph (LinkedIn, Facebook, Slack…) ───────────────── -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Saiful Islam" />
-<meta property="og:title" content="Saiful Islam — Software Engineer (Angular &amp; .NET)" />
-<meta property="og:description" content="Software engineer building reactive, signals-first interfaces in Angular &amp; React — and the .NET / Node back ends behind them." />
+<meta property="og:title" content="Saiful Islam — Software Engineer" />
+<meta property="og:description" content="I turn how a business actually runs into software that ships: backend, web, mobile, deploy, and the alerts that watch it." />
 <meta property="og:url" content="https://saiful-70.github.io/saiful-70/" />
 <meta property="og:image" content="https://saiful-70.github.io/saiful-70/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Saiful Islam — Software Engineer, Angular &amp; .NET" />
+<meta property="og:image:alt" content="Saiful Islam — Software Engineer" />
 <meta property="og:locale" content="en_US" />
 
 <!-- ───────────────── Twitter / X ───────────────── -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Saiful Islam — Software Engineer (Angular &amp; .NET)" />
-<meta name="twitter:description" content="Software engineer building reactive, signals-first interfaces in Angular &amp; React — and the .NET / Node back ends behind them." />
+<meta name="twitter:title" content="Saiful Islam — Software Engineer" />
+<meta name="twitter:description" content="I turn how a business actually runs into software that ships: backend, web, mobile, deploy, and the alerts that watch it." />
 <meta name="twitter:image" content="https://saiful-70.github.io/saiful-70/og-image.png" />
-<meta name="twitter:image:alt" content="Saiful Islam — Software Engineer, Angular &amp; .NET" />
+<meta name="twitter:image:alt" content="Saiful Islam — Software Engineer" />
 
 <!-- ───────────────── icons / manifest ───────────────── -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -68,8 +68,8 @@ try{if(localStorage.getItem('panel-light')==='night')d.setAttribute('data-theme'
   "jobTitle": "Software Engineer",
   "email": "mailto:saiful70.me@gmail.com",
   "telephone": "+8801689740070",
-  "description": "Software engineer building reactive, signals-first interfaces in Angular & React, and the .NET / Node back ends behind them. 3.5+ years shipping enterprise systems with an AI-native workflow.",
-  "knowsAbout": ["Angular", "TypeScript", "RxJS", "NgRx Signals", "React", "React Native", "Next.js", ".NET", "Node.js", "PostgreSQL", "Redis", "Docker", "Playwright"],
+  "description": "Software engineer. I turn how a business actually runs into software that ships: backend, web, mobile, deploy, and the alerts that watch it.",
+  "knowsAbout": ["Angular", "TypeScript", "RxJS", "NgRx Signals", "React", "React Native", "Flutter", "Next.js", ".NET", "Node.js", "PostgreSQL", "Redis", "Docker", "Playwright"],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Dhaka",
@@ -370,13 +370,9 @@ header.lifted{box-shadow:0 1px 0 var(--chamfer-soft) inset,0 16px 30px -12px var
     radial-gradient(120% 80% at 18% 34%,var(--deck-bloom),transparent 60%),
     linear-gradient(180deg,var(--deck-1) 0%,var(--panel) 46%,var(--panel) 100%);
 }
-.deck-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);gap:56px;align-items:start}
-/* optical: the display cap-height starts a few pixels below its box, so the name is nudged
-   down to sit level with the panel's top edge rather than mathematically flush with it */
-.deck-grid > div:first-child{padding-top:10px}
+.deck-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:40px;align-items:start}
+.deck-grid > div:first-child{max-width:62ch}
 @media(max-width:1040px){
-  .deck-grid{grid-template-columns:1fr;gap:40px}
-  .deck-grid > div:first-child{padding-top:0}
   .deck{padding-top:40px}
 }
 
@@ -438,89 +434,38 @@ h1 .l2{display:block;color:var(--lum-2)}
     radial-gradient(86% 62% at 10% -8%,var(--sheen-1),transparent 64%),
     linear-gradient(116deg,var(--sheen-2) 0%,var(--sheen-3) 20%,transparent 44%,transparent 76%,var(--sheen-4) 100%);
 }
-@media(min-width:1041px){ /* the panel continues past the frame instead of sitting in a margin */
-  .panel{
-    margin-right:calc(-1 * ((100vw - min(100vw,1200px)) / 2 + 28px));
-    border-right:0;border-radius:5px 0 0 5px;
-  }
-}
-/* ───────── the architecture diagram: the hero's own instrument ─────────
-   Boxes, bands and a signal path, all in flow: at one column the fan collapses to a
-   single line and every label keeps its real size. Nothing here scales with the viewport. */
-.hx{position:relative;z-index:1;display:flex;flex-direction:column}
-.hx-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.hx-node,.hx-band,.hx-lane{min-width:0;border-radius:2px}
-.hx-node{background:var(--sc-box);border:1px solid var(--sc-stroke);padding:10px 13px 11px}
-.hx-band{background:var(--well-hi);border:1px solid var(--sc-stroke);padding:12px 15px 13px}
-.hx-lane{border:1px dashed var(--sc-stroke);padding:10px 13px 11px;margin-top:14px}
-/* the observability band is a band that reports on the stack rather than serving it,
-   so it takes the band's plane and the lane's dashed edge */
-.hx-band.obs{border-style:dashed}
-.hx b{display:block;font-variation-settings:"wdth" 96,"wght" 700;font-size:14px;
-  letter-spacing:-.008em;color:var(--lum);line-height:1.2}
-.hx span{display:block;font-family:"Azeret Mono",ui-monospace,monospace;font-size:11px;
-  letter-spacing:.01em;line-height:1.5;color:var(--sc-t);margin-top:5px}
-.hx-k{font-family:"Azeret Mono",ui-monospace,monospace!important;font-size:10px!important;
-  font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-t-d)!important;margin-top:0!important}
+/* product-builder:start */
+/* the method line: a quieter second voice under the lede */
+.method{margin-top:14px;max-width:62ch;font-family:"Azeret Mono",ui-monospace,monospace;
+  font-size:13.5px;line-height:1.65;color:var(--dim)}
 
-/* the modules the monolith is cut into: a compartment of the band above, sharing its
-   border line so it reads as inside the API rather than as another layer under it */
-.hx-mods{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:-1px}
-.hx-mod{background:var(--sc-box);border:1px solid var(--sc-stroke);padding:9px 13px 10px;min-width:0}
-.hx-mod + .hx-mod{margin-left:-1px}
-.hx-mod .hx-k{display:block}
-@media(max-width:640px){
-  .hx-mods{grid-template-columns:1fr}
-  .hx-mod + .hx-mod{margin-left:0;margin-top:-1px}
-}
-
-/* the signal path: a fan out of three into one, and back out of one into three */
-.hx-fan{display:grid;grid-template-columns:repeat(3,1fr);height:22px;position:relative}
-.hx-fan::before{content:"";position:absolute;left:16.667%;right:16.667%;top:50%;height:1px;
-  background:var(--green-ink);transform:scaleX(0);transform-origin:center;
-  animation:hx-x .34s var(--ease) .12s forwards}
-.hx-fan i{width:1px;background:var(--green-ink);margin:0 auto;transform:scaleY(0);
-  transform-origin:top;animation:hx-y .2s var(--ease) var(--d,0s) forwards}
-.hx-fan i:nth-child(2){grid-row:1;height:100%}
-.hx-fan i:nth-child(1),.hx-fan i:nth-child(3){height:50%}
-.hx-fan.dn i{transform-origin:bottom;align-self:end}
-.hx-fan.dn i:nth-child(1),.hx-fan.dn i:nth-child(3){align-self:end}
-.hx-fan.dn::before{top:auto;bottom:50%;animation-delay:.3s}
-
-/* telemetry leaves the stack sideways: same geometry as the contract line, dashed and neutral,
-   because it is not the request path and the signal colour is spoken for */
-.hx-tap{position:relative;padding:7px 0 8px calc(50% + 14px);min-height:28px}
-.hx-tap::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
-  background:repeating-linear-gradient(180deg,var(--sc-line) 0 3px,transparent 3px 6px)}
-
-/* the typed contract between the halves, labelled beside its own line */
-.hx-edge{position:relative;padding:9px 0 10px calc(50% + 14px);min-height:46px}
-.hx-edge::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
-  background:var(--green-ink);transform:scaleY(0);transform-origin:top;
-  animation:hx-y .26s var(--ease) .18s forwards}
-
-@keyframes hx-y{to{transform:scaleY(1)}}
-@keyframes hx-x{to{transform:scaleX(1)}}
-html:not(.js) .hx-fan i,html:not(.js) .hx-fan::before,html:not(.js) .hx-edge::before{transform:none;animation:none}
-@media(prefers-reduced-motion:reduce){
-  .hx-fan i,.hx-fan::before,.hx-edge::before{animation:none;transform:none}
-}
-
-@media(max-width:1040px){
-  .hx b{font-size:15px}
-  .hx span{font-size:11.5px}
-}
-@media(max-width:640px){
-  /* one column: the fan is a single line, and every label keeps its size */
-  .hx-row{grid-template-columns:1fr;gap:8px}
-  .hx-lane{margin-top:12px}
-  .hx-fan{grid-template-columns:1fr;height:20px}
-  .hx-fan::before{display:none}
-  .hx-fan i:nth-child(1),.hx-fan i:nth-child(3){display:none}
-  .hx-fan i:nth-child(2){height:100%}
-  .hx-edge{padding:10px 0 10px calc(50% + 12px);min-height:52px}
-  .hx-tap{padding:8px 0 8px calc(50% + 12px);min-height:30px}
-}
+/* how I build: five steps, one real example each */
+.how{position:relative;z-index:1;list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.how li{min-width:0;border-radius:2px;background:var(--sc-box);border:1px solid var(--sc-stroke);
+  padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.how-n{font-family:"Azeret Mono",ui-monospace,monospace;font-size:12.5px;font-weight:500;
+  letter-spacing:.14em;color:var(--green-ink)}
+.how b{font-variation-settings:"wdth" 96,"wght" 700;font-size:15px;letter-spacing:-.008em;
+  color:var(--lum);line-height:1.25}
+.how li > span:last-child{font-size:13.5px;line-height:1.55;color:var(--dim)}
+@media(max-width:1040px){.how{grid-template-columns:1fr;gap:8px}}
+/* product cards: the same four questions on every product */
+.brief{display:grid;gap:12px}
+.brief div{display:grid;grid-template-columns:8rem minmax(0,1fr);gap:4px 16px}
+.brief dt{font-family:"Azeret Mono",ui-monospace,monospace;font-size:12.5px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--green-ink);padding-top:3px}
+.brief dd{min-width:0;max-width:74ch;font-size:15px;line-height:1.65;color:var(--dim);overflow-wrap:anywhere}
+@media(max-width:640px){.brief div{grid-template-columns:1fr}}
+/* the removed list: an intro line above the existing remarks list */
+.sec-intro{max-width:62ch;margin:-8px 0 20px;font-size:15px;line-height:1.7;color:var(--dim)}
+/* product cards: a one-line headline and a module count above the brief */
+.mod .hook{font-size:21px;line-height:1.3;font-variation-settings:"wdth" 92,"wght" 600;letter-spacing:-.01em;
+  color:var(--lum);max-width:46ch;text-wrap:balance}
+.mod .mods{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-top:-6px;
+  font-family:"Azeret Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.6;color:var(--dim)}
+.mod .mods b{flex:none;font-weight:700;color:var(--green-ink);letter-spacing:.04em}
+.mod .mods span{min-width:0;overflow-wrap:anywhere}
+/* product-builder:end */
 
 /* ── panel light: a two-position switch on the header rail ── */
 .lamp-switch{
@@ -652,7 +597,6 @@ h2{
   box-shadow:inset 0 1px 0 var(--chamfer-soft),0 6px 12px -8px var(--shade-3);
   display:flex;flex-direction:column;gap:16px;min-width:0;transition:border-color .25s,transform .25s var(--ease);
 }
-a.mod:hover{border-color:var(--edge);transform:translateY(-2px)}
 .mod--caution{border-color:var(--amber-line)}
 .mod--caution .placard{color:var(--amber-ink);border-color:var(--amber-line-2)}
 .mod.wide{grid-column:span 6}
@@ -673,34 +617,10 @@ a.mod:hover{border-color:var(--edge);transform:translateY(-2px)}
 .mod-go{margin-top:auto;display:flex;align-items:center;gap:9px;font-family:"Azeret Mono",monospace;
   font-size:12.5px;color:var(--green);padding-top:4px}
 .mod-go .arr{transition:transform .25s var(--ease)}
-a.mod:hover .mod-go .arr{transform:translateX(5px)}
+a.mod-go:hover .arr{transform:translateX(5px)}
 .mod-note{margin-top:auto;display:flex;align-items:center;gap:9px;font-family:"Azeret Mono",monospace;
   font-size:12.5px;color:var(--amber-ink);padding-top:4px}
 
-/* schematic */
-.schem{border:1px solid var(--hair);border-radius:3px;background:
-  linear-gradient(180deg,var(--well-hi),var(--well-lo));padding:14px 12px}
-.schem svg{width:100%;height:auto;display:block}
-.scrollhint{display:none}
-@media(max-width:760px){
-  .schem{overflow-x:auto;padding:14px;min-width:0;
-    -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 38px),transparent 100%);
-    mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 38px),transparent 100%)}
-  .schem svg{min-width:520px}
-  .mod.wide .schem svg{min-width:760px}
-  .scrollhint{display:flex;align-items:center;gap:7px;margin-top:-6px;
-    font-family:"Azeret Mono",monospace;font-size:12.5px;color:var(--faint)}
-  .scrollhint::after{content:"";width:14px;height:1px;background:var(--green-ink);
-    box-shadow:5px -3px 0 -0.5px var(--green-ink),5px 3px 0 -0.5px var(--green-ink)}
-}
-.sc-box{fill:var(--sc-box);stroke:var(--sc-stroke);stroke-width:1}
-.sc-box-a{fill:var(--green-wash-soft);stroke:var(--green-ink);stroke-width:1}
-.sc-t{font-family:"Azeret Mono",monospace;font-size:7.6px;letter-spacing:.03em;fill:var(--sc-t)}
-.sc-t.d{fill:var(--sc-t-d)}
-.sc-t.g{fill:var(--green)}
-.sc-line{stroke:var(--sc-line);stroke-width:1;fill:none}
-.sc-line-a{stroke:var(--green-ink);stroke-width:1.2;fill:none}
-.sc-dash{stroke:var(--amber);stroke-width:1;stroke-dasharray:3 3;fill:none;opacity:.75}
 
 /* ───────── stack columns ───────── */
 .checklist{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
@@ -795,8 +715,9 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
       <span class="np-name">Saiful Islam</span>
     </a>
     <nav class="nav-links" aria-label="Sections">
+      <a href="#work">Products</a>
+      <a href="#removed">Removed</a>
       <a href="#experience">Experience</a>
-      <a href="#work">Work</a>
       <a href="#skills">Stack</a>
       <a href="#contact" class="engage"><span class="ring" aria-hidden="true"></span>Contact</a>
     </nav>
@@ -820,7 +741,8 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
           <h1>Saiful<span class="l2">Islam</span></h1>
           <div class="role"><span class="placard">Software Engineer</span></div>
 
-          <p class="lede">I build <span class="hl">reactive, signals-first interfaces</span> in Angular and React — and the <b>.NET / Node</b> behind them. 3.5+ years shipping enterprise systems with an <b>AI-native</b> workflow.</p>
+          <p class="lede">I turn how a business actually runs into software that ships: <b>backend, web, mobile, deploy</b>, and the alerts that watch it.</p>
+          <p class="method">Spec first. AI agents write most of the code. I decide what ships, what gets cut, and how we know it works.</p>
 
           <div class="actions">
             <a href="#work" class="btn btn--engage"><span class="ring" aria-hidden="true"></span>See the work</a>
@@ -828,72 +750,24 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
           </div>
 
           <div class="status-row">
-            <span class="on"><span class="lamp" aria-hidden="true"></span>Open to remote</span>
+            <span class="on"><span class="lamp" aria-hidden="true"></span>Remote</span>
             <span class="sep" aria-hidden="true"></span>
             <span>Dhaka, BD · UTC+6</span>
           </div>
         </div>
 
         <div class="panel">
-          <!-- The shape of every system on this page: three surfaces, one typed API, one
-               tenant-isolated database. Real text in a real layout, so it reflows and reads
-               at every width instead of scaling down to nothing. -->
-          <div class="hx" role="group" aria-label="System architecture, top to bottom">
-
-            <div class="hx-row">
-              <div class="hx-node"><b>Web app</b><span>Angular 21 · signals</span></div>
-              <div class="hx-node"><b>Admin console</b><span>Angular · role-scoped</span></div>
-              <div class="hx-node"><b>Mobile</b><span>React Native · Expo</span></div>
-            </div>
-
-            <div class="hx-fan" aria-hidden="true"><i style="--d:0s"></i><i style="--d:.05s"></i><i style="--d:.1s"></i></div>
-
-            <div class="hx-band">
-              <b>Signals-first client layer</b>
-              <span>NgRx Signal stores · standalone components · lazy-loaded feature routes · localized UI</span>
-            </div>
-
-            <div class="hx-edge">
-              <span class="hx-k">Typed HTTP</span>
-              <span>permission-checked, end to end</span>
-            </div>
-
-            <div class="hx-band">
-              <b>.NET API</b>
-              <span>Clean Architecture · DDD · modular monolith · Result pattern</span>
-            </div>
-
-            <div class="hx-mods">
-              <div class="hx-mod"><span class="hx-k">ERP</span><span>access control · accounting · HR · production · inventory</span></div>
-              <div class="hx-mod"><span class="hx-k">QMS</span><span>deviation · checklist · handbook · compliance · settings</span></div>
-            </div>
-
-            <div class="hx-fan dn" aria-hidden="true"><i style="--d:.28s"></i><i style="--d:.33s"></i><i style="--d:.38s"></i></div>
-
-            <div class="hx-row">
-              <div class="hx-node"><b>PostgreSQL</b><span>row-level security · bitmask RBAC</span></div>
-              <div class="hx-node"><b>Redis</b><span>cache · sessions</span></div>
-              <div class="hx-node"><b>S3 · MinIO</b><span>tokenized uploads</span></div>
-            </div>
-
-            <div class="hx-tap">
-              <span class="hx-k">Telemetry, out of band</span>
-            </div>
-
-            <div class="hx-band obs">
-              <b>Observability — self-hosted LGTM</b>
-              <span>OpenTelemetry traces → Alloy → Tempo · Prometheus scrapes a token-gated /metrics · container logs → Loki · Grafana dashboards and alert rules → Telegram</span>
-            </div>
-
-            <div class="hx-lane">
-              <span class="hx-k">Authored with AI agents</span>
-              <span>Claude · Cursor · Ollama · OpenCode — on production work, not demos</span>
-            </div>
-          </div>
+          <ol class="how" id="how" aria-label="How I build">
+            <li><span class="how-n">01</span><b>Find out how the business really runs</b><span>A property ERP billed as if the org were the landlord. It isn't; it sells a service to flat owners.</span></li>
+            <li><span class="how-n">02</span><b>Change the model, not the screen</b><span>Rebuilt money into three tracks that never mix: rent, service charge, org accounts.</span></li>
+            <li><span class="how-n">03</span><b>Decide what not to build</b><span>Dropped a planned mobile API service; the app calls the existing APIs through the gateway.</span></li>
+            <li><span class="how-n">04</span><b>Ship every surface myself</b><span>Offline document app for field workers: sign-in, outbox, background sync, 405 tests, three weeks.</span></li>
+            <li><span class="how-n">05</span><b>Make failure loud</b><span>The SaaS refuses to boot if any tenant table is missing a row-level security policy.</span></li>
+          </ol>
 
           <div class="crosscheck">
-            <span class="placard">Stack</span>
-            <span class="out">Three surfaces, one typed API, one tenant-isolated database, watched by its own telemetry — the shape of every system below.</span>
+            <span class="placard">Method</span>
+            <span class="out">Same five steps on every product below.</span>
           </div>
         </div>
 
@@ -901,12 +775,191 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
 
       <dl class="statuslist">
         <div class="sl-row"><dt class="k">Experience</dt><dd class="v num">3.5+ yrs</dd></div>
-        <div class="sl-row"><dt class="k">ERP platforms</dt><dd class="v num">4</dd></div>
-        <div class="sl-row"><dt class="k">Products shipped</dt><dd class="v num">6+</dd></div>
-        <div class="sl-row"><dt class="k">Observability</dt><dd class="v">Self-hosted LGTM</dd></div>
-        <div class="sl-row"><dt class="k">Domain modules</dt><dd class="v">ERP + QMS</dd></div>
+        <div class="sl-row"><dt class="k">Surfaces I ship</dt><dd class="v">Backend · Web · Mobile · Ops</dd></div>
+        <div class="sl-row"><dt class="k">Running in production</dt><dd class="v num">6 of 7</dd></div>
+        <div class="sl-row"><dt class="k">Products</dt><dd class="v num">7</dd></div>
+        <div class="sl-row"><dt class="k">Method</dt><dd class="v">Spec first, AI-built</dd></div>
         <div class="sl-row"><dt class="k">Base</dt><dd class="v">Dhaka · UTC+6</dd></div>
       </dl>
+    </div>
+  </section>
+
+  <!-- ═══════════════ PRODUCTS ═══════════════ -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Products</h2>
+        <span class="count">7 systems</span>
+      </div>
+
+      <div class="work">
+
+        <article class="mod wide">
+          <div class="mod-top">
+            <h3>Certain QMS</h3>
+            <span class="placard">Quality SaaS · Netpower</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
+          </div>
+          <p class="hook">Field workers read and confirm controlled documents on their own phone, even offline.</p>
+          <p class="mods"><b>7 apps</b><span>deviation · handbook · compliance · checklist · radar · task · admin, plus the mobile app</span></p>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Quality managers and HSE staff at industrial companies, and the field workers who have to read and confirm controlled documents.</dd></div>
+            <div><dt>The call</dt><dd>The "evaluate this measure" email led to a page where nobody could evaluate. I treated it as a migration blocker, not a bug, and owned the schema, the worklist, overdue escalation, evidence frozen at the moment of judgement, and the UI.</dd></div>
+            <div><dt>Shipped</dt><dd>Measure-effectiveness evaluation. An offline Handbook app for iPhone and Android, built almost alone in three weeks. One OAuth sign-in (code + PKCE, rotating refresh tokens, session revoke) for all Netpower apps. AI-assisted requirement import with a human review step and an append-only run log. "Verified" no longer offered without evidence. A subscription digest across four services.</dd></div>
+            <div><dt>Cut</dt><dd>A separate mobile API service. PDF input for the AI importer, so there is no OCR path to maintain.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">Flutter</span><span class="spec">Angular 22</span><span class="spec">.NET 10</span>
+            <span class="spec">YARP gateway</span><span class="spec">OAuth + PKCE</span><span class="spec">Playwright</span>
+          </div>
+        </article>
+
+        <article class="mod wide">
+          <div class="mod-top">
+            <h3>CampusQ</h3>
+            <span class="placard">Multi-tenant SaaS</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
+          </div>
+          <p class="hook">A coaching centre that ran on paper now runs from one screen, in Bangla.</p>
+          <p class="mods"><b>26 + 12 modules</b><span>students, batches, attendance, fees, exams, results, SMS, teacher and student portals · operator console for tenants, billing, SMS credits</span></p>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Coaching centres in Bangladesh that run on a paper register, a spreadsheet and the owner's personal mobile-money number. The front desk does the same task eighty times a day.</dd></div>
+            <div><dt>The call</dt><dd>Build for this niche, not a cut-down school ERP. Bangla first, guardian SMS with a magic link and no account, printed receipts and report cards as first-class output.</dd></div>
+            <div><dt>Shipped</dt><dd>A multi-tenant SaaS where each centre gets its own subdomain. Plan limits are a designed upgrade state, not an error. Tenant isolation is enforced in Postgres and checked at boot. 2,300+ backend tests, end-to-end coverage over 289 of 303 route cells, business KPIs on Grafana with Telegram alerts.</dd></div>
+            <div><dt>Cut</dt><dd>The payment gateway (manual transfer plus operator check instead), QR check-in, eight AI features removed in eight slices at the product owner's request, colour palettes from 16 to 6. Removed invented stats from the marketing site before launch. Pre-revenue.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">.NET 10</span><span class="spec">Angular 22</span><span class="spec">Next.js 16</span>
+            <span class="spec">Postgres RLS</span><span class="spec">en / bn</span><span class="spec">Grafana · Loki · Tempo</span>
+          </div>
+          <a class="mod-go" href="https://campusqbd.com" target="_blank" rel="noopener">View live — campusqbd.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+        </article>
+
+        <article class="mod half">
+          <div class="mod-top">
+            <h3>Rent-ERP</h3>
+            <span class="placard">Property ERP</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
+          </div>
+          <p class="hook">Rent, service charge and the org's own money, in three tracks that never mix.</p>
+          <p class="mods"><b>14 modules</b><span>properties, leasing, owners, service charge, accounting, HRM, assets, audit · phone app for 4 roles</span></p>
+          <dl class="brief">
+            <div><dt>For</dt><dd>An organisation that manages residential buildings for flat owners. Admins work on a console; tenants and staff use a phone.</dd></div>
+            <div><dt>The call</dt><dd>The org is not the landlord. Rent goes from tenant to owner and is never org income; the service charge follows ownership, not occupancy.</dd></div>
+            <div><dt>Shipped</dt><dd>Backend, admin console and an Expo app (the mobile app built with a collaborator). A field-level, append-only audit trail enforced by a database trigger. Maker and checker must differ on vouchers. A 100-issue audit closed in four days. CI that fails when tests are silently skipped.</dd></div>
+            <div><dt>Cut</dt><dd>Multi-tenancy, persona switching, push notifications.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">.NET 10</span><span class="spec">Angular</span><span class="spec">Expo</span><span class="spec">Postgres</span>
+          </div>
+          <span class="mod-note">
+            <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+            Source private · no public link
+          </span>
+        </article>
+
+        <article class="mod half">
+          <div class="mod-top">
+            <h3>Footwear ERP</h3>
+            <span class="placard">Manufacturing · MultiTech</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
+          </div>
+          <p class="hook">A garment ERP, taught to make shoes.</p>
+          <p class="mods"><b>6 modules</b><span>inventory, supply chain, production, operations, configuration, access control</span></p>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Merchandisers and stores staff at a footwear factory.</dd></div>
+            <div><dt>The call</dt><dd>Re-platform a garment-export ERP instead of starting over. I stripped the yarn, fabric and spinning concepts, reset migrations, seeded the tenant, and grew it to six modules and 580+ endpoints.</dd></div>
+            <div><dt>Shipped</dt><dd>Inventory with landed cost and issue, return and transfer quantities that reconcile. Phone-to-ERP document capture through a QR code and a short-lived upload token, no mobile login. Excel bulk order intake that validates everything first and reports per row. BOM and pre-cost workflow.</dd></div>
+            <div><dt>Cut</dt><dd>Saves per breakdown block, from about ten to six, to fix a transaction failure.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">.NET 10</span><span class="spec">Postgres</span><span class="spec">Redis</span><span class="spec">S3 · MinIO</span>
+          </div>
+        </article>
+
+        <article class="mod half">
+          <div class="mod-top">
+            <h3>Institute payments</h3>
+            <span class="placard">Freelance · 2025-06 →</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>In production</span>
+          </div>
+          <p class="hook">Two institutes stopped confirming fees by hand.</p>
+          <p class="mods"><b>5 apps</b><span>one payment gateway, two back offices, two admission sites</span></p>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Two coaching institutes collecting fees by mobile money and cash, confirmed by hand.</dd></div>
+            <div><dt>The call</dt><dd>One shared payment gateway with signed callbacks into each institute's system, so neither needed a shared database.</dd></div>
+            <div><dt>Shipped</dt><dd>The gateway, as sole author: retry with backoff and an admin transactions console. "Copy payment link" in the back office. An "apply to both" admission flow that asks only for the missing fields. Monthly fee accrual and due-alert SMS on a scheduler.</dd></div>
+            <div><dt>Cut</dt><dd>Features nobody asked for. I wrote the client a gap analysis that ranks missing features by business impact instead of building them unasked.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">ASP.NET Core</span><span class="spec">PostgreSQL</span><span class="spec">Hangfire</span>
+          </div>
+          <span class="mod-note">
+            <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
+            Source private · no public link
+          </span>
+        </article>
+
+        <article class="mod half mod--caution">
+          <div class="mod-top">
+            <h3>Family Connect App</h3>
+            <span class="placard">Mobile app</span>
+            <span class="mod-lamp restricted"><span class="lamp amber" aria-hidden="true"></span>In acceptance</span>
+          </div>
+          <p class="hook">A family's health records, encrypted on the phone, working before anyone signs up.</p>
+          <p class="mods"><b>7 modules</b><span>members, prescriptions, vitals, reports, care episodes, document scan, intake</span></p>
+          <dl class="brief">
+            <div><dt>For</dt><dd>A family keeping prescriptions, doses and reports, each person with their own login and per-person sharing, working fully offline before any account exists.</dd></div>
+            <div><dt>The call</dt><dd>Treat health data as sensitive by default: an encrypted phone database, export and hard delete, nothing health-related in logs or push, and no free-tier AI model whose terms allow training on user data.</dd></div>
+            <div><dt>Shipped</dt><dd>Custom sync with a gapless per-family revision cursor, idempotent operations, and a scope hash that purges revoked data from the phone. A self-host mode under a source-available licence. 585 tests. The backend is live.</dd></div>
+            <div><dt>Cut</dt><dd>Supabase and the original web app. AI extraction stays off until the privacy terms hold.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">Expo</span><span class="spec">Hono</span><span class="spec">Drizzle</span><span class="spec">SQLCipher</span>
+          </div>
+        </article>
+
+        <article class="mod wide">
+          <div class="mod-top">
+            <h3>DebuggerMind Commerce</h3>
+            <span class="placard">Storefront platform</span>
+            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
+          </div>
+          <p class="hook">One storefront, many merchants. A new shop is one file.</p>
+          <p class="mods"><b>5 templates · 5 variants</b><span>storefront looks and language-and-market presets, mixed per merchant</span></p>
+          <dl class="brief">
+            <div><dt>For</dt><dd>Shoppers on low-end Android over mobile data, arriving from ads, with cash on delivery as the main way to pay.</dd></div>
+            <div><dt>The call</dt><dd>One storefront codebase for many merchants. A merchant is template, theme, branding, flags and language as data; onboarding one is a single descriptor file, no fork.</dd></div>
+            <div><dt>Shipped</dt><dd>Combo and bundle landing pages where each unit in a pack gets its own size and colour, campaign pages, and ad-conversion tracking in local currency. I wrote the bundle re-pricing API contract for the backend team.</dd></div>
+            <div><dt>Cut</dt><dd>A "metaphor world" visual concept, dropped for the category standard shoppers already know.</dd></div>
+          </dl>
+          <div class="specs">
+            <span class="spec">Next.js 15</span><span class="spec">TypeScript</span><span class="spec">.NET API</span><span class="spec">Meta CAPI</span>
+          </div>
+          <a class="mod-go" href="https://pogiecom.pogiit.com" target="_blank" rel="noopener">View live — pogiecom.pogiit.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ THINGS I REMOVED ═══════════════ -->
+  <section class="sec" id="removed">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Things I removed</h2>
+        <span class="count">7 cuts</span>
+      </div>
+      <p class="sec-intro">Deciding what not to build is half the job. These were built or planned, then taken out on evidence.</p>
+      <ul class="remarks cuts">
+        <li><b>Payment gateway integration in CampusQ.</b> Manual transfer plus an operator check was enough for the first customers.</li>
+        <li><b>Eight AI features in CampusQ</b>, removed in eight slices with no migration.</li>
+        <li><b>A separate mobile API service at Netpower.</b> The existing module APIs, through the gateway, did the job.</li>
+        <li><b>PDF input in the AI register importer.</b> Spreadsheets only, so there is no OCR path to maintain.</li>
+        <li><b>The multi-tenant layer in Rent-ERP.</b> One organisation: no row-level security, no subdomains.</li>
+        <li><b>Persona switching in Rent-ERP</b>, in favour of plain roles.</li>
+        <li><b>Fabricated stats and testimonials</b> on the CampusQ marketing site, with a production cleanup script.</li>
+      </ul>
     </div>
   </section>
 
@@ -920,7 +973,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
 
       <div class="logbook">
         <div class="log-head" aria-hidden="true">
-          <span>Period</span><span>Company</span><span>Stack</span><span></span>
+          <span>Period</span><span>Company</span><span>Product</span><span></span>
         </div>
 
         <div class="log-row">
@@ -928,16 +981,17 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <button class="log-btn" type="button" aria-expanded="true" aria-controls="lp1" id="lb1">
               <span class="log-when">2026-03 →</span>
               <span class="log-op">Netpower<span class="log-role">Software Engineer</span></span>
-              <span class="log-type">Angular 21 · Certain QMS</span>
+              <span class="log-type">Certain QMS · web + mobile</span>
               <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
             </button>
           </h3>
           <div class="log-panel" data-open="true" id="lp1" role="region" aria-labelledby="lb1">
             <div><ul class="remarks">
-              <li>Built signals-first Angular 21 features for <b>Certain QMS</b> across the Deviation, Checklist &amp; Handbook modules — per-route NgRx Signal stores, dual JWT/OTP auth, Chart.js dashboards with multi-format export, and Quill rich-text editing — scaffolded with Claude &amp; Cursor agents.</li>
-              <li>Shipped localized UI (no/en, 1,000+ keys) and authored the Playwright + Vitest testing foundation across all three apps, using AI agents (Claude, OpenCode) to generate test data and flag coverage gaps.</li>
-              <li>Contribute to architecture decisions &amp; code review across the Deviation, Checklist &amp; Handbook modules, and extend the Playwright/Vitest testing strategy as new modules ship.</li>
-              <li>Extend the reporting/export and localization foundations (Chart.js, @ngx-translate) to new modules, and help drive adoption of AI-assisted workflows (Claude, Cursor, OpenCode) across the team.</li>
+              <li>Shipped measure-effectiveness evaluation end to end, closing a gap that blocked the migration to the new deviation UI.</li>
+              <li>Built the offline Handbook mobile app from zero; wrote the mobile architecture and dropped a planned server.</li>
+              <li>One sign-in for all company apps on the existing login, with session revoke and reuse detection. Fixed one security-review finding and recorded the accepted risks.</li>
+              <li>First AI features in the compliance module, with an audit log per run, plus the evidence guard that made auditor-facing numbers trustworthy.</li>
+              <li>Owns the Playwright end-to-end suite across the apps.</li>
             </ul></div>
           </div>
         </div>
@@ -947,15 +1001,14 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
             <button class="log-btn" type="button" aria-expanded="false" aria-controls="lp2" id="lb2">
               <span class="log-when">2024-09 → 2026-02</span>
               <span class="log-op">MultiTech Systems<span class="log-role">Software Engineer</span></span>
-              <span class="log-type">Angular 19+ · .NET 10</span>
+              <span class="log-type">Manufacturing ERP</span>
               <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
             </button>
           </h3>
           <div class="log-panel" data-open="false" id="lp2" role="region" aria-labelledby="lb2">
             <div><ul class="remarks">
-              <li>Architected &amp; delivered 4 enterprise ERP platforms with Angular 19+, .NET 10, PostgreSQL, Redis and MinIO/S3.</li>
-              <li>900+ typed endpoints, 80+ lazy routes, signal-based state, a recursive permission system and tokenized S3 uploads.</li>
-              <li>CI/CD with multi-stage Docker, Nginx and SSH deploys; Clean Architecture, DDD, Modular Monolith and Result patterns.</li>
+              <li>Re-platformed a garment ERP for a footwear manufacturer: inventory, document capture, bulk order intake, costing workflow.</li>
+              <li>Support work on the shop-floor IoT bridge (MQTT to RabbitMQ).</li>
             </ul></div>
           </div>
         </div>
@@ -971,196 +1024,10 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
           </h3>
           <div class="log-panel" data-open="false" id="lp3" role="region" aria-labelledby="lb3">
             <div><ul class="remarks">
-              <li>Built educational platforms (Plabook, Augie) for international teams.</li>
-              <li>40+ reusable master components powering 2000+ games; Stripe &amp; PayPal payment flows with full validation.</li>
-              <li>Contributed Android development in Kotlin &amp; Jetpack Compose (MVVM).</li>
+              <li>Educational platforms Plabook and Augie: reusable game components, Stripe and PayPal payment flows, and an Android app in Kotlin and Jetpack Compose.</li>
             </ul></div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ WORK ═══════════════ -->
-  <section class="sec" id="work">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Things I shipped on my own time</h2>
-        <span class="count">4 systems · 2 live</span>
-      </div>
-
-      <div class="work">
-
-        <a class="mod wide" href="https://campusqbd.com" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>CampusQ</h3>
-            <span class="placard">Multi-tenant SaaS</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 900 132" role="img" aria-label="Architecture: three tenant subdomains pass through a Postgres row-level-security boundary into shared .NET 10 services, with bitmask RBAC, exams and bKash or Nagad payments.">
-              <g>
-                <rect class="sc-box" x="8" y="12" width="118" height="26" rx="2"/>
-                <rect class="sc-box" x="8" y="53" width="118" height="26" rx="2"/>
-                <rect class="sc-box" x="8" y="94" width="118" height="26" rx="2"/>
-                <text class="sc-t" x="20" y="29">a.campusqbd.com</text>
-                <text class="sc-t" x="20" y="70">b.campusqbd.com</text>
-                <text class="sc-t" x="20" y="111">c.campusqbd.com</text>
-                <path class="sc-line" d="M126,25 H176 V66"/>
-                <path class="sc-line" d="M126,66 H176"/>
-                <path class="sc-line" d="M126,107 H176 V66"/>
-                <path class="sc-line-a" d="M176,66 H236"/>
-                <rect class="sc-dash" x="236" y="18" width="150" height="96" rx="3"/>
-                <text class="sc-t d" x="244" y="34">POSTGRES RLS</text>
-                <text class="sc-t g" x="244" y="50">tenant_id boundary</text>
-                <text class="sc-t d" x="244" y="70">BITMASK RBAC</text>
-                <text class="sc-t g" x="244" y="86">role &amp; claim bits</text>
-                <text class="sc-t d" x="244" y="106">ISOLATION HOLDS DOWN</text>
-                <path class="sc-line-a" d="M386,66 H446"/>
-                <rect class="sc-box-a" x="446" y="40" width="140" height="52" rx="2"/>
-                <text class="sc-t g" x="460" y="62">.NET 10 CORE</text>
-                <text class="sc-t" x="460" y="78">modular services</text>
-                <path class="sc-line" d="M586,53 H636"/><path class="sc-line" d="M586,66 H636"/><path class="sc-line" d="M586,79 H636"/>
-                <rect class="sc-box" x="636" y="10" width="122" height="26" rx="2"/>
-                <rect class="sc-box" x="636" y="53" width="122" height="26" rx="2"/>
-                <rect class="sc-box" x="636" y="96" width="122" height="26" rx="2"/>
-                <path class="sc-line" d="M636,23 H616 V66"/><path class="sc-line" d="M636,109 H616 V66"/>
-                <text class="sc-t" x="648" y="27">ANGULAR 21 APP</text>
-                <text class="sc-t" x="648" y="70">NEXT.JS 16 SITE</text>
-                <text class="sc-t" x="648" y="113">PWA + PUSH</text>
-                <path class="sc-line-a" d="M758,66 H812"/>
-                <rect class="sc-box-a" x="812" y="40" width="80" height="52" rx="2"/>
-                <text class="sc-t g" x="822" y="62">bKash</text>
-                <text class="sc-t g" x="822" y="78">Nagad</text>
-              </g>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>A multi-tenant coaching platform where every tenant gets its own subdomain. Built end-to-end — Postgres row-level security, bitmask RBAC, online exams and bKash/Nagad payments — so isolation holds all the way down. It runs behind its own self-hosted observability stack: OpenTelemetry traces from the API into Tempo, Prometheus scraping a token-gated metrics endpoint alongside node, container, Postgres and nginx exporters, container logs in Loki, and five provisioned Grafana dashboards with fourteen alert rules that reach Telegram — production and staging on one stack, split by label, every container memory-capped so monitoring runs out of room before the app does.</p>
-          <div class="specs">
-            <span class="spec">.NET 10</span><span class="spec">Postgres RLS</span><span class="spec">Angular 21</span>
-            <span class="spec">Next.js 16</span><span class="spec">bitmask RBAC</span><span class="spec">bKash / Nagad</span>
-            <span class="spec">PWA + push</span><span class="spec">en / bn</span>
-            <span class="spec">OpenTelemetry</span><span class="spec">Grafana · Loki · Tempo</span>
-            <span class="spec">Prometheus</span><span class="spec">Telegram alerts</span>
-          </div>
-          <span class="mod-go">View live — campusqbd.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
-
-        <div class="mod half mod--caution">
-          <div class="mod-top">
-            <h3>Rent-ERP</h3>
-            <span class="placard">Web + mobile ERP</span>
-            <span class="mod-lamp restricted"><span class="lamp amber" aria-hidden="true"></span>Restricted</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 420 120" role="img" aria-label="Architecture: an Angular admin console, a React Native app and push notifications all served by one .NET 10 modular monolith over Postgres.">
-              <rect class="sc-box" x="6" y="6" width="120" height="24" rx="2"/>
-              <rect class="sc-box" x="6" y="48" width="120" height="24" rx="2"/>
-              <rect class="sc-box" x="6" y="90" width="120" height="24" rx="2"/>
-              <text class="sc-t" x="16" y="22">ANGULAR 21 ADMIN</text>
-              <text class="sc-t" x="16" y="64">REACT NATIVE APP</text>
-              <text class="sc-t" x="16" y="106">FCM PUSH</text>
-              <path class="sc-line" d="M126,18 H166 V60"/><path class="sc-line" d="M126,60 H166"/><path class="sc-line" d="M126,102 H166 V60"/>
-              <path class="sc-line-a" d="M166,60 H206"/>
-              <rect class="sc-box-a" x="206" y="34" width="122" height="52" rx="2"/>
-              <text class="sc-t g" x="218" y="56">.NET 10 MONOLITH</text>
-              <text class="sc-t" x="218" y="72">single org · HRM</text>
-              <path class="sc-line-a" d="M328,60 H366"/>
-              <rect class="sc-box" x="366" y="34" width="48" height="52" rx="2"/>
-              <text class="sc-t" x="376" y="56">PG</text>
-              <text class="sc-t d" x="376" y="72">SQL</text>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>A single-org property-management ERP across three surfaces — a .NET 10 modular monolith, an Angular 21 admin console, and a React Native app serving tenants and staff from one binary. Reuses the CampusQ architecture, minus the multi-tenant layer.</p>
-          <div class="specs">
-            <span class="spec">.NET 10</span><span class="spec">Angular 21</span><span class="spec">React Native</span>
-            <span class="spec">Postgres</span><span class="spec">bKash</span><span class="spec">FCM push</span>
-            <span class="spec">RBAC personas</span><span class="spec">en / bn</span>
-          </div>
-          <span class="mod-note">
-            <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="9.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>
-            Source private · single-org product
-          </span>
-        </div>
-
-        <a class="mod half" href="https://www.pogiit.com/" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>DebuggerMind Commerce</h3>
-            <span class="placard">E-commerce</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Live</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 420 120" role="img" aria-label="Architecture: an international storefront and a Bengali storefront share one Next.js 15 build against a .NET API, with GA4 and Meta CAPI analytics.">
-              <rect class="sc-box" x="6" y="14" width="118" height="26" rx="2"/>
-              <rect class="sc-box" x="6" y="80" width="118" height="26" rx="2"/>
-              <text class="sc-t" x="16" y="31">INTL STOREFRONT</text>
-              <text class="sc-t" x="16" y="97">BENGALI VARIANT</text>
-              <path class="sc-line" d="M124,27 H162 V60"/><path class="sc-line" d="M124,93 H162 V60"/>
-              <path class="sc-line-a" d="M162,60 H200"/>
-              <rect class="sc-box-a" x="200" y="34" width="112" height="52" rx="2"/>
-              <text class="sc-t g" x="210" y="56">NEXT.JS 15</text>
-              <text class="sc-t" x="210" y="72">6 languages</text>
-              <path class="sc-line-a" d="M312,60 H350"/>
-              <rect class="sc-box" x="350" y="20" width="64" height="34" rx="2"/>
-              <rect class="sc-box" x="350" y="66" width="64" height="34" rx="2"/>
-              <text class="sc-t" x="358" y="40">.NET API</text>
-              <text class="sc-t d" x="358" y="86">GA4 / CAPI</text>
-              <path class="sc-line" d="M340,60 V37 H350"/><path class="sc-line" d="M340,60 V83 H350"/>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>An in-house, white-label e-commerce storefront (Next.js 15 + .NET API) we use to demo the platform to prospective clients — maintaining an international build and a localized Bengali variant in parallel, with additional storefront themes in progress.</p>
-          <div class="specs">
-            <span class="spec">Next.js 15</span><span class="spec">TypeScript</span><span class="spec">.NET API</span>
-            <span class="spec">JWT auth</span><span class="spec">GA4 / Meta CAPI</span><span class="spec">6 languages</span>
-          </div>
-          <span class="mod-go">View live — pogiit.com <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
-
-        <a class="mod wide" href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">
-          <div class="mod-top">
-            <h3>Angular libraries</h3>
-            <span class="placard">Open source</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Published</span>
-          </div>
-          <div class="schem">
-            <svg viewBox="0 0 900 96" role="img" aria-label="Architecture: the ngx-primeng-toolkit package exports parameterized query and table state, memoized data helpers and shared utilities, consumed by PrimeNG tables and published to npm by GitHub Actions.">
-              <rect class="sc-box-a" x="8" y="24" width="172" height="48" rx="2"/>
-              <text class="sc-t g" x="22" y="44">ngx-primeng-toolkit</text>
-              <text class="sc-t" x="22" y="60">Angular library</text>
-              <path class="sc-line-a" d="M180,48 H228"/>
-              <path class="sc-line" d="M228,48 V14 H276"/>
-              <path class="sc-line" d="M228,48 H276"/>
-              <path class="sc-line" d="M228,48 V82 H276"/>
-              <rect class="sc-box" x="276" y="2" width="196" height="24" rx="2"/>
-              <rect class="sc-box" x="276" y="36" width="196" height="24" rx="2"/>
-              <rect class="sc-box" x="276" y="70" width="196" height="24" rx="2"/>
-              <text class="sc-t" x="288" y="18">parameterized query state</text>
-              <text class="sc-t" x="288" y="52">memoized data resources</text>
-              <text class="sc-t" x="288" y="86">reusable table utilities</text>
-              <path class="sc-line" d="M472,14 H520 V48"/>
-              <path class="sc-line" d="M472,48 H520"/>
-              <path class="sc-line" d="M472,82 H520 V48"/>
-              <path class="sc-line-a" d="M520,48 H568"/>
-              <rect class="sc-box" x="568" y="24" width="150" height="48" rx="2"/>
-              <text class="sc-t" x="582" y="44">PrimeNG tables</text>
-              <text class="sc-t d" x="582" y="60">internal + community</text>
-              <path class="sc-line-a" d="M718,48 H766"/>
-              <rect class="sc-box-a" x="766" y="24" width="126" height="48" rx="2"/>
-              <text class="sc-t g" x="778" y="44">GH ACTIONS</text>
-              <text class="sc-t" x="778" y="60">publish to npm</text>
-            </svg>
-          </div>
-          <span class="scrollhint">Pan the diagram</span>
-          <p>npm packages published with automated GitHub Actions CI/CD — notably <span class="mono">ngx-primeng-toolkit</span>: parameterized query/table state, memoized data and reusable utilities. Built for internal use, then released to the community.</p>
-          <div class="specs">
-            <span class="spec">TypeScript</span><span class="spec">@ngrx/signals</span><span class="spec">PrimeNG</span><span class="spec">GH Actions</span>
-          </div>
-          <span class="mod-go">View on npm <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
-
       </div>
     </div>
   </section>
@@ -1169,24 +1036,27 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
   <section class="sec" style="padding-top:0" id="oss">
     <div class="wrap">
       <div class="sec-head">
-        <h2>Open source I contribute to</h2>
-        <span class="count">Contributor, not author</span>
+        <h2>Open source</h2>
+        <span class="count">1 fix · 1 package</span>
       </div>
 
       <div class="work">
-        <a class="mod wide" href="https://github.com/openng-org/optimus-ui" target="_blank" rel="noopener">
+        <article class="mod half">
           <div class="mod-top">
             <h3>Optimus UI</h3>
-            <span class="placard">Angular components</span>
-            <span class="mod-lamp"><span class="lamp" aria-hidden="true"></span>Active</span>
+            <span class="placard">Contributor</span>
           </div>
-          <p>80+ accessible, customizable Angular components under the MIT licence — a community-maintained continuation of PrimeNG v21, built to stay open. I contribute to it, and it is the component layer under CampusQ's client, so the fixes land where I can see them in production.</p>
-          <div class="specs">
-            <span class="spec">Angular</span><span class="spec">TypeScript</span>
-            <span class="spec">MIT licence</span><span class="spec">optimus.openng.org</span>
+          <p>One merged fix: row grouping crashed with an empty sort array. Regression tests included. It is the component layer under CampusQ, so the fix runs where I can see it.</p>
+          <a class="mod-go" href="https://github.com/openng-org/optimus-ui" target="_blank" rel="noopener">View on GitHub <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+        </article>
+        <article class="mod half">
+          <div class="mod-top">
+            <h3>ngx-primeng-toolkit</h3>
+            <span class="placard">Author</span>
           </div>
-          <span class="mod-go">View on GitHub <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></span>
-        </a>
+          <p>Table and query-state helpers extracted from ERP work, published to npm with CI.</p>
+          <a class="mod-go" href="https://www.npmjs.com/package/ngx-primeng-toolkit" target="_blank" rel="noopener">View on npm <svg class="arr" viewBox="0 0 16 16" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9"/><path d="M8.5 4.5 12 8l-3.5 3.5"/></svg></a>
+        </article>
       </div>
     </div>
   </section>
@@ -1195,19 +1065,19 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
   <section class="sec" id="skills">
     <div class="wrap">
       <div class="sec-head">
-        <h2>The stack it all runs on</h2>
-        <span class="count">In production use</span>
+        <h2>Stack, for the filter</h2>
       </div>
 
       <div class="checklist">
         <div class="cl">
           <h3>Frontend</h3>
           <ul>
-            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Angular (3.5+ yrs)</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Angular</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>TypeScript · RxJS</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>NgRx Signals</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Next.js · React</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>React Native (Expo)</li>
+            <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Flutter · Riverpod</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>PrimeNG · Material</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Tailwind CSS v4</li>
             <li><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6.4l2.6 2.6L10 3.2"/></svg>Chart.js</li>
@@ -1295,7 +1165,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
   <!-- ═══════════════ CONTACT ═══════════════ -->
   <section class="clear" id="contact">
     <div class="wrap">
-      <h2 class="big">Let's build something<br><span class="em">that reacts.</span></h2>
+      <h2 class="big">Let's build something<br><span class="em">people run their business on.</span></h2>
       <div class="links">
         <a href="mailto:saiful70.me@gmail.com" class="btn btn--engage"><span class="ring" aria-hidden="true"></span>saiful70.me@gmail.com</a>
         <a href="https://wa.me/8801689740070" target="_blank" rel="noopener" class="btn">WhatsApp</a>
@@ -1303,7 +1173,7 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
         <a href="https://github.com/saiful-70" target="_blank" rel="noopener" class="btn">GitHub</a>
         <a href="https://linkedin.com/in/saiful70" target="_blank" rel="noopener" class="btn">LinkedIn</a>
       </div>
-      <div class="foot-note"><span class="lamp" aria-hidden="true"></span>Open to remote work · replies within a day</div>
+      <div class="foot-note"><span class="lamp" aria-hidden="true"></span>Remote · replies within a day</div>
     </div>
   </section>
 
