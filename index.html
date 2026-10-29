@@ -18,10 +18,10 @@ try{if(localStorage.getItem('panel-light')==='night')d.setAttribute('data-theme'
 </script>
 
 <!-- ───────────────── primary SEO ───────────────── -->
-<title>Saiful Islam — Software Engineer (Angular &amp; .NET)</title>
-<meta name="description" content="Saiful Islam — software engineer building reactive, signals-first interfaces in Angular &amp; React, and the .NET / Node back ends behind them. 3.5+ years shipping enterprise systems with an AI-native workflow." />
+<title>Saiful Islam — Software Engineer</title>
+<meta name="description" content="Saiful Islam, software engineer. I turn how a business actually runs into software that ships: backend, web, mobile, deploy, and the alerts that watch it. 3.5+ years." />
 <meta name="author" content="Saiful Islam" />
-<meta name="keywords" content="Saiful Islam, software engineer, Angular developer, .NET developer, full-stack developer, React Native, NgRx Signals, TypeScript, PostgreSQL, Dhaka, Bangladesh" />
+<meta name="keywords" content="Saiful Islam, software engineer, product engineering, full-stack, web, mobile, backend, Angular, .NET, Flutter, Dhaka" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <link rel="canonical" href="https://saiful-70.github.io/saiful-70/" />
 <meta name="theme-color" content="#DBDBD5" media="(prefers-color-scheme: light)" />
@@ -30,21 +30,21 @@ try{if(localStorage.getItem('panel-light')==='night')d.setAttribute('data-theme'
 <!-- ───────────────── Open Graph (LinkedIn, Facebook, Slack…) ───────────────── -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Saiful Islam" />
-<meta property="og:title" content="Saiful Islam — Software Engineer (Angular &amp; .NET)" />
-<meta property="og:description" content="Software engineer building reactive, signals-first interfaces in Angular &amp; React — and the .NET / Node back ends behind them." />
+<meta property="og:title" content="Saiful Islam — Software Engineer" />
+<meta property="og:description" content="I turn how a business actually runs into software that ships: backend, web, mobile, deploy, and the alerts that watch it." />
 <meta property="og:url" content="https://saiful-70.github.io/saiful-70/" />
 <meta property="og:image" content="https://saiful-70.github.io/saiful-70/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Saiful Islam — Software Engineer, Angular &amp; .NET" />
+<meta property="og:image:alt" content="Saiful Islam — Software Engineer" />
 <meta property="og:locale" content="en_US" />
 
 <!-- ───────────────── Twitter / X ───────────────── -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Saiful Islam — Software Engineer (Angular &amp; .NET)" />
-<meta name="twitter:description" content="Software engineer building reactive, signals-first interfaces in Angular &amp; React — and the .NET / Node back ends behind them." />
+<meta name="twitter:title" content="Saiful Islam — Software Engineer" />
+<meta name="twitter:description" content="I turn how a business actually runs into software that ships: backend, web, mobile, deploy, and the alerts that watch it." />
 <meta name="twitter:image" content="https://saiful-70.github.io/saiful-70/og-image.png" />
-<meta name="twitter:image:alt" content="Saiful Islam — Software Engineer, Angular &amp; .NET" />
+<meta name="twitter:image:alt" content="Saiful Islam — Software Engineer" />
 
 <!-- ───────────────── icons / manifest ───────────────── -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -68,8 +68,8 @@ try{if(localStorage.getItem('panel-light')==='night')d.setAttribute('data-theme'
   "jobTitle": "Software Engineer",
   "email": "mailto:saiful70.me@gmail.com",
   "telephone": "+8801689740070",
-  "description": "Software engineer building reactive, signals-first interfaces in Angular & React, and the .NET / Node back ends behind them. 3.5+ years shipping enterprise systems with an AI-native workflow.",
-  "knowsAbout": ["Angular", "TypeScript", "RxJS", "NgRx Signals", "React", "React Native", "Next.js", ".NET", "Node.js", "PostgreSQL", "Redis", "Docker", "Playwright"],
+  "description": "Software engineer. I turn how a business actually runs into software that ships: backend, web, mobile, deploy, and the alerts that watch it.",
+  "knowsAbout": ["Angular", "TypeScript", "RxJS", "NgRx Signals", "React", "React Native", "Flutter", "Next.js", ".NET", "Node.js", "PostgreSQL", "Redis", "Docker", "Playwright"],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Dhaka",
@@ -370,13 +370,9 @@ header.lifted{box-shadow:0 1px 0 var(--chamfer-soft) inset,0 16px 30px -12px var
     radial-gradient(120% 80% at 18% 34%,var(--deck-bloom),transparent 60%),
     linear-gradient(180deg,var(--deck-1) 0%,var(--panel) 46%,var(--panel) 100%);
 }
-.deck-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,44fr) minmax(0,56fr);gap:56px;align-items:start}
-/* optical: the display cap-height starts a few pixels below its box, so the name is nudged
-   down to sit level with the panel's top edge rather than mathematically flush with it */
-.deck-grid > div:first-child{padding-top:10px}
+.deck-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:40px;align-items:start}
+.deck-grid > div:first-child{max-width:62ch}
 @media(max-width:1040px){
-  .deck-grid{grid-template-columns:1fr;gap:40px}
-  .deck-grid > div:first-child{padding-top:0}
   .deck{padding-top:40px}
 }
 
@@ -438,89 +434,22 @@ h1 .l2{display:block;color:var(--lum-2)}
     radial-gradient(86% 62% at 10% -8%,var(--sheen-1),transparent 64%),
     linear-gradient(116deg,var(--sheen-2) 0%,var(--sheen-3) 20%,transparent 44%,transparent 76%,var(--sheen-4) 100%);
 }
-@media(min-width:1041px){ /* the panel continues past the frame instead of sitting in a margin */
-  .panel{
-    margin-right:calc(-1 * ((100vw - min(100vw,1200px)) / 2 + 28px));
-    border-right:0;border-radius:5px 0 0 5px;
-  }
-}
-/* ───────── the architecture diagram: the hero's own instrument ─────────
-   Boxes, bands and a signal path, all in flow: at one column the fan collapses to a
-   single line and every label keeps its real size. Nothing here scales with the viewport. */
-.hx{position:relative;z-index:1;display:flex;flex-direction:column}
-.hx-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.hx-node,.hx-band,.hx-lane{min-width:0;border-radius:2px}
-.hx-node{background:var(--sc-box);border:1px solid var(--sc-stroke);padding:10px 13px 11px}
-.hx-band{background:var(--well-hi);border:1px solid var(--sc-stroke);padding:12px 15px 13px}
-.hx-lane{border:1px dashed var(--sc-stroke);padding:10px 13px 11px;margin-top:14px}
-/* the observability band is a band that reports on the stack rather than serving it,
-   so it takes the band's plane and the lane's dashed edge */
-.hx-band.obs{border-style:dashed}
-.hx b{display:block;font-variation-settings:"wdth" 96,"wght" 700;font-size:14px;
-  letter-spacing:-.008em;color:var(--lum);line-height:1.2}
-.hx span{display:block;font-family:"Azeret Mono",ui-monospace,monospace;font-size:11px;
-  letter-spacing:.01em;line-height:1.5;color:var(--sc-t);margin-top:5px}
-.hx-k{font-family:"Azeret Mono",ui-monospace,monospace!important;font-size:10px!important;
-  font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-t-d)!important;margin-top:0!important}
+/* product-builder:start */
+/* the method line: a quieter second voice under the lede */
+.method{margin-top:14px;max-width:62ch;font-family:"Azeret Mono",ui-monospace,monospace;
+  font-size:13px;line-height:1.65;color:var(--dim)}
 
-/* the modules the monolith is cut into: a compartment of the band above, sharing its
-   border line so it reads as inside the API rather than as another layer under it */
-.hx-mods{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:-1px}
-.hx-mod{background:var(--sc-box);border:1px solid var(--sc-stroke);padding:9px 13px 10px;min-width:0}
-.hx-mod + .hx-mod{margin-left:-1px}
-.hx-mod .hx-k{display:block}
-@media(max-width:640px){
-  .hx-mods{grid-template-columns:1fr}
-  .hx-mod + .hx-mod{margin-left:0;margin-top:-1px}
-}
-
-/* the signal path: a fan out of three into one, and back out of one into three */
-.hx-fan{display:grid;grid-template-columns:repeat(3,1fr);height:22px;position:relative}
-.hx-fan::before{content:"";position:absolute;left:16.667%;right:16.667%;top:50%;height:1px;
-  background:var(--green-ink);transform:scaleX(0);transform-origin:center;
-  animation:hx-x .34s var(--ease) .12s forwards}
-.hx-fan i{width:1px;background:var(--green-ink);margin:0 auto;transform:scaleY(0);
-  transform-origin:top;animation:hx-y .2s var(--ease) var(--d,0s) forwards}
-.hx-fan i:nth-child(2){grid-row:1;height:100%}
-.hx-fan i:nth-child(1),.hx-fan i:nth-child(3){height:50%}
-.hx-fan.dn i{transform-origin:bottom;align-self:end}
-.hx-fan.dn i:nth-child(1),.hx-fan.dn i:nth-child(3){align-self:end}
-.hx-fan.dn::before{top:auto;bottom:50%;animation-delay:.3s}
-
-/* telemetry leaves the stack sideways: same geometry as the contract line, dashed and neutral,
-   because it is not the request path and the signal colour is spoken for */
-.hx-tap{position:relative;padding:7px 0 8px calc(50% + 14px);min-height:28px}
-.hx-tap::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
-  background:repeating-linear-gradient(180deg,var(--sc-line) 0 3px,transparent 3px 6px)}
-
-/* the typed contract between the halves, labelled beside its own line */
-.hx-edge{position:relative;padding:9px 0 10px calc(50% + 14px);min-height:46px}
-.hx-edge::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
-  background:var(--green-ink);transform:scaleY(0);transform-origin:top;
-  animation:hx-y .26s var(--ease) .18s forwards}
-
-@keyframes hx-y{to{transform:scaleY(1)}}
-@keyframes hx-x{to{transform:scaleX(1)}}
-html:not(.js) .hx-fan i,html:not(.js) .hx-fan::before,html:not(.js) .hx-edge::before{transform:none;animation:none}
-@media(prefers-reduced-motion:reduce){
-  .hx-fan i,.hx-fan::before,.hx-edge::before{animation:none;transform:none}
-}
-
-@media(max-width:1040px){
-  .hx b{font-size:15px}
-  .hx span{font-size:11.5px}
-}
-@media(max-width:640px){
-  /* one column: the fan is a single line, and every label keeps its size */
-  .hx-row{grid-template-columns:1fr;gap:8px}
-  .hx-lane{margin-top:12px}
-  .hx-fan{grid-template-columns:1fr;height:20px}
-  .hx-fan::before{display:none}
-  .hx-fan i:nth-child(1),.hx-fan i:nth-child(3){display:none}
-  .hx-fan i:nth-child(2){height:100%}
-  .hx-edge{padding:10px 0 10px calc(50% + 12px);min-height:52px}
-  .hx-tap{padding:8px 0 8px calc(50% + 12px);min-height:30px}
-}
+/* how I build: five steps, one real example each */
+.how{position:relative;z-index:1;list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.how li{min-width:0;border-radius:2px;background:var(--sc-box);border:1px solid var(--sc-stroke);
+  padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px}
+.how-n{font-family:"Azeret Mono",ui-monospace,monospace;font-size:12px;font-weight:500;
+  letter-spacing:.14em;color:var(--green-ink)}
+.how b{font-variation-settings:"wdth" 96,"wght" 700;font-size:15px;letter-spacing:-.008em;
+  color:var(--lum);line-height:1.25}
+.how li > span:last-child{font-size:14px;line-height:1.55;color:var(--dim)}
+@media(max-width:1040px){.how{grid-template-columns:1fr;gap:8px}}
+/* product-builder:end */
 
 /* ── panel light: a two-position switch on the header rail ── */
 .lamp-switch{
@@ -820,7 +749,8 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
           <h1>Saiful<span class="l2">Islam</span></h1>
           <div class="role"><span class="placard">Software Engineer</span></div>
 
-          <p class="lede">I build <span class="hl">reactive, signals-first interfaces</span> in Angular and React — and the <b>.NET / Node</b> behind them. 3.5+ years shipping enterprise systems with an <b>AI-native</b> workflow.</p>
+          <p class="lede">I turn how a business actually runs into software that ships: <b>backend, web, mobile, deploy</b>, and the alerts that watch it.</p>
+          <p class="method">Spec first. AI agents write most of the code. I own what gets built, what gets cut, and the gate it has to pass.</p>
 
           <div class="actions">
             <a href="#work" class="btn btn--engage"><span class="ring" aria-hidden="true"></span>See the work</a>
@@ -828,72 +758,24 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
           </div>
 
           <div class="status-row">
-            <span class="on"><span class="lamp" aria-hidden="true"></span>Open to remote</span>
+            <span class="on"><span class="lamp" aria-hidden="true"></span>Remote</span>
             <span class="sep" aria-hidden="true"></span>
             <span>Dhaka, BD · UTC+6</span>
           </div>
         </div>
 
         <div class="panel">
-          <!-- The shape of every system on this page: three surfaces, one typed API, one
-               tenant-isolated database. Real text in a real layout, so it reflows and reads
-               at every width instead of scaling down to nothing. -->
-          <div class="hx" role="group" aria-label="System architecture, top to bottom">
-
-            <div class="hx-row">
-              <div class="hx-node"><b>Web app</b><span>Angular 21 · signals</span></div>
-              <div class="hx-node"><b>Admin console</b><span>Angular · role-scoped</span></div>
-              <div class="hx-node"><b>Mobile</b><span>React Native · Expo</span></div>
-            </div>
-
-            <div class="hx-fan" aria-hidden="true"><i style="--d:0s"></i><i style="--d:.05s"></i><i style="--d:.1s"></i></div>
-
-            <div class="hx-band">
-              <b>Signals-first client layer</b>
-              <span>NgRx Signal stores · standalone components · lazy-loaded feature routes · localized UI</span>
-            </div>
-
-            <div class="hx-edge">
-              <span class="hx-k">Typed HTTP</span>
-              <span>permission-checked, end to end</span>
-            </div>
-
-            <div class="hx-band">
-              <b>.NET API</b>
-              <span>Clean Architecture · DDD · modular monolith · Result pattern</span>
-            </div>
-
-            <div class="hx-mods">
-              <div class="hx-mod"><span class="hx-k">ERP</span><span>access control · accounting · HR · production · inventory</span></div>
-              <div class="hx-mod"><span class="hx-k">QMS</span><span>deviation · checklist · handbook · compliance · settings</span></div>
-            </div>
-
-            <div class="hx-fan dn" aria-hidden="true"><i style="--d:.28s"></i><i style="--d:.33s"></i><i style="--d:.38s"></i></div>
-
-            <div class="hx-row">
-              <div class="hx-node"><b>PostgreSQL</b><span>row-level security · bitmask RBAC</span></div>
-              <div class="hx-node"><b>Redis</b><span>cache · sessions</span></div>
-              <div class="hx-node"><b>S3 · MinIO</b><span>tokenized uploads</span></div>
-            </div>
-
-            <div class="hx-tap">
-              <span class="hx-k">Telemetry, out of band</span>
-            </div>
-
-            <div class="hx-band obs">
-              <b>Observability — self-hosted LGTM</b>
-              <span>OpenTelemetry traces → Alloy → Tempo · Prometheus scrapes a token-gated /metrics · container logs → Loki · Grafana dashboards and alert rules → Telegram</span>
-            </div>
-
-            <div class="hx-lane">
-              <span class="hx-k">Authored with AI agents</span>
-              <span>Claude · Cursor · Ollama · OpenCode — on production work, not demos</span>
-            </div>
-          </div>
+          <ol class="how" id="how" aria-label="How I build">
+            <li><span class="how-n">01</span><b>Find out how the business really runs</b><span>A property ERP billed as if the org were the landlord. It isn't; it sells a service to flat owners.</span></li>
+            <li><span class="how-n">02</span><b>Change the model, not the screen</b><span>Rebuilt money into three tracks that never mix: rent, service charge, org accounts.</span></li>
+            <li><span class="how-n">03</span><b>Decide what not to build</b><span>Dropped a planned mobile API service; the app calls the existing APIs through the gateway.</span></li>
+            <li><span class="how-n">04</span><b>Ship every surface myself</b><span>Offline document app for field workers: sign-in, outbox, background sync, 405 tests, three weeks.</span></li>
+            <li><span class="how-n">05</span><b>Put a gate behind it</b><span>The SaaS refuses to boot if any tenant table is missing a row-level security policy.</span></li>
+          </ol>
 
           <div class="crosscheck">
-            <span class="placard">Stack</span>
-            <span class="out">Three surfaces, one typed API, one tenant-isolated database, watched by its own telemetry — the shape of every system below.</span>
+            <span class="placard">Method</span>
+            <span class="out">Same loop on every product below.</span>
           </div>
         </div>
 
@@ -901,10 +783,10 @@ footer{border-top:1px solid var(--rule-hard);background:linear-gradient(180deg,v
 
       <dl class="statuslist">
         <div class="sl-row"><dt class="k">Experience</dt><dd class="v num">3.5+ yrs</dd></div>
-        <div class="sl-row"><dt class="k">ERP platforms</dt><dd class="v num">4</dd></div>
-        <div class="sl-row"><dt class="k">Products shipped</dt><dd class="v num">6+</dd></div>
-        <div class="sl-row"><dt class="k">Observability</dt><dd class="v">Self-hosted LGTM</dd></div>
-        <div class="sl-row"><dt class="k">Domain modules</dt><dd class="v">ERP + QMS</dd></div>
+        <div class="sl-row"><dt class="k">Surfaces I ship</dt><dd class="v">Backend · Web · Mobile · Ops</dd></div>
+        <div class="sl-row"><dt class="k">Design docs written</dt><dd class="v num">200+</dd></div>
+        <div class="sl-row"><dt class="k">Products</dt><dd class="v num">7</dd></div>
+        <div class="sl-row"><dt class="k">Method</dt><dd class="v">Spec → agents → gate</dd></div>
         <div class="sl-row"><dt class="k">Base</dt><dd class="v">Dhaka · UTC+6</dd></div>
       </dl>
     </div>
